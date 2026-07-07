@@ -1,0 +1,120 @@
+{
+  "slug": "zim25-donanemab-in-early-symptomatic-alzheimer-s",
+  "reference_resolution": {
+    "attempted": 12,
+    "resolved": 12,
+    "observed_rate": 1.0,
+    "declared_rate": 0.957,
+    "declared_rate_note": "refs.yaml marks 22/23 refs resolvable=true (R04, a Roche Diagnostics method-sheet with no DOI, is the sole resolvable=false). Of the 22 resolvable refs, 12 were sampled here (capped at 12 per instructions); all 12 resolved via PubMed DOI lookup, matching the title cited in refs.yaml raw field in every case.",
+    "details": [
+      {"ref_id": "R01", "external_id": "10.1126/science.1566067", "resolves": true, "title": "Alzheimer's disease: the amyloid cascade hypothesis.", "pmid": "1566067"},
+      {"ref_id": "R02", "external_id": "10.1001/jama.2023.13239", "resolves": true, "title": "Donanemab in Early Symptomatic Alzheimer Disease: The TRAILBLAZER-ALZ 2 Randomized Clinical Trial.", "pmid": "37459141"},
+      {"ref_id": "R03", "external_id": "10.1056/NEJMoa2212948", "resolves": true, "title": "Lecanemab in Early Alzheimer's Disease.", "pmid": "36449413"},
+      {"ref_id": "R05", "external_id": "10.1002/alz.70491", "resolves": true, "title": "Donanemab exposure-response in early symptomatic Alzheimer's disease.", "pmid": "40667684"},
+      {"ref_id": "R06", "external_id": "10.1001/jamaneurol.2025.0065", "resolves": true, "title": "Amyloid-Related Imaging Abnormalities With Donanemab in Early Symptomatic Alzheimer Disease: Secondary Analysis of the TRAILBLAZER-ALZ and ALZ 2 Randomized Clinical Trials.", "pmid": "40063015"},
+      {"ref_id": "R07", "external_id": "10.1212/wnl.0000000000011524", "resolves": true, "title": "Temporal Dynamics of β-Amyloid Accumulation in Aging and Alzheimer Disease.", "pmid": "33408147"},
+      {"ref_id": "R08", "external_id": "10.1007/s10928-024-09959-y", "resolves": true, "title": "Quantifying natural amyloid plaque accumulation in the continuum of Alzheimer's disease using ADNI.", "pmid": "39862333"},
+      {"ref_id": "R09", "external_id": "10.14283/jpad.2022.102", "resolves": true, "title": "Establishing Clinically Meaningful Change on Outcome Assessments Frequently Used in Trials of Mild Cognitive Impairment Due to Alzheimer's Disease.", "pmid": "36641605"},
+      {"ref_id": "R10", "external_id": "10.1186/s13195-020-00659-6", "resolves": true, "title": "Assessing what matters most to patients with or at risk for Alzheimer's and care partners: a qualitative study evaluating symptoms, impacts, and outcomes.", "pmid": "32731886"},
+      {"ref_id": "R11", "external_id": "10.1016/j.tjpad.2025.100266", "resolves": true, "title": "The effect of modified donanemab titration on amyloid-related imaging abnormalities with edema/effusions and amyloid reduction: 18-month results from TRAILBLAZER-ALZ 6.", "pmid": "40619285"},
+      {"ref_id": "R12", "external_id": "10.1001/jamaneurol.2022.2793", "resolves": true, "title": "Association of Amyloid Reduction After Donanemab Treatment With Tau Pathology and Clinical Outcomes: The TRAILBLAZER-ALZ Randomized Clinical Trial.", "pmid": "36094645"},
+      {"ref_id": "R13", "external_id": "10.1002/cpt.2875", "resolves": true, "title": "Donanemab Population Pharmacokinetics, Amyloid Plaque Reduction, and Safety in Participants with Alzheimer's Disease.", "pmid": "36805552"}
+    ]
+  },
+  "novelty": {
+    "claims": [
+      {
+        "claim_id": "C01",
+        "claim_text": "Early-start donanemab slowed CDR-SB progression vs weighted ADNI external control by -1.2 points (95% CI -1.7,-0.7) at 3 years (36 months).",
+        "verdict": "novel",
+        "prior_pmid": null,
+        "rationale": "PubMed searches for 'donanemab CDR-SB long-term extension propensity ADNI external control' and 'donanemab external control ADNI weighted comparator CDR-SB efficacy long-term' returned zero prior hits. This 3-year, ADNI-external-control-referenced efficacy estimate is unique to this LTE report; the pivotal 76-week trial (Sims 2023, PMID 37459141) used an internal placebo arm, not an ADNI comparator, and did not extend to 3 years."
+      },
+      {
+        "claim_id": "C02",
+        "claim_text": "Delayed-start donanemab slowed CDR-SB progression vs weighted ADNI control by -0.8 points (95% CI -1.3,-0.3) 76 weeks after donanemab initiation.",
+        "verdict": "novel",
+        "prior_pmid": null,
+        "rationale": "Same search as C01; no prior article reports a delayed-start-vs-ADNI-control CDR-SB comparison at this specific post-initiation timepoint."
+      },
+      {
+        "claim_id": "C04",
+        "claim_text": "Early-start participants had 27% lower risk of CDR-Global progression vs delayed-start (HR=0.73 [0.62,0.86], p<0.001) over 3 years / 154 weeks.",
+        "verdict": "incremental",
+        "prior_pmid": "42128444",
+        "rationale": "A related but non-identical CDR-Global progression-risk analysis exists in the donanemab literature (Atri et al., 'Clinical Meaningfulness of Donanemab...', PMID 42128444, pub. 2026-05-13: HR=0.67 MCI->mild AD, HR=0.50 mild->moderate AD, over the 76-week placebo-controlled period). However that article postdates this ARA's paper (tjpad.2025.100446, 2025) and uses a different timeframe/comparator (76-week placebo-controlled vs this paper's 154-week early- vs delayed-start LTE comparison), so it is not 'prior' work and does not report the same HR=0.73 finding. No genuinely prior (pre-2025) article reporting a CDR-Global early-vs-delayed-start hazard ratio in donanemab LTE data was found. Classified incremental rather than novel because the general technique (Cox PH on CDR-Global staging in donanemab trials) was already established by the time this paper published, even though the specific 154-week HR is new."
+      },
+      {
+        "claim_id": "C07",
+        "claim_text": "Amyloid plaque reduction robust and similarly sized regardless of early-/delayed-start timing (86.96 CL vs 86.01 CL at matched 76 weeks post-initiation); >75% achieved clearance (<24.1 CL) by 76 weeks post-initiation.",
+        "verdict": "incremental",
+        "prior_pmid": "37459141",
+        "rationale": "High amyloid clearance rates (~80%) by 76 weeks with donanemab were already established in the pivotal TRAILBLAZER-ALZ 2 76-week trial report (Sims et al. 2023, PMID 37459141, JAMA). This LTE paper extends the finding to the delayed-start group at a matched post-initiation timepoint and confirms similar magnitude -- an incremental confirmation/extension rather than a new phenomenon."
+      },
+      {
+        "claim_id": "C10",
+        "claim_text": "Combining LTE data with three earlier donanemab studies, amyloid reaccumulation after discontinuation estimated at 2.4 CL/year, comparable to natural-history accumulation.",
+        "verdict": "novel",
+        "prior_pmid": null,
+        "rationale": "Search 'amyloid reaccumulation rate Centiloid per year natural history model Alzheimer' returned zero hits, and 'amyloid plaque reaccumulation after donanemab discontinuation' returned only Shcherbinin 2022 (PMID 36094645, already a cited ref, R12, which reports amyloid reduction/clearance but not a reaccumulation rate). The specific 2.4 CL/year pooled reaccumulation estimate appears first in this LTE report."
+      },
+      {
+        "claim_id": "C11",
+        "claim_text": "No new safety signals observed during the LTE vs the established donanemab safety profile.",
+        "verdict": "cannot_determine",
+        "prior_pmid": null,
+        "rationale": "This is a study-specific descriptive safety conclusion about the LTE period of this particular trial; by definition no prior article could report on 'this LTE's safety data' before this paper. Search 'donanemab ARIA safety long term extension' returned zero results, consistent with no prior LTE-specific safety report existing, but this is not a claim type that PubMed search can adjudicate as novel/incremental/previously_reported in the usual sense."
+      }
+    ]
+  },
+  "registry": {
+    "nct_id": "NCT04437511",
+    "trial_title": "Assessment of Safety, Tolerability, and Efficacy of Donanemab in Early Symptomatic Alzheimer's Disease (TRAILBLAZER-ALZ 2)",
+    "registered_primary": [
+      "Change From Baseline on the Integrated Alzheimer's Disease Rating Scale (iADRS) (Overall Population) -- Baseline, Week 76",
+      "Change From Baseline on the Integrated Alzheimer's Disease Rating Scale (iADRS) (Intermediate (Low-medium) Tau Population) -- Baseline, Week 76"
+    ],
+    "registered_secondary": [
+      "Change From Baseline on the Mini Mental State Examination (MMSE) Score (Overall Population)",
+      "Change From Baseline on the Mini Mental State Examination (MMSE) Score (Intermediate (Low-medium) Tau Population)",
+      "Change From Baseline on the Alzheimer's Disease Assessment Scale - Cognitive Subscale (ADAS-Cog13) (Overall Population)",
+      "Change From Baseline on the Alzheimer's Disease Assessment Scale - Cognitive Subscale (ADAS-Cog13) (Intermediate (Low-medium) Tau Population)",
+      "Change From Baseline on the Clinical Dementia Rating Scale-Sum of Boxes (CDR-SB) (Overall Population)",
+      "Change From Baseline on the Clinical Dementia Rating Scale-Sum of Boxes (CDR-SB) (Intermediate (Low-medium) Tau Population)",
+      "Change From Baseline on the Alzheimer's Disease Cooperative Study - Instrumental Activities of Daily Living (ADCS-iADL) Score (Overall Population)",
+      "Change From Baseline on the Alzheimer's Disease Cooperative Study - Instrumental Activities of Daily Living (ADCS-iADL) Score (Intermediate (Low-medium) Tau Population)",
+      "Change From Baseline in Brain Amyloid Plaque Deposition as Measured by Amyloid Positron Emission Tomography (PET) Scan",
+      "Change From Baseline in Brain Tau Deposition as Measured by Flortaucipir F18 PET Scan",
+      "Change From Baseline in Brain Volume as Measured by Volumetric Magnetic Resonance Imaging (vMRI)",
+      "Pharmacokinetics (PK): Average Serum Concentration at Steady State of Donanemab",
+      "Number of Participants With Anti-Donanemab Antibodies"
+    ],
+    "reported": [
+      "CDR-SB change vs weighted ADNI external control, early-start, 36 months (C01)",
+      "CDR-SB change vs weighted ADNI external control, delayed-start, 76wk post-initiation (C02)",
+      "CDR-SB change, 52-week-completer subset vs overall early-start, 36 months (C03)",
+      "CDR-Global disease-stage progression HR, early- vs delayed-start, 154wk (C04)",
+      "AUC/time-saved on CDR-SB, early-start vs ADNI, 78wk (C05)",
+      "Time-saved comparison, early- vs delayed-start (C06)",
+      "Amyloid PET Centiloid reduction, early- vs delayed-start, 76wk post-init (C07)",
+      "Amyloid clearance rate trajectories at 24/52/76wk post-init (C08)",
+      "LTE completion rates vs placebo-controlled-period completion rates (C09)",
+      "Amyloid reaccumulation rate post-discontinuation, pooled model (C10)",
+      "Descriptive safety / no new AE signal during LTE (C11)",
+      "ARIA-E incidence by time-since-last-dose interval; OAIR comparison (C12)"
+    ],
+    "concordance": [
+      {"outcome": "CDR-SB change from baseline (registered secondary, Overall Population)", "verdict": "matches_registered", "note": "CDR-SB is a registered secondary outcome measure; this ARA reports it, but at post-hoc timepoints (36 months / 76wk-post-initiation) and against a post-hoc external control (ADNI) not specified in the original registration, which specifies Week 76 vs internal placebo."},
+      {"outcome": "Brain Amyloid Plaque Deposition by PET (registered secondary)", "verdict": "matches_registered", "note": "Amyloid PET Centiloid reduction is a registered secondary outcome; reported here at LTE timepoints (76wk post-init for each start group) beyond the original Week-76 registered timeframe."},
+      {"outcome": "CDR-Global disease-stage progression / hazard ratio (C04)", "verdict": "added_post_hoc", "note": "'CDR-Global' as a distinct staged-progression/Cox-PH hazard-ratio endpoint does not appear in the registered primary or secondary outcome measures list for NCT04437511 (which lists iADRS, MMSE, ADAS-Cog13, CDR-SB, ADCS-iADL, amyloid PET, tau PET, vMRI, PK, ADA). The paper itself states (§2.5, §4) that all analyses were exploratory and not controlled for multiplicity."},
+      {"outcome": "Amyloid reaccumulation rate post-discontinuation, pooled 3-study model (C10)", "verdict": "added_post_hoc", "note": "Not a registered outcome measure; a modeling exercise combining this trial's LTE data with three other donanemab studies, explicitly exploratory per the paper's own multiplicity disclaimer."},
+      {"outcome": "AUC/'time saved' analysis (C05, C06)", "verdict": "added_post_hoc", "note": "Not a registered outcome measure; a derived post-hoc summary statistic computed from CDR-SB trajectories."},
+      {"outcome": "Tau PET, vMRI, PK, anti-drug antibody registered secondary outcomes", "verdict": "dropped", "note": "Registered as secondary outcomes for the main 76-week trial but not reported/discussed in this LTE-focused ARA (paper's scope is CDR-SB/CDR-Global efficacy, amyloid trajectory, and descriptive safety only)."}
+    ]
+  },
+  "retractions": {
+    "found": [],
+    "notes": "Searched PubMed for 'TRAILBLAZER-ALZ 2 retraction of publication', 'Sims donanemab TRAILBLAZER-ALZ 2 retraction correction', 'Sims donanemab TRAILBLAZER-ALZ 2 randomized clinical trial correction', and '37459141 AND Retraction of Publication[Publication Type]' -- all returned zero hits. No retraction or correction found for this paper (zim25, doi 10.1016/j.tjpad.2025.100446) or for its most-cited reference, the pivotal trial report (Sims et al. 2023, PMID 37459141, JAMA)."
+  },
+  "notes": "All 23 refs in refs.yaml were inspected; 22 are marked resolvable=true (only R04, a non-DOI Roche method sheet, is resolvable=false). Per instructions, 12 of the resolvable refs were sampled for PubMed verification; all 12 resolved with titles matching refs.yaml's raw citation text exactly (observed_resolvability=1.0 on the sampled set vs the sidecar's implied declared rate of 22/23=0.957 across all refs -- consistent, no discrepancy found). Trial registry check confirms NCT04437511 is the correct pivotal trial (title, sponsor Eli Lilly, enrollment 1736, matches paper's Trial registration statement). Outcome-switching check found no primary-outcome switching, but did surface post-hoc/exploratory elevation of the CDR-Global hazard-ratio analysis and the amyloid-reaccumulation model to headline-claim status despite neither being a registered outcome measure -- consistent with, and explicitly disclosed by, the paper's own §2.5/§4 statement that all LTE analyses are exploratory and uncontrolled for multiplicity. Novelty check found no genuinely prior (pre-2025) literature reporting the specific 3-year ADNI-external-control CDR-SB deltas, the 154-week CDR-Global HR=0.73, or the 2.4 CL/year reaccumulation estimate; the amyloid-clearance-by-76-weeks finding (C07) is judged incremental on the already-published Sims 2023 76-week trial result."
+}

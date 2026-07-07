@@ -1,0 +1,189 @@
+{
+  "comparison": "GRO (v4) vs the first ARA-inferred metric design (v3 tournament: extractive_fidelity, paper_rankers, artifact_trust) over the same 12-ARA corpus",
+  "sources": {
+    "gro": "research/metrics/v4-gro/results.json",
+    "v3": "research/ara-library/<slug>/metrics/v3/metrics.json"
+  },
+
+  "1_coverage": {
+    "headline": "v3 could fully score 3/12 ARAs (25%); GRO scored all 12/12 (100%). v3's gate is full-text/source availability (rank_eligible, extractive-fidelity checkability); GRO computes over the typed ARA shape (claims.yaml, quantities.yaml, refs, entities, genre.yaml) that exists on every compiled ARA regardless of whether the underlying paper PDF is resolvable.",
+    "v3_rank_eligible_true": [
+      "che26-diagnostic-performance-of-plasma-p-tau217",
+      "tit26-automated-high-throughput-quantification-of-plasma",
+      "cum26-alzheimer-s-disease-drug-development-pipeline"
+    ],
+    "v3_rank_eligible_true_count": 3,
+    "v3_rank_eligible_false": [
+      "val25-blood-biomarkers-of-alzheimer-s-disease",
+      "han26-tau-pathological-activity-in-plasma-before",
+      "zim25-donanemab-in-early-symptomatic-alzheimer-s",
+      "jes26-efficacy-and-safety-of-donanemab-in",
+      "gau25-single-nucleus-and-spatial-transcriptomic-profiling",
+      "zho25-microglia-networks-within-the-tapestry-of",
+      "aki26-molecular-signatures-of-resilience-to-alzheimer",
+      "xu25-epidemiological-and-sociodemographic-transitions-in-the",
+      "ard25-response-of-spatially-defined-microglia-states"
+    ],
+    "v3_rank_eligible_false_count": 9,
+    "v3_extractive_fidelity_computed_non_pending": {
+      "count": 4,
+      "slugs_and_values": {
+        "che26-diagnostic-performance-of-plasma-p-tau217": 0.625,
+        "jes26-efficacy-and-safety-of-donanemab-in": 0.9,
+        "tit26-automated-high-throughput-quantification-of-plasma": 1.0,
+        "cum26-alzheimer-s-disease-drug-development-pipeline": 1.0
+      },
+      "note": "jes26 has a computed extractive_fidelity value (0.9) despite rank_eligible=false -- fidelity-checkability and rank-eligibility are correlated but not the same gate in v3."
+    },
+    "v3_extractive_fidelity_pending_count": 8,
+    "v3_semantic_grounding_judge_scored_count": 4,
+    "v3_semantic_grounding_pending_count": 8,
+    "gro_aras_processed": 12,
+    "gro_aras_failed": 0,
+    "gro_metric_level_nulls": {
+      "quantity_reconciliation_rate": {
+        "null_count": 2,
+        "slugs": ["zho25-microglia-networks-within-the-tapestry-of", "aki26-molecular-signatures-of-resilience-to-alzheimer"],
+        "reason": "no quantity referenced by >=2 claims -- reconciliation is structurally undefined (vacuous), not a failure to score"
+      }
+    },
+    "interpretation": "The coverage gap is architectural, not incidental: every GRO metric_definitions entry is annotated computable_on_prose:false with an explicit prose_reason -- GRO metrics only exist because the ARA typed the claim/quantity/ref/entity/genre graph. v3's paper_rankers and extractive_fidelity additionally require an LLM to re-read the source PDF/fulltext and judge fidelity or novelty, which is only wired up (frozen judge findings / grounding_findings.yaml) for 3-4 of the 12 ARAs in this library. So v3 trades reach for depth (verifies extraction against source prose, but only where that verification pass was actually run), while GRO trades depth for reach (runs everywhere, but only checks the ARA's own internal typed-graph consistency -- it cannot see the source paper at all)."
+  },
+
+  "2_construct_mapping": {
+    "shared_constructs": [
+      {
+        "construct": "claim-to-source fidelity / grounding",
+        "v3_metric": "extractive_fidelity (LLM re-reads source PDF, flags unsupported_addition / contradicted / distorted claims; computable only where rank_eligible/source-bound)",
+        "gro_metric": "quantity_reconciliation_rate (checks the ledger's own canonical value against the numeral already embedded in its own authoring quote -- pure self-consistency, never touches the source PDF) + entailment_precondition_rate (structural check that a claim has >=1 result quantity_ref AND >=1 proof_ref)",
+        "relationship": "GRO's version is strictly weaker: it can only catch a claim whose typed quantity ledger disagrees with its own quote field. It cannot catch a claim that is faithful-to-its-own-record but was never true of the source paper (fabricated-but-self-consistent). v3's extractive_fidelity is the only construct in either system that actually re-checks against the source text -- and it is the one gated down to 3-4/12 ARAs."
+      },
+      {
+        "construct": "reference / citation integrity",
+        "v3_metric": "artifact_trust.gates.all_links_resolve (boolean pass/fail) + grounding_detail (quote checkability/coverage)",
+        "gro_metric": "reference_resolvability_rate (continuous fraction of refs with resolvable==true) and broken_ref_integrity (count of dangling quantity/concept/proof refs)",
+        "relationship": "Same target (does the artifact's internal reference graph actually resolve), but v3 reports it as a single boolean gate per ARA while GRO reports a continuous rate/count per ARA -- GRO's version is more diagnostic (e.g. it shows tit26 at only 13% ref-resolvability even though v3's boolean gate and extractive-fidelity both marked tit26 as v3's cleanest ARA)."
+      },
+      {
+        "construct": "claim scope / overreach vs. evidence",
+        "v3_metric": "paper_rankers.semantic_grounding (judge-scored: does the cited quote actually SUPPORT the number, with polarity/value-match checks) -- only computed for 4/12 ARAs",
+        "gro_metric": "overclaim_flags (deterministic: claim.population_scope in {population_estimate, claimed_universal} AND population_n == not_specified)",
+        "relationship": "Different axis of the same worry (claims outrunning their evidence). v3's version needs a semantic judge and is pending on 8/12 ARAs; GRO's version is a narrower, fully mechanical proxy (scope label vs. missing n field) that runs everywhere and surfaces a genre-correlated pattern (concentrated in the two review/registry-style ARAs) that v3's paper_rankers battery never flags because none of its 6 rankers checks population-scope wording."
+      },
+      {
+        "construct": "genre-appropriate completeness",
+        "v3_metric": "genre / genre_source fields (used only as an eligibility label to decide which downstream checks apply, e.g. systematic_review_meta_analysis vs primary_experimental) plus artifact_trust.components.environment_completeness (looks at repo-level completeness, not genre-slot completeness)",
+        "gro_metric": "genre_silent_omissions (count(expected_slots) - count(present_slots) - count(absent_declared) for that genre's slot template)",
+        "relationship": "v3 uses genre only to route eligibility; it has no check for whether an ARA silently dropped a slot its own genre template expects. GRO adds this construct outright (see 2b below) -- and it also catches a genre.yaml authoring bug (zho25's present_slots lists an 'experiments' slot outside its own expected_slots set, making the naive formula go negative)."
+      }
+    ],
+    "gro_constructs_v3_has_no_analog_for": [
+      {
+        "metric": "entity_anchoring_rate",
+        "description": "fraction of entities with an ontology xref != not_specified",
+        "finding": "0.0 for all 12/12 ARAs (corpus mean 0.0, min 0.0, max 0.0) -- no ARA in this library does any entity-to-ontology linking at all. v3 has no field or metric that would ever surface this; it is a totally new, corpus-wide zero that only exists because GRO checks it."
+      },
+      {
+        "metric": "broken_ref_integrity",
+        "description": "count of quantity_refs/concept_refs/proof_refs on claims that don't resolve to an id in quantities.yaml/entities.yaml/the E## experiment ledger",
+        "finding": "corpus total 16, entirely concentrated in ard25 (16/16) -- the one ARA with no logic/experiments.md, so every proof_ref is unresolved. v3's closest analog is the boolean all_links_resolve gate, which also fails on ard25 but gives no count or detail."
+      },
+      {
+        "metric": "genre_silent_omissions",
+        "description": "genre-template slot completeness",
+        "finding": "nonzero on 3/12 ARAs (val25: missing 'dataset' slot; zho25: malformed genre.yaml, -1; ard25: 4 missing slots -- concepts, dataset, experiments, related_work). v3 has nothing here."
+      },
+      {
+        "metric": "overclaim_flags",
+        "description": "as above -- new construct, not present in v3 at all"
+      }
+    ],
+    "v3_constructs_gro_has_no_analog_for": {
+      "list": [
+        "corrective_science_score (refutation/correction edges in related-work blocks)",
+        "dead_end_density / negative_result_share (exploration_tree dead-end nodes, genuine vs synthetic)",
+        "translation_trial_linkage (NCT trial-id name-drop/verification)",
+        "novel_claim_count (cross-corpus novelty judging)"
+      ],
+      "note": "these 6 paper_rankers (incl. semantic_grounding which does have a GRO-adjacent proxy above) are exactly the ones v3's own tournament called out as 0/6 usable -- see section 4."
+    }
+  },
+
+  "3_agreement_and_divergence": {
+    "method": "For each of the 12 ARAs, compare v3's fidelity/trust signal against GRO's structural signals on the same or adjacent construct.",
+    "per_ara": [
+      {
+        "slug": "che26-diagnostic-performance-of-plasma-p-tau217",
+        "v3_extractive_fidelity": 0.625,
+        "v3_note": "2/3 infidelities are 'unsupported_addition': a fabricated forest-plot statistic (MD=0.10, 95% CI 0.04-0.16) that appears nowhere in the source text",
+        "gro_quantity_reconciliation_rate": 1.0,
+        "gro_entailment_precondition_rate": 1.0,
+        "gro_reference_resolvability_rate": 0.944,
+        "divergence": "SHARPEST DIVERGENCE IN THE CORPUS. GRO scores this ARA a clean 1.0/1.0 on both its fidelity-adjacent metrics because those metrics only check that the ledger's own value matches the ledger's own quote -- they never touch the source PDF. v3's extractive_fidelity, which does re-read the source, is the only signal (in either system) that catches the fabricated statistic. This demonstrates GRO's structural checks cannot substitute for source-verification even where both nominally target 'fidelity'."
+      },
+      {
+        "slug": "cum26-alzheimer-s-disease-drug-development-pipeline",
+        "v3_extractive_fidelity": 1.0,
+        "v3_rank_eligible": true,
+        "v3_semantic_grounding": 0.941,
+        "v3_translation_trial_linkage": 8,
+        "v3_note": "v3's best-performing ARA across its whole paper_rankers battery: perfect extraction fidelity (10/10 claims), 8/8 NCT ids verified, semantic_grounding 0.941 -- reads as v3's 'model' ARA",
+        "gro_overclaim_flags": 9,
+        "gro_note": "9 of 10 claims (genre_paper_type=clinical_pipeline_registry_census) have population_scope in {population_estimate, claimed_universal} with population_n left not_specified",
+        "divergence": "SECOND SHARPEST DIVERGENCE. The same review/registry genre that makes cum26 look flawless under v3 (every quote checks out, every trial id resolves) is exactly what GRO's overclaim_flags penalizes hardest in the whole corpus (90% of its claims). v3 has no construct that would ever surface this -- extraction can be perfectly faithful to a source that itself makes unscoped population claims."
+      },
+      {
+        "slug": "tit26-automated-high-throughput-quantification-of-plasma",
+        "v3_extractive_fidelity": 1.0,
+        "v3_rank_eligible": true,
+        "gro_reference_resolvability_rate": 0.132,
+        "gro_quantity_reconciliation_rate": 1.0,
+        "gro_entailment_precondition_rate": 1.0,
+        "divergence": "v3's other rank-eligible 'clean' ARA (perfect fidelity, all gates pass) turns out to have only 13% of its refs resolvable under GRO -- v3's boolean all_links_resolve gate passed it, but GRO's continuous rate exposes that most references are unverifiable, a distinction the boolean gate cannot make."
+      },
+      {
+        "slug": "xu25-epidemiological-and-sociodemographic-transitions-in-the",
+        "v3_extractive_fidelity": "pending (not source-bound checkable)",
+        "gro_overclaim_flags": 11,
+        "gro_note": "11 of 13 claims overclaim (84.6%, the highest rate in the corpus) -- v3 never attempted a fidelity check on this ARA at all, so it has zero signal here either way.",
+        "divergence": "v3 is silent (pending); GRO is the only signal that exists for this ARA on the overclaim axis."
+      },
+      {
+        "slug": "ard25-response-of-spatially-defined-microglia-states",
+        "v3_artifact_trust_gates": {"seal_L1": false, "all_links_resolve": false, "low_trust": true},
+        "gro_broken_ref_integrity": 16,
+        "gro_genre_silent_omissions": 4,
+        "gro_note": "no logic/experiments.md found; every one of the 16 proof_refs across 13 claims is unresolved; 4 genre slots (concepts, dataset, experiments, related_work) silently missing",
+        "agreement": "SHARPEST AGREEMENT IN THE CORPUS. Both systems independently flag ard25 as the structurally worst-off ARA in the library: v3's boolean gates (seal_L1=false, all_links_resolve=false, low_trust=true) and GRO's counts (broken_ref_integrity=16, the corpus max; genre_silent_omissions=4, the corpus max) converge on the same conclusion by different mechanisms -- v3 via a pass/fail gate, GRO via an explicit count of which refs and which slots. GRO adds diagnostic detail (which E## ids, which slots) that v3's boolean does not."
+      },
+      {
+        "slug": "val25-blood-biomarkers-of-alzheimer-s-disease",
+        "v3_extractive_fidelity": "pending",
+        "gro_reference_resolvability_rate": 0.0,
+        "note": "v3 attempted no fidelity check; GRO independently flags zero resolvable refs -- a red flag with no v3 counterpart signal at all."
+      },
+      {
+        "slug": "jes26-efficacy-and-safety-of-donanemab-in",
+        "v3_extractive_fidelity": 0.9,
+        "v3_rank_eligible": false,
+        "gro_quantity_reconciliation_rate": 1.0,
+        "gro_entailment_precondition_rate": 1.0,
+        "gro_reference_resolvability_rate": 0.895,
+        "agreement": "Consistent direction: both systems read this ARA as mostly clean (v3: 1 infidelity/10; GRO: perfect reconciliation/entailment, high ref-resolvability). No sharp divergence."
+      }
+    ]
+  },
+
+  "4_v3_headline_context": {
+    "claim": "v3's own tournament headline was 0/6 usable paper_rankers.",
+    "verification_against_this_corpus": {
+      "corrective_science_score": {"value_all_aras": 0.0, "validity_all_aras": "invalid_fabricated", "usable_count": "0/12"},
+      "negative_result_share": {"validity_all_aras": "pending_sem", "usable_count": "0/12"},
+      "dead_end_density": {"validity_mix": "invalid_fabricated on che26/val25/xu25; source_bound (often vacuous, 0 dead-end nodes) on the rest", "usable_count": "0/12 as a trustworthy ranking signal -- source_bound where nonvacuous is only 4/12 (han26, jes26, tit26, aki26 with source_binding_ratio=1.0), the remainder are either fabricated or vacuous"},
+      "translation_trial_linkage": {"validity_all_aras": "ref_string_bound", "self_declared_status": "explicitly annotated in every ARA's metrics.json as 'name-drop count; superseded by claim_graph per_claim_trial_concordance'", "usable_count": "0/12 by its own documentation"},
+      "semantic_grounding": {"judge_scored_count": 4, "pending_sem_count": 8, "usable_count": "4/12, and only where a prior LLM [sem] pass happened to be frozen into logic/grounding_findings.yaml"},
+      "novel_claim_count": {"validity": "pending_sem where a value exists (che26, jes26, tit26, cum26), pending/stub elsewhere", "usable_count": "0/12 by validity tag -- even the 4 ARAs with a computed value are marked pending_sem, not final"}
+    },
+    "conclusion": "Confirmed on this 12-ARA corpus: none of v3's 6 paper_rankers reaches a fully valid, corpus-wide state. GRO's 8 metrics, by contrast, all computed on 10-12/12 ARAs (the only nulls are the 2 structurally-vacuous quantity_reconciliation_rate cases), but at the cost of checking only the ARA's own typed-graph shape and never the source paper -- exactly the axis where v3's extractive_fidelity (limited to 3-4/12 ARAs) still catches things GRO cannot, per the che26 fabrication example above."
+  }
+}

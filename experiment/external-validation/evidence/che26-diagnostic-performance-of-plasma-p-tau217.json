@@ -1,0 +1,75 @@
+{
+  "slug": "che26-diagnostic-performance-of-plasma-p-tau217",
+  "reference_resolution": {
+    "attempted": 12,
+    "resolved": 12,
+    "observed_rate": 1.0,
+    "declared_rate": 0.9444,
+    "declared_rate_note": "refs.yaml marks 34/36 refs (R00-R35) resolvable=true; R11 (Huashan Cohort) and R12 (GBA Study) are marked not_specified/resolvable=false because they are cohort labels, not separately cited works.",
+    "details": [
+      {"ref_id": "R01", "external_id": "10.1093/brain/awac333", "resolves": true, "title": "Head-to-head comparison of 10 plasma phospho-tau assays in prodromal Alzheimer's disease.", "pmid": "36087307"},
+      {"ref_id": "R02", "external_id": "10.1001/jama.2024.13855", "resolves": true, "title": "Blood Biomarkers to Detect Alzheimer Disease in Primary Care and Secondary Care.", "pmid": "39068545"},
+      {"ref_id": "R03", "external_id": "10.1001/jamaneurol.2023.5319", "resolves": true, "title": "Diagnostic Accuracy of a Plasma Phosphorylated Tau 217 Immunoassay for Alzheimer Disease Pathology.", "pmid": "38252443"},
+      {"ref_id": "R04", "external_id": "10.1101/2024.08.22.24312244", "resolves": true, "title": "The Alzheimer's Association Global Biomarker Standardization Consortium (GBSC) plasma phospho-tau Round Robin study.", "pmid": "39228740"},
+      {"ref_id": "R05", "external_id": "10.1002/alz.14411", "resolves": true, "title": "Plasma pTau217 ratio predicts continuous regional brain tau accumulation in amyloid-positive early Alzheimer's disease.", "pmid": "39575854"},
+      {"ref_id": "R06", "external_id": "10.1016/j.ebiom.2025.105805", "resolves": true, "title": "Comparative performance of plasma pTau181/Abeta42, pTau217/Abeta42 ratios, and individual measurements in detecting brain amyloidosis.", "pmid": "40513421"},
+      {"ref_id": "R07", "external_id": "10.1038/s41591-022-01925-w", "resolves": true, "title": "Plasma p-tau231 and p-tau217 as state markers of amyloid-beta pathology in preclinical Alzheimer's disease.", "pmid": "35953717"},
+      {"ref_id": "R08", "external_id": "10.1093/clinchem/hvaf162", "resolves": true, "title": "Diagnostic Value of Serum p-tau217 in Alzheimer Disease: Equal to Plasma in Levels and Clinical Utility?", "pmid": "41231544"},
+      {"ref_id": "R09", "external_id": "10.1038/s41591-022-01822-2", "resolves": true, "title": "Performance of plasma phosphorylated tau 181 and 217 in the community.", "pmid": "35618838"},
+      {"ref_id": "R10", "external_id": "10.1038/s41598-025-34241-7", "resolves": true, "title": "Plasma p-tau217, quantified by the fully automated LUMIPULSE G platform, outperforms p-tau181 in predicting amyloid pathology in cognitive complaints patients.", "pmid": "41535718"},
+      {"ref_id": "R13", "external_id": "10.1016/j.jalz.2018.02.018", "resolves": true, "title": "NIA-AA Research Framework: Toward a biological definition of Alzheimer's disease.", "pmid": "29653606"},
+      {"ref_id": "R14", "external_id": "10.1016/S1474-4422(20)30071-5", "resolves": true, "title": "Blood phosphorylated tau 181 as a biomarker for Alzheimer's disease: a diagnostic performance and prediction modelling study using data from four prospective cohorts.", "pmid": "32333900"}
+    ]
+  },
+  "novelty": {
+    "claims": [
+      {
+        "claim_id": "C01",
+        "statement": "p-tau217 measured by mass spectrometry has the highest diagnostic accuracy for amyloid-beta pathology (P-score=0.86), outranking p-tau181 immunoassay (P-score=0.12).",
+        "verdict": "novel",
+        "prior_pmid": null,
+        "search_notes": "PubMed search for 'network meta-analysis plasma p-tau217 p-tau181 p-tau231 diagnostic accuracy Alzheimer' returns only this paper itself (PMID 42318558, same DOI 10.3389/fnagi.2026.1834591). No distinct prior network meta-analysis simultaneously ranking these isoforms/platforms via P-scores was found. Individual head-to-head comparisons (e.g. R01 Janelidze 2023, PMID 36087307) establish p-tau217 superiority over p-tau181 at the single-study level, so the qualitative direction ('p-tau217 > p-tau181') is well established prior art, but the specific pooled NMA ranking/P-score claim is not previously reported."
+      },
+      {
+        "claim_id": "C02",
+        "statement": "The p-tau217/Abeta42 ratio on automated platforms yields a significant incremental AUC gain of 0.025 (95% CI 0.005-0.045; I2=0%) over single-analyte assays.",
+        "verdict": "cannot_determine",
+        "prior_pmid": null,
+        "search_notes": "Search 'p-tau217/Abeta42 ratio incremental AUC gain single analyte plasma meta-analysis' returned zero PubMed hits. The specific pooled incremental-AUC estimate (0.025) could not be located in any prior article; no prior meta-analytic quantification of this specific increment was found, but absence of a hit is not strong enough evidence to call it definitively novel versus simply unindexed/oddly phrased."
+      },
+      {
+        "claim_id": "C03",
+        "statement": "p-tau217_MS is top marker for advanced Tau-PET staging (P-score=0.91) and for predicting MCI-to-AD-dementia conversion (P-score=0.82).",
+        "verdict": "novel",
+        "prior_pmid": null,
+        "search_notes": "Search 'p-tau217 predicting MCI to Alzheimer dementia conversion tau PET staging meta-analysis' again returned only the paper itself (PMID 42318558). No distinct prior work pooling these specific P-scores was found."
+      },
+      {
+        "claim_id": "C04",
+        "statement": "p-tau231 achieves the highest rank in the preclinical subgroup for detecting early amyloidosis (P-score=0.66), supporting a 'relay' hypothesis.",
+        "verdict": "cannot_determine",
+        "prior_pmid": null,
+        "search_notes": "Search 'p-tau231 early amyloidosis preclinical Alzheimer relay hypothesis biomarker' returned zero hits. The qualitative idea that p-tau231 rises earlier than p-tau217 in the AD continuum is discussed in prior primary literature (e.g. R07 Mila-Aloma et al 2022, PMID 35953717, 'Plasma p-tau231 and p-tau217 as state markers of amyloid pathology in preclinical Alzheimer's disease') which already reports p-tau231 as an earlier-rising marker; this makes the underlying biological claim plausibly previously reported at the single-study level, though the pooled P-score ranking is the paper's own synthesis. Marked cannot_determine rather than previously_reported because no article states the identical pooled-network finding."
+      },
+      {
+        "claim_id": "C05",
+        "statement": "p-tau217 diagnostic performance is consistent across Han Chinese and Western cohorts (P-score=1.00 in Asian datasets).",
+        "verdict": "cannot_determine",
+        "prior_pmid": null,
+        "search_notes": "Search 'plasma p-tau217 Han Chinese cohort diagnostic performance Western cohort comparison' returned zero PubMed hits. No prior article was found reporting this specific cross-ethnicity consistency finding; the two Han Chinese source cohorts (Huashan, GBA) are marked in refs.yaml as not-separately-cited (R11, R12), so their underlying primary reports could not be independently checked via this search, hence cannot_determine rather than a confident novel/previously_reported call."
+      }
+    ]
+  },
+  "registry": null,
+  "retractions": {
+    "found": [],
+    "checks_performed": [
+      "PubMed search 'Retraction of Publication[Publication Type] plasma p-tau217' -> 0 hits",
+      "PubMed search 'Chen Huang Shi Xu Fan network meta-analysis Frontiers Aging Neuroscience 2026 p-tau217' -> 0 hits (confirms no retraction/correction record indexed for the paper itself, PMID 42318558)",
+      "PubMed search 'Janelidze Brain 2022 phospho-tau assays retraction correction' (checking R01, the most heavily used reference) -> 0 hits",
+      "PubMed search 'Palmqvist JAMA 2024 blood biomarkers Alzheimer retraction correction' (checking R02) -> 0 hits"
+    ],
+    "notes": "No retraction or correction found for the target paper (PMID 42318558) or for its two most-cited references (Janelidze et al. 2023, PMID 36087307; Palmqvist et al. 2024, PMID 39068545) as of the check date. This is the expected/honest null result."
+  },
+  "notes": "All 12 sampled DOI-bearing references (R01-R10, R13-R14) resolved cleanly to a single PubMed record each, with titles that plausibly match the author/year raw citation strings in refs.yaml (observed_rate=1.0 on this sample, vs. declared_rate=0.9444 computed from all 36 refs in refs.yaml, where only R11/R12 -- unindexed Chinese cohort labels -- are marked unresolvable). The sample is consistent with the sidecar's self-declared resolvability, though the sample slightly overstates true resolvability since it excluded R11/R12 by construction (only DOI-bearing refs were attempted, per task instructions). For novelty, the paper's core contribution is explicitly a *first-of-its-kind simultaneous network meta-analysis* across isoforms/platforms; PubMed searches for the 5 headline claims found no distinct prior article reporting the same pooled/networked finding -- only the paper itself was retrieved for C01/C03 searches (self-match, PMID 42318558, DOI 10.3389/fnagi.2026.1834591). This supports the paper's claim to novelty at the level of the pooled network synthesis, while the underlying single-study directional findings (e.g., p-tau217 > p-tau181; p-tau231 as an earlier preclinical marker) are indeed already established in the primary literature the paper itself cites (R01, R07, R14, etc.) -- consistent with an NMA being a novel synthesis of previously-known component facts rather than a wholly new empirical discovery. No retractions/corrections found for the paper or its top two cited sources."
+}

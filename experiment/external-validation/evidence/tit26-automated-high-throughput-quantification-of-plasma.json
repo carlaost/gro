@@ -1,0 +1,77 @@
+{
+  "slug": "tit26-automated-high-throughput-quantification-of-plasma",
+  "reference_resolution": {
+    "attempted": 7,
+    "resolved": 7,
+    "observed_rate": 1.0,
+    "declared_rate": {
+      "of_attempted_i.e._refs_with_external_id": 1.0,
+      "of_all_refs_in_refs.yaml": 0.132,
+      "note": "refs.yaml marks 7/53 refs as resolvable:true; all 7 (and only those 7) carry a DOI external_id. The other 46 are background citations with external_id: not_specified, correctly declared resolvable:false without being tested. observed_rate is computed over the 7 attempted (DOI-bearing) refs, matching the sidecar's own scope."
+    },
+    "details": [
+      {"ref_id": "R02", "external_id": "10.1002/alz.71009", "resolves": true, "title": "Elecsys pTau217 plasma immunoassay detection of amyloid pathology in clinical cohorts.", "pmid": "41537338"},
+      {"ref_id": "R04", "external_id": "10.1093/brain/awae346", "resolves": true, "title": "A comprehensive head-to-head comparison of key plasma phosphorylated tau 217 biomarker tests.", "pmid": "39468767"},
+      {"ref_id": "R05", "external_id": "10.1093/brain/awac333", "resolves": true, "title": "Head-to-head comparison of 10 plasma phospho-tau assays in prodromal Alzheimer's disease.", "pmid": "36087307"},
+      {"ref_id": "R08", "external_id": "10.1038/s41582-024-00977-5", "resolves": true, "title": "Acceptable performance of blood biomarker tests of amyloid pathology - recommendations from the Global CEO Initiative on Alzheimer's Disease.", "pmid": "38866966"},
+      {"ref_id": "R09", "external_id": "10.1002/alz.14610", "resolves": true, "title": "Evaluation of two plasma-based proteotyping assays against APOE ε4 genotyping in a memory clinic setting: The Gothenburg H70 Clinical Studies.", "pmid": "39988952"},
+      {"ref_id": "R10", "external_id": "10.1001/jamaneurol.2023.0199", "resolves": true, "title": "Mitigating the Associations of Kidney Dysfunction With Blood Biomarkers of Alzheimer Disease by Using Phosphorylated Tau to Total Tau Ratios.", "pmid": "36987840"},
+      {"ref_id": "R13", "external_id": "10.1093/brain/awae368", "resolves": true, "title": "Plasma p-tau217 in Alzheimer's disease: Lumipulse and ALZpath SIMOA head-to-head comparison.", "pmid": "39679606"}
+    ]
+  },
+  "novelty": {
+    "claims": [
+      {
+        "claim_id": "C01",
+        "statement": "AUC(p-tau217 Elecsys, AD vs non-AD)=0.939, cutoff=0.371, sensitivity=92.2%, specificity=89.2% (n=186)",
+        "verdict": "incremental",
+        "prior_pmid": "35950735",
+        "prior_title": "An accurate fully automated panel of plasma biomarkers for Alzheimer's disease. (Palmqvist et al. 2022)",
+        "rationale": "That plasma p-tau217 (fully-automated immunoassay platforms) discriminates AD vs non-AD with AUC in the 0.9-0.96 range was already established by 2022-2024 (Palmqvist 2022; Warmenhoven/head-to-head comparison 2024, PMID 39006421). This paper's exact AUC/cutoff/sensitivity/specificity values for the Elecsys prototype in its own cohort are a new data point, not a new type of finding."
+      },
+      {
+        "claim_id": "C02",
+        "statement": "AUC(Elecsys p-tau217)=0.939 vs AUC(Lumipulse p-tau217)=0.950, DeLong p=0.485 -> not significantly different",
+        "verdict": "previously_reported",
+        "prior_pmid": "39006421",
+        "prior_title": "A Comprehensive Head-to-Head Comparison of Key Plasma Phosphorylated Tau 217 Biomarker Tests. (Warmenhoven et al. 2024, Brain)",
+        "rationale": "This prior head-to-head study already reported that major commercial/prototype p-tau217 assays (including Lumipulse and other platforms) achieve statistically comparable AUCs for AD discrimination. The general finding of non-significant AUC differences among leading p-tau217 assays predates this paper."
+      },
+      {
+        "claim_id": "C03",
+        "statement": "AUC(p-tau217 Elecsys)=0.939 > AUC(p-tau181 Elecsys)=0.903, DeLong p=0.043 -> p-tau217 significantly greater",
+        "verdict": "previously_reported",
+        "prior_pmid": "34418401",
+        "prior_title": "Plasma phosphorylated tau 217 and phosphorylated tau 181 as biomarkers in Alzheimer's disease and frontotemporal lobar degeneration: a retrospective diagnostic performance study. (2021)",
+        "rationale": "The superiority of p-tau217 over p-tau181 for AD diagnostic discrimination was established in 2021 and reaffirmed repeatedly (e.g., Janelidze 2022, PMID 36087307, this ARA's own R05). This paper's Elecsys-specific replication is confirmatory, not a first report of the p-tau217>p-tau181 relationship."
+      },
+      {
+        "claim_id": "C04",
+        "statement": "Adding APOE4 carrier status to p-tau217 Elecsys raises AUC 0.939->0.970 (p=0.02) and shrinks the intermediate/grey-zone fraction 20.0%->11.0%",
+        "verdict": "cannot_determine",
+        "prior_pmid": null,
+        "rationale": "Targeted PubMed searches for combining plasma p-tau217 with APOE4 genotype to improve diagnostic AUC or shrink the grey zone returned no matching prior article. Related but distinct prior work exists on APOE4's effect on p-tau181/p-tau217 levels (background refs R31/R32, not independently verified here) and on evaluating proteotyping assays against APOE4 genotyping (R09, PMID 39988952), but none reports this specific AUC-improvement-via-combination result. Absence of a hit in a non-exhaustive search is not proof of novelty; flagged cannot_determine rather than novel."
+      },
+      {
+        "claim_id": "C07",
+        "statement": "Elecsys vs Lumipulse p-tau217 correlation r=0.88, Passing-Bablok slope=1.363, intercept=0.113, max relative difference <=59% -> strongly correlated but NOT interchangeable",
+        "verdict": "previously_reported",
+        "prior_pmid": "39468767",
+        "prior_title": "A comprehensive head-to-head comparison of key plasma phosphorylated tau 217 biomarker tests. (Warmenhoven et al. 2025, Brain -- this ARA's own ref R04)",
+        "rationale": "Method-comparison studies (Passing-Bablok/Bland-Altman) showing strong correlation but poor absolute-value interchangeability across p-tau217 immunoassay platforms, including comparisons involving Lumipulse, were already published before this paper (R04, and PMID 39702308 comparing eight Simoa/Lumipulse p-tau181/217 assays). The general conclusion 'correlated but not interchangeable across p-tau217 platforms' predates this specific Elecsys-Lumipulse pairing."
+      }
+    ]
+  },
+  "registry": null,
+  "retractions": {
+    "found": [],
+    "checked": [
+      {"target": "this paper (PMID 41764587, Automated high-throughput quantification of plasma p-tau217 and APOE-ε4 for Alzheimer's disease diagnosis and cognitive decline in a memory cohort)", "query": "title terms + Retraction of Publication[Publication Type]", "hits": 0},
+      {"target": "R04 Warmenhoven et al. Brain 2025 (PMID 39468767)", "query": "author/title terms + Retraction of Publication[Publication Type]", "hits": 0},
+      {"target": "R05 Janelidze et al. Brain 2022 (PMID 36087307)", "query": "author/title terms + Retraction of Publication[Publication Type]", "hits": 0},
+      {"target": "PMID 41764587 direct UID query", "query": "41764587[uid] AND (Retraction OR \"Corrected and Republished\")", "hits": 0}
+    ],
+    "note": "No retraction or correction notices found for this paper or its most-cited resolvable references. Consistent with expectation for a 2026 paper and its recent (2021-2026) reference set."
+  },
+  "notes": "This ARA is a diagnostic-accuracy biomarker study, not a registered clinical trial, so registry is null (no NCT-based primary/secondary-outcome concordance check applies; the paper appears to draw on a memory-clinic cohort rather than a single registered interventional trial). Reference resolution was checked only for the 7 refs in refs.yaml that carry a DOI external_id (R02,R04,R05,R08,R09,R10,R13); all 7 resolved cleanly on PubMed via DOI search and their PubMed titles/journals are consistent with the citation strings in refs.yaml (author surnames, journal, year, volume/page all line up), so observed_resolvability = 7/7 = 1.0 for the attempted set, matching the sidecar's self-declared resolvable:true flags for exactly those 7 refs (and resolvable:false for the other 46 background refs lacking a DOI, which is an honest/conservative declaration rather than an error). Novelty verdicts for the 5 headline claims checked lean toward incremental/previously_reported for the core p-tau217 diagnostic-accuracy and cross-platform-comparison findings (C01,C02,C03,C07), which replicate well-established 2021-2025 findings in a new cohort/assay pairing; the APOE4-combination result (C04) could not be confidently matched to or ruled out against prior literature in the searches run and is marked cannot_determine rather than asserted novel or previously_reported."
+}

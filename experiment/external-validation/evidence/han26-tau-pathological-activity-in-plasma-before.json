@@ -1,0 +1,69 @@
+{
+  "slug": "han26-tau-pathological-activity-in-plasma-before",
+  "reference_resolution": {
+    "attempted": 12,
+    "resolved": 12,
+    "observed_rate": 1.0,
+    "declared_rate": 0.190,
+    "declared_rate_note": "refs.yaml marks 12/63 total refs as resolvable:true (0.190); of those 12 with a DOI, all 12 (1.0) were independently confirmed via PubMed search_articles. The gap between 0.190 and 1.0 reflects that most refs.yaml entries (R15-R63, 'other cited works') were never assigned a DOI/PMID at all (external_id: not_specified), not that resolution failed -- so the sidecar's declared rate understates resolvability for refs it didn't bother to look up, while overstating nothing for the ones it did tag as resolvable.",
+    "details": [
+      {"ref_id": "R01", "external_id": "10.1002/alz.13859", "resolves": true, "title": "Revised criteria for diagnosis and staging of Alzheimer's disease: Alzheimer's Association Workgroup.", "pmid": "38934362"},
+      {"ref_id": "R02", "external_id": "10.1038/s41591-022-02049-x", "resolves": true, "title": "Amyloid and tau PET-positive cognitively unimpaired individuals are at high risk for future cognitive decline.", "pmid": "36357681"},
+      {"ref_id": "R03", "external_id": "10.1001/jama.2025.7817", "resolves": true, "title": "Frequency and Clinical Outcomes Associated With Tau Positron Emission Tomography Positivity.", "pmid": "40522652"},
+      {"ref_id": "R05", "external_id": "10.1016/S1474-4422(25)00227-3", "resolves": true, "title": "Blood phosphorylated tau for the diagnosis of Alzheimer's disease: a systematic review and meta-analysis.", "pmid": "40818474"},
+      {"ref_id": "R06", "external_id": "10.1002/alz.14458", "resolves": true, "title": "Diagnostic accuracy of phosphorylated tau217 in detecting Alzheimer's disease pathology among cognitively impaired and unimpaired: A systematic review and meta-analysis.", "pmid": "39711334"},
+      {"ref_id": "R07", "external_id": "10.1038/s41591-025-03617-7", "resolves": true, "title": "Plasma MTBR-tau243 biomarker identifies tau tangle pathology in Alzheimer's disease.", "pmid": "40164726"},
+      {"ref_id": "R08", "external_id": "10.1007/s00401-023-02660-3", "resolves": true, "title": "Optimal blood tau species for the detection of Alzheimer's disease neuropathology: an immunoprecipitation mass spectrometry and autopsy study.", "pmid": "38159140"},
+      {"ref_id": "R09", "external_id": "10.1186/s13024-024-00707-x", "resolves": true, "title": "Plasma N-terminal containing tau fragments (NTA-tau): a biomarker of tau deposition in Alzheimer's Disease.", "pmid": "38365825"},
+      {"ref_id": "R10a", "external_id": "10.1016/j.jalz.2016.01.014", "resolves": true, "title": "Hyperphosphorylation determines both the spread and the morphology of tau pathology.", "pmid": "27133892", "note": "First author confirmed as Hu, W. (matches 'Hu et al., 2016' citation)."},
+      {"ref_id": "R10b", "external_id": "10.1073/pnas.91.12.5562", "resolves": true, "title": "Role of abnormally phosphorylated tau in the breakdown of microtubules in Alzheimer disease.", "pmid": "8202528", "note": "Matches Alonso et al., 1994 PNAS."},
+      {"ref_id": "R10c", "external_id": "10.1038/nm0796-783", "resolves": true, "title": "Alzheimer's disease hyperphosphorylated tau sequesters normal tau into tangles of filaments and disassembles microtubules.", "pmid": "8673924", "note": "Matches Alonso et al., 1996 Nat Med."},
+      {"ref_id": "R12", "external_id": "10.1111/ene.70068", "resolves": true, "title": "Tau PET Imaging With [F]MK-6240: Limited Affinity for Primary Tauopathies and High Specificity for Alzheimer's Disease.", "pmid": "39957301"}
+    ]
+  },
+  "novelty": {
+    "claims": [
+      {
+        "claim_id": "C01",
+        "claim_text": "VeraBIND Tau assay shows high sensitivity/specificity/AUC for predicting tau-PET positivity (n=145).",
+        "verdict": "novel",
+        "prior_pmid": null,
+        "note": "VeraBIND Tau is a proprietary, patent-pending (PCT/US24/50852, filed Oct 2024) functional seeding-activity assay first described in this paper. PubMed searches for 'VeraBIND tau assay' and for generic 'plasma tau seeding activity assay tau PET Alzheimer' returned only this paper itself (PMID 41959753, medRxiv preprint) plus one unrelated 2019 EU/US/CTAD task-force review (PMID 31062825) with no overlap in finding. No prior publication reporting diagnostic performance of this or an equivalent plasma tau-seeding functional assay against tau-PET was found."
+      },
+      {
+        "claim_id": "C02",
+        "claim_text": "VeraBIND Tau AUC for tau-PET exceeds pTau217 AUC; pTau217 AUC for amyloid-PET exceeds VeraBIND AUC for amyloid.",
+        "verdict": "cannot_determine",
+        "prior_pmid": null,
+        "note": "The general finding that plasma pTau217 tracks amyloid pathology better than tau-specific markers is broadly consistent with prior literature (e.g., Therriault 2025 Lancet Neurol meta-analysis, PMID 40818474, already in refs), but no prior paper directly compares a functional tau-seeding assay to pTau217 in this way, since the assay is new. Rated cannot_determine for the comparative claim as a whole rather than previously_reported, since the specific head-to-head with VeraBIND has no precedent."
+      },
+      {
+        "claim_id": "C04",
+        "claim_text": "VeraBIND Tau outperforms pTau217 specifically at early Braak-like tau-PET stages 1-3 (higher AUC, sensitivity; lower false-positive rate at Braak0).",
+        "verdict": "novel",
+        "prior_pmid": null,
+        "note": "Searched 'plasma biomarker tau PET AUC pTau217 comparison diagnostic accuracy' (10 hits, all general pTau217-vs-tau-PET accuracy papers, none using a seeding-activity assay) and found no prior report of any plasma marker specifically outperforming pTau217 at early Braak-like stages. Novel to this paper."
+      },
+      {
+        "claim_id": "C07",
+        "claim_text": "VeraBIND Tau score (but not pTau217 concentration) significantly predicts entorhinal tau-PET SUVr (n=93).",
+        "verdict": "novel",
+        "prior_pmid": null,
+        "note": "Search 'plasma tau seeding activity predicts cognitive decline longitudinal' and 'tau seeding activity blood plasma predicts entorhinal tau PET' returned zero or only self-referential (this paper) hits. No prior publication makes this claim for any plasma marker under this assay design."
+      },
+      {
+        "claim_id": "C09",
+        "claim_text": "Annual rate of change in VeraBIND Tau score correlates with entorhinal SUVr, Braak stage, MMSE, episodic memory, pTau217, pTau181 in a longitudinal subsample (n=88); no correlation with pTau231 change.",
+        "verdict": "novel",
+        "prior_pmid": null,
+        "note": "No prior literature exists on longitudinal change in a plasma tau-seeding-activity assay, since VeraBIND Tau is introduced in this paper. Cannot be previously_reported by construction."
+      }
+    ]
+  },
+  "registry": null,
+  "retractions": {
+    "found": [],
+    "notes": "Searched PubMed for a retraction/correction of this paper itself (found only the original medRxiv preprint record, PMID 41959753, no retraction attached) and attempted a targeted 'Retraction of Publication[Publication Type]' search combined with key reference authors/topics (Alonso tau 1996, Hu tau 2016, Ossenkoppele tau PET) -- zero hits. A broader unconstrained combination of 'Retraction of Publication[Publication Type] VeraBIND OR MTBR-tau243 OR pTau217' returned 1007 hits because PubMed's boolean parsing did not scope the OR terms under the publication-type filter (a query-construction artifact, not evidence of retractions); it was not usable as-is and was superseded by the targeted author/topic query above, which returned zero. No retractions or corrections found for this paper or its highly-cited references (Jack 2024, Ossenkoppele 2022, Moscoso 2025 JAMA, Therriault 2025 Lancet Neurol, Alonso 1994/1996, Hu 2016)."
+  },
+  "notes": "All 12 refs.yaml entries carrying a real DOI (of 63 total ref entries; the other 51 are tagged external_id: not_specified/not_applicable and were excluded per the 'up to 12 with DOI/PMID' instruction) resolved cleanly on PubMed via search_articles, with titles/authors matching the sidecar's raw citation text in every case (observed_rate = 1.0 on attempted). The sidecar's self-declared 'resolvable' rate (12/63 = 0.190) is not a resolution-failure rate -- it reflects that most references in this ARA are informally cited in related_work.md prose without DOIs ever being looked up, not that lookups were attempted and failed. Within the subset the sidecar did commit to as resolvable, ground truth fully confirms it. All headline claims (C01, C02, C04, C07, C09) concern a novel proprietary assay (VeraBIND Tau, patent-pending, first described in this preprint) and are therefore necessarily first-report / novel by construction -- no prior PubMed literature reports diagnostic or longitudinal performance of this specific assay, and searches for generically similar plasma tau-seeding-activity assays returned no comparable prior art. This paper itself (Hanseeuw et al., medRxiv, PMID 41959753, DOI 10.64898/2026.04.03.26350110) is confirmed indexed with matching abstract, population n (79 CU + 66 CI = 145), and headline AUC figures (0.97 for tau-PET; 0.96 vs 0.74 for pTau217 at early Braak stages, p=0.003) consistent with claims_typed.yaml C01/C04. No retraction/correction found for the paper or its key references."
+}

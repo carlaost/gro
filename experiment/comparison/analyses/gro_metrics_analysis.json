@@ -1,0 +1,180 @@
+{
+  "generated": "2026-07-07",
+  "source_files": [
+    "research/metrics/v4-gro/results.json",
+    "research/metrics/v4-gro/external_validation.json",
+    "research/metrics/v4-gro/external/che26-diagnostic-performance-of-plasma-p-tau217.json",
+    "research/metrics/v4-gro/external/val25-blood-biomarkers-of-alzheimer-s-disease.json",
+    "research/metrics/v4-gro/external/han26-tau-pathological-activity-in-plasma-before.json",
+    "research/metrics/v4-gro/external/zim25-donanemab-in-early-symptomatic-alzheimer-s.json",
+    "research/metrics/v4-gro/external/jes26-efficacy-and-safety-of-donanemab-in.json",
+    "research/metrics/v4-gro/external/tit26-automated-high-throughput-quantification-of-plasma.json"
+  ],
+  "corpus": {
+    "deterministic_tier_n": 12,
+    "anchored_or_judged_tier_n": 6,
+    "anchored_or_judged_slugs": [
+      "che26-diagnostic-performance-of-plasma-p-tau217",
+      "val25-blood-biomarkers-of-alzheimer-s-disease",
+      "han26-tau-pathological-activity-in-plasma-before",
+      "zim25-donanemab-in-early-symptomatic-alzheimer-s",
+      "jes26-efficacy-and-safety-of-donanemab-in",
+      "tit26-automated-high-throughput-quantification-of-plasma"
+    ],
+    "no_external_validation_slugs": [
+      "gau25-single-nucleus-and-spatial-transcriptomic-profiling",
+      "zho25-microglia-networks-within-the-tapestry-of",
+      "aki26-molecular-signatures-of-resilience-to-alzheimer",
+      "cum26-alzheimer-s-disease-drug-development-pipeline",
+      "xu25-epidemiological-and-sociodemographic-transitions-in-the",
+      "ard25-response-of-spatially-defined-microglia-states"
+    ],
+    "note": "The 6 anchored/judged-tier ARAs are exactly the biomarker/trial cluster (p-tau217 assays + donanemab trials). The 6 biology/epi/pipeline ARAs (gau25, zho25, aki26, cum26, xu25, ard25) have deterministic-tier scores only -- no reference-resolution ground-truth check, no novelty check, no registry check, no retraction check exists for them. Any 'most uncertain' verdict about the anchored/judged metrics is therefore itself only demonstrated on half the corpus."
+  },
+  "metrics": [
+    {
+      "metric": "claim_typing_coverage",
+      "tier": "deterministic",
+      "corpus_stat": {"mean": 1.0, "min": 1.0, "max": 1.0, "n_aras_defined": 12, "n_aras_null": 0},
+      "reliability": "best",
+      "sharpest_per_ara_example": "1.0 for every one of the 12 ARAs regardless of genre -- including zho25 (narrative_review, 14 claims, an unusual genre with an 'experiments' slot present that shouldn't be) and ard25 (preclinical_mechanistic_study with 0 experiment ids recovered). The check (claim_type in enum AND logical_form != not_specified) holds even where other metrics on the SAME ARA collapse (ard25's broken_ref_integrity=16, zho25's genre_silent_omissions=-1).",
+      "why_it_lands_here": "It is a pure structural presence/enum check with no external dependency and no judgment call -- gaming it would require the compiler to fabricate a claim_type and a non-empty logical_form for every claim, which is visible and checkable. Zero variance across 12 structurally very different genres (clinical trial, narrative review, epidemiology, drug-pipeline registry, preclinical mechanistic study) is strong evidence the check is both well-specified and consistently enforced, not just trivially true for one genre."
+    },
+    {
+      "metric": "quantity_reconciliation_rate",
+      "tier": "deterministic",
+      "corpus_stat": {"mean": 1.0, "min": 1.0, "max": 1.0, "n_aras_defined": 10, "n_aras_null": 2},
+      "reliability": "best",
+      "sharpest_per_ara_example": "val25 has 5 quantities each referenced by >=2 claims (n_multi_claim_quantities=5) and every one is rounding-consistent with the numeral embedded in its own authoring quote (rate=1.0). zho25 and aki26 return null ('no quantities referenced by >=2 claims; reconciliation rate undefined') -- not a failure, but a genuine coverage gap: these two ARAs simply never have a quantity cited by two different claims to cross-check.",
+      "why_it_lands_here": "This is an arithmetic cross-check between two independently authored fields (a canonical ledger value and the free-text quote the claim was extracted from) -- gaming it would require the compiler to deliberately misstate a number in either the ledger or the quote, which would be visible on inspection. Perfect reconciliation across 10/12 ARAs with zero exceptions is a strong reliability signal. The only caveat is coverage, not correctness: 2/12 ARAs (16.7%) return null rather than a score, so the metric can't speak to those ARAs at all."
+    },
+    {
+      "metric": "retractions",
+      "tier": "reliable-anchored",
+      "corpus_stat": {"found_total": 0, "per_paper_found": {"zim25": 0, "jes26": 0, "che26": 0, "val25": 0, "han26": 0, "tit26": 0}, "n_papers_checked": 6},
+      "reliability": "best",
+      "sharpest_per_ara_example": "Every check was a live, itemized PubMed query, not a blanket assumption -- e.g. che26 ran 4 distinct targeted queries (paper itself + its 2 most-cited references), zim25 ran 4 queries including 'TRAILBLAZER-ALZ 2 retraction of publication', tit26 ran a direct PMID+publication-type UID query (41764587[uid] AND (Retraction OR \"Corrected and Republished\")). All 6 papers plus their most-cited references returned 0 hits.",
+      "why_it_lands_here": "This is anchored to an external, hard-to-fabricate authority (PubMed's own 'Retraction of Publication' / 'Corrected and Republished Article' publication-type flags) rather than to anything inside the ARA -- an ARA author cannot game this check by editing their own artifact. Reliability is maximal when it fires (a real retraction flag is unambiguous), and zero variance was observed here. The tradeoff, disclosed explicitly in external_validation.json, is a floor effect: 'No known-bad papers exist in this corpus' -- so the metric is proven trustworthy but not yet proven discriminating, and it only covers each paper's top 1-2 cited references, not the full reference list."
+    },
+    {
+      "metric": "entity_anchoring_rate",
+      "tier": "deterministic",
+      "corpus_stat": {"mean": 0.0, "min": 0.0, "max": 0.0, "n_aras_defined": 12, "n_aras_null": 0},
+      "reliability": "middle (reliable but non-discriminating)",
+      "sharpest_per_ara_example": "Identically 0.0 across all 12 ARAs -- che26 (13 entities), zho25 (24 entities), ard25 (20 entities) all show zero entities with an xref != not_specified. There is no per-ARA variation to point to; the flatness itself is the finding.",
+      "why_it_lands_here": "The check (does an entity carry an ontology xref) is unambiguous and hard to game, but it never fires anywhere in the corpus -- a corpus-wide pipeline gap (no ARA in this batch does entity linking to an external KB), not evidence about any individual ARA's quality. Reliable measurement, zero discriminating power in this sample."
+    },
+    {
+      "metric": "entailment_precondition_rate",
+      "tier": "deterministic",
+      "corpus_stat": {"mean": 0.8213369963369965, "min": 0.4, "max": 1.0, "n_aras_defined": 12, "n_aras_null": 0},
+      "reliability": "middle",
+      "sharpest_per_ara_example": "aki26 (molecular_neuropathology_single_cell_omics, 10 claims) is the corpus floor at 0.4 -- only 4/10 claims carry both a result-role quantity_ref and a proof_ref. che26, han26, zim25, jes26, tit26, and cum26 all sit at the ceiling of 1.0.",
+      "why_it_lands_here": "Deterministic and hard to game (it is a structural AND of two ref-presence checks), but with real spread (0.4-1.0, a 0.6 range) rather than the near-zero variance of the top metrics -- useful for differentiating ARAs but not itself a 'low-variance, rock-solid' metric by the best/most-uncertain criterion used here."
+    },
+    {
+      "metric": "reference_resolvability_rate (self-declared, deterministic slice)",
+      "tier": "deterministic (but directly invalidated by the reliable-anchored check on the same 6 ARAs)",
+      "corpus_stat": {"mean": 0.37432276884823895, "min": 0.0, "max": 1.0, "n_aras_defined": 12, "n_aras_null": 0},
+      "reliability": "most_uncertain",
+      "sharpest_per_ara_example": "val25 self-declares 0.0 (0/55 refs resolvable) yet the reliable-anchored check independently resolved 9/12 sampled refs on PubMed (observed 0.75). han26 self-declares 0.19 (12/63) yet observed = 1.0 (12/12 of the refs that DID carry a DOI resolved cleanly). tit26 self-declares 0.132 (7/53) yet observed = 1.0 (7/7).",
+      "why_it_lands_here": "This is the one metric where we have a direct ground-truth check on the SAME quantity, and the ground truth says the deterministic self-declared score is measuring the wrong construct: 'declared' captures whether the compiler happened to capture a DOI/PMID at compile time (a function of what bibliography was in the source PDF), not whether the reference is actually resolvable/real. Pooled across the 6 checked ARAs: mean_declared_unweighted=0.5197 vs mean_observed_unweighted=0.9583 -- a ~0.44 absolute gap. Per external_validation.json's own interpretation: 'This exposes a real semantic gap in the anchored-tier metric: it currently scores DOI-capture completeness rather than reference verifiability.' It is also the deterministic metric with the largest corpus range (0.0 to 1.0)."
+    },
+    {
+      "metric": "genre_silent_omissions",
+      "tier": "deterministic",
+      "corpus_stat": {"total": 4, "mean": 0.3333333333333333, "min": -1, "max": 4, "n_aras_nonzero": 3},
+      "reliability": "middle (flagged formula defect)",
+      "sharpest_per_ara_example": "ard25 = 4 (preclinical_mechanistic_study missing 'concepts', 'dataset', 'experiments', 'related_work' expected slots, consistent with its own note 'no logic/experiments.md found'). zho25 = -1, which the tool's own diagnostics flag as a formula artifact: 'genre.yaml present_slots contains slot(s) not in expected_slots: [\\'experiments\\'] -- literal count formula can go negative.'",
+      "why_it_lands_here": "count(expected_slots) - count(present_slots) - count(absent_declared) can produce a negative, meaningless count when a genre model's present_slots set includes something outside its own expected_slots list -- this is a documented defect in the metric's own arithmetic, not merely noise. It's deterministic-tier (no LLM judgment at scoring time) but the underlying genre_paper_type assignment and expected-slots model are themselves inferred, so a formula bug plus an inferred input schema make this metric less trustworthy than its 'deterministic' label implies."
+    },
+    {
+      "metric": "overclaim_flags",
+      "tier": "deterministic (scored over LLM-typed population_scope/population_n fields)",
+      "corpus_stat": {"total": 23, "mean": 1.9166666666666667, "min": 0, "max": 11, "n_aras_nonzero": 3},
+      "reliability": "middle (construct-validity concern)",
+      "sharpest_per_ara_example": "xu25 (epidemiological_secondary_analysis) flags 11/13 claims (C01,C02,C03,C05,C06,C07,C08,C09,C10,C11,C13); cum26 (clinical_pipeline_registry_census) flags 9/10 claims (C01-C03,C05-C10). Every other ARA in the corpus (9/12) scores 0.",
+      "why_it_lands_here": "The scoring rule itself (count of claims with population_scope in {population_estimate, claimed_universal} AND population_n == not_specified) is a simple AND-count, but its two inputs are LLM inferences about the paper, and the near-total concentration in exactly the two genres that structurally traffic in population-level estimates (global epidemiological projections, pipeline censuses) rather than single-cohort n's suggests the metric may be flagging a genre feature (population_scope claims legitimately lacking a single sample size) as if it were overclaiming. High skew (0 for 9/12 ARAs, 9-11 for 2/12) with no adjudicated ground truth on whether the 20 flagged claims in cum26+xu25 are actually overclaims."
+    },
+    {
+      "metric": "broken_ref_integrity",
+      "tier": "deterministic",
+      "corpus_stat": {"total": 16, "mean": 1.3333333333333333, "min": 0, "max": 16, "n_aras_nonzero": 1},
+      "reliability": "middle (single-ARA artifact)",
+      "sharpest_per_ara_example": "100% of the corpus total (16/16) comes from ard25 alone, and ard25's own diagnostics attribute this to a missing source artifact, not fabricated refs: 'no logic/experiments.md found for this ARA -- all proof_refs treated as unresolved.' All 16 broken_ref_detail entries are proof_refs (E01-E11) pointing at experiment IDs that would exist if the experiments ledger file were present.",
+      "why_it_lands_here": "The check itself (does a ref id resolve inside quantities.yaml/entities.yaml/the E## ledger) is deterministic and hard to game, but the corpus shows it conflates two different failure modes: a claim citing a genuinely nonexistent id, versus a claim citing a real id in a ledger file the compiler never found. ard25's 16 flags are entirely the latter -- a compilation-completeness artifact rather than evidence the ARA's authors wrote broken citations."
+    },
+    {
+      "metric": "prior-lit novelty verdict",
+      "tier": "reproducible-judged",
+      "corpus_stat": {"total_claims_checked": 31, "novel": 10, "incremental": 10, "cannot_determine": 7, "previously_reported": 4, "fractions": {"novel": 0.3226, "incremental": 0.3226, "cannot_determine": 0.2258, "previously_reported": 0.129}},
+      "reliability": "most_uncertain",
+      "sharpest_per_ara_example": "han26 = 4 novel / 0 incremental / 1 cannot_determine / 0 previously_reported (80% novel -- its VeraBIND Tau assay is proprietary and patent-pending, so novelty is close to novel-by-construction). tit26 = 0 novel / 1 incremental / 1 cannot_determine / 3 previously_reported (60% previously_reported -- a throughput/automation reimplementation of well-established p-tau217 findings, e.g. C03's p-tau217>p-tau181 result is traced to a 2021 paper, PMID 34418401). val25 = 0 novel / 3 incremental / 1 cannot_determine / 1 previously_reported, with C01 explicitly matched (prior_pmid 40140622) to the SAME author group's own companion Nature Medicine paper on the SAME SNAC-K cohort (n=2148) published ~7 months earlier and cited internally as the ARA's own ref 9.",
+      "why_it_lands_here": "Each verdict rests on an LLM judgment call over a PubMed search, and the search methodology itself surfaces its own limits: 22.6% of claims (7/31) land in cannot_determine because 'absence of a PubMed hit is not strong evidence of absence' for narrow subgroup/derived claims (explicitly stated for che26's C05 Han-Chinese-cohort claim and val25's C09 age-stratified claim). The verdict also depends on query phrasing -- che26's C01/C03 searches retrieved only the paper itself as a self-match, which is used as evidence of novelty but is also exactly the failure mode a differently-phrased query could miss or over-trigger. Only 31 claims across 6/12 ARAs were checked at all; the other 6 ARAs have zero novelty coverage."
+    },
+    {
+      "metric": "trial-registry concordance",
+      "tier": "reliable-anchored (registered outcomes) + judged (concordance verdict)",
+      "corpus_stat": {"trial_papers_checked": 2, "both_same_trial": "NCT04437511", "concealed_outcome_switching_found": false, "transparent_post_hoc_concordance_gaps_found": 2},
+      "reliability": "most_uncertain",
+      "sharpest_per_ara_example": "zim25 and jes26 are BOTH post-hoc analyses of the exact same registered trial, NCT04437511 (TRAILBLAZER-ALZ 2 / TRAILBLAZER-ALZ 6). zim25 adds CDR-Global hazard-ratio comparison, pooled amyloid-reaccumulation model, and AUC/time-saved analysis beyond the registered outcomes, and drops tau PET, vMRI, PK, and anti-drug-antibody measures. jes26 shows the identical concordance-gap pattern (adds CDR-Global HR + plasma P-tau217 + LTE-vs-ADNI comparison; drops ADAS-Cog13/MMSE/ADCS-iADL/tau PET/vMRI/PK/immunogenicity) on the SAME trial.",
+      "why_it_lands_here": "The metric's own summary admits this directly: 'Only 2 trial papers had a registry to check, and both are the SAME trial (NCT04437511), so registry-concordance evidence is effectively a single data point.' It cannot yet distinguish 'this pattern of transparent post-hoc endpoint elevation is typical of donanemab LTE papers' from 'this pattern is typical of clinical-trial secondary-analysis papers in general' -- n=1 trial provides no basis for either claim. The rest of the corpus (10/12 ARAs, including all non-trial biomarker/biology/epi work) has registry=null and cannot be assessed by this metric at all."
+    },
+    {
+      "metric": "reference_resolvability (reliable-anchored external check)",
+      "tier": "reliable-anchored",
+      "corpus_stat": {"mean_observed_unweighted": 0.9583, "mean_declared_unweighted": 0.5197, "pooled_observed_by_sample": 0.9552, "pooled_attempted": 67, "pooled_resolved": 64},
+      "reliability": "middle (the check itself is sound; see reference_resolvability_rate above for why the deterministic pair-metric it's validating is 'most_uncertain')",
+      "sharpest_per_ara_example": "val25 is the corpus floor even under the anchored check: 9/12 resolved (0.75), with 3 refs (R07 'Lu et al. 2024, JAMA', R28 'Ashton et al. 2024, JAMA Neurol.', R30 'Therriault et al. 2025, Lancet Neurol.') genuinely not confirmable via targeted PubMed search within the session's effort budget. Every other checked ARA (zim25, jes26, che26, han26, tit26) resolved 12/12 or 7/7 (1.0).",
+      "why_it_lands_here": "As a live external lookup against PubMed's own records this is hard to game and directly falsifiable, and it is the piece of evidence that exposes the deterministic reference_resolvability_rate as unreliable (see above). Its own limitation is sampling: only 7-12 refs/ARA were checked (not exhaustive), and it only covers 6/12 ARAs."
+    }
+  ],
+  "rankings": {
+    "best_3": [
+      {
+        "rank": 1,
+        "metric": "claim_typing_coverage",
+        "tier": "deterministic",
+        "evidence": "1.0 for all 12/12 ARAs, 0 nulls -- perfect consistency across genres as different as narrative_review (zho25), preclinical_mechanistic_study (ard25), and clinical_trial_long_term_extension (zim25). No external dependency; gaming it would require fabricating a non-empty logical_form for every single claim, which is a visible, checkable artifact."
+      },
+      {
+        "rank": 2,
+        "metric": "quantity_reconciliation_rate",
+        "tier": "deterministic",
+        "evidence": "1.0 for all 10/12 ARAs where it is defined (val25 alone has 5 independent multi-claim quantities, all reconciled). It is an arithmetic cross-check between two independently authored fields (ledger value vs. quote-embedded numeral), which is intrinsically hard to fake. The only blemish is a coverage gap (null for zho25, aki26), not a correctness failure."
+      },
+      {
+        "rank": 3,
+        "metric": "retractions",
+        "tier": "reliable-anchored",
+        "evidence": "0/0 across all 6 externally-checked ARAs and their top cited references, each verified via itemized, logged PubMed publication-type queries (e.g. tit26's direct PMID+publication-type UID query). Anchored to an external authority an ARA author cannot edit, so it is maximally hard to game. Caveat: floor effect -- 'No known-bad papers exist in this corpus' means the metric is proven trustworthy, not yet proven discriminating."
+      }
+    ],
+    "most_uncertain_3": [
+      {
+        "rank": 1,
+        "metric": "reference_resolvability_rate (self-declared/deterministic)",
+        "tier": "deterministic, but directly falsified by the reliable-anchored check on the same 6 ARAs",
+        "evidence": "Declared corpus mean 0.5197 vs. independently observed 0.9583 (a ~0.44 gap). val25 declares 0.0 (0/55) but PubMed resolved 9/12 sampled refs (0.75); han26 declares 0.19 but resolves 1.0; tit26 declares 0.132 but resolves 1.0. external_validation.json's own conclusion: the metric 'scores DOI-capture completeness rather than reference verifiability.' This is the metric with the largest self-declared corpus range (0.0 to 1.0) AND the one directly contradicted by ground truth."
+      },
+      {
+        "rank": 2,
+        "metric": "prior-lit novelty verdict",
+        "tier": "reproducible-judged",
+        "evidence": "22.6% of all checked claims (7/31) resolve to cannot_determine, and the interpretation explicitly warns that novelty verdicts hinge on PubMed-search phrasing and on absence-of-evidence reasoning that 'is not strong evidence of absence' for narrow/subgroup claims (che26 C05, val25 C09). Verdicts split the corpus almost evenly across all 4 categories (32.3% / 32.3% / 22.6% / 12.9%) with no independent adjudicator beyond the same search methodology. Only 31 claims across 6/12 ARAs are covered at all."
+      },
+      {
+        "rank": 3,
+        "metric": "trial-registry concordance",
+        "tier": "reliable-anchored + judged",
+        "evidence": "Only 2 trial papers exist in the corpus to check (zim25, jes26), and both are post-hoc analyses of the exact SAME trial, NCT04437511 -- explicitly flagged in the caveats as 'registry-concordance evidence is effectively a single data point.' 10/12 ARAs have registry=null. The 'concordance_gap: true' verdict for both papers is real (CDR-Global HR, plasma P-tau217, and LTE-vs-ADNI comparisons are all added_post_hoc relative to the registered outcome list) but generalizes to nothing beyond this one trial."
+      }
+    ]
+  },
+  "cross_cutting_caveats": [
+    "Only 6/12 ARAs (the p-tau217-assay + donanemab-trial cluster) have ANY anchored or judged-tier data. The other 6 ARAs (gau25, zho25, aki26, cum26, xu25, ard25) are assessed on deterministic-tier metrics only -- so every 'most uncertain' finding about anchored/judged metrics is itself demonstrated on half the corpus, in one narrow clinical/biomarker sub-domain.",
+    "The corpus contains zero known-bad papers (0 retractions, no concealed outcome switching, all references ultimately real). external_validation.json states this directly: the anchored/judged checks 'validate external computability and surface concordance/compilation gaps, but it is NOT a full good-vs-bad discrimination test.' High reliability scores on retractions and reference resolvability reflect a floor/ceiling effect on a uniformly legitimate corpus, not proof the metric would correctly flag a genuinely fabricated or retracted paper.",
+    "Two deterministic-tier metrics beyond the ranked list show internal defects worth flagging even though they didn't make the top-3: genre_silent_omissions can go negative (zho25 = -1) due to a documented formula bug when a genre's present_slots exceeds its expected_slots; broken_ref_integrity is 100% concentrated in a single ARA (ard25, 16/16) and that ARA's own diagnostics attribute the breakage to a missing logic/experiments.md file rather than genuinely broken citations.",
+    "overclaim_flags is nominally deterministic but scored over LLM-typed population_scope/population_n fields, and its 23 total flags concentrate almost entirely in two genres (xu25's epidemiological projections and cum26's pipeline census) that structurally deal in population-level estimates -- raising a construct-validity question about whether the flag is catching overclaiming or just catching a genre feature."
+  ]
+}

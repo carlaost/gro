@@ -1,0 +1,51 @@
+{
+  "slug": "zho25-microglia-networks-within-the-tapestry-of",
+  "dimensions": {
+    "D1": {
+      "score": 4,
+      "justification": "Every claim (C01-C14) is anchored to a verbatim page-cited quote from paper.pdf, and the [result]/[input] tags correctly distinguish empirical findings from fixed technology specs, appropriate for a synthesis-type descriptive review.",
+      "weakness": "The 'evidence' for each claim is the review's own restated text, not independent verification against the underlying primary papers (e.g., Chen WT 2020, Zeng H 2023) — grounding depth stops at the review layer rather than reaching the original data."
+    },
+    "D2": {
+      "score": 3,
+      "justification": "Falsification criteria are specific and reference identifiable primary sources by first author/journal/year (e.g., 'ref. 81/Zeng H et al., Nat Neurosci 2023'), giving each claim at least one concrete disconfirming observation.",
+      "weakness": "Most criteria amount to 'the cited primary study reports a different number/pattern than what the review states' — this tests whether the review transcribed its sources correctly, not whether the underlying biological claim is true, so falsification is largely citation-accuracy checking rather than substantive testability."
+    },
+    "D3": {
+      "score": 4,
+      "justification": "Claims consistently qualify scope to specific mouse models (5xFAD, AppNL-G-F, TauPS2APP), specific platforms, and specific distance bands, and problem.md/constraints.md explicitly flag the mouse-to-human generalization gap and cross-study distance-band comparability as assumptions rather than established facts.",
+      "weakness": "Claims like C06 (14% DAA fraction) and C07 (130 RL pairs) are stated as review-endorsed facts in claims.md without a scope caveat in the claim text itself that these are single-study, non-replicated numbers — that caveat only surfaces in the separate constraints.md file."
+    },
+    "D4": {
+      "score": 4,
+      "justification": "The observations (microglial heterogeneity, DAM/ARM/MGnD convergence) flow logically into the stated gap (no spatial context from scRNAseq) into the key insight (microglia as an organizing spatial hub) into the claims and experiments, with dependency edges (e.g., C05→C07, C04→C08) that track the paper's own narrative structure.",
+      "weakness": "The human-AD-samples branch (N17) is included as a question node but explicitly notes it yields 'no single unifying quantitative finding' and has no corresponding claim, leaving a visible seam between the exploration tree's four themes and the claims layer's coverage."
+    },
+    "D5": {
+      "score": 2,
+      "justification": "The exploration tree is transparent about its own limits, explicitly stating that no dead_end, decision, or pivot nodes are included because the artifact reconstructs a completed literature synthesis rather than a first-hand research trajectory.",
+      "weakness": "Because every node is type 'question' or 'experiment' with support_level 'explicit', there are zero deliberated decisions, rejected alternatives, or honest negatives anywhere in the trace — the dimension cannot be positively demonstrated, only disclaimed, which caps how much confidence this ARA can support on exploration integrity."
+    },
+    "D6": {
+      "score": 2,
+      "justification": "constraints.md candidly flags that the review pools single-study findings (RL pair counts, DAA fractions, activation-score gene panels) as established without statistical pooling or independent replication, and correctly notes the review adds no new data or ablations.",
+      "weakness": "None of the load-bearing quantitative claims (e.g., 130 RL pairs, 14% DAA fraction, 57 PIGs) carry any statistical reporting (sample sizes, p-values, confidence intervals) even though the primary cited studies presumably reported some — the ARA inherits this rigor gap from the review without any mitigation such as flagging which numbers are single-cohort point estimates versus replicated ones at the claim level."
+    }
+  },
+  "overall_score": 3.2,
+  "recommendation": "Weak Accept",
+  "findings": [
+    {
+      "severity": "medium",
+      "text": "Falsification criteria for nearly all 14 claims test citation fidelity to the review's own quoted source (e.g., 'the cited study reports a different PIG count') rather than the truth of the underlying biological claim, which limits independent testability beyond checking the review's transcription accuracy."
+    },
+    {
+      "severity": "medium",
+      "text": "Several central quantitative claims (C06's 14% DAA-like astrocyte fraction, C07's 130 candidate RL pairs, C10's activation-score correlation) rest on single, non-replicated primary studies; this is disclosed honestly in constraints.md but is not flagged at the individual claim level in claims.md, so a reader of claims.md alone would not know these are single-cohort estimates."
+    },
+    {
+      "severity": "low",
+      "text": "The exploration tree contains no dead-end, decision, or pivot nodes by explicit design choice (it reconstructs a completed narrative review rather than a first-hand research trajectory), so exploration integrity cannot be substantively evaluated from this artifact — it is honestly disclaimed rather than fabricated, but the dimension is effectively unscoreable above a low-moderate baseline."
+    }
+  ]
+}

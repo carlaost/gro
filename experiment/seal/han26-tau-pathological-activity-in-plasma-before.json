@@ -1,0 +1,51 @@
+{
+  "slug": "han26-tau-pathological-activity-in-plasma-before",
+  "dimensions": {
+    "D1": {
+      "score": 4,
+      "justification": "Every claim (C01-C12) is descriptive/comparative diagnostic-accuracy reporting and is grounded to verbatim quotes from tables/figures with appropriate baseline comparators (pTau217/181/231, Aβ42/Aβ40) via DeLong/McNemar tests, matching the improvement-type evidence expected for head-to-head biomarker claims.",
+      "weakness": "All evidence comes from a single, non-independently-validated cohort where the index assay was run by the commercial developer holding equity/patents in it, so the evidence base cannot yet substantively support generalizable diagnostic-performance claims beyond this cohort."
+    },
+    "D2": {
+      "score": 4,
+      "justification": "Nearly every claim specifies a concrete, scope-matched falsification condition (e.g., an independent cohort in which pTau217 matches VeraBIND Tau's AUC/PPV in a named subgroup), and C12 is explicitly downgraded to 'hypothesis' with its own falsification path via more 4R-sensitive tracers.",
+      "weakness": "Several falsification criteria are templated as generic 'independent cohort shows no difference' statements rather than pre-specifying an effect-size or non-inferiority margin, making them somewhat easier to satisfy post hoc than a tighter quantitative criterion would allow."
+    },
+    "D3": {
+      "score": 4,
+      "justification": "Claims are generally well-calibrated to their evidence — hypothesis-status is correctly assigned to the thinly-supported non-AD-tauopathy claim (C12), modest correlation magnitudes are flagged as modest (C09), and CU-subgroup results are explicitly distinguished from whole-sample results (C08).",
+      "weakness": "The central comparative claim (C02) that VeraBIND Tau 'outperformed' pTau217 for tau-PET positivity rests on a DeLong z=1.96, p=0.049 — a borderline result in a single cohort — yet is stated with the same unqualified confidence as the much stronger findings (e.g., C04's p=0.003), a mild overclaim of certainty relative to the actual effect strength."
+    },
+    "D4": {
+      "score": 4,
+      "justification": "The observations→gaps→insight→solution→claims→evidence chain is coherent throughout: the O4/O5 rationale for a functional (seeding) rather than concentration-based assay directly motivates the method, and the exploration tree's decisions (e.g., framing VeraBIND Tau as tau-specific after the amyloid dead-end N06) are consistently reflected in the claims and Discussion framing.",
+      "weakness": "C06's characterization of VeraBIND Tau score as an early on/off plateau signal sits in some unexamined tension with C09's use of a continuous 'annual rate of change' in the same score as a disease-progression-sensitive measure; the ARA does not reconcile how a plateaued cross-sectional signal supports a continuously informative longitudinal slope."
+    },
+    "D5": {
+      "score": 5,
+      "justification": "The dead-end (N06, VeraBIND Tau failing to replace pTau217 for amyloid detection) is specific and consequential, decisions carry genuine alternatives and evidence, and the constraints.md file surfaces the study's financial conflicts of interest, single-cohort limitation, APOE enrichment bias, and a data inconsistency in the paper itself (C04's '7/11' vs '7/17' denominator) rather than silently smoothing them over.",
+      "weakness": "All decision nodes are marked 'inferred' or 'explicit' from narrative framing rather than from any documented deliberation among alternative analytic choices the authors actually considered and rejected, so the DAG reconstructs plausible rationale more than it captures a genuinely alternative-weighing process."
+    },
+    "D6": {
+      "score": 3,
+      "justification": "Reporting includes 95% CIs, appropriate paired significance tests (DeLong, McNemar, Fisher's exact) and adjustment for age/sex/education with Bonferroni correction in the Braak-stage regression contrasts, which is a reasonable rigor floor for an observational diagnostic-accuracy study.",
+      "weakness": "The statistical plan explicitly states results are 'uncorrected for multiple comparisons unless otherwise stated' while running many pairwise biomarker/outcome/subgroup comparisons (5 biomarkers × 2 outcomes in E02 alone, plus six-plus Spearman correlations per subgroup in E06/E07), materially inflating Type-I error risk that is not reflected in how confidently the claims are stated; combined with the single-site, developer-run, non-independently-validated design, this is a significant rigor gap."
+    }
+  },
+  "overall_score": 4.0,
+  "recommendation": "Weak Accept",
+  "findings": [
+    {
+      "severity": "high",
+      "text": "The assay's entire evidentiary basis is a single cohort where the VeraBIND Tau measurements were performed by Veravas, Inc./Access Genetics, the same commercial entity holding equity and pending patents on the assay (disclosed in constraints.md), with no independent-cohort validation yet performed — this is the single largest threat to the reliability of the diagnostic-performance claims (C01-C09), and the ARA appropriately surfaces but does not discount for it in the claim statuses."
+    },
+    {
+      "severity": "medium",
+      "text": "The statistical analysis plan is uncorrected for multiple comparisons across a large number of pairwise biomarker/outcome/subgroup tests (E02, E06, E07), yet claims dependent on these tests (e.g., C02's borderline p=0.049 tau-PET AUC comparison) are marked 'supported' with the same confidence as claims with much stronger effect sizes, understating the elevated false-positive risk from the uncorrected multiplicity."
+    },
+    {
+      "severity": "low",
+      "text": "C06's framing of VeraBIND Tau as an early on/off presence signal (plateauing at Braak-like 1-3) is not explicitly reconciled with C09's treatment of the same score's continuous annual rate of change as a disease-progression-sensitive longitudinal measure; the ARA does not address why a plateaued cross-sectional signal should still yield an informative continuous slope over time."
+    }
+  ]
+}

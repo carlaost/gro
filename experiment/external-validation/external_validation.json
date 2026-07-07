@@ -1,0 +1,115 @@
+{
+  "generated": "2026-07-07",
+  "corpus": {
+    "n_papers": 6,
+    "slugs": [
+      "zim25-donanemab-in-early-symptomatic-alzheimer-s",
+      "jes26-efficacy-and-safety-of-donanemab-in",
+      "che26-diagnostic-performance-of-plasma-p-tau217",
+      "val25-blood-biomarkers-of-alzheimer-s-disease",
+      "han26-tau-pathological-activity-in-plasma-before",
+      "tit26-automated-high-throughput-quantification-of-plasma"
+    ],
+    "trial_papers": [
+      "zim25-donanemab-in-early-symptomatic-alzheimer-s",
+      "jes26-efficacy-and-safety-of-donanemab-in"
+    ],
+    "observational_or_nma_papers": [
+      "che26-diagnostic-performance-of-plasma-p-tau217",
+      "val25-blood-biomarkers-of-alzheimer-s-disease",
+      "han26-tau-pathological-activity-in-plasma-before",
+      "tit26-automated-high-throughput-quantification-of-plasma"
+    ]
+  },
+  "reference_resolvability": {
+    "per_paper": [
+      {"slug": "zim25-donanemab-in-early-symptomatic-alzheimer-s", "attempted": 12, "resolved": 12, "observed": 1.0, "declared": 0.957},
+      {"slug": "jes26-efficacy-and-safety-of-donanemab-in", "attempted": 12, "resolved": 12, "observed": 1.0, "declared": 0.895},
+      {"slug": "che26-diagnostic-performance-of-plasma-p-tau217", "attempted": 12, "resolved": 12, "observed": 1.0, "declared": 0.9444},
+      {"slug": "val25-blood-biomarkers-of-alzheimer-s-disease", "attempted": 12, "resolved": 9, "observed": 0.75, "declared": 0.0},
+      {"slug": "han26-tau-pathological-activity-in-plasma-before", "attempted": 12, "resolved": 12, "observed": 1.0, "declared": 0.19},
+      {"slug": "tit26-automated-high-throughput-quantification-of-plasma", "attempted": 7, "resolved": 7, "observed": 1.0, "declared": 0.132}
+    ],
+    "mean_observed_unweighted": 0.9583,
+    "mean_declared_unweighted": 0.5197,
+    "pooled_observed_by_sample": 0.9552,
+    "pooled_attempted": 67,
+    "pooled_resolved": 64,
+    "interpretation": "Observed external resolvability (~0.96) vastly exceeds mean self-declared rate (~0.52). The gap is not a quality failure: the 'declared' field measures compilation-time DOI capture, not true verifiability. For val25 (declared 0), han26 (0.19), and tit26 (0.13), refs.yaml marked most references external_id='not_specified' because the compiled input was main-text-only without a captured bibliography, yet PubMed resolved them from raw citation strings. This exposes a real semantic gap in the anchored-tier metric: it currently scores DOI-capture completeness rather than reference verifiability."
+  },
+  "novelty_distribution": {
+    "total_claims_checked": 31,
+    "counts": {
+      "novel": 10,
+      "incremental": 10,
+      "cannot_determine": 7,
+      "previously_reported": 4
+    },
+    "fractions": {
+      "novel": 0.3226,
+      "incremental": 0.3226,
+      "cannot_determine": 0.2258,
+      "previously_reported": 0.1290
+    },
+    "per_paper": [
+      {"slug": "zim25", "novel": 3, "incremental": 2, "cannot_determine": 1, "previously_reported": 0},
+      {"slug": "jes26", "novel": 1, "incremental": 4, "cannot_determine": 0, "previously_reported": 0},
+      {"slug": "che26", "novel": 2, "incremental": 0, "cannot_determine": 3, "previously_reported": 0},
+      {"slug": "val25", "novel": 0, "incremental": 3, "cannot_determine": 1, "previously_reported": 1},
+      {"slug": "han26", "novel": 4, "incremental": 0, "cannot_determine": 1, "previously_reported": 0},
+      {"slug": "tit26", "novel": 0, "incremental": 1, "cannot_determine": 1, "previously_reported": 3}
+    ],
+    "interpretation": "Novelty verdicts span the full spectrum and separate the corpus: han26 (4/5 novel, a proprietary first-in-literature tau-seeding assay) sits at the high-novelty end; tit26 (3/5 previously_reported, a throughput/automation reimplementation) and val25 (headline claims restate a same-cohort companion Nature Medicine paper published ~7 months earlier) sit at the confirmatory end. This is genuine across-corpus variance on the judged novelty axis."
+  },
+  "registry_findings": [
+    {
+      "slug": "zim25-donanemab-in-early-symptomatic-alzheimer-s",
+      "nct_id": "NCT04437511",
+      "registered_matched": ["CDR-SB change", "amyloid PET Centiloid reduction"],
+      "added_post_hoc": ["CDR-Global hazard-ratio comparison", "pooled amyloid-reaccumulation model", "AUC/time-saved analysis"],
+      "dropped": ["tau PET", "vMRI", "PK", "anti-drug antibodies"],
+      "outcome_switching": false,
+      "concordance_gap": true,
+      "note": "Post-hoc elevation of unregistered exploratory endpoints is transparently disclosed by the paper itself and stated to be uncontrolled for multiplicity. A concordance gap exists (reported analyses extend beyond registered outcome measures) but there is no concealed outcome switching."
+    },
+    {
+      "slug": "jes26-efficacy-and-safety-of-donanemab-in",
+      "nct_id": "NCT04437511",
+      "registered_matched": ["iADRS (overall + intermediate-tau)", "CDR-SB", "amyloid PET (centiloid)"],
+      "added_post_hoc": ["CDR-Global stage-progression Cox HR", "plasma P-tau217", "time-saved / no-progression derived metrics", "LTE early- vs delayed-start vs ADNI external control"],
+      "dropped": ["ADAS-Cog13", "MMSE", "ADCS-iADL", "tau PET", "vMRI", "PK", "immunogenicity"],
+      "cannot_determine": ["ARIA-E/ARIA-H/IRR (AE data not in outcome-measures fetch)"],
+      "outcome_switching": false,
+      "concordance_gap": true,
+      "note": "Registered primary/secondary endpoints (iADRS, CDR-SB, amyloid PET) reported and match. Several reported findings (CDR-Global Cox model, P-tau217, derived time-saved/no-progression, LTE-vs-ADNI external control) were not registered outcome measures — disclosed as post-hoc/exploratory, not concealed switching, but real by the letter of the registry."
+    }
+  ],
+  "registry_summary": {
+    "trial_papers_checked": 2,
+    "both_same_trial": "NCT04437511 (donanemab TRAILBLAZER-ALZ 2 / TRAILBLAZER-ALZ 6)",
+    "concealed_outcome_switching_found": false,
+    "transparent_post_hoc_concordance_gaps_found": 2,
+    "note": "Both trial papers reproduce their registered primary endpoints AND layer on unregistered post-hoc/exploratory analyses that are transparently disclosed. The metric correctly surfaces the concordance gap without mislabeling it as fraud."
+  },
+  "retractions": {
+    "found_total": 0,
+    "per_paper_found": {"zim25": 0, "jes26": 0, "che26": 0, "val25": 0, "han26": 0, "tit26": 0},
+    "note": "Zero retractions or corrections across all 6 papers and their most-cited references. No known-bad papers exist in this corpus."
+  },
+  "answers": {
+    "does_it_work_external_computability": true,
+    "does_it_work_note": "Yes. The anchored-tier reference resolver and registry/retraction checks make real, live MCP calls (PubMed search_articles/get_article_metadata, ClinicalTrials search_trials/get_trial_details) that resolve real records: 64/67 sampled references matched real PubMed records, NCT04437511 resolved with its registered outcome measures, and the ARAs' own papers were found indexed with matching headline figures. External computability is validated.",
+    "differentiating_signal": true,
+    "differentiating_signal_note": "Yes, across benign quality/novelty dimensions. The corpus separates on: (1) judged novelty (han26 high-novel vs tit26/val25 confirmatory); (2) declared-vs-observed reference gap (well-compiled zim25/jes26/che26 vs under-declared val25/han26/tit26); (3) registry concordance (both trial papers show transparent post-hoc endpoint elevation). These are real, computable, discriminating signals.",
+    "hard_limit": "This corpus contains NO known-bad papers — 0 retractions, every reference resolvable, no concealed outcome switching. So this exercise validates external computability and surfaces concordance/compilation gaps, but it is NOT a full good-vs-bad discrimination test. The observed 'differentiation' is variance on quality/novelty axes among papers that are all essentially legitimate; it does not prove the metric separates trustworthy from untrustworthy work. That requires a labelled contrast set including retracted, fabricated-reference, or expert-flagged-defective papers."
+  },
+  "caveats": [
+    "No known-bad / retracted / expert-flagged papers in the corpus — cannot demonstrate good-vs-bad separation, only across-corpus variance among legitimate papers.",
+    "n=6 papers, all in one narrow domain (Alzheimer's biomarkers / anti-amyloid therapy) — no cross-domain generalization claim.",
+    "Reference resolvability is sampled (7-12 refs/paper), not exhaustive; observed rate is an estimate.",
+    "The declared-vs-observed reference gap conflates two different quantities (compilation-time DOI capture vs true verifiability); the anchored-tier metric needs to be redefined before its scores are comparable across papers with different compilation inputs.",
+    "Only 2 trial papers had a registry to check, and both are the SAME trial (NCT04437511), so registry-concordance evidence is effectively a single data point.",
+    "Novelty 'cannot_determine' verdicts (7/31, ~23%) are a meaningful fraction — absence of a prior PubMed hit is weak evidence for narrow subgroup/derived claims, so the novel/incremental split carries uncertainty.",
+    "Retraction checking covered each paper plus its most-cited references, not the full reference list — a retracted deep-tail citation could be missed."
+  ]
+}

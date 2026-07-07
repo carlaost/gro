@@ -1,0 +1,51 @@
+{
+  "slug": "gau25-single-nucleus-and-spatial-transcriptomic-profiling",
+  "dimensions": {
+    "D1": {
+      "score": 4,
+      "justification": "All 14 claims are type-appropriate descriptive/observational statements grounded to page-pinned Results/Methods text and named figure panels, with most core claims (C01-C03, C05-C09, C12) directly tied to figures present in evidence/, but several load-bearing claims (C04 cross-cohort replication, C10/C11 global CARTANA signal, C13 GFAP bimodality, C14 tile analysis) cite Supplementary Figures explicitly marked 'not included in the provided PDF,' so their evidence basis is textual paraphrase rather than an inspectable primary source.",
+      "weakness": "C04, C10, C13, and C14 — several of the paper's most novel/generalization-relevant claims — rest on supplementary figures absent from the compiled evidence, leaving the verifier unable to independently inspect the underlying plot for these specific numbers."
+    },
+    "D2": {
+      "score": 4,
+      "justification": "Every claim carries a falsification criterion that is scope-matched to a descriptive/replication-type claim (e.g., 'a replication ANCOM-BC analysis finding no significant depletion... would refute') and specifies the exact direction/subpopulation/gene that would need to fail to replicate.",
+      "weakness": "The criteria are template-shaped and near-identical across all 14 claims ('a replication finding no X would refute'), so while individually actionable, they read as boilerplate rather than claim-specific falsification design, and none are independently testable within this ARA itself since no replication dataset is included."
+    },
+    "D3": {
+      "score": 5,
+      "justification": "Claims consistently hedge exactly as much as the underlying evidence warrants — e.g., C10/C14 explicitly state 'no genes significant after correction, only nominal enrichment,' C11 is framed as an unresolved discordance rather than an explained mechanism, and constraints.md explicitly imports the paper's own cross-sectional/causality caveats into claim interpretation sections.",
+      "weakness": "C08's pathway-enrichment claim (fgsea at 10-20% FDR) is stated with the same declarative confidence as the FDR<0.05 DEG claims (C05, C06) despite using a substantially looser significance threshold, which slightly under-signals the weaker evidentiary standard behind it."
+    },
+    "D4": {
+      "score": 5,
+      "justification": "The observations (O1-O12) -> gaps (G1-G4) -> key insight -> solution/method -> claims (C01-C14) -> evidence chain is fully consistent and cross-referenced (e.g., insight explicitly cites O1/O2/O3/O9/O10; claims declare explicit dependency chains C04<-C01-C03, C08<-C05-C06), with no contradiction found across layers.",
+      "weakness": "The claims_summary in PAPER.md's frontmatter and the Key Insight in problem.md both foreground the CARTANA spatial-discovery angle as the paper's central contribution, but roughly half the claims (C01-C08) are pure snRNA-seq findings with no spatial component, giving the framing a slightly stronger spatial emphasis than the claim set's actual balance."
+    },
+    "D5": {
+      "score": 4,
+      "justification": "The exploration tree records four genuine, specific dead-ends/open items drawn directly from the paper's own stated limitations (probe-design marker substitution, CARTANA sparsity precluding subcluster-level validation, the unresolved TMEM119/P2RY12 discordance left 'open,' and the infeasibility of tangle tile analysis), each with a distinct failure mode and lesson rather than a generic negative result.",
+      "weakness": "Because this ARA reconstructs the trace from the published paper's own limitations section rather than from an independent exploration process, all 'dead ends' are exactly the ones the authors chose to disclose — there is no visibility into unreported false starts, so exploration integrity is bounded by the paper's own candor."
+    },
+    "D6": {
+      "score": 4,
+      "justification": "Statistical methodology is reported with real rigor and honesty: explicit baselines (Braak 0-1 reference), BH/FDR correction specified per test, sample-size caveats (n=36/39/11/13 stated per analysis), and multiple claims (C10, C14) transparently report that no genes survived correction and only nominal enrichment was found, rather than inflating significance.",
+      "weakness": "The LOEUF constraint comparison (C07) and all CARTANA per-gene tests (C09, E06) explicitly use no multiple-testing correction at the per-gene level, and code/data availability is stated by the paper but the ARA itself notes neither was provided as compilation input, limiting independent reproducibility verification."
+    }
+  },
+  "overall_score": 4.3,
+  "recommendation": "Accept",
+  "findings": [
+    {
+      "severity": "medium",
+      "text": "Several load-bearing claims (C04 cross-region/cross-cohort replication, C10/C11 global CARTANA signature, C13 GFAP bimodality, C14 tile-based analysis) cite Supplementary Figures explicitly noted as absent from the compiled PDF, so their evidence basis is textual paraphrase of the paper's own Results prose rather than an independently inspectable figure or table."
+    },
+    {
+      "severity": "low",
+      "text": "Falsification criteria across all 14 claims follow an essentially identical template ('a replication finding no X would refute this claim'), which is scope-appropriate for observational biology claims but provides limited differentiation in actionability between trivial and non-trivial claims."
+    },
+    {
+      "severity": "low",
+      "text": "C08's cell-type-specific pathway-enrichment claim is asserted with the same declarative register as the FDR<0.05 DEG claims (C05/C06) despite relying on a looser 10-20% FDR threshold, slightly understating its comparatively weaker statistical standard relative to sibling claims."
+    }
+  ]
+}

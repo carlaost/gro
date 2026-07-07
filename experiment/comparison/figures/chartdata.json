@@ -1,0 +1,386 @@
+[
+ {
+  "slug": "che26",
+  "gro": {
+   "quantity_reconciliation_rate": 1.0,
+   "claim_typing_coverage": 1.0,
+   "entailment_precondition_rate": 1.0,
+   "reference_resolvability_rate": 0.9444444444444444,
+   "entity_anchoring_rate": 0.0,
+   "genre_silent_omissions": 0,
+   "overclaim_flags": 0,
+   "broken_ref_integrity": 0
+  },
+  "seal": {
+   "overall": 3.7,
+   "rec": "Weak Accept",
+   "dims": {
+    "D1": 4,
+    "D2": 4,
+    "D3": 3,
+    "D4": 4,
+    "D5": 4,
+    "D6": 3
+   }
+  },
+  "v3": {
+   "extractive_fidelity": 0.625,
+   "artifact_trust": 0.944,
+   "rank_eligible": true,
+   "abstract_bound": false,
+   "genre": "systematic_review_meta_analysis"
+  }
+ },
+ {
+  "slug": "val25",
+  "gro": {
+   "quantity_reconciliation_rate": 1.0,
+   "claim_typing_coverage": 1.0,
+   "entailment_precondition_rate": 0.6923076923076923,
+   "reference_resolvability_rate": 0.0,
+   "entity_anchoring_rate": 0.0,
+   "genre_silent_omissions": 1,
+   "overclaim_flags": 0,
+   "broken_ref_integrity": 0
+  },
+  "seal": {
+   "overall": 4.7,
+   "rec": "Strong Accept",
+   "dims": {
+    "D1": 5,
+    "D2": 4,
+    "D3": 5,
+    "D4": 5,
+    "D5": 4,
+    "D6": 5
+   }
+  },
+  "v3": {
+   "extractive_fidelity": "pending",
+   "artifact_trust": 0.615,
+   "rank_eligible": false,
+   "abstract_bound": false,
+   "genre": "observational_epidemiology"
+  }
+ },
+ {
+  "slug": "han26",
+  "gro": {
+   "quantity_reconciliation_rate": 1.0,
+   "claim_typing_coverage": 1.0,
+   "entailment_precondition_rate": 1.0,
+   "reference_resolvability_rate": 0.19047619047619047,
+   "entity_anchoring_rate": 0.0,
+   "genre_silent_omissions": 0,
+   "overclaim_flags": 0,
+   "broken_ref_integrity": 0
+  },
+  "seal": {
+   "overall": 4.0,
+   "rec": "Weak Accept",
+   "dims": {
+    "D1": 4,
+    "D2": 4,
+    "D3": 4,
+    "D4": 4,
+    "D5": 5,
+    "D6": 3
+   }
+  },
+  "v3": {
+   "extractive_fidelity": "pending",
+   "artifact_trust": 1.0,
+   "rank_eligible": false,
+   "abstract_bound": false,
+   "genre": "diagnostic_accuracy_study"
+  }
+ },
+ {
+  "slug": "zim25",
+  "gro": {
+   "quantity_reconciliation_rate": 1.0,
+   "claim_typing_coverage": 1.0,
+   "entailment_precondition_rate": 1.0,
+   "reference_resolvability_rate": 0.9565217391304348,
+   "entity_anchoring_rate": 0.0,
+   "genre_silent_omissions": 0,
+   "overclaim_flags": 0,
+   "broken_ref_integrity": 0
+  },
+  "seal": {
+   "overall": 3.7,
+   "rec": "Weak Accept",
+   "dims": {
+    "D1": 4,
+    "D2": 3,
+    "D3": 4,
+    "D4": 5,
+    "D5": 4,
+    "D6": 2
+   }
+  },
+  "v3": {
+   "extractive_fidelity": "pending",
+   "artifact_trust": 0.931,
+   "rank_eligible": false,
+   "abstract_bound": false,
+   "genre": "randomized_controlled_trial"
+  }
+ },
+ {
+  "slug": "jes26",
+  "gro": {
+   "quantity_reconciliation_rate": 1.0,
+   "claim_typing_coverage": 1.0,
+   "entailment_precondition_rate": 1.0,
+   "reference_resolvability_rate": 0.8947368421052632,
+   "entity_anchoring_rate": 0.0,
+   "genre_silent_omissions": 0,
+   "overclaim_flags": 0,
+   "broken_ref_integrity": 0
+  },
+  "seal": {
+   "overall": 3.8,
+   "rec": "Weak Accept",
+   "dims": {
+    "D1": 4,
+    "D2": 4,
+    "D3": 4,
+    "D4": 5,
+    "D5": 3,
+    "D6": 3
+   }
+  },
+  "v3": {
+   "extractive_fidelity": 0.9,
+   "artifact_trust": 0.974,
+   "rank_eligible": false,
+   "abstract_bound": false,
+   "genre": "randomized_controlled_trial"
+  }
+ },
+ {
+  "slug": "tit26",
+  "gro": {
+   "quantity_reconciliation_rate": 1.0,
+   "claim_typing_coverage": 1.0,
+   "entailment_precondition_rate": 1.0,
+   "reference_resolvability_rate": 0.1320754716981132,
+   "entity_anchoring_rate": 0.0,
+   "genre_silent_omissions": 0,
+   "overclaim_flags": 0,
+   "broken_ref_integrity": 0
+  },
+  "seal": {
+   "overall": 4.0,
+   "rec": "Accept",
+   "dims": {
+    "D1": 4,
+    "D2": 4,
+    "D3": 4,
+    "D4": 5,
+    "D5": 3,
+    "D6": 4
+   }
+  },
+  "v3": {
+   "extractive_fidelity": 1.0,
+   "artifact_trust": 0.917,
+   "rank_eligible": true,
+   "abstract_bound": false,
+   "genre": "diagnostic_accuracy_study"
+  }
+ },
+ {
+  "slug": "gau25",
+  "gro": {
+   "quantity_reconciliation_rate": 1.0,
+   "claim_typing_coverage": 1.0,
+   "entailment_precondition_rate": 0.5714285714285714,
+   "reference_resolvability_rate": 0.1,
+   "entity_anchoring_rate": 0.0,
+   "genre_silent_omissions": 0,
+   "overclaim_flags": 0,
+   "broken_ref_integrity": 0
+  },
+  "seal": {
+   "overall": 4.3,
+   "rec": "Accept",
+   "dims": {
+    "D1": 4,
+    "D2": 4,
+    "D3": 5,
+    "D4": 5,
+    "D5": 4,
+    "D6": 4
+   }
+  },
+  "v3": {
+   "extractive_fidelity": "pending",
+   "artifact_trust": 0.685,
+   "rank_eligible": false,
+   "abstract_bound": false,
+   "genre": "primary_experimental"
+  }
+ },
+ {
+  "slug": "zho25",
+  "gro": {
+   "quantity_reconciliation_rate": null,
+   "claim_typing_coverage": 1.0,
+   "entailment_precondition_rate": 0.5,
+   "reference_resolvability_rate": 0.0,
+   "entity_anchoring_rate": 0.0,
+   "genre_silent_omissions": -1,
+   "overclaim_flags": 3,
+   "broken_ref_integrity": 0
+  },
+  "seal": {
+   "overall": 3.2,
+   "rec": "Weak Accept",
+   "dims": {
+    "D1": 4,
+    "D2": 3,
+    "D3": 4,
+    "D4": 4,
+    "D5": 2,
+    "D6": 2
+   }
+  },
+  "v3": {
+   "extractive_fidelity": "pending",
+   "artifact_trust": 0.178,
+   "rank_eligible": false,
+   "abstract_bound": false,
+   "genre": "narrative_review_survey"
+  }
+ },
+ {
+  "slug": "aki26",
+  "gro": {
+   "quantity_reconciliation_rate": null,
+   "claim_typing_coverage": 1.0,
+   "entailment_precondition_rate": 0.4,
+   "reference_resolvability_rate": 0.13636363636363635,
+   "entity_anchoring_rate": 0.0,
+   "genre_silent_omissions": 0,
+   "overclaim_flags": 0,
+   "broken_ref_integrity": 0
+  },
+  "seal": {
+   "overall": 4.3,
+   "rec": "Accept",
+   "dims": {
+    "D1": 4,
+    "D2": 4,
+    "D3": 4,
+    "D4": 5,
+    "D5": 5,
+    "D6": 4
+   }
+  },
+  "v3": {
+   "extractive_fidelity": "pending",
+   "artifact_trust": 0.919,
+   "rank_eligible": false,
+   "abstract_bound": false,
+   "genre": "primary_experimental"
+  }
+ },
+ {
+  "slug": "cum26",
+  "gro": {
+   "quantity_reconciliation_rate": 1.0,
+   "claim_typing_coverage": 1.0,
+   "entailment_precondition_rate": 1.0,
+   "reference_resolvability_rate": 1.0,
+   "entity_anchoring_rate": 0.0,
+   "genre_silent_omissions": 0,
+   "overclaim_flags": 9,
+   "broken_ref_integrity": 0
+  },
+  "seal": {
+   "overall": 4.0,
+   "rec": "Accept",
+   "dims": {
+    "D1": 4,
+    "D2": 3,
+    "D3": 4,
+    "D4": 5,
+    "D5": 4,
+    "D6": 4
+   }
+  },
+  "v3": {
+   "extractive_fidelity": 1.0,
+   "artifact_trust": 0.97,
+   "rank_eligible": true,
+   "abstract_bound": false,
+   "genre": "narrative_review_survey"
+  }
+ },
+ {
+  "slug": "xu25",
+  "gro": {
+   "quantity_reconciliation_rate": 1.0,
+   "claim_typing_coverage": 1.0,
+   "entailment_precondition_rate": 0.9230769230769231,
+   "reference_resolvability_rate": 0.13725490196078433,
+   "entity_anchoring_rate": 0.0,
+   "genre_silent_omissions": 0,
+   "overclaim_flags": 11,
+   "broken_ref_integrity": 0
+  },
+  "seal": {
+   "overall": 4.2,
+   "rec": "Accept",
+   "dims": {
+    "D1": 4,
+    "D2": 4,
+    "D3": 4,
+    "D4": 5,
+    "D5": 5,
+    "D6": 3
+   }
+  },
+  "v3": {
+   "extractive_fidelity": "pending",
+   "artifact_trust": 0.754,
+   "rank_eligible": false,
+   "abstract_bound": false,
+   "genre": "primary_experimental"
+  }
+ },
+ {
+  "slug": "ard25",
+  "gro": {
+   "quantity_reconciliation_rate": 1.0,
+   "claim_typing_coverage": 1.0,
+   "entailment_precondition_rate": 0.7692307692307693,
+   "reference_resolvability_rate": 0.0,
+   "entity_anchoring_rate": 0.0,
+   "genre_silent_omissions": 4,
+   "overclaim_flags": 0,
+   "broken_ref_integrity": 16
+  },
+  "seal": {
+   "overall": 3.0,
+   "rec": "Reject",
+   "dims": {
+    "D1": 4,
+    "D2": 3,
+    "D3": 4,
+    "D4": 4,
+    "D5": 1,
+    "D6": 2
+   }
+  },
+  "v3": {
+   "extractive_fidelity": "pending",
+   "artifact_trust": 0.15,
+   "rank_eligible": false,
+   "abstract_bound": false,
+   "genre": "primary_experimental"
+  }
+ }
+]

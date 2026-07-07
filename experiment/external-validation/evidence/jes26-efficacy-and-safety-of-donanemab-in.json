@@ -1,0 +1,120 @@
+{
+  "slug": "jes26-efficacy-and-safety-of-donanemab-in",
+  "reference_resolution": {
+    "attempted": 12,
+    "resolved": 12,
+    "observed_rate": 1.0,
+    "declared_rate": 0.895,
+    "declared_rate_note": "refs.yaml marks 17/19 refs resolvable=true (R01-R03, R06-R19; R04, R05 external_id=not_specified). Sample here restricted to the 12 refs with a DOI resolvable via PubMed search (R01,R02,R06,R07,R08,R09,R10,R11,R12,R13,R14,R15); R03 (EMC SmPC URL) and R04/R05 (EMA docs, no external_id) were excluded as non-PubMed-indexable, not because they failed resolution.",
+    "details": [
+      {"ref_id": "R01", "external_id": "10.1056/NEJMoa2100708", "resolves": true, "title": "Donanemab in Early Alzheimer's Disease.", "pmid": "33720637", "note": "Matches citation (Mintun et al., 2021, NEJM, phase 2)."},
+      {"ref_id": "R02", "external_id": "10.1001/jama.2023.13239", "resolves": true, "title": "Donanemab in Early Symptomatic Alzheimer Disease: The TRAILBLAZER-ALZ 2 Randomized Clinical Trial.", "pmid": "37459141", "note": "Matches citation (Sims et al., 2023, JAMA, TRAILBLAZER-ALZ 2 primary report)."},
+      {"ref_id": "R06", "external_id": "10.3174/ajnr.A8469", "resolves": true, "title": "Alzheimer Disease Anti-Amyloid Immunotherapies: Imaging Recommendations and Practice Considerations for Monitoring of Amyloid-Related Imaging Abnormalities.", "pmid": "39179297", "note": "Matches citation (Cogswell et al., 2025, AJNR, ARIA imaging recommendations)."},
+      {"ref_id": "R07", "external_id": "10.1016/j.tjpad.2025.100446", "resolves": true, "title": "Donanemab in early symptomatic Alzheimer's disease: results from the TRAILBLAZER-ALZ 2 long-term extension.", "pmid": "41330788", "note": "Matches citation (Zimmer et al., TRAILBLAZER-ALZ 2 LTE, J Prev Alzheimers Dis); PubMed shows pub date 2025-12, ARA cites as 2026 -- minor year discrepancy, same article."},
+      {"ref_id": "R08", "external_id": "10.1080/10543406.2013.834911", "resolves": true, "title": "Analysis of longitudinal trials with protocol deviation: a framework for relevant, accessible assumptions, and inference via multiple imputation.", "pmid": "24138436", "note": "Matches citation (Carpenter, Roger & Kenward, 2013, J Biopharm Stat, MI framework)."},
+      {"ref_id": "R09", "external_id": "10.1002/pst.1536", "resolves": true, "title": "A structured approach to choosing estimands and estimators in longitudinal clinical trials.", "pmid": "22962024", "note": "Matches citation (Mallinckrodt et al., 2012, Pharm Stat, estimands/estimators)."},
+      {"ref_id": "R10", "external_id": "10.1002/alz.70062", "resolves": true, "title": "Modified titration of donanemab reduces ARIA risk and maintains amyloid reduction.", "pmid": "40172303", "note": "Matches citation (Wang et al., 2025, Alzheimers Dement, modified titration reduces ARIA)."},
+      {"ref_id": "R11", "external_id": "10.1016/j.tjpad.2025.100266", "resolves": true, "title": "The effect of modified donanemab titration on amyloid-related imaging abnormalities with edema/effusions and amyloid reduction: 18-month results from TRAILBLAZER-ALZ 6.", "pmid": "40619285", "note": "Matches citation (Wang et al., 2025, TRAILBLAZER-ALZ 6 18-month results)."},
+      {"ref_id": "R12", "external_id": "10.1002/trc2.70113", "resolves": true, "title": "Assessing clinical meaningfulness in clinical trials for Alzheimer's disease: A U.S. regulatory perspective.", "pmid": "40469853", "note": "Matches citation (Buracchio et al., 2025)."},
+      {"ref_id": "R13", "external_id": "10.1186/s13195-020-00659-6", "resolves": true, "title": "Assessing what matters most to patients with or at risk for Alzheimer's and care partners: a qualitative study evaluating symptoms, impacts, and outcomes.", "pmid": "32731886", "note": "Matches citation (DiBenedetti et al., 2020)."},
+      {"ref_id": "R14", "external_id": "10.1007/s40120-023-00445-0", "resolves": true, "title": "Assessing What Matters to People Affected by Alzheimer's Disease: A Quantitative Analysis.", "pmid": "36763306", "note": "Matches citation (Hauber et al., 2023)."},
+      {"ref_id": "R15", "external_id": "10.14283/jpad.2024.153", "resolves": true, "title": "Progress in the Treatment of Alzheimer's Disease Is Needed - Position Statement of European Alzheimer's Disease Consortium (EADC) Investigators.", "pmid": "39350366", "note": "Matches citation (Jessen et al., 2024)."}
+    ]
+  },
+  "novelty": {
+    "claims": [
+      {
+        "claim_id": "C01",
+        "claim_summary": "iADRS CFB diff 2.32 [0.69,3.95], p=0.005, 17.9% slowing, EU-eligible population.",
+        "verdict": "incremental",
+        "prior_pmid": "37459141",
+        "note": "Sims 2023 JAMA (PMID 37459141) already reported the iADRS treatment effect for the overall and low/medium-tau TRAILBLAZER-ALZ 2 populations (diff 2.92 and 3.25 respectively). This ARA recuts the same trial to the EU-eligible (APOE e4 non-carrier/heterozygote, no siderosis/anticoagulant/uncontrolled HTN) subgroup with a different imputation method -- the specific number (2.32) and population are new, but the qualitative finding (donanemab slows iADRS decline) is not."
+      },
+      {
+        "claim_id": "C02",
+        "claim_summary": "CDR-SB CFB diff -0.67 [-0.97,-0.37], p<0.001, 28.2% slowing, EU-eligible population.",
+        "verdict": "incremental",
+        "prior_pmid": "37459141",
+        "note": "Sims 2023 JAMA already reported a CDR-SB difference of -0.67 [-0.95,-0.40] for the low/medium-tau population and -0.7 for combined population -- coincidentally near-identical point estimate to this EU-eligible subgroup result, but for a differently defined subgroup (tau level vs. APOE/contraindication eligibility). Not the same population, so not classified 'previously_reported', but the direction/magnitude of effect was already well established."
+      },
+      {
+        "claim_id": "C03",
+        "claim_summary": "40.3% lower risk of CDR-Global progression (HR 0.597) and 47.2% lower risk to moderate dementia (HR 0.528), EU-eligible population, n=581.",
+        "verdict": "novel",
+        "prior_pmid": null,
+        "note": "No prior PubMed record found reporting CDR-Global stage-progression hazard ratios specifically for the EU-eligible donanemab subgroup. Searches for 'donanemab risk reduction progression CDR global hazard ratio' returned no clean hits distinct from this paper."
+      },
+      {
+        "claim_id": "C08",
+        "claim_summary": "ARIA-E 19.5%, IRR 8.0%, no ARIA-related deaths in EU-eligible population (n=609); vs 36.8% any ARIA in overall trial population.",
+        "verdict": "incremental",
+        "prior_pmid": "37459141",
+        "note": "Sims 2023 JAMA already reported overall-population ARIA-E (24.0%) and IRR (8.7%) rates for TRAILBLAZER-ALZ 2. This paper's EU-eligible-restricted rates (19.5% / 8.0%, lower than overall) are a new subgroup cut of previously-reported safety data, consistent with the expected lower-ARIA profile in non-carriers/heterozygotes already flagged in EMA labeling discussions (R04/R05, not independently verifiable via PubMed)."
+      },
+      {
+        "claim_id": "C09",
+        "claim_summary": "LTE treatment benefit increases over 154 weeks; early-start vs delayed-start 29% lower CDR-Global progression risk; amyloid clearance maintained post-treatment.",
+        "verdict": "incremental",
+        "prior_pmid": "41330788",
+        "note": "Zimmer et al. 2025 (PMID 41330788, J Prev Alzheimers Dis) already reported the TRAILBLAZER-ALZ 2 LTE at 3 years for the general (non-EU-restricted) population, including an early- vs delayed-start CDR-Global hazard ratio of 0.73 (27% risk reduction) vs a propensity-weighted ADNI external control, and maintained amyloid clearance. This ARA's claim (29% risk reduction) is the same design/comparator recut to the EU-eligible subgroup -- an incremental extension, not a new finding type."
+      }
+    ]
+  },
+  "registry": {
+    "nct_id": "NCT04437511",
+    "trial_title": "Assessment of Safety, Tolerability, and Efficacy of Donanemab in Early Symptomatic Alzheimer's Disease (TRAILBLAZER-ALZ 2)",
+    "sponsor": "Eli Lilly and Company",
+    "registered_primary": [
+      "Change From Baseline on the Integrated Alzheimer's Disease Rating Scale (iADRS) (Overall Population)",
+      "Change From Baseline on the Integrated Alzheimer's Disease Rating Scale (iADRS) (Intermediate (Low-medium) Tau Population)"
+    ],
+    "registered_secondary": [
+      "Change From Baseline on the Mini Mental State Examination (MMSE) Score (Overall Population)",
+      "Change From Baseline on the Mini Mental State Examination (MMSE) Score (Intermediate (Low-medium) Tau Population)",
+      "Change From Baseline on the Alzheimer's Disease Assessment Scale - Cognitive Subscale (ADAS-Cog13) (Overall Population)",
+      "Change From Baseline on the Alzheimer's Disease Assessment Scale - Cognitive Subscale (ADAS-Cog13) (Intermediate (Low-medium) Tau Population)",
+      "Change From Baseline on the Clinical Dementia Rating Scale-Sum of Boxes (CDR-SB) (Overall Population)",
+      "Change From Baseline on the Clinical Dementia Rating Scale-Sum of Boxes (CDR-SB) (Intermediate (Low-medium) Tau Population)",
+      "Change From Baseline on the Alzheimer's Disease Cooperative Study - Instrumental Activities of Daily Living (ADCS-iADL) Score (Overall Population)",
+      "Change From Baseline on the Alzheimer's Disease Cooperative Study - Instrumental Activities of Daily Living (ADCS-iADL) Score (Intermediate (Low-medium) Tau Population)",
+      "Change From Baseline in Brain Amyloid Plaque Deposition as Measured by Amyloid Positron Emission Tomography (PET) Scan",
+      "Change From Baseline in Brain Tau Deposition as Measured by Flortaucipir F18 PET Scan",
+      "Change From Baseline in Brain Volume as Measured by Volumetric Magnetic Resonance Imaging (vMRI)",
+      "Pharmacokinetics (PK): Average Serum Concentration at Steady State of Donanemab",
+      "Number or Participants With Anti-Donanemab Antibodies"
+    ],
+    "reported": [
+      "iADRS CFB difference (C01) -- matches registered primary outcome (iADRS), applied to a new post-hoc subgroup (EU-eligible) not in the registered population strata.",
+      "CDR-SB CFB difference, domain breakdown, no-progression proportions, time-saved (C02, C04, C05, C06) -- matches registered secondary outcome (CDR-SB), with derived metrics (domain analysis, no-progression, time-saved) not themselves separately registered.",
+      "CDR-Global stage progression hazard ratios (C03) -- CDR-Global time-to-event/Cox progression analysis is NOT among the registered primary/secondary outcome measures for NCT04437511 (registry lists CDR-SB change-from-baseline, not CDR-Global stage transition).",
+      "Amyloid PET centiloid reduction and clearance rates, plasma P-tau217 (C07) -- amyloid PET matches a registered secondary outcome; plasma P-tau217 is NOT registered (registry lists tau PET via flortaucipir F18, not plasma P-tau217 biomarker).",
+      "ARIA-E/ARIA-H incidence, infusion-related reactions, deaths (C08) -- these are safety/adverse-event data, not listed among the registered efficacy outcome measures fetched here (ClinicalTrials.gov typically reports AEs in a separate results module not covered by this outcome-measures fetch).",
+      "LTE 154-week early-start vs delayed-start comparison against propensity-weighted ADNI external control (C09) -- the long-term extension design and its external-control comparison are not part of the original registered outcome measures for the placebo-controlled main study period."
+    ],
+    "concordance": [
+      {"outcome": "iADRS change from baseline", "verdict": "matches_registered"},
+      {"outcome": "CDR-SB change from baseline", "verdict": "matches_registered"},
+      {"outcome": "Amyloid PET (centiloid) change from baseline", "verdict": "matches_registered"},
+      {"outcome": "CDR-Global stage progression (Cox HR)", "verdict": "added_post_hoc"},
+      {"outcome": "Plasma P-tau217 change from baseline", "verdict": "added_post_hoc"},
+      {"outcome": "ARIA-E/ARIA-H incidence, infusion-related reactions", "verdict": "cannot_determine"},
+      {"outcome": "Time-saved / no-progression proportion (derived from CDR-SB)", "verdict": "added_post_hoc"},
+      {"outcome": "LTE early-start vs delayed-start vs ADNI external control (154 wk)", "verdict": "added_post_hoc"},
+      {"outcome": "ADAS-Cog13, MMSE, ADCS-iADL, tau PET, vMRI, PK, immunogenicity (registered secondary outcomes)", "verdict": "dropped"}
+    ],
+    "concordance_note": "This ARA is explicitly titled and framed as a 'post-hoc analysis' of TRAILBLAZER-ALZ 2, restricted to a regulatory-defined EU-eligible subgroup with a different (conservative hybrid J2R/CIR) imputation method than the original registered analysis, plus new derived endpoints (CDR-Global progression, time-saved, no-progression proportions) and a long-term-extension comparison against an external ADNI control not part of the original trial design. This is disclosed by the paper itself, not concealed outcome-switching -- but by definition none of the CDR-Global, P-tau217, time-saved, or LTE-external-control comparisons were pre-registered outcome measures for NCT04437511, and several registered secondary outcomes (ADAS-Cog13, MMSE, ADCS-iADL, tau PET, vMRI, PK, immunogenicity) are not reported in this ARA at all."
+  },
+  "retractions": {
+    "found": [],
+    "checked": [
+      "This paper itself (10.1016/j.tjpad.2026.100605 / PMID 42202469): indexed in PubMed with no retraction/erratum publication-type flag.",
+      "Mintun et al. 2021 NEJM (PMID 33720637): no retraction/erratum flag.",
+      "Sims et al. 2023 JAMA (PMID 37459141): no retraction/erratum flag.",
+      "Cogswell et al. 2025 AJNR (PMID 39179297): no retraction/erratum flag.",
+      "Zimmer et al. 2025 LTE (PMID 41330788): no retraction/erratum flag.",
+      "PubMed searches for 'donanemab[Title] AND \"Retraction of Publication\"[Publication Type]' and 'TRAILBLAZER-ALZ[Title/Abstract] AND \"Published Erratum\"[Publication Type]' returned zero hits."
+    ],
+    "notes": "No retractions or corrections found for this paper or its most-cited references, as expected for a 2026 industry-authored post-hoc analysis with no reported integrity issues."
+  },
+  "notes": "All 12 sampled DOI-bearing refs (of 19 total in refs.yaml; 17 declared resolvable, 2 declared not-resolvable/not_specified) resolved cleanly to a single PubMed record each with titles/authors matching the citation text -- observed_resolvability 1.0 for the DOI-bearing subset, consistent with (in fact exceeding, since the excluded refs were non-PubMed URL/regulatory-doc citations rather than failed DOIs) the sidecar's declared 0.895 rate. The paper's own headline numbers are independently confirmed via its own now-indexed PubMed record (PMID 42202469, published 2026-05-27) -- the ARA accurately transcribes the abstract's key figures (CDR-SB diff -0.7 [-1.0,-0.4], 40.3% CDR-Global risk reduction, ARIA-E 119/609=19.5%, IRR 49/609=8.0%). Novelty assessment is conservative: nearly all headline claims are subgroup-specific recuts of effects already established in the pivotal Sims 2023 JAMA report and the Zimmer 2025 LTE report for the general trial population, so 'incremental' rather than 'previously_reported' (population differs) or 'novel' (finding-type is not new) is the modal verdict; only the CDR-Global-progression-specific EU-eligible HR was not locatable in any prior PubMed record. Registry concordance shows the paper is transparent about being a post-hoc, non-multiplicity-controlled subgroup analysis with new derived endpoints (CDR-Global progression, time-saved, LTE-vs-ADNI) that were never part of the original trial registration -- this is disclosed exploratory-analysis outcome-switching, not concealed switching, but it is real by the letter of the registered outcome measures."
+}

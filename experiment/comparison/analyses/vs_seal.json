@@ -1,0 +1,1433 @@
+{
+  "spec": "Compares WHAT THE ARA VERIFIER PRODUCED (Seal L2 six-dimension semantic review, Tier C) against GRO deterministic structural metrics (Tier A) and v3 metrics.json (honest-but-limited first attempt) for 12 ARAs.",
+  "sources": {
+    "seal_reviews": "research/metrics/v4-gro/seal/<slug>.json",
+    "gro_results": "research/metrics/v4-gro/results.json",
+    "v3_metrics": "research/ara-library/<slug>/metrics/v3/metrics.json"
+  },
+  "slugs": [
+    "che26-diagnostic-performance-of-plasma-p-tau217",
+    "val25-blood-biomarkers-of-alzheimer-s-disease",
+    "han26-tau-pathological-activity-in-plasma-before",
+    "zim25-donanemab-in-early-symptomatic-alzheimer-s",
+    "jes26-efficacy-and-safety-of-donanemab-in",
+    "tit26-automated-high-throughput-quantification-of-plasma",
+    "gau25-single-nucleus-and-spatial-transcriptomic-profiling",
+    "zho25-microglia-networks-within-the-tapestry-of",
+    "aki26-molecular-signatures-of-resilience-to-alzheimer",
+    "cum26-alzheimer-s-disease-drug-development-pipeline",
+    "xu25-epidemiological-and-sociodemographic-transitions-in-the",
+    "ard25-response-of-spatially-defined-microglia-states"
+  ],
+  "1_what_seal_catches_that_neither_metric_set_can": {
+    "summary": "The Seal's D3 (scope calibration / over-generalization) dimension repeatedly catches claims that overreach their evidence base in ways that are invisible to GRO's overclaim_flags heuristic, because GRO's rule is purely structural (population_scope in {population_estimate, claimed_universal} AND population_n == not_specified) -- it cannot detect a generalization claim that DOES carry a population_n but generalizes beyond what that n statistically supports.",
+    "headline_example": {
+      "slug": "che26-diagnostic-performance-of-plasma-p-tau217",
+      "gro_overclaim_flags": 0,
+      "seal_D3_score": 3,
+      "seal_finding_verbatim": "C05's cross-ethnic generalizability claim ('p-tau217 diagnostic performance is consistent across Han Chinese and Western cohorts') rests on a P-score of 1.00 computed within only two Han Chinese cohorts (Huashan N=297, Greater Bay N=425) with no reported formal ethnicity-by-biomarker interaction test against the Western cohorts \u2014 a generalization claim that overreaches its evidence type (should require a heterogeneous-data statistical comparison, not two parallel top-rank results).",
+      "why_gro_misses_it": "GRO's overclaim_flags rule only fires when population_n is literally not_specified. C05's claim DOES have named cohort sizes (N=297, N=425) attached, so the structural rule is satisfied and does not fire -- but the semantic problem (generalizing across ethnicities from two same-direction point estimates with no interaction test) requires understanding what statistical test the generalization claim actually needs, which is comprehension, not a field lookup."
+    },
+    "other_seal_only_catches": [
+      {
+        "class": "unresolved evidence-source mismatch (headline number imported from an unrelated external reference)",
+        "slug": "che26-diagnostic-performance-of-plasma-p-tau217",
+        "seal_finding_verbatim": "C03's headline clinical implication that plasma p-tau217 'could reduce the need for tau-PET scans by ~80%' is sourced from an unrelated external reference (Therriault et al., 2021) about AD prevalence by demographic strata, not derived from this NMA's own AUC/P-score outputs, creating an argument-coherence gap between the review's own evidence and its stated real-world impact claim."
+      },
+      {
+        "class": "statistical multiplicity risk not discounted in claim confidence (recurs across 3 RCT/observational ARAs -- a scientific-methodology judgment with no GRO field at all)",
+        "slugs": [
+          "jes26-efficacy-and-safety-of-donanemab-in",
+          "zim25-donanemab-in-early-symptomatic-alzheimer-s",
+          "val25-blood-biomarkers-of-alzheimer-s-disease"
+        ],
+        "seal_finding_verbatim_jes26": "No multiplicity correction is applied across the ten claims/endpoints despite this being an explicitly acknowledged limitation (L1); every claim is nonetheless labeled 'supported' with uniform confidence, so the ARA does not visibly discount claim strength for the known false-positive inflation risk of a post-hoc, exploratory, multi-endpoint analysis.",
+        "seal_finding_verbatim_val25": "No multiple-comparison correction is discussed anywhere in the ARA despite dozens of biomarker x transition x adjustment-tier x subgroup tests being run; constraints.md covers many other limitations but omits this one, leaving readers to assume all nominally significant HRs are equally robust."
+      },
+      {
+        "class": "sponsor/conflict-of-interest and reproducibility judgment (no GRO field maps to authorship/funding conflicts at all)",
+        "slug": "zim25-donanemab-in-early-symptomatic-alzheimer-s",
+        "seal_finding_verbatim": "Sponsor-only authorship (all 18 authors are Eli Lilly employees) is combined with no released analysis code, no stated software version for the WeightIt R package, and several supplementary figures/tables referenced by claims C05, C08, C11, and C12 are absent from the provided PDF, meaning those claims rest on main-text summary sentences with no way to independently verify the underlying computation."
+      },
+      {
+        "class": "one-directional causal evidence flagged as a generalization risk not carried into the claim text itself (aki26) -- GRO's overclaim_flags did not fire (0) because the rule only checks population_scope/population_n typing, not causal-directionality of the underlying experiment",
+        "slug": "aki26-molecular-signatures-of-resilience-to-alzheimer",
+        "seal_finding_verbatim": "In vivo functional evidence rests on small, male-only AppSAA mouse cohorts (5-7/group) with non-blinded analysis; this caveat is documented in constraints.md but not carried into the claim statements themselves (C07/C08), risking overgeneralization if claims are read in isolation."
+      }
+    ]
+  },
+  "2_what_deterministic_metrics_catch_that_seal_misses_or_states_only_softly": {
+    "summary": "Two clear classes: (a) GRO's overclaim_flags fires on the near-totality of claims in two ARAs whose genre naturally states population-level estimates without a sample-size field -- a structural signal the Seal does not corroborate at anywhere near that intensity, exposing a genre-blindness in GRO's heuristic rather than a real epistemic defect Seal is failing to catch; (b) reference_resolvability_rate exposes a citation-graph integrity axis that has NO corresponding Seal dimension at all -- Seal's six D-dimensions never ask whether the ARA's own bibliography resolves to real external records, so a 0% resolvability ARA can still receive Seal's highest score.",
+    "case_a_overclaim_flags_vs_seal_D3": [
+      {
+        "slug": "cum26-alzheimer-s-disease-drug-development-pipeline",
+        "gro_overclaim_flags": 9,
+        "gro_overclaiming_claim_ids": [
+          "C01",
+          "C02",
+          "C03",
+          "C05",
+          "C06",
+          "C07",
+          "C08",
+          "C09",
+          "C10"
+        ],
+        "n_claims": 10,
+        "seal_D3_score": 4,
+        "note": "GRO flags 9 of 10 claims as population_estimate/claimed_universal with population_n=not_specified because this is a pipeline census (there is no 'sample' to size -- the claim IS the count of the population). Seal's D3 justification does not treat this as an overgeneralization problem at all; its only related finding is about a figure-vs-claim numeric mismatch (C10), not scope."
+      },
+      {
+        "slug": "xu25-epidemiological-and-sociodemographic-transitions-in-the",
+        "gro_overclaim_flags": 11,
+        "gro_overclaiming_claim_ids": [
+          "C01",
+          "C02",
+          "C03",
+          "C05",
+          "C06",
+          "C07",
+          "C08",
+          "C09",
+          "C10",
+          "C11",
+          "C13"
+        ],
+        "n_claims": 13,
+        "seal_D3_score": 4,
+        "note": "Same pattern: GDB/GBD-style incidence and mortality estimates for whole regions naturally lack a 'population_n' sample-size field. GRO's rule cannot distinguish a genre-appropriate population-level descriptive estimate from an actual n=2-cohort-to-global-population overreach (the che26 case above) -- it flags both identically."
+      }
+    ],
+    "case_b_reference_resolvability_with_no_seal_analogue": {
+      "headline_example": {
+        "slug": "val25-blood-biomarkers-of-alzheimer-s-disease",
+        "gro_reference_resolvability_rate": 0.0,
+        "gro_n_refs": 55,
+        "seal_D1_score": 5,
+        "seal_overall_score": 4.7,
+        "seal_recommendation": "Strong Accept",
+        "note": "GRO reports that 0 of 55 refs in this ARA's refs.yaml ledger resolve to a real bibliographic entry. Seal's D1 ('Every claim traces to...') and overall score are nonetheless the highest of all 12 ARAs. These are not necessarily contradictory -- D1 asks whether the evidence quoted matches the claim type, not whether the works-cited ledger resolves externally -- but it means the Seal rubric structurally never surfaces this fact: none of D1-D6 asks 'do this ARA's own citations resolve.' A reader relying only on the Seal review would never learn that val25's reference ledger is 0% resolvable."
+      },
+      "other_low_resolvability_ARAs_with_no_seal_mention": [
+        {
+          "slug": "zho25-microglia-networks-within-the-tapestry-of",
+          "reference_resolvability_rate": 0.0
+        },
+        {
+          "slug": "ard25-response-of-spatially-defined-microglia-states",
+          "reference_resolvability_rate": 0.0
+        },
+        {
+          "slug": "gau25-single-nucleus-and-spatial-transcriptomic-profiling",
+          "reference_resolvability_rate": 0.1
+        },
+        {
+          "slug": "tit26-automated-high-throughput-quantification-of-plasma",
+          "reference_resolvability_rate": 0.1320754716981132
+        }
+      ]
+    },
+    "case_c_convergence_with_gro_supplying_the_auditable_count_the_seal_narrates": {
+      "slug": "ard25-response-of-spatially-defined-microglia-states",
+      "gro_broken_ref_integrity": 16,
+      "gro_note": "All 16 proof_ref instances across every one of the 13 claims are broken, because logic/experiments.md does not exist ('no logic/experiments.md found -- all proof_refs treated as unresolved'). This is exactly enumerable: 16/16, i.e. 100% of proof_refs.",
+      "seal_finding_verbatim": "All 13 claims cite \"Proof: [E0x]\" pointers into logic/experiments.md, but that file does not exist anywhere in the ARA -- every claim's verification-plan linkage is a dangling reference.",
+      "seal_D5_score": 1,
+      "seal_D6_score": 2,
+      "note": "Direction agrees fully -- this is the one case where GRO and Seal converge cleanly. The difference is granularity: GRO gives the precise Tier-A count (16 broken refs, 0 experiment ids recovered) that Seal's D5=1 / D6=2 scores and prose compress into a qualitative judgment ('this alone forces a floor-rule Reject') without stating the exact fraction."
+    },
+    "case_d_gro_formula_breaking_at_a_genre_edge_that_seal_handles_narratively": {
+      "slug": "zho25-microglia-networks-within-the-tapestry-of",
+      "gro_genre_silent_omissions": -1,
+      "gro_warning_verbatim": "genre.yaml present_slots contains slot(s) not in expected_slots: ['experiments'] -- literal count formula can go negative",
+      "seal_D5_score": 2,
+      "seal_finding_verbatim": "The exploration tree contains no dead-end, decision, or pivot nodes by explicit design choice (it reconstructs a completed narrative review rather than a first-hand research trajectory), so exploration integrity cannot be substantively evaluated from this artifact -- it is honestly disclaimed rather than fabricated, but the dimension is effectively unscoreable above a low-moderate baseline.",
+      "note": "GRO's literal count formula (count(expected_slots) - count(present_slots) - count(absent_declared)) outputs a nonsensical negative number when a review-genre ARA legitimately has an 'experiments' slot outside the genre schema's expectation. GRO flags its own breakdown via a warning string rather than silently emitting a wrong number, but the number itself (-1) is uninterpretable without a human/Seal reading the warning. Seal instead reasons directly in prose about why exploration-integrity is structurally unscoreable for a narrative-review genre -- exactly the kind of genre-aware judgment GRO's rigid formula cannot make."
+    },
+    "corpus_wide_floor_and_ceiling_effects_worth_flagging": {
+      "claim_typing_coverage": "1.0 for all 12 ARAs -- no discriminating power in this corpus; excluded from the GRO health composite below.",
+      "entity_anchoring_rate": "0.0 for all 12 ARAs -- appears to be a corpus-wide compiler/entity-linking gap rather than a per-ARA quality signal; excluded from the GRO health composite below."
+    }
+  },
+  "3_do_the_three_rank_consistently": {
+    "method": "Spearman rank correlation across the 12 ARAs' Seal overall_score, a GRO deterministic health composite (mean of quantity_reconciliation_rate/entailment_precondition_rate/reference_resolvability_rate, minus a 0.5-weighted penalty for overclaim_flags and broken_ref_integrity each normalized by n_claims, clamped [0,1] -- claim_typing_coverage and entity_anchoring_rate excluded as corpus-wide floor/ceiling effects with no discriminating power), and v3's artifact_trust weight_w.",
+    "correlations_all_12": {
+      "n": 12,
+      "seal_overall_vs_gro_health": {
+        "rho": -0.0106,
+        "p": 0.9739
+      },
+      "seal_overall_vs_v3_artifact_trust": {
+        "rho": 0.0353,
+        "p": 0.9132
+      },
+      "gro_health_vs_v3_artifact_trust": {
+        "rho": 0.6783,
+        "p": 0.0153
+      }
+    },
+    "correlations_excluding_ard25_outlier": {
+      "n": 11,
+      "note": "ard25 is a structurally broken ARA (empty trace/, no logic/experiments.md) that all three instruments independently rank last -- it is the one point of three-way agreement and it dominates the pooled correlation. Recomputed excluding it to see whether the remaining 11 'intact' ARAs show any residual relationship.",
+      "seal_overall_vs_gro_health": {
+        "rho": -0.318,
+        "p": 0.3406
+      },
+      "seal_overall_vs_v3_artifact_trust": {
+        "rho": -0.2581,
+        "p": 0.4435
+      },
+      "gro_health_vs_v3_artifact_trust": {
+        "rho": 0.5818,
+        "p": 0.0604
+      }
+    },
+    "headline_finding": "Across all 12 ARAs, Seal's overall_score is essentially UNCORRELATED with both GRO deterministic health (rho=-0.011) and v3 artifact_trust (rho=0.035) -- while GRO health and v3 trust correlate strongly with EACH OTHER (rho=0.678, p=0.015). The one point where all three agree is ard25, a structurally broken ARA (empty trace/, missing logic/experiments.md) that every instrument independently ranks last. Excluding that one shared catastrophic case, the correlation between Seal and the two structural metrics trends NEGATIVE among the remaining 11 (rho=-0.318 vs GRO health, rho=-0.258 vs v3 trust), while GRO health and v3 trust still correlate positively with each other (rho=0.582). In other words: the two structural/mechanical instruments agree with each other about what 'complete' looks like; neither agrees with what the calibrated semantic reviewer considers 'good'.",
+    "illustrative_inversions": [
+      {
+        "slug": "val25-blood-biomarkers-of-alzheimer-s-disease",
+        "seal_overall_score": 4.7,
+        "seal_recommendation": "Strong Accept",
+        "seal_rank": 1,
+        "gro_health_composite": 0.5641,
+        "gro_health_rank": 6,
+        "v3_artifact_trust": 0.615,
+        "v3_trust_rank": 10,
+        "note": "Best Seal score in the corpus, but only mid-to-low structural completeness on both mechanical instruments (0% reference resolvability, environment_completeness 0.143 in v3)."
+      },
+      {
+        "slug": "zim25-donanemab-in-early-symptomatic-alzheimer-s",
+        "seal_overall_score": 3.7,
+        "seal_recommendation": "Weak Accept",
+        "seal_rank": 10,
+        "gro_health_composite": 0.9855,
+        "gro_health_rank": 1,
+        "v3_artifact_trust": 0.931,
+        "v3_trust_rank": 5,
+        "note": "Near-perfect structural health on both mechanical instruments (0.986 GRO, 0.931 v3) but only a middling Seal score, driven by D6=2 (sponsor-only authorship, no released code, uncorrected multiplicity) -- rigor concerns invisible to either structural metric."
+      },
+      {
+        "slug": "che26-diagnostic-performance-of-plasma-p-tau217",
+        "seal_overall_score": 3.7,
+        "seal_recommendation": "Weak Accept",
+        "seal_rank": 9,
+        "gro_health_composite": 0.9815,
+        "gro_health_rank": 2,
+        "v3_artifact_trust": 0.944,
+        "v3_trust_rank": 4,
+        "note": "Second-highest structural health on both instruments, but the C05 cross-ethnic overgeneralization finding (see section 1) caps Seal's D3 at 3 and the overall score at 3.7."
+      }
+    ],
+    "rank_orders": {
+      "seal_overall_score_best_to_worst": [
+        {
+          "slug": "val25-blood-biomarkers-of-alzheimer-s-disease",
+          "value": 4.7
+        },
+        {
+          "slug": "gau25-single-nucleus-and-spatial-transcriptomic-profiling",
+          "value": 4.3
+        },
+        {
+          "slug": "aki26-molecular-signatures-of-resilience-to-alzheimer",
+          "value": 4.3
+        },
+        {
+          "slug": "xu25-epidemiological-and-sociodemographic-transitions-in-the",
+          "value": 4.2
+        },
+        {
+          "slug": "han26-tau-pathological-activity-in-plasma-before",
+          "value": 4.0
+        },
+        {
+          "slug": "tit26-automated-high-throughput-quantification-of-plasma",
+          "value": 4.0
+        },
+        {
+          "slug": "cum26-alzheimer-s-disease-drug-development-pipeline",
+          "value": 4.0
+        },
+        {
+          "slug": "jes26-efficacy-and-safety-of-donanemab-in",
+          "value": 3.8
+        },
+        {
+          "slug": "che26-diagnostic-performance-of-plasma-p-tau217",
+          "value": 3.7
+        },
+        {
+          "slug": "zim25-donanemab-in-early-symptomatic-alzheimer-s",
+          "value": 3.7
+        },
+        {
+          "slug": "zho25-microglia-networks-within-the-tapestry-of",
+          "value": 3.2
+        },
+        {
+          "slug": "ard25-response-of-spatially-defined-microglia-states",
+          "value": 3.0
+        }
+      ],
+      "gro_health_composite_best_to_worst": [
+        {
+          "slug": "zim25-donanemab-in-early-symptomatic-alzheimer-s",
+          "value": 0.9855
+        },
+        {
+          "slug": "che26-diagnostic-performance-of-plasma-p-tau217",
+          "value": 0.9815
+        },
+        {
+          "slug": "jes26-efficacy-and-safety-of-donanemab-in",
+          "value": 0.9649
+        },
+        {
+          "slug": "han26-tau-pathological-activity-in-plasma-before",
+          "value": 0.7302
+        },
+        {
+          "slug": "tit26-automated-high-throughput-quantification-of-plasma",
+          "value": 0.7107
+        },
+        {
+          "slug": "val25-blood-biomarkers-of-alzheimer-s-disease",
+          "value": 0.5641
+        },
+        {
+          "slug": "gau25-single-nucleus-and-spatial-transcriptomic-profiling",
+          "value": 0.5571
+        },
+        {
+          "slug": "cum26-alzheimer-s-disease-drug-development-pipeline",
+          "value": 0.55
+        },
+        {
+          "slug": "aki26-molecular-signatures-of-resilience-to-alzheimer",
+          "value": 0.2682
+        },
+        {
+          "slug": "xu25-epidemiological-and-sociodemographic-transitions-in-the",
+          "value": 0.2637
+        },
+        {
+          "slug": "zho25-microglia-networks-within-the-tapestry-of",
+          "value": 0.1429
+        },
+        {
+          "slug": "ard25-response-of-spatially-defined-microglia-states",
+          "value": 0.0
+        }
+      ],
+      "v3_artifact_trust_weight_w_best_to_worst": [
+        {
+          "slug": "han26-tau-pathological-activity-in-plasma-before",
+          "value": 1.0
+        },
+        {
+          "slug": "jes26-efficacy-and-safety-of-donanemab-in",
+          "value": 0.974
+        },
+        {
+          "slug": "cum26-alzheimer-s-disease-drug-development-pipeline",
+          "value": 0.97
+        },
+        {
+          "slug": "che26-diagnostic-performance-of-plasma-p-tau217",
+          "value": 0.944
+        },
+        {
+          "slug": "zim25-donanemab-in-early-symptomatic-alzheimer-s",
+          "value": 0.931
+        },
+        {
+          "slug": "aki26-molecular-signatures-of-resilience-to-alzheimer",
+          "value": 0.919
+        },
+        {
+          "slug": "tit26-automated-high-throughput-quantification-of-plasma",
+          "value": 0.917
+        },
+        {
+          "slug": "xu25-epidemiological-and-sociodemographic-transitions-in-the",
+          "value": 0.754
+        },
+        {
+          "slug": "gau25-single-nucleus-and-spatial-transcriptomic-profiling",
+          "value": 0.685
+        },
+        {
+          "slug": "val25-blood-biomarkers-of-alzheimer-s-disease",
+          "value": 0.615
+        },
+        {
+          "slug": "zho25-microglia-networks-within-the-tapestry-of",
+          "value": 0.178
+        },
+        {
+          "slug": "ard25-response-of-spatially-defined-microglia-states",
+          "value": 0.15
+        }
+      ]
+    }
+  },
+  "4_core_epistemic_point": {
+    "framing": "Seal = calibrated human-like judgement (Tier C) -- reads the ARA's actual argument and asks whether the reasoning holds, whether claims overreach their evidence, whether the methodology is rigorous for the genre. GRO deterministic = structural fact (Tier A) -- answers only questions that are pure lookups over typed fields the compiler was supposed to populate (does this ref resolve, does this claim have a logical_form, does this quantity's value match its quote), with zero comprehension of whether the underlying science is good. v3 = the honest-but-limited first attempt -- a hybrid that layers a partial semantic check (extractive_fidelity, run adversarially against full text where available) on top of the same structural completeness/grounding logic as GRO (environment_completeness, grounding_trust, gate_pass_ratio), explicitly degrading to 'pending' rather than fabricating a score when it lacks the input to judge (7 of 12 ARAs here have extractive_fidelity='pending').",
+    "what_the_correlation_result_means": "The near-zero (and, once the one shared catastrophic-failure case is removed, negative-trending) correlation between Seal and the two structural instruments is the empirical demonstration of the tier gap: an ARA can be structurally immaculate (all refs resolve, all claims typed, all quantities reconciled) and still be semantically weak (claims that overreach a two-cohort subgroup into a cross-ethnic universal, sponsor-funded RCTs with undisclosed multiplicity risk) -- and conversely an ARA with real structural holes (0% reference resolvability, missing environment files) can still contain claims that are faithfully scoped, well-evidenced, and rigorously falsifiable, which is exactly val25's profile (Seal's single highest score in the corpus). GRO and v3 agreeing with each other (rho=0.678, p=0.015 across all 12) but not with Seal is expected and not a bug in either: they are both Tier-A/hybrid-Tier-A instruments answering the same class of structural question via mostly-overlapping field lookups, so of course they move together; Seal is answering a different class of question entirely, and no amount of structural completeness substitutes for it.",
+    "practical_implication": "Structural completeness (GRO, v3-structural-components) is a necessary-but-not-sufficient gate -- it catches catastrophic breakage (ard25) that no reviewer should waste time reading past, and it catches facts (broken ref counts, 0%-resolvable bibliographies) a semantic reviewer's rubric doesn't ask about at all and could easily miss. But it cannot be used as a proxy for or replacement of Seal-style semantic review: the two are near-orthogonal signals in this corpus, and the ARA compiler pipeline needs both -- Tier A/B structural gates before Tier C semantic review, not one instead of the other."
+  },
+  "per_ara_seal_headline": [
+    {
+      "slug": "che26-diagnostic-performance-of-plasma-p-tau217",
+      "seal_overall_score": 3.7,
+      "seal_recommendation": "Weak Accept",
+      "gro_health_composite": 0.9815,
+      "v3_artifact_trust_weight_w": 0.944
+    },
+    {
+      "slug": "val25-blood-biomarkers-of-alzheimer-s-disease",
+      "seal_overall_score": 4.7,
+      "seal_recommendation": "Strong Accept",
+      "gro_health_composite": 0.5641,
+      "v3_artifact_trust_weight_w": 0.615
+    },
+    {
+      "slug": "han26-tau-pathological-activity-in-plasma-before",
+      "seal_overall_score": 4.0,
+      "seal_recommendation": "Weak Accept",
+      "gro_health_composite": 0.7302,
+      "v3_artifact_trust_weight_w": 1.0
+    },
+    {
+      "slug": "zim25-donanemab-in-early-symptomatic-alzheimer-s",
+      "seal_overall_score": 3.7,
+      "seal_recommendation": "Weak Accept",
+      "gro_health_composite": 0.9855,
+      "v3_artifact_trust_weight_w": 0.931
+    },
+    {
+      "slug": "jes26-efficacy-and-safety-of-donanemab-in",
+      "seal_overall_score": 3.8,
+      "seal_recommendation": "Weak Accept",
+      "gro_health_composite": 0.9649,
+      "v3_artifact_trust_weight_w": 0.974
+    },
+    {
+      "slug": "tit26-automated-high-throughput-quantification-of-plasma",
+      "seal_overall_score": 4.0,
+      "seal_recommendation": "Accept",
+      "gro_health_composite": 0.7107,
+      "v3_artifact_trust_weight_w": 0.917
+    },
+    {
+      "slug": "gau25-single-nucleus-and-spatial-transcriptomic-profiling",
+      "seal_overall_score": 4.3,
+      "seal_recommendation": "Accept",
+      "gro_health_composite": 0.5571,
+      "v3_artifact_trust_weight_w": 0.685
+    },
+    {
+      "slug": "zho25-microglia-networks-within-the-tapestry-of",
+      "seal_overall_score": 3.2,
+      "seal_recommendation": "Weak Accept",
+      "gro_health_composite": 0.1429,
+      "v3_artifact_trust_weight_w": 0.178
+    },
+    {
+      "slug": "aki26-molecular-signatures-of-resilience-to-alzheimer",
+      "seal_overall_score": 4.3,
+      "seal_recommendation": "Accept",
+      "gro_health_composite": 0.2682,
+      "v3_artifact_trust_weight_w": 0.919
+    },
+    {
+      "slug": "cum26-alzheimer-s-disease-drug-development-pipeline",
+      "seal_overall_score": 4.0,
+      "seal_recommendation": "Accept",
+      "gro_health_composite": 0.55,
+      "v3_artifact_trust_weight_w": 0.97
+    },
+    {
+      "slug": "xu25-epidemiological-and-sociodemographic-transitions-in-the",
+      "seal_overall_score": 4.2,
+      "seal_recommendation": "Accept",
+      "gro_health_composite": 0.2637,
+      "v3_artifact_trust_weight_w": 0.754
+    },
+    {
+      "slug": "ard25-response-of-spatially-defined-microglia-states",
+      "seal_overall_score": 3.0,
+      "seal_recommendation": "Reject",
+      "gro_health_composite": 0.0,
+      "v3_artifact_trust_weight_w": 0.15
+    }
+  ],
+  "per_ara": {
+    "che26-diagnostic-performance-of-plasma-p-tau217": {
+      "seal": {
+        "overall_score": 3.7,
+        "recommendation": "Weak Accept",
+        "dimensions": {
+          "D1": 4,
+          "D2": 4,
+          "D3": 3,
+          "D4": 4,
+          "D5": 4,
+          "D6": 3
+        },
+        "findings": [
+          {
+            "severity": "high",
+            "text": "C05's cross-ethnic generalizability claim ('p-tau217 diagnostic performance is consistent across Han Chinese and Western cohorts') rests on a P-score of 1.00 computed within only two Han Chinese cohorts (Huashan N=297, Greater Bay N=425) with no reported formal ethnicity-by-biomarker interaction test against the Western cohorts \u2014 a generalization claim that overreaches its evidence type (should require a heterogeneous-data statistical comparison, not two parallel top-rank results)."
+          },
+          {
+            "severity": "medium",
+            "text": "C03's headline clinical implication that plasma p-tau217 'could reduce the need for tau-PET scans by ~80%' is sourced from an unrelated external reference (Therriault et al., 2021) about AD prevalence by demographic strata, not derived from this NMA's own AUC/P-score outputs, creating an argument-coherence gap between the review's own evidence and its stated real-world impact claim."
+          },
+          {
+            "severity": "medium",
+            "text": "The ARA's own constraints.md documents unresolved internal arithmetic in the primary paper (Table 1's 12 cohort rows vs. its caption's '6 core cohorts' and named-but-absent ADNI; PRISMA screening counts that don't reconcile database totals minus duplicates to the reported 601 screened) \u2014 these are honestly flagged, but no independent NMA consistency check (node-splitting, transitivity test) is reported to offset the resulting doubt about extraction/reporting rigor underlying all eight claims."
+          }
+        ]
+      },
+      "gro_deterministic": {
+        "quantity_reconciliation_rate": 1.0,
+        "claim_typing_coverage": 1.0,
+        "entailment_precondition_rate": 1.0,
+        "reference_resolvability_rate": 0.9444444444444444,
+        "entity_anchoring_rate": 0.0,
+        "genre_silent_omissions": 0,
+        "overclaim_flags": 0,
+        "overclaiming_claim_ids": [],
+        "broken_ref_integrity": 0,
+        "broken_ref_detail": [],
+        "warnings": [],
+        "gro_health_composite": 0.9815,
+        "gro_health_detail": {
+          "rate_avg_of_[qty_recon,entailment,ref_resolv]": 0.9815,
+          "overclaim_flags": 0,
+          "overclaim_frac_of_claims": 0.0,
+          "broken_ref_integrity": 0,
+          "broken_ref_frac_of_claims": 0.0,
+          "gro_health_composite": 0.9815
+        }
+      },
+      "v3": {
+        "genre": "systematic_review_meta_analysis",
+        "coarse": "SYNTHESIS",
+        "n_claims": 8,
+        "extractive_fidelity_value": 0.625,
+        "artifact_trust_weight_w": 0.944,
+        "artifact_trust_components": {
+          "grounding_trust": 0.917,
+          "environment_completeness": 1.0,
+          "falsifiability_presence": 1.0,
+          "compiler_fidelity": 0.8194,
+          "gate_pass_ratio": 1.0
+        },
+        "artifact_trust_gates": {
+          "seal_L1": true,
+          "all_links_resolve": true,
+          "no_orphan_experiments": true,
+          "grounding_layer_present": true
+        },
+        "low_trust": false
+      }
+    },
+    "val25-blood-biomarkers-of-alzheimer-s-disease": {
+      "seal": {
+        "overall_score": 4.7,
+        "recommendation": "Strong Accept",
+        "dimensions": {
+          "D1": 5,
+          "D2": 4,
+          "D3": 5,
+          "D4": 5,
+          "D5": 4,
+          "D6": 5
+        },
+        "findings": [
+          {
+            "severity": "medium",
+            "text": "No multiple-comparison correction is discussed anywhere in the ARA despite dozens of biomarker x transition x adjustment-tier x subgroup tests being run; constraints.md covers many other limitations but omits this one, leaving readers to assume all nominally significant HRs are equally robust."
+          },
+          {
+            "severity": "low",
+            "text": "Falsification criteria for several claims (especially C01, cohort composition) are data-integrity tautologies ('a re-analysis yielding different numbers would refute it') rather than substantive tests of the epistemic claim being made."
+          },
+          {
+            "severity": "low",
+            "text": "The exploration tree's decision nodes list 'alternatives' that read as compiler-inferred plausible options rather than paths the authors documented having considered and rejected, and C08's supplementary-table sourcing is labeled 'supported' while C09-C13 (same sourcing situation) are labeled 'directional only' -- a minor scope-labeling inconsistency."
+          }
+        ]
+      },
+      "gro_deterministic": {
+        "quantity_reconciliation_rate": 1.0,
+        "claim_typing_coverage": 1.0,
+        "entailment_precondition_rate": 0.6923076923076923,
+        "reference_resolvability_rate": 0.0,
+        "entity_anchoring_rate": 0.0,
+        "genre_silent_omissions": 1,
+        "overclaim_flags": 0,
+        "overclaiming_claim_ids": [],
+        "broken_ref_integrity": 0,
+        "broken_ref_detail": [],
+        "warnings": [],
+        "gro_health_composite": 0.5641,
+        "gro_health_detail": {
+          "rate_avg_of_[qty_recon,entailment,ref_resolv]": 0.5641,
+          "overclaim_flags": 0,
+          "overclaim_frac_of_claims": 0.0,
+          "broken_ref_integrity": 0,
+          "broken_ref_frac_of_claims": 0.0,
+          "gro_health_composite": 0.5641
+        }
+      },
+      "v3": {
+        "genre": "observational_epidemiology",
+        "coarse": "PRIMARY_CLINICAL",
+        "n_claims": 13,
+        "extractive_fidelity_value": "pending",
+        "artifact_trust_weight_w": 0.615,
+        "artifact_trust_components": {
+          "grounding_trust": 1.0,
+          "environment_completeness": 0.143,
+          "falsifiability_presence": 1.0,
+          "compiler_fidelity": null,
+          "gate_pass_ratio": 1.0
+        },
+        "artifact_trust_gates": {
+          "seal_L1": true,
+          "all_links_resolve": true,
+          "no_orphan_experiments": true,
+          "grounding_layer_present": true
+        },
+        "low_trust": false
+      }
+    },
+    "han26-tau-pathological-activity-in-plasma-before": {
+      "seal": {
+        "overall_score": 4.0,
+        "recommendation": "Weak Accept",
+        "dimensions": {
+          "D1": 4,
+          "D2": 4,
+          "D3": 4,
+          "D4": 4,
+          "D5": 5,
+          "D6": 3
+        },
+        "findings": [
+          {
+            "severity": "high",
+            "text": "The assay's entire evidentiary basis is a single cohort where the VeraBIND Tau measurements were performed by Veravas, Inc./Access Genetics, the same commercial entity holding equity and pending patents on the assay (disclosed in constraints.md), with no independent-cohort validation yet performed \u2014 this is the single largest threat to the reliability of the diagnostic-performance claims (C01-C09), and the ARA appropriately surfaces but does not discount for it in the claim statuses."
+          },
+          {
+            "severity": "medium",
+            "text": "The statistical analysis plan is uncorrected for multiple comparisons across a large number of pairwise biomarker/outcome/subgroup tests (E02, E06, E07), yet claims dependent on these tests (e.g., C02's borderline p=0.049 tau-PET AUC comparison) are marked 'supported' with the same confidence as claims with much stronger effect sizes, understating the elevated false-positive risk from the uncorrected multiplicity."
+          },
+          {
+            "severity": "low",
+            "text": "C06's framing of VeraBIND Tau as an early on/off presence signal (plateauing at Braak-like 1-3) is not explicitly reconciled with C09's treatment of the same score's continuous annual rate of change as a disease-progression-sensitive longitudinal measure; the ARA does not address why a plateaued cross-sectional signal should still yield an informative continuous slope over time."
+          }
+        ]
+      },
+      "gro_deterministic": {
+        "quantity_reconciliation_rate": 1.0,
+        "claim_typing_coverage": 1.0,
+        "entailment_precondition_rate": 1.0,
+        "reference_resolvability_rate": 0.19047619047619047,
+        "entity_anchoring_rate": 0.0,
+        "genre_silent_omissions": 0,
+        "overclaim_flags": 0,
+        "overclaiming_claim_ids": [],
+        "broken_ref_integrity": 0,
+        "broken_ref_detail": [],
+        "warnings": [],
+        "gro_health_composite": 0.7302,
+        "gro_health_detail": {
+          "rate_avg_of_[qty_recon,entailment,ref_resolv]": 0.7302,
+          "overclaim_flags": 0,
+          "overclaim_frac_of_claims": 0.0,
+          "broken_ref_integrity": 0,
+          "broken_ref_frac_of_claims": 0.0,
+          "gro_health_composite": 0.7302
+        }
+      },
+      "v3": {
+        "genre": "diagnostic_accuracy_study",
+        "coarse": "PRIMARY_CLINICAL",
+        "n_claims": 12,
+        "extractive_fidelity_value": "pending",
+        "artifact_trust_weight_w": 1.0,
+        "artifact_trust_components": {
+          "grounding_trust": 1.0,
+          "environment_completeness": 1.0,
+          "falsifiability_presence": 1.0,
+          "compiler_fidelity": null,
+          "gate_pass_ratio": 1.0
+        },
+        "artifact_trust_gates": {
+          "seal_L1": true,
+          "all_links_resolve": true,
+          "no_orphan_experiments": true,
+          "grounding_layer_present": true
+        },
+        "low_trust": false
+      }
+    },
+    "zim25-donanemab-in-early-symptomatic-alzheimer-s": {
+      "seal": {
+        "overall_score": 3.7,
+        "recommendation": "Weak Accept",
+        "dimensions": {
+          "D1": 4,
+          "D2": 3,
+          "D3": 4,
+          "D4": 5,
+          "D5": 4,
+          "D6": 2
+        },
+        "findings": [
+          {
+            "severity": "high",
+            "text": "The LTE's central 3-year efficacy claims (C01, C02) depend entirely on a non-randomized, propensity-weighted external ADNI comparator because the LTE has no internal placebo arm; the paper's own L1 limitation discloses residual confounding from differing study conduct, era, and geography that is disclosed but never resolved."
+          },
+          {
+            "severity": "medium",
+            "text": "All 12 claims derive from exploratory analyses explicitly not corrected for multiplicity (\u00a72.5), yet secondary derived metrics like the AUC cumulative-benefit claim (C05, p<0.001) and the CDR-G hazard ratio (C04, p<0.001) are reported with precise p-values that risk conveying more statistical certainty than the exploratory, uncorrected framework supports."
+          },
+          {
+            "severity": "medium",
+            "text": "Sponsor-only authorship (all 18 authors are Eli Lilly employees) is combined with no released analysis code, no stated software version for the WeightIt R package, and several supplementary figures/tables referenced by claims C05, C08, C11, and C12 are absent from the provided PDF, meaning those claims rest on main-text summary sentences with no way to independently verify the underlying computation."
+          }
+        ]
+      },
+      "gro_deterministic": {
+        "quantity_reconciliation_rate": 1.0,
+        "claim_typing_coverage": 1.0,
+        "entailment_precondition_rate": 1.0,
+        "reference_resolvability_rate": 0.9565217391304348,
+        "entity_anchoring_rate": 0.0,
+        "genre_silent_omissions": 0,
+        "overclaim_flags": 0,
+        "overclaiming_claim_ids": [],
+        "broken_ref_integrity": 0,
+        "broken_ref_detail": [],
+        "warnings": [],
+        "gro_health_composite": 0.9855,
+        "gro_health_detail": {
+          "rate_avg_of_[qty_recon,entailment,ref_resolv]": 0.9855,
+          "overclaim_flags": 0,
+          "overclaim_frac_of_claims": 0.0,
+          "broken_ref_integrity": 0,
+          "broken_ref_frac_of_claims": 0.0,
+          "gro_health_composite": 0.9855
+        }
+      },
+      "v3": {
+        "genre": "randomized_controlled_trial",
+        "coarse": "PRIMARY_CLINICAL",
+        "n_claims": 12,
+        "extractive_fidelity_value": "pending",
+        "artifact_trust_weight_w": 0.931,
+        "artifact_trust_components": {
+          "grounding_trust": 1.0,
+          "environment_completeness": 1.0,
+          "falsifiability_presence": 1.0,
+          "compiler_fidelity": null,
+          "gate_pass_ratio": 0.75
+        },
+        "artifact_trust_gates": {
+          "seal_L1": true,
+          "all_links_resolve": false,
+          "no_orphan_experiments": true,
+          "grounding_layer_present": true
+        },
+        "low_trust": false
+      }
+    },
+    "jes26-efficacy-and-safety-of-donanemab-in": {
+      "seal": {
+        "overall_score": 3.8,
+        "recommendation": "Weak Accept",
+        "dimensions": {
+          "D1": 4,
+          "D2": 4,
+          "D3": 4,
+          "D4": 5,
+          "D5": 3,
+          "D6": 3
+        },
+        "findings": [
+          {
+            "severity": "high",
+            "text": "No multiplicity correction is applied across the ten claims/endpoints despite this being an explicitly acknowledged limitation (L1); every claim is nonetheless labeled 'supported' with uniform confidence, so the ARA does not visibly discount claim strength for the known false-positive inflation risk of a post-hoc, exploratory, multi-endpoint analysis."
+          },
+          {
+            "severity": "medium",
+            "text": "C09's long-term durability/early-vs-delayed-start claim rests on a non-randomized propensity-weighted external control (ADNI) rather than a concurrent randomized comparator, and 74.8% of the 'early-start' group received placebo for the entire LTE \u2014 a materially weaker evidence base for a causal claim than the RCT-internal claims C01-C08, even though the limitation is documented in constraints.md."
+          },
+          {
+            "severity": "low",
+            "text": "The exploration trace's only two dead ends are narrow implementation-feasibility constraints (ADNI missing covariates, imputation/reweighting incompatibility); no other node documents a rejected alternative analytic choice, so the trace functions more as a narrated methods section than genuine evidence of deliberated research decisions."
+          }
+        ]
+      },
+      "gro_deterministic": {
+        "quantity_reconciliation_rate": 1.0,
+        "claim_typing_coverage": 1.0,
+        "entailment_precondition_rate": 1.0,
+        "reference_resolvability_rate": 0.8947368421052632,
+        "entity_anchoring_rate": 0.0,
+        "genre_silent_omissions": 0,
+        "overclaim_flags": 0,
+        "overclaiming_claim_ids": [],
+        "broken_ref_integrity": 0,
+        "broken_ref_detail": [],
+        "warnings": [],
+        "gro_health_composite": 0.9649,
+        "gro_health_detail": {
+          "rate_avg_of_[qty_recon,entailment,ref_resolv]": 0.9649,
+          "overclaim_flags": 0,
+          "overclaim_frac_of_claims": 0.0,
+          "broken_ref_integrity": 0,
+          "broken_ref_frac_of_claims": 0.0,
+          "gro_health_composite": 0.9649
+        }
+      },
+      "v3": {
+        "genre": "randomized_controlled_trial",
+        "coarse": "PRIMARY_CLINICAL",
+        "n_claims": 10,
+        "extractive_fidelity_value": 0.9,
+        "artifact_trust_weight_w": 0.974,
+        "artifact_trust_components": {
+          "grounding_trust": 1.0,
+          "environment_completeness": 1.0,
+          "falsifiability_presence": 1.0,
+          "compiler_fidelity": 0.8778,
+          "gate_pass_ratio": 1.0
+        },
+        "artifact_trust_gates": {
+          "seal_L1": true,
+          "all_links_resolve": true,
+          "no_orphan_experiments": true,
+          "grounding_layer_present": true
+        },
+        "low_trust": false
+      }
+    },
+    "tit26-automated-high-throughput-quantification-of-plasma": {
+      "seal": {
+        "overall_score": 4.0,
+        "recommendation": "Accept",
+        "dimensions": {
+          "D1": 4,
+          "D2": 4,
+          "D3": 4,
+          "D4": 5,
+          "D5": 3,
+          "D6": 4
+        },
+        "findings": [
+          {
+            "severity": "moderate",
+            "text": "C01 and C04's 'excellent diagnostic accuracy' claims rest on Youden and two-cut-off thresholds derived and evaluated in the same 187-patient cohort with no derivation/validation split or external cohort; this optimism-bias risk is disclosed in constraints.md but not reflected in the claim statements' confident tone."
+          },
+          {
+            "severity": "minor",
+            "text": "Exploration-tree deliberation is shallow (one dead-end, two decisions with one-line rejected alternatives), limiting how much genuine research judgment (vs. post-hoc narrative reconstruction of a single published paper) the trace actually captures."
+          },
+          {
+            "severity": "minor",
+            "text": "Parts of the evidentiary basis for C10 and C11 depend on supplementary tables/figures (Supplemental Table 1, Table 5, Figure S1) that were not present in the provided PDF, so those sub-claims are grounded only in narrative text paraphrase rather than a verifiable table."
+          }
+        ]
+      },
+      "gro_deterministic": {
+        "quantity_reconciliation_rate": 1.0,
+        "claim_typing_coverage": 1.0,
+        "entailment_precondition_rate": 1.0,
+        "reference_resolvability_rate": 0.1320754716981132,
+        "entity_anchoring_rate": 0.0,
+        "genre_silent_omissions": 0,
+        "overclaim_flags": 0,
+        "overclaiming_claim_ids": [],
+        "broken_ref_integrity": 0,
+        "broken_ref_detail": [],
+        "warnings": [],
+        "gro_health_composite": 0.7107,
+        "gro_health_detail": {
+          "rate_avg_of_[qty_recon,entailment,ref_resolv]": 0.7107,
+          "overclaim_flags": 0,
+          "overclaim_frac_of_claims": 0.0,
+          "broken_ref_integrity": 0,
+          "broken_ref_frac_of_claims": 0.0,
+          "gro_health_composite": 0.7107
+        }
+      },
+      "v3": {
+        "genre": "diagnostic_accuracy_study",
+        "coarse": "PRIMARY_CLINICAL",
+        "n_claims": 11,
+        "extractive_fidelity_value": 1.0,
+        "artifact_trust_weight_w": 0.917,
+        "artifact_trust_components": {
+          "grounding_trust": 1.0,
+          "environment_completeness": 0.714,
+          "falsifiability_presence": 1.0,
+          "compiler_fidelity": 0.9091,
+          "gate_pass_ratio": 1.0
+        },
+        "artifact_trust_gates": {
+          "seal_L1": true,
+          "all_links_resolve": true,
+          "no_orphan_experiments": true,
+          "grounding_layer_present": true
+        },
+        "low_trust": false
+      }
+    },
+    "gau25-single-nucleus-and-spatial-transcriptomic-profiling": {
+      "seal": {
+        "overall_score": 4.3,
+        "recommendation": "Accept",
+        "dimensions": {
+          "D1": 4,
+          "D2": 4,
+          "D3": 5,
+          "D4": 5,
+          "D5": 4,
+          "D6": 4
+        },
+        "findings": [
+          {
+            "severity": "medium",
+            "text": "Several load-bearing claims (C04 cross-region/cross-cohort replication, C10/C11 global CARTANA signature, C13 GFAP bimodality, C14 tile-based analysis) cite Supplementary Figures explicitly noted as absent from the compiled PDF, so their evidence basis is textual paraphrase of the paper's own Results prose rather than an independently inspectable figure or table."
+          },
+          {
+            "severity": "low",
+            "text": "Falsification criteria across all 14 claims follow an essentially identical template ('a replication finding no X would refute this claim'), which is scope-appropriate for observational biology claims but provides limited differentiation in actionability between trivial and non-trivial claims."
+          },
+          {
+            "severity": "low",
+            "text": "C08's cell-type-specific pathway-enrichment claim is asserted with the same declarative register as the FDR<0.05 DEG claims (C05/C06) despite relying on a looser 10-20% FDR threshold, slightly understating its comparatively weaker statistical standard relative to sibling claims."
+          }
+        ]
+      },
+      "gro_deterministic": {
+        "quantity_reconciliation_rate": 1.0,
+        "claim_typing_coverage": 1.0,
+        "entailment_precondition_rate": 0.5714285714285714,
+        "reference_resolvability_rate": 0.1,
+        "entity_anchoring_rate": 0.0,
+        "genre_silent_omissions": 0,
+        "overclaim_flags": 0,
+        "overclaiming_claim_ids": [],
+        "broken_ref_integrity": 0,
+        "broken_ref_detail": [],
+        "warnings": [],
+        "gro_health_composite": 0.5571,
+        "gro_health_detail": {
+          "rate_avg_of_[qty_recon,entailment,ref_resolv]": 0.5571,
+          "overclaim_flags": 0,
+          "overclaim_frac_of_claims": 0.0,
+          "broken_ref_integrity": 0,
+          "broken_ref_frac_of_claims": 0.0,
+          "gro_health_composite": 0.5571
+        }
+      },
+      "v3": {
+        "genre": "primary_experimental",
+        "coarse": "PRIMARY_LAB",
+        "n_claims": 14,
+        "extractive_fidelity_value": "pending",
+        "artifact_trust_weight_w": 0.685,
+        "artifact_trust_components": {
+          "grounding_trust": null,
+          "environment_completeness": 0.429,
+          "falsifiability_presence": 1.0,
+          "compiler_fidelity": null,
+          "gate_pass_ratio": 0.75
+        },
+        "artifact_trust_gates": {
+          "seal_L1": true,
+          "all_links_resolve": true,
+          "no_orphan_experiments": true,
+          "grounding_layer_present": false
+        },
+        "low_trust": false
+      }
+    },
+    "zho25-microglia-networks-within-the-tapestry-of": {
+      "seal": {
+        "overall_score": 3.2,
+        "recommendation": "Weak Accept",
+        "dimensions": {
+          "D1": 4,
+          "D2": 3,
+          "D3": 4,
+          "D4": 4,
+          "D5": 2,
+          "D6": 2
+        },
+        "findings": [
+          {
+            "severity": "medium",
+            "text": "Falsification criteria for nearly all 14 claims test citation fidelity to the review's own quoted source (e.g., 'the cited study reports a different PIG count') rather than the truth of the underlying biological claim, which limits independent testability beyond checking the review's transcription accuracy."
+          },
+          {
+            "severity": "medium",
+            "text": "Several central quantitative claims (C06's 14% DAA-like astrocyte fraction, C07's 130 candidate RL pairs, C10's activation-score correlation) rest on single, non-replicated primary studies; this is disclosed honestly in constraints.md but is not flagged at the individual claim level in claims.md, so a reader of claims.md alone would not know these are single-cohort estimates."
+          },
+          {
+            "severity": "low",
+            "text": "The exploration tree contains no dead-end, decision, or pivot nodes by explicit design choice (it reconstructs a completed narrative review rather than a first-hand research trajectory), so exploration integrity cannot be substantively evaluated from this artifact \u2014 it is honestly disclaimed rather than fabricated, but the dimension is effectively unscoreable above a low-moderate baseline."
+          }
+        ]
+      },
+      "gro_deterministic": {
+        "quantity_reconciliation_rate": null,
+        "claim_typing_coverage": 1.0,
+        "entailment_precondition_rate": 0.5,
+        "reference_resolvability_rate": 0.0,
+        "entity_anchoring_rate": 0.0,
+        "genre_silent_omissions": -1,
+        "overclaim_flags": 3,
+        "overclaiming_claim_ids": [
+          "C01",
+          "C13",
+          "C14"
+        ],
+        "broken_ref_integrity": 0,
+        "broken_ref_detail": [],
+        "warnings": [
+          "no quantities referenced by >=2 claims; reconciliation rate undefined (null)",
+          "genre.yaml present_slots contains slot(s) not in expected_slots: ['experiments'] -- literal count formula can go negative"
+        ],
+        "gro_health_composite": 0.1429,
+        "gro_health_detail": {
+          "rate_avg_of_[qty_recon,entailment,ref_resolv]": 0.25,
+          "overclaim_flags": 3,
+          "overclaim_frac_of_claims": 0.2143,
+          "broken_ref_integrity": 0,
+          "broken_ref_frac_of_claims": 0.0,
+          "gro_health_composite": 0.1429
+        }
+      },
+      "v3": {
+        "genre": "narrative_review_survey",
+        "coarse": "SYNTHESIS",
+        "n_claims": 14,
+        "extractive_fidelity_value": "pending",
+        "artifact_trust_weight_w": 0.178,
+        "artifact_trust_components": {
+          "grounding_trust": 1.0,
+          "environment_completeness": 0.0,
+          "falsifiability_presence": 1.0,
+          "compiler_fidelity": null,
+          "gate_pass_ratio": 1.0
+        },
+        "artifact_trust_gates": {
+          "seal_L1": true,
+          "all_links_resolve": true,
+          "no_orphan_experiments": true,
+          "grounding_layer_present": true
+        },
+        "low_trust": true
+      }
+    },
+    "aki26-molecular-signatures-of-resilience-to-alzheimer": {
+      "seal": {
+        "overall_score": 4.3,
+        "recommendation": "Accept",
+        "dimensions": {
+          "D1": 4,
+          "D2": 4,
+          "D3": 4,
+          "D4": 5,
+          "D5": 5,
+          "D6": 4
+        },
+        "findings": [
+          {
+            "severity": "medium",
+            "text": "Causal validation of KCNIP4 (C07, C08) is one-directional gain-of-function only (AAV overexpression); no loss-of-function/knockdown experiment tests necessity, leaving the causal mechanism asymmetrically supported."
+          },
+          {
+            "severity": "medium",
+            "text": "In vivo functional evidence rests on small, male-only AppSAA mouse cohorts (5-7/group) with non-blinded analysis; this caveat is documented in constraints.md but not carried into the claim statements themselves (C07/C08), risking overgeneralization if claims are read in isolation."
+          },
+          {
+            "severity": "low",
+            "text": "Falsification criteria for some descriptive/mechanistic claims (e.g., C04's 'coordinated upregulation... non-synaptic/non-neuroprotective enrichment') are qualitatively stated without an operational threshold, making independent falsification harder to execute than for the more concrete compositional/statistical claims."
+          }
+        ]
+      },
+      "gro_deterministic": {
+        "quantity_reconciliation_rate": null,
+        "claim_typing_coverage": 1.0,
+        "entailment_precondition_rate": 0.4,
+        "reference_resolvability_rate": 0.13636363636363635,
+        "entity_anchoring_rate": 0.0,
+        "genre_silent_omissions": 0,
+        "overclaim_flags": 0,
+        "overclaiming_claim_ids": [],
+        "broken_ref_integrity": 0,
+        "broken_ref_detail": [],
+        "warnings": [
+          "no quantities referenced by >=2 claims; reconciliation rate undefined (null)"
+        ],
+        "gro_health_composite": 0.2682,
+        "gro_health_detail": {
+          "rate_avg_of_[qty_recon,entailment,ref_resolv]": 0.2682,
+          "overclaim_flags": 0,
+          "overclaim_frac_of_claims": 0.0,
+          "broken_ref_integrity": 0,
+          "broken_ref_frac_of_claims": 0.0,
+          "gro_health_composite": 0.2682
+        }
+      },
+      "v3": {
+        "genre": "primary_experimental",
+        "coarse": "PRIMARY_LAB",
+        "n_claims": 10,
+        "extractive_fidelity_value": "pending",
+        "artifact_trust_weight_w": 0.919,
+        "artifact_trust_components": {
+          "grounding_trust": 1.0,
+          "environment_completeness": 0.714,
+          "falsifiability_presence": 1.0,
+          "compiler_fidelity": null,
+          "gate_pass_ratio": 1.0
+        },
+        "artifact_trust_gates": {
+          "seal_L1": true,
+          "all_links_resolve": true,
+          "no_orphan_experiments": true,
+          "grounding_layer_present": true
+        },
+        "low_trust": false
+      }
+    },
+    "cum26-alzheimer-s-disease-drug-development-pipeline": {
+      "seal": {
+        "overall_score": 4.0,
+        "recommendation": "Accept",
+        "dimensions": {
+          "D1": 4,
+          "D2": 3,
+          "D3": 4,
+          "D4": 5,
+          "D5": 4,
+          "D6": 4
+        },
+        "findings": [
+          {
+            "severity": "medium",
+            "text": "C10's evidence citation (Figure 5B) is internally inconsistent with the claim's stated tau trajectory (~6%->~20%); the figure's digitized tau line only reaches ~9-10%. The ARA discloses this in evidence/README.md and figure5.md but the claims.md Statement itself does not carry the caveat, so the claim as read in isolation is over-supported by its own citation."
+          },
+          {
+            "severity": "low",
+            "text": "Falsification criteria across all 10 claims use unquantified language ('materially different,' 'substantially')  rather than a stated tolerance, making independent falsification tests less reproducible than they could be."
+          },
+          {
+            "severity": "low",
+            "text": "The self-acknowledged classification ambiguity for DTT/STT and CADRO assignment (multi-mechanism agents) has no accompanying robustness check (e.g., inter-rater agreement or sensitivity of headline percentages to reclassification of ambiguous agents)."
+          }
+        ]
+      },
+      "gro_deterministic": {
+        "quantity_reconciliation_rate": 1.0,
+        "claim_typing_coverage": 1.0,
+        "entailment_precondition_rate": 1.0,
+        "reference_resolvability_rate": 1.0,
+        "entity_anchoring_rate": 0.0,
+        "genre_silent_omissions": 0,
+        "overclaim_flags": 9,
+        "overclaiming_claim_ids": [
+          "C01",
+          "C02",
+          "C03",
+          "C05",
+          "C06",
+          "C07",
+          "C08",
+          "C09",
+          "C10"
+        ],
+        "broken_ref_integrity": 0,
+        "broken_ref_detail": [],
+        "warnings": [],
+        "gro_health_composite": 0.55,
+        "gro_health_detail": {
+          "rate_avg_of_[qty_recon,entailment,ref_resolv]": 1.0,
+          "overclaim_flags": 9,
+          "overclaim_frac_of_claims": 0.9,
+          "broken_ref_integrity": 0,
+          "broken_ref_frac_of_claims": 0.0,
+          "gro_health_composite": 0.55
+        }
+      },
+      "v3": {
+        "genre": "narrative_review_survey",
+        "coarse": "SYNTHESIS",
+        "n_claims": 10,
+        "extractive_fidelity_value": 1.0,
+        "artifact_trust_weight_w": 0.97,
+        "artifact_trust_components": {
+          "grounding_trust": 1.0,
+          "environment_completeness": 0.857,
+          "falsifiability_presence": 1.0,
+          "compiler_fidelity": 1.0,
+          "gate_pass_ratio": 1.0
+        },
+        "artifact_trust_gates": {
+          "seal_L1": true,
+          "all_links_resolve": true,
+          "no_orphan_experiments": true,
+          "grounding_layer_present": true
+        },
+        "low_trust": false
+      }
+    },
+    "xu25-epidemiological-and-sociodemographic-transitions-in-the": {
+      "seal": {
+        "overall_score": 4.2,
+        "recommendation": "Accept",
+        "dimensions": {
+          "D1": 4,
+          "D2": 4,
+          "D3": 4,
+          "D4": 5,
+          "D5": 5,
+          "D6": 3
+        },
+        "findings": [
+          {
+            "severity": "medium",
+            "text": "Multiple claims (C05, part of C08, C12, C13) depend on Supplementary Material (Table S1, Table S3, Figures S4-S7) that was not provided as input, so their evidence basis is a main-text prose restatement rather than an independently verified table/figure cross-check \u2014 honestly flagged, but it leaves a real verification gap."
+          },
+          {
+            "severity": "low",
+            "text": "C13 documents an unresolved internal numeric coincidence: the Discussion's stated Central Sub-Saharan Africa mortality ETPC (14.82%) exactly matches Australasia's unrelated incidence-ASIR ETPC in Table 1, while Central Sub-Saharan Africa's own incidence ETPC is -0.59 \u2014 a discrepancy the ARA correctly surfaces but cannot resolve without the missing Table S1."
+          },
+          {
+            "severity": "low",
+            "text": "Methodological rigor is capped by the study's descriptive/correlational design (no causal-inference method, no released code or dataset), which is a genre-appropriate but real limitation on independent reproducibility of the underlying statistical results."
+          }
+        ]
+      },
+      "gro_deterministic": {
+        "quantity_reconciliation_rate": 1.0,
+        "claim_typing_coverage": 1.0,
+        "entailment_precondition_rate": 0.9230769230769231,
+        "reference_resolvability_rate": 0.13725490196078433,
+        "entity_anchoring_rate": 0.0,
+        "genre_silent_omissions": 0,
+        "overclaim_flags": 11,
+        "overclaiming_claim_ids": [
+          "C01",
+          "C02",
+          "C03",
+          "C05",
+          "C06",
+          "C07",
+          "C08",
+          "C09",
+          "C10",
+          "C11",
+          "C13"
+        ],
+        "broken_ref_integrity": 0,
+        "broken_ref_detail": [],
+        "warnings": [],
+        "gro_health_composite": 0.2637,
+        "gro_health_detail": {
+          "rate_avg_of_[qty_recon,entailment,ref_resolv]": 0.6868,
+          "overclaim_flags": 11,
+          "overclaim_frac_of_claims": 0.8462,
+          "broken_ref_integrity": 0,
+          "broken_ref_frac_of_claims": 0.0,
+          "gro_health_composite": 0.2637
+        }
+      },
+      "v3": {
+        "genre": "primary_experimental",
+        "coarse": "PRIMARY_LAB",
+        "n_claims": 13,
+        "extractive_fidelity_value": "pending",
+        "artifact_trust_weight_w": 0.754,
+        "artifact_trust_components": {
+          "grounding_trust": null,
+          "environment_completeness": 0.571,
+          "falsifiability_presence": 1.0,
+          "compiler_fidelity": null,
+          "gate_pass_ratio": 0.75
+        },
+        "artifact_trust_gates": {
+          "seal_L1": true,
+          "all_links_resolve": true,
+          "no_orphan_experiments": true,
+          "grounding_layer_present": false
+        },
+        "low_trust": false
+      }
+    },
+    "ard25-response-of-spatially-defined-microglia-states": {
+      "seal": {
+        "overall_score": 3.0,
+        "recommendation": "Reject",
+        "dimensions": {
+          "D1": 4,
+          "D2": 3,
+          "D3": 4,
+          "D4": 4,
+          "D5": 1,
+          "D6": 2
+        },
+        "findings": [
+          {
+            "severity": "critical",
+            "text": "trace/ is completely empty -- no exploration_tree.yaml exists -- so Exploration Integrity (dead-ends, deliberation, honest negatives) cannot be assessed at all, despite PAPER.md's layer index explicitly promising this file; this alone forces a floor-rule Reject."
+          },
+          {
+            "severity": "high",
+            "text": "All 13 claims cite \"Proof: [E0x]\" pointers into logic/experiments.md, but that file does not exist anywhere in the ARA -- every claim's verification-plan linkage is a dangling reference."
+          },
+          {
+            "severity": "high",
+            "text": "logic/solution/ and src/ are entirely empty (constraints.md, study_design.md, computational_methods.md, environment.md, configs/analysis_parameters.md, artifacts.md all missing), so methodological rigor (statistical correction, replicate counts, pipeline reproducibility) can only be inferred from fragmentary quotes embedded in claims.md's Sources fields rather than assessed from a dedicated methods layer."
+          }
+        ]
+      },
+      "gro_deterministic": {
+        "quantity_reconciliation_rate": 1.0,
+        "claim_typing_coverage": 1.0,
+        "entailment_precondition_rate": 0.7692307692307693,
+        "reference_resolvability_rate": 0.0,
+        "entity_anchoring_rate": 0.0,
+        "genre_silent_omissions": 4,
+        "overclaim_flags": 0,
+        "overclaiming_claim_ids": [],
+        "broken_ref_integrity": 16,
+        "broken_ref_detail": [
+          {
+            "claim": "C01",
+            "field": "proof_refs",
+            "ref": "E01"
+          },
+          {
+            "claim": "C01",
+            "field": "proof_refs",
+            "ref": "E02"
+          },
+          {
+            "claim": "C02",
+            "field": "proof_refs",
+            "ref": "E03"
+          },
+          {
+            "claim": "C03",
+            "field": "proof_refs",
+            "ref": "E04"
+          },
+          {
+            "claim": "C04",
+            "field": "proof_refs",
+            "ref": "E05"
+          },
+          {
+            "claim": "C05",
+            "field": "proof_refs",
+            "ref": "E06"
+          },
+          {
+            "claim": "C06",
+            "field": "proof_refs",
+            "ref": "E07"
+          },
+          {
+            "claim": "C07",
+            "field": "proof_refs",
+            "ref": "E08"
+          },
+          {
+            "claim": "C08",
+            "field": "proof_refs",
+            "ref": "E09"
+          },
+          {
+            "claim": "C09",
+            "field": "proof_refs",
+            "ref": "E08"
+          },
+          {
+            "claim": "C09",
+            "field": "proof_refs",
+            "ref": "E09"
+          },
+          {
+            "claim": "C10",
+            "field": "proof_refs",
+            "ref": "E10"
+          },
+          {
+            "claim": "C11",
+            "field": "proof_refs",
+            "ref": "E04"
+          },
+          {
+            "claim": "C11",
+            "field": "proof_refs",
+            "ref": "E10"
+          },
+          {
+            "claim": "C12",
+            "field": "proof_refs",
+            "ref": "E10"
+          },
+          {
+            "claim": "C13",
+            "field": "proof_refs",
+            "ref": "E11"
+          }
+        ],
+        "warnings": [
+          "no logic/experiments.md found -- all proof_refs treated as unresolved"
+        ],
+        "gro_health_composite": 0.0,
+        "gro_health_detail": {
+          "rate_avg_of_[qty_recon,entailment,ref_resolv]": 0.5897,
+          "overclaim_flags": 0,
+          "overclaim_frac_of_claims": 0.0,
+          "broken_ref_integrity": 16,
+          "broken_ref_frac_of_claims": 1.2308,
+          "gro_health_composite": 0.0
+        }
+      },
+      "v3": {
+        "genre": "primary_experimental",
+        "coarse": "PRIMARY_LAB",
+        "n_claims": 13,
+        "extractive_fidelity_value": "pending",
+        "artifact_trust_weight_w": 0.15,
+        "artifact_trust_components": {
+          "grounding_trust": 1.0,
+          "environment_completeness": 0.0,
+          "falsifiability_presence": 1.0,
+          "compiler_fidelity": null,
+          "gate_pass_ratio": 0.5
+        },
+        "artifact_trust_gates": {
+          "seal_L1": false,
+          "all_links_resolve": false,
+          "no_orphan_experiments": true,
+          "grounding_layer_present": true
+        },
+        "low_trust": true
+      }
+    }
+  }
+}

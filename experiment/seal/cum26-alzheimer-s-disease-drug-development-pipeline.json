@@ -1,0 +1,51 @@
+{
+  "slug": "cum26-alzheimer-s-disease-drug-development-pipeline",
+  "dimensions": {
+    "D1": {
+      "score": 4,
+      "justification": "Every claim is a descriptive census statistic sourced to a verbatim, arithmetic-checked quote from the paper (grounding_findings.yaml shows exact or correctly-rounded value matches for 9 of 10 items), which is the right evidence type for descriptive/sampling claims.",
+      "weakness": "C10's cited evidence (Figure 5B) is documented by the ARA's own README/figure5.md as showing the tau share line ending near ~9%, not ~20% as the text and claim state -- the figure citation for that sub-claim does not actually support the number."
+    },
+    "D2": {
+      "score": 3,
+      "justification": "Falsification criteria are stated for every claim and point to a concrete, repeatable procedure (re-run the same registry query/classification and compare counts).",
+      "weakness": "Criteria rely on vague thresholds like 'materially different counts' or 'shifts these proportions substantially' with no quantified tolerance, so two independent reviewers could disagree on whether a re-count actually falsifies the claim."
+    },
+    "D3": {
+      "score": 4,
+      "justification": "Claims are explicitly scoped to 'composition and trajectory of the pipeline as counted from ClinicalTrials.gov,' not drug efficacy, and interpretations consistently flag the registry as a lower bound and classification as ambiguous.",
+      "weakness": "C10 asserts the tau share 'rose to ~20%' as if fully supported, without flagging in the Statement itself (only in evidence/README.md) that the cited figure contradicts this number -- a reader of claims.md alone would not learn of the inconsistency."
+    },
+    "D4": {
+      "score": 5,
+      "justification": "The observations (O1-O4) -> gaps (G1-G2) -> key insight -> 10 claims -> 8 experiments -> evidence chain is internally consistent, with explicit claim dependencies (e.g., C02-C10 depend on C01) that match the actual counting logic.",
+      "weakness": "No cross-layer contradiction was found, but the tight one-to-one claim/experiment/evidence mapping leaves little room to see how conflicting sub-analyses (e.g., Figure 3's per-phase CADRO counts running ~1 higher than the once-per-pipeline totals) were reconciled beyond a footnote."
+    },
+    "D5": {
+      "score": 4,
+      "justification": "The exploration tree honestly declares it contains no dead-end nodes because a census survey has no rejected hypotheses, and the one genuine decision node (N02) lists real alternative inclusion rules that were not taken.",
+      "weakness": "Because this is a registry census rather than an experimental study, there is minimal deliberation to inspect -- the 'decision' is essentially a restatement of the inclusion/exclusion rules rather than a documented weighing of live methodological alternatives."
+    },
+    "D6": {
+      "score": 4,
+      "justification": "The counting/classification methodology (fixed Index Date, higher-phase assignment, DTT/STT and CADRO classification rules, DrugBank repurposing check) is fully specified and all reported percentages check out arithmetically against the raw counts.",
+      "weakness": "As a descriptive census there are no baselines/ablations in the causal sense, and no inter-rater reliability or sensitivity analysis is reported for the acknowledged classification ambiguity (DTT/STT, CADRO, repurposing), so the robustness of the manual-curation step is untested."
+    }
+  },
+  "overall_score": 4.0,
+  "recommendation": "Accept",
+  "findings": [
+    {
+      "severity": "medium",
+      "text": "C10's evidence citation (Figure 5B) is internally inconsistent with the claim's stated tau trajectory (~6%->~20%); the figure's digitized tau line only reaches ~9-10%. The ARA discloses this in evidence/README.md and figure5.md but the claims.md Statement itself does not carry the caveat, so the claim as read in isolation is over-supported by its own citation."
+    },
+    {
+      "severity": "low",
+      "text": "Falsification criteria across all 10 claims use unquantified language ('materially different,' 'substantially')  rather than a stated tolerance, making independent falsification tests less reproducible than they could be."
+    },
+    {
+      "severity": "low",
+      "text": "The self-acknowledged classification ambiguity for DTT/STT and CADRO assignment (multi-mechanism agents) has no accompanying robustness check (e.g., inter-rater agreement or sensitivity of headline percentages to reclassification of ambiguous agents)."
+    }
+  ]
+}

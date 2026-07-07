@@ -1,0 +1,51 @@
+{
+  "slug": "ard25-response-of-spatially-defined-microglia-states",
+  "dimensions": {
+    "D1": {
+      "score": 4,
+      "justification": "Each claim's Evidence basis and Sources fields cite specific figure panels/quotes with correct type-matching (causal treatment-effect claims cite treatment-vs-control panels, descriptive claims cite quantification panels), giving substantive, traceable support.",
+      "weakness": "All evidence is re-citation of the original paper's own figures/text with no independent cross-check, and the single-replicate status of the scRNA-seq/ATAC-seq experiments (flagged only in problem.md's A5, not in the claims' own evidence-relevance framing) is not carried into the per-claim evidence assessment for C07-C09/C13."
+    },
+    "D2": {
+      "score": 3,
+      "justification": "Every claim carries an explicit falsification criterion tied to a specific quantitative result (e.g., overlap of MC-randomized CI, non-significant >1,000-µm3 correlation).",
+      "weakness": "Most falsification criteria are near-tautological restatements of the claim's negation (\"if quantification showed no expansion... claim fails\") rather than independent, non-trivial tests that could fail even if the reported numbers hold up."
+    },
+    "D3": {
+      "score": 4,
+      "justification": "problem.md's explicit assumptions (A1-A5) flag the operational spatial definition, the female-only scope, and the non-replicated omics, and claims use hedged language (\"nominating,\" \"candidate marker\") rather than overclaiming generality.",
+      "weakness": "The claims.md Statement fields themselves (e.g., C09, C13) state mechanistic conclusions with unqualified confidence, leaving the single-replicate caveat isolated in a separate assumptions file rather than propagated into the claim's own scope language."
+    },
+    "D4": {
+      "score": 4,
+      "justification": "The O1-O6 observations, G1-G4 gaps, key insight, and C01-C13 claims form a coherent, explicitly cross-referenced chain (Dependencies fields) with no contradiction between layers.",
+      "weakness": "Every claim's \"Proof\" field points to E01-E11 verification/analysis plans in logic/experiments.md, but that file does not exist anywhere in the ARA, so the argument's connection to its own claimed verification layer is unauditable dangling references."
+    },
+    "D5": {
+      "score": 1,
+      "justification": "trace/ is an empty directory; no exploration_tree.yaml or any research-DAG artifact exists anywhere in the ARA.",
+      "weakness": "There is zero record of dead-ends, deliberated decisions, or honest negatives to evaluate at all -- the entire Exploration Integrity dimension has no evidence to review, despite PAPER.md's own layer index promising a trace/exploration_tree.yaml."
+    },
+    "D6": {
+      "score": 2,
+      "justification": "Some methodological detail survives as inline quotes in claims.md's Sources fields (dosing regimens, sorting gates, Monte Carlo parameters, DAR thresholds), giving a partial rigor picture.",
+      "weakness": "logic/solution/ (constraints.md, study_design.md, computational_methods.md) and src/ (environment.md, configs/analysis_parameters.md, artifacts.md) are all empty despite being listed in PAPER.md's own layer index, so statistical-correction practice, replicate structure, and reproducibility (tool versions, pipeline configs) cannot be independently assessed from the artifact."
+    }
+  },
+  "overall_score": 3.0,
+  "recommendation": "Reject",
+  "findings": [
+    {
+      "severity": "critical",
+      "text": "trace/ is completely empty -- no exploration_tree.yaml exists -- so Exploration Integrity (dead-ends, deliberation, honest negatives) cannot be assessed at all, despite PAPER.md's layer index explicitly promising this file; this alone forces a floor-rule Reject."
+    },
+    {
+      "severity": "high",
+      "text": "All 13 claims cite \"Proof: [E0x]\" pointers into logic/experiments.md, but that file does not exist anywhere in the ARA -- every claim's verification-plan linkage is a dangling reference."
+    },
+    {
+      "severity": "high",
+      "text": "logic/solution/ and src/ are entirely empty (constraints.md, study_design.md, computational_methods.md, environment.md, configs/analysis_parameters.md, artifacts.md all missing), so methodological rigor (statistical correction, replicate counts, pipeline reproducibility) can only be inferred from fragmentary quotes embedded in claims.md's Sources fields rather than assessed from a dedicated methods layer."
+    }
+  ]
+}

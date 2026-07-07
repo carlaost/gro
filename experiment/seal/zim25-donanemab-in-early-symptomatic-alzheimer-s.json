@@ -1,0 +1,51 @@
+{
+  "slug": "zim25-donanemab-in-early-symptomatic-alzheimer-s",
+  "dimensions": {
+    "D1": {
+      "score": 4,
+      "justification": "Comparative-efficacy claims (C01-C06) appropriately cite the propensity-weighted external-control MMRM/Cox/AUC analyses that match their claim type, and safety/descriptive claims (C09-C12) cite matching descriptive tabulations, with every load-bearing number traced to a direct paper.pdf quote.",
+      "weakness": "The core efficacy claims (C01, C02, C06) rest on a single non-randomized external comparator (ADNI) rather than the internal placebo arm the causal framing implicitly invites, so the evidence type is systematically weaker than the claim's comparative-efficacy framing suggests."
+    },
+    "D2": {
+      "score": 3,
+      "justification": "Every claim carries an explicit, testable falsification criterion (CI crossing zero/one, p-value threshold, divergence from a named benchmark rate).",
+      "weakness": "Several criteria are circular restatements of the reported significance test itself (e.g. C01's 'point estimate is ≥0') rather than independent, non-trivial checks, and descriptive claims (C08, C09) use vague qualifiers ('diverges substantially') with no pre-specified threshold."
+    },
+    "D3": {
+      "score": 4,
+      "justification": "Claims are consistently hedged to match what was actually shown (e.g. C04 is explicitly attributed to the authors' own framing as 'best evidence', C09 says 'similar' not 'identical', and constraints.md enumerates 5 assumptions and 9 self-reported limitations tied to specific claims).",
+      "weakness": "C07/C08's characterization of amyloid response as timing-independent glosses over the fact that the comparison is only possible for participants who remained on-drug long enough to reach the matched post-initiation timepoint, a subset not explicitly scoped in the claim statement."
+    },
+    "D4": {
+      "score": 5,
+      "justification": "The observations (O1-O5) map cleanly onto the three gaps, the key insight logically combines them into the ADNI-external-control design, and every claim traces through a specific experiment node in exploration_tree.yaml back to a decision and an observation with no contradictions across layers.",
+      "weakness": "The chain is faithful to the paper's own narrative rather than an independently reconstructed argument, so its coherence partly reflects the source paper's discussion section being pre-organized this way rather than added epistemic scrutiny."
+    },
+    "D5": {
+      "score": 4,
+      "justification": "Dead-ends are specific and traceable to actual text (MCID-inapplicability rejection, external-control residual confounding, severity-confounded early/delayed comparison, unaddressed P-tau217 gap), and negatives are reported honestly (71.5% of early-start LTE continuers received no active drug, delayed-start disease more severe).",
+      "weakness": "All 'decisions' and 'dead ends' are the original trial sponsor's own choices, faithfully transcribed rather than independently interrogated by the ARA, so exploration integrity here measures transcription fidelity more than genuine adversarial vetting of alternatives."
+    },
+    "D6": {
+      "score": 2,
+      "justification": "The design has no internal LTE placebo control, uses a non-randomized external comparator with acknowledged unmeasured confounding, runs 12 exploratory claims across multiple analysis types with no multiplicity correction, and several supplementary figures/tables (S1-S8, S1-S5) that back at least 4 claims (C05, C08 partial, C11, C12) are absent from the provided PDF.",
+      "weakness": "Key numbers for C05 (AUC benefit) and C12 (ARIA time-course) rely solely on main-text summary sentences because their supporting figures (Fig. S6, S7, S8) were never available, and the paper's software/version reporting (WeightIt R package, no version) plus absence of any code/data-availability statement blocks independent reproducibility."
+    }
+  },
+  "overall_score": 3.7,
+  "recommendation": "Weak Accept",
+  "findings": [
+    {
+      "severity": "high",
+      "text": "The LTE's central 3-year efficacy claims (C01, C02) depend entirely on a non-randomized, propensity-weighted external ADNI comparator because the LTE has no internal placebo arm; the paper's own L1 limitation discloses residual confounding from differing study conduct, era, and geography that is disclosed but never resolved."
+    },
+    {
+      "severity": "medium",
+      "text": "All 12 claims derive from exploratory analyses explicitly not corrected for multiplicity (§2.5), yet secondary derived metrics like the AUC cumulative-benefit claim (C05, p<0.001) and the CDR-G hazard ratio (C04, p<0.001) are reported with precise p-values that risk conveying more statistical certainty than the exploratory, uncorrected framework supports."
+    },
+    {
+      "severity": "medium",
+      "text": "Sponsor-only authorship (all 18 authors are Eli Lilly employees) is combined with no released analysis code, no stated software version for the WeightIt R package, and several supplementary figures/tables referenced by claims C05, C08, C11, and C12 are absent from the provided PDF, meaning those claims rest on main-text summary sentences with no way to independently verify the underlying computation."
+    }
+  ]
+}

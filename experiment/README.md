@@ -1,27 +1,20 @@
-# experiment/ — deterministic-tier extension experiment
+# experiment/ — empirical tests of the GRO idea
 
-The first empirical test of the GRO idea: take existing compiled ARAs, generate GRO **deterministic-tier extensions** (typed sidecars), and compute the deterministic ideal metrics over the extended shape. The question is narrow and precise: *does typing the record convert metrics that were not deterministically computable on prose into pure structural joins, and what do the numbers show?*
+Three connected experiments over the same corpus of compiled ARAs, each with a short paper. Together they move from "can we type the record" → "does the typed record validate against the world" → "how do the three ways of judging an ARA compare."
 
-**Answer: yes on computability.** All eight Tier-A metrics ran corpus-wide with no LLM and no network, identically run-to-run, over 12 ARAs — and one (`broken_ref_integrity`) caught a real structural defect prose cannot express. **But deliberately narrow:** deterministic tier only; the anchored tier (real DOI/registry resolution) and judged tier (novelty, entailment quality) were not run; the extensions are themselves LLM-authored (a fidelity ceiling); and nothing here tests whether the metrics discriminate good science from bad.
+## 1. Deterministic-tier computability (`gro_metrics.py`, `results.json`, `gro-experiment-paper.*`)
+Generated GRO deterministic-tier typed sidecars for 12 compiled ARAs and computed the eight Tier-A metrics over them (pure structural joins, no LLM/network). **Result:** typing the record converts prose-blocked metrics into deterministic joins; `broken_ref_integrity` caught a real structural defect. Numbers independently re-run and verified. See `gro-experiment-paper.pdf`. Extensions per ARA are in `extensions/<slug>/`.
 
-## Contents
+## 2. External-ground-truth validation (`external-validation/`)
+The anchored + judged tiers, run against **real** sources via live tools (ClinicalTrials.gov + PubMed): reference resolution, trial-registry outcome concordance (the two donanemab papers → NCT04437511), prior-literature novelty, retraction checks. Raw evidence per ARA in `external-validation/evidence/`. **Sharpest result:** the deterministic `reference_resolvability_rate` (declared corpus mean 0.52) is *falsified* by the anchored check (observed 0.96) — the self-declared metric measures DOI-capture completeness, not real verifiability. The external-validation half of the spec's §7.1 experiment; a full good-vs-bad discrimination test still needs a labelled contrast set (this corpus has no known-bad papers). See `external-validation/gro-external-validation-paper.pdf`.
 
-- **[`gro-experiment-paper.pdf`](gro-experiment-paper.pdf)** / **[`EXPERIMENT_PAPER.md`](EXPERIMENT_PAPER.md)** — the write-up (5pp).
-- **`gro_metrics.py`** — the metric implementation (pure structural joins over the sidecars; no LLM, no network). Re-runnable: `python3 gro_metrics.py`.
-- **`results.json`** / **`results.md`** — the actual program output (12 ARAs, 0 failures). *These numbers were independently re-run and verified against the committed code.*
-- **`extensions/<slug>/`** — the GRO deterministic-tier sidecars generated per ARA (`quantities.yaml`, `claims_typed.yaml`, `refs.yaml`, `entities.yaml`, `genre.yaml`), 12 ARAs × 5 files. These are copies; they also live alongside each source ARA in the parent repo at `research/ara-library/<slug>/gro/`.
+## 3. Three-way comparison (`comparison/`) — the capstone
+Over the same 12 ARAs, three ways to judge an ARA held side by side: **(a) GRO ideal metrics** (best vs most uncertain), **(b) the first ARA-inferred metric design (v3)**, **(c) the ARA verifier / Seal L2** six-dimension review. Full paper with tables + four figures: **`comparison/gro-comparison-paper.pdf`** (13pp). Per-ARA Seal reviews in `../seal/`; the three parallel analyses in `comparison/analyses/`; figures in `comparison/figures/`.
 
-## Headline numbers (corpus, 12 ARAs)
+**Headline findings:**
+- **Coverage is architectural.** GRO scores 12/12 ARAs and Seal reviews 12/12, but the v3 first design is `rank_eligible` on only **3/12** — its paper-quality signals gate on a full-text re-read that most ARAs don't support. Typing the record makes metrics uniformly computable.
+- **The three are complementary, not competing.** Deterministic (GRO Tier A) = auditable structural fact; anchored (PubMed/registry) = reliable external check; judged (Seal) = calibrated human-like verdict. Each catches what the others miss — e.g. Seal's D3 flags che26's over-generalization (C05) where GRO `overclaim_flags` = 0; GRO's `broken_ref_integrity` = 16 gives ard25 an auditable count where v3 only has a boolean.
+- **They converge on the extremes.** ard25 is "structurally worst" on all three (Seal Reject 3.0, GRO broken_ref 16, v3 trust 0.15); the p-tau217/donanemab cluster scores high across the board.
+- **None discriminates good-from-bad alone**, and the corpus contains no known-bad papers — the standing limit the whole program names.
 
-| Metric | Mean | Reads |
-|---|---|---|
-| quantity_reconciliation_rate | 1.000 (10/12 defined) | typed quantities |
-| claim_typing_coverage | 1.000 | claim_type + logical_form present |
-| entailment_precondition_rate | 0.821 | claim ↔ quantity(result) ↔ proof link |
-| reference_resolvability_rate | 0.374 | refs with a printed resolvable id |
-| entity_anchoring_rate | 0.000 | entities with an ontology xref (uniformly empty — a real, now-visible gap) |
-| genre_silent_omissions | total 4 | expected − present − declared-absent slots |
-| overclaim_flags | total 23 | generality-tier claims missing n (concentrated in cum26, xu25) |
-| broken_ref_integrity | total 16 | dangling proof/quantity/concept refs (all in ard25 — a genuine structural defect) |
-
-The load-bearing result is a *before/after about computability*, not a quality verdict: on raw prose none of these eight is a lookup (the field the metric reads does not exist until typed); after extension every one is a join. What the deterministic tier certifies is the coherence of a typed record — not the correctness, validity, or importance of the science, and not anything about the world outside the file. See the paper's §5–6 for the full boundary.
+Figures: coverage bar, GRO metric heatmap, Seal-dimension heatmap, three-way concordance scatter (colour = Seal recommendation, size = GRO issue count).

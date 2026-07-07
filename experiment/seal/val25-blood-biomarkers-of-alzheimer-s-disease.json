@@ -1,0 +1,51 @@
+{
+  "slug": "val25-blood-biomarkers-of-alzheimer-s-disease",
+  "dimensions": {
+    "D1": {
+      "score": 5,
+      "justification": "Every claim is a descriptive/associational statistic and is grounded to verbatim paper text plus the corresponding table/figure cell, which is the correct evidence type for this genre (no causal claim is made that would require an ablation).",
+      "weakness": "Claims C08-C13 rest on numbers quoted from the paper's narrative description of Supplementary Tables S2-S13, which are honestly flagged as absent from the input, so those specific HRs cannot be independently cross-checked against a table within the ARA itself."
+    },
+    "D2": {
+      "score": 4,
+      "justification": "Every claim has an explicit, non-trivial falsification criterion tied to a plausible replication or re-analysis outcome (e.g. C08's 'both-elevated group does not exceed either single-marker group' is a sharp, directional prediction).",
+      "weakness": "Several criteria (notably C01) reduce to 'a re-analysis of the same dataset yielding different numbers would refute it,' which is a data-integrity tautology rather than a substantive epistemic risk test."
+    },
+    "D3": {
+      "score": 5,
+      "justification": "The ARA is unusually disciplined about scope: it separates 'supported' from 'supported (directional only)' status whenever exact numbers come from supplementary material not in the provided PDF, and constraints.md explicitly states findings are group-level associations, not validated individual-level prediction.",
+      "weakness": "C08 relies on the same kind of unprovided-supplementary-table sourcing as C09-C13 yet is labeled plain 'supported' rather than 'directional only,' a small inconsistency in how the calibration rule is applied."
+    },
+    "D4": {
+      "score": 5,
+      "justification": "The observations (clinical-cohort biomarker evidence, prior unimpaired-cohort work, lack of population-level MCI-transition data) motivate a clearly stated gap, the multistate-Markov insight follows directly from the gap, and every claim traces cleanly through experiments.md and exploration_tree.yaml to evidence with no cross-layer contradiction.",
+      "weakness": "The 'key insight' (problem.md) is really a statistical-modeling choice rather than a substantive scientific insight, slightly blurring the boundary between problem framing and solution design."
+    },
+    "D5": {
+      "score": 4,
+      "justification": "The exploration tree documents genuine authorial decisions with stated alternatives (model choice, functional form, cut-off source, marker-count composition) and one honestly-scoped dead end (p-tau181 reversion association not surviving full adjustment), plus a clearly reported null result (NC to MCI) rather than suppressing it.",
+      "weakness": "Only one true dead_end node exists, and the 'alternatives' listed for decision nodes are compiler-inferred plausible options rather than paths the authors are documented to have actually attempted and rejected, risking presenting hindsight rationalization as deliberation."
+    },
+    "D6": {
+      "score": 5,
+      "justification": "The design documents explicit basic vs. fully-adjusted covariate tiers, four separate sensitivity analyses (baseline-MCI exclusion, IPW for attrition, CIND substitution, age/sex stratification), full assay/software/reproducibility detail, and consistent CI reporting mapped exactly to the claims they support.",
+      "weakness": "Neither the paper nor the ARA's constraints.md flags the absence of multiple-comparison correction across the many biomarker x transition x subgroup tests, despite the limitations section otherwise being thorough."
+    }
+  },
+  "overall_score": 4.7,
+  "recommendation": "Strong Accept",
+  "findings": [
+    {
+      "severity": "medium",
+      "text": "No multiple-comparison correction is discussed anywhere in the ARA despite dozens of biomarker x transition x adjustment-tier x subgroup tests being run; constraints.md covers many other limitations but omits this one, leaving readers to assume all nominally significant HRs are equally robust."
+    },
+    {
+      "severity": "low",
+      "text": "Falsification criteria for several claims (especially C01, cohort composition) are data-integrity tautologies ('a re-analysis yielding different numbers would refute it') rather than substantive tests of the epistemic claim being made."
+    },
+    {
+      "severity": "low",
+      "text": "The exploration tree's decision nodes list 'alternatives' that read as compiler-inferred plausible options rather than paths the authors documented having considered and rejected, and C08's supplementary-table sourcing is labeled 'supported' while C09-C13 (same sourcing situation) are labeled 'directional only' -- a minor scope-labeling inconsistency."
+    }
+  ]
+}

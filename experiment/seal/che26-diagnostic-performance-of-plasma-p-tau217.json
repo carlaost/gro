@@ -1,0 +1,51 @@
+{
+  "slug": "che26-diagnostic-performance-of-plasma-p-tau217",
+  "dimensions": {
+    "D1": {
+      "score": 4,
+      "justification": "Every claim traces to a specific table cell, figure panel, or quoted section line (Table 2 P-scores, Figure 3 forest-plot MDs), and evidence type matches claim type — comparative-ranking claims cite P-scores/MDs, the incremental-gain claim (C02) cites a paired within-study MD with I2, consistent with an 'improvement' claim needing a baseline contrast.",
+      "weakness": "The evidence is entirely secondary (extracted summary AUCs from 18 published studies), so relevance is only as strong as the primary studies' own reference-standard validity, which the ARA cannot independently verify."
+    },
+    "D2": {
+      "score": 4,
+      "justification": "Each claim has a concrete, checkable falsification condition tied to a re-run NMA outcome or CI crossing zero (e.g. C01: refuted if p181_IA outranks p217_MS or the CI crosses 0), which is actionable and non-trivial.",
+      "weakness": "A few criteria use vague thresholds without defined operationalization — C05's 'materially different' subgroup performance and C06's 'materially lower' AUC are not quantified, weakening independent testability."
+    },
+    "D3": {
+      "score": 3,
+      "justification": "Most claims stick closely to the P-score/MD numbers reported, but several interpretive extensions overreach the evidence — C05 infers broad cross-ethnic 'consistency' from just two Han Chinese cohorts (N=722) without a reported interaction test, and the abstract-level claims summary language ('far outranking', 'effectively obsolete') asserts stronger practical superiority than a probabilistic SUCRA-style ranking alone supports.",
+      "weakness": "C05's cross-ethnic generalization claim is built on P-score=1.00 within only two Asian cohorts compared informally to Western results, not a formal ethnicity-by-biomarker interaction analysis — a generalization claim over-extended relative to the underlying evidence type."
+    },
+    "D4": {
+      "score": 4,
+      "justification": "The observations→gaps→insight→solution→claims→evidence chain is tight and traceable end to end (O1-O5 → G1-G4 → NMA-node insight → E01-E06 → C01-C08 → Table1/2/Fig1-3), with dependencies between claims correctly reflecting the network structure (e.g. C02 depends on C01, C08 depends on C01+C03).",
+      "weakness": "C03's clinical interpretation that plasma p-tau217 'could reduce the need for tau-PET scans by 80%' imports a number from an unrelated external reference (Therriault et al. 2021) rather than deriving it from this NMA's own outcome data, creating a small but real gap between the review's own evidence and its stated clinical implication."
+    },
+    "D5": {
+      "score": 4,
+      "justification": "The exploration tree records two specific, falsifiable dead-ends (p181_IA competitiveness disproven across all four outcomes; p231 general-purpose-marker hypothesis disproven outside the preclinical subgroup) and one well-motivated pivot (relay hypothesis) triggered by a named cross-node divergence, rather than generic or hedged failure narratives.",
+      "weakness": "Because this ARA reconstructs a published synthesis review rather than tracing a live research process, nearly all nodes are 'support_level: explicit' reverse-engineered from the paper's narrative — genuine researcher deliberation (e.g., why other NMA model choices were rejected) is thin."
+    },
+    "D6": {
+      "score": 3,
+      "justification": "Baselines (p181_IA reference comparator), heterogeneity reporting (I2), and a documented cohort-de-overlap procedure are present and specific, giving the NMA reasonable methodological transparency.",
+      "weakness": "No NMA consistency/transitivity check (e.g., node-splitting, design-by-treatment interaction) or publication-bias assessment is reported anywhere in the ARA, and the constraints file itself documents unresolved arithmetic inconsistencies in the primary paper's own PRISMA flow and Table 1 cohort counts — a rigor red flag the ARA faithfully surfaces but cannot resolve."
+    }
+  },
+  "overall_score": 3.7,
+  "recommendation": "Weak Accept",
+  "findings": [
+    {
+      "severity": "high",
+      "text": "C05's cross-ethnic generalizability claim ('p-tau217 diagnostic performance is consistent across Han Chinese and Western cohorts') rests on a P-score of 1.00 computed within only two Han Chinese cohorts (Huashan N=297, Greater Bay N=425) with no reported formal ethnicity-by-biomarker interaction test against the Western cohorts — a generalization claim that overreaches its evidence type (should require a heterogeneous-data statistical comparison, not two parallel top-rank results)."
+    },
+    {
+      "severity": "medium",
+      "text": "C03's headline clinical implication that plasma p-tau217 'could reduce the need for tau-PET scans by ~80%' is sourced from an unrelated external reference (Therriault et al., 2021) about AD prevalence by demographic strata, not derived from this NMA's own AUC/P-score outputs, creating an argument-coherence gap between the review's own evidence and its stated real-world impact claim."
+    },
+    {
+      "severity": "medium",
+      "text": "The ARA's own constraints.md documents unresolved internal arithmetic in the primary paper (Table 1's 12 cohort rows vs. its caption's '6 core cohorts' and named-but-absent ADNI; PRISMA screening counts that don't reconcile database totals minus duplicates to the reported 601 screened) — these are honestly flagged, but no independent NMA consistency check (node-splitting, transitivity test) is reported to offset the resulting doubt about extraction/reporting rigor underlying all eight claims."
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "slug": "val25-blood-biomarkers-of-alzheimer-s-disease",
+  "reference_resolution": {
+    "attempted": 12,
+    "resolved": 9,
+    "observed_rate": 0.75,
+    "declared_rate": 0.0,
+    "declared_rate_note": "refs.yaml marks external_id='not_specified' and resolvable=false for ALL 55 references (self-declared resolvable rate = 0/55 = 0%). This reflects that the compiled input was the 9-page main-text PDF only, without a captured bibliography containing DOIs/PMIDs -- it is a statement about what the compiler had access to, not about whether the underlying works actually exist/resolve.",
+    "details": [
+      {"ref_id": "R01", "external_id": "not_specified (raw: 'Grande et al. 2025, Nat. Med. 31:2027-2035')", "resolves": true, "title": "Blood-based biomarkers of Alzheimer's disease and incident dementia in the community. Nat Med. 2025;31(6):2027-2035. PMID 40140622, DOI 10.1038/s41591-025-03605-x"},
+      {"ref_id": "R06", "external_id": "not_specified (raw: 'Palmqvist et al. 2021, Nat. Med.')", "resolves": true, "title": "Prediction of future Alzheimer's disease dementia using plasma phospho-tau combined with other accessible measures. Nat Med. 2021. PMID 34031605, DOI 10.1038/s41591-021-01348-z"},
+      {"ref_id": "R07", "external_id": "not_specified (raw: 'Lu et al. 2024, JAMA')", "resolves": false, "title": "No PubMed record found matching first author Lu, journal JAMA, year 2024 on plasma p-tau217/dementia topic in targeted searches; closest hits were Nat Med 2024 papers by other first authors. Not confirmed."},
+      {"ref_id": "R08", "external_id": "not_specified (raw: 'de Wolf et al. 2020, Brain')", "resolves": true, "title": "Plasma tau, neurofilament light chain and amyloid-beta levels and risk of dementia; a population-based cohort study. Brain. 2020. PMID 32206776, DOI 10.1093/brain/awaa054"},
+      {"ref_id": "R09", "external_id": "not_specified (raw: 'Stocker et al. 2023, Alzheimers Dement.')", "resolves": true, "title": "Association of plasma biomarkers, p-tau181, glial fibrillary acidic protein, and neurofilament light, with intermediate and long-term clinical Alzheimer's disease risk. Alzheimers Dement. PMID 35234335, DOI 10.1002/alz.12614 (tentative match: correct first author/journal/topic/cohort; PubMed epub date 2022-03, cited in paper as '2023' likely reflecting print-issue year)"},
+      {"ref_id": "R18", "external_id": "not_specified (raw: 'Jack et al. 2024, Alzheimers Dement.')", "resolves": true, "title": "Revised criteria for diagnosis and staging of Alzheimer's disease: Alzheimer's Association Workgroup. Alzheimers Dement. 2024. PMID 38934362, DOI 10.1002/alz.13859"},
+      {"ref_id": "R19", "external_id": "not_specified (raw: 'Dubois et al. 2024, JAMA Neurol.')", "resolves": true, "title": "Alzheimer Disease as a Clinical-Biological Construct-An International Working Group Recommendation. JAMA Neurol. 2024. PMID 39483064, DOI 10.1001/jamaneurol.2024.3770"},
+      {"ref_id": "R20", "external_id": "not_specified (raw: 'Bouteloup et al. 2025, JAMA Neurol.')", "resolves": true, "title": "Cognitive Phenotyping and Interpretation of Alzheimer Blood Biomarkers. JAMA Neurol. 2025. PMID 40181683, DOI 10.1001/jamaneurol.2025.0142"},
+      {"ref_id": "R27", "external_id": "not_specified (raw: 'Palmqvist et al. 2020, JAMA')", "resolves": true, "title": "Discriminative Accuracy of Plasma Phospho-tau217 for Alzheimer Disease vs Other Neurodegenerative Disorders. JAMA. 2020. PMID 32722745, DOI 10.1001/jama.2020.12134"},
+      {"ref_id": "R28", "external_id": "not_specified (raw: 'Ashton et al. 2024, JAMA Neurol.')", "resolves": false, "title": "No PubMed record found matching first author Ashton, journal JAMA Neurology, year 2024 in targeted searches (closest hits were papers with Ashton as co-author, e.g. Janelidze/Mattsson-Carlgren-led papers, or a first-authored Ashton paper in a different journal/year). Not confirmed."},
+      {"ref_id": "R29", "external_id": "not_specified (raw: 'Janelidze et al. 2023, Brain')", "resolves": true, "title": "Head-to-head comparison of 10 plasma phospho-tau assays in prodromal Alzheimer's disease. Brain. 2023;146(4):1592-1601. PMID 36087307, DOI 10.1093/brain/awac333"},
+      {"ref_id": "R30", "external_id": "not_specified (raw: 'Therriault et al. 2025, Lancet Neurol.')", "resolves": false, "title": "No PubMed record found matching first author Therriault, journal Lancet Neurology, year 2025 in targeted searches. Not confirmed."}
+    ]
+  },
+  "novelty": {
+    "claims": [
+      {
+        "claim_id": "C01",
+        "verdict": "previously_reported",
+        "prior_pmid": "40140622",
+        "note": "C01's cohort description (SNAC-K, n=2148, dementia-free older adults, baseline biomarker panel, MCI/dementia incidence over long follow-up) matches the same cohort and same overlapping author group's own companion paper, Grande et al. 2025, Nat Med 31:2027-2035 (PMID 40140622) -- which is cited as ref. 9 inside this very ARA's paper. Grande 2025 reports n=2148, up to 16-year follow-up, incident all-cause and AD dementia in this identical Swedish community cohort."
+      },
+      {
+        "claim_id": "C02",
+        "verdict": "incremental",
+        "prior_pmid": "40140622",
+        "note": "The qualitative finding -- elevated p-tau217, p-tau181, NfL and GFAP show a non-linear dose-response association with incident dementia, while Abeta42/40 does not -- is already reported for this same cohort in Grande et al. 2025 Nat Med (PMID 40140622), using standard Cox regression. C02 replicates/extends this via a multistate Markov model that additionally examines NC-to-MCI and MCI-reversion transitions (a genuine extension), so 'incremental' rather than fully novel or fully duplicative."
+      },
+      {
+        "claim_id": "C03",
+        "verdict": "incremental",
+        "prior_pmid": "40140622",
+        "note": "Directionally the same associations (NfL, p-tau217, GFAP elevated -> higher hazard of all-cause/AD dementia; Abeta42/40 low -> higher hazard) were already shown in Grande et al. 2025 Nat Med for this identical cohort. The specific HR point estimates in C03 (1.84, 2.34, 1.74, 2.11, 1.47, 1.30) are from the multistate-model framing of this paper and were not found stated verbatim in the prior paper's abstract, so this is scored incremental rather than previously_reported."
+      },
+      {
+        "claim_id": "C07",
+        "verdict": "incremental",
+        "prior_pmid": "40140622",
+        "note": "Grande et al. 2025 Nat Med (same cohort) already reports 'Combining p-tau217 with NfL or GFAP further improved prediction' for this population. C07's monotonic-HR-by-count-of-elevated-markers finding within the multistate/MCI-to-dementia framing is a refinement of that already-published combination result, not a wholly new discovery."
+      },
+      {
+        "claim_id": "C09",
+        "verdict": "cannot_determine",
+        "prior_pmid": null,
+        "note": "No prior PubMed record was found reporting an age-stratified (<78 vs >=78) comparison of biomarker-transition associations in this or a comparable cohort via targeted searches. Absence of evidence is not strong evidence of absence for a narrow subgroup-analysis claim; scored cannot_determine rather than asserting 'novel'."
+      }
+    ]
+  },
+  "registry": null,
+  "registry_note": "This ARA is an observational cohort study (SNAC-K), not a registered clinical trial; no ClinicalTrials.gov NCT record applies. No registry check performed beyond confirming this is not trial-registered research.",
+  "retractions": {
+    "found": [],
+    "checked": [
+      "val25 paper itself (Nature Communications 2025;16:10412, doi 10.1038/s41467-025-66728-2) -- no retraction/correction found via PubMed search of authors + journal + 'retraction'",
+      "Grande et al. 2025 Nat Med (PMID 40140622) -- most closely related/most-cited prior reference (SNAC-K companion paper) -- no retraction found",
+      "Jack et al. 2024 Alzheimers Dement revised AD diagnostic criteria (PMID 38934362) -- no 'Corrected and Republished Article' or retraction found"
+    ]
+  },
+  "notes": "Key finding: refs.yaml's self-declared reference-resolvability rate (0/55 = 0%, all marked resolvable:false / external_id:not_specified) substantially UNDERSTATES true external resolvability. Targeted PubMed searches using only the raw citation strings (author/year/journal, no DOI/PMID captured in the ARA) resolved 9/12 (75%) sampled references to their correct PubMed record with high confidence. This is because the ARA's compiled input was the main-text-only PDF, which apparently lacked a captured bibliography with DOIs -- the compiler correctly recorded 'not_specified' for what it had access to, but this metric conflates 'DOI/PMID not captured during compilation' with 'reference is unresolvable/unverifiable', which are different properties. A notable substantive finding independent of the resolution-rate check: this paper's author group (Grande, Vetrano, Fratiglioni, Rizzuto, Winblad, Laukka, etc.) published a companion analysis of the SAME SNAC-K cohort (n=2148) with the SAME six-biomarker panel in Nature Medicine only ~7 months earlier (Grande et al. 2025, PMID 40140622, cited internally as ref. 9). That paper already reports non-linear dose-response associations of p-tau217/p-tau181/NfL/GFAP (but not Abeta42/40) with incident all-cause and AD dementia in this cohort, and already reports that combining p-tau217 with NfL or GFAP improves prediction. This ARA's genuine incremental contribution appears to be the multistate Markov model machinery capturing NC/MCI/dementia/death transitions (including MCI reversion and age/sex-stratified transition-specific associations), not the basic biomarker-dementia hazard associations, which were previously reported by the same group. Two references (R07 'Lu et al. 2024, JAMA' and R30 'Therriault et al. 2025, Lancet Neurol.') and one (R28 'Ashton et al. 2024, JAMA Neurol.') could not be confidently matched to a PubMed record via targeted search within this session's effort budget; this is recorded as resolves=false/not-confirmed rather than assumed to be fabricated or nonexistent -- a fuller bibliographic search (e.g. by exact page numbers) might still resolve them."
+}
