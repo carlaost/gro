@@ -1,35 +1,31 @@
-# Methods & experiments
+# methods/ — how the substrate was derived from the metrics
 
-How the GRO specification was produced. The short version: it was derived *backwards* from a metrics failure, not designed forwards from taste — and every design step was run as a blind, adversarial tournament so no proposal could be graded by its own author.
+This directory is the **bridge from the metrics program to the format**. The metrics themselves — the seven directions, the indicator ledger, the negative result, the selection tournaments — live in [`../metrics/`](../metrics/) and are headlined in [`../METRICS.md`](../METRICS.md). What's here is how that work turned into a specification for the record itself.
 
 ## Reading order
 
-1. **[`findings.md`](findings.md)** — the negative result. Metrics computed over a record's own structure measure the *fidelity* of the record, not the *quality* of the science; signal appears only at the claim level with external anchors. This is the input to everything else.
-2. **[`metrics-candidates.md`](metrics-candidates.md)** — the indicator ledger: 64 candidate contribution metrics (M01–M64) across every artifact surface, pruned/merged to 23 survivors and a TOP-10 chosen for signal beyond citations and the ARA rigor seal.
-3. **[`metrics-merged.md`](metrics-merged.md)** & **[`data-shapes.md`](data-shapes.md)** — the full merged metric suite and the artifact surfaces the metrics are computed over.
-4. **[`novelty-comparison.md`](novelty-comparison.md)** — positioning against external benchmarks (the Metascience Novelty Indicators Challenge / LENS): three orthogonal, uncalibrated axes (integrity / novelty / fidelity), none covering the reward-what-citations-punish set.
-5. **[`affordance-gap.md`](affordance-gap.md)** — the pivot. Auditing every blocked ideal metric against the data shape that blocks it yields the three-class taxonomy (format-recoverable / anchor-dependent / irreducibly semantic) and the line: *the record doesn't lack the knowledge, it lacks the shape.*
-6. **[`tournament-designs.md`](tournament-designs.md)** — the raw winning finalist designs for each of the twelve affordance gaps.
-7. **[`tail-synthesis-log.md`](tail-synthesis-log.md)** — the review-gate verdicts and the adversarial critique the final synthesis had to resolve.
+1. **[`affordance-gap.md`](affordance-gap.md)** — the pivot. Given the negative result ([`../metrics/findings.md`](../metrics/findings.md)) — that metrics over a record's own structure measure fidelity, not quality — this audits every *blocked* ideal metric against the data shape that blocked it. The result is the three-class taxonomy (format-recoverable / anchor-dependent / irreducibly semantic) and the line: *the record doesn't lack the knowledge, it lacks the shape.*
+2. **[`tournament-designs.md`](tournament-designs.md)** — the raw winning finalist designs for each of the twelve affordance gaps (a design tournament, one per gap: four proposers → judge picks two → refine).
+3. **[`tail-synthesis-log.md`](tail-synthesis-log.md)** — the review-gate verdicts and the adversarial critique the final synthesis had to resolve when the twelve designs were merged.
 
 The resulting specification is [`../SPEC.md`](../SPEC.md).
 
 ## The design method
 
 ```
-  metrics testbed  ──►  negative result  ──►  affordance-gap audit  ──►  three affordance classes
-   (64 indicators,       (fidelity, not         (why was each             (format-recoverable /
-    blind tournaments)    quality)               metric blocked?)          anchor-dependent /
-                                                                           irreducibly semantic)
-                                                                                    │
-                                                                                    ▼
-  FINAL spec (GRO)  ◄──  adversarial red-team  ◄──  merge 12 designs  ◄──  12 gap tournaments
-   (3 rigor tiers +       (force every over-claim                          (4 proposers → judge
-    funder dossier)        down to a stated limit)                          picks 2 → refine)
+  metrics program        affordance-gap audit        3 affordance classes
+  (../metrics/,      ──►  (why was each         ──►   (format-recoverable /
+   negative result)       metric blocked?)            anchor-dependent /
+                                                      irreducibly semantic)
+                                                              │
+                                                              ▼
+  FINAL spec (GRO)  ◄──  adversarial red-team  ◄──  merge 12 gap designs
+   (../SPEC.md,           (force every over-claim         ◄── 12 gap tournaments
+    3 rigor tiers)         down to a stated limit)            (4 proposers → judge → refine)
 ```
 
-Proposer pool per gap: four independent agents (two on one model family, two on another). A deliberately harsh, meta-science-literate judge picked the best two and wrote improvement-forcing critiques; finalists refined and merged; a final reviewer accepted or sent back (bounded). The twelve winners were merged into one draft, then an adversarial critique pass enumerated over-claims, internal inconsistencies, and cross-layer conflicts — each resolved in the final either by a design change or an explicit demotion to the honest-limitations section. Run IDs: `wf_f0bc615b-a88` (+ tail `wf_c4cbff37-887`).
+Run IDs: `wf_f0bc615b-a88` (+ tail `wf_c4cbff37-887`).
 
 ## Honest status
 
-The spec is adversarially hardened but empirically unvalidated. The open experiment — the one that would tell us whether any of this is real — is a **discrimination test**: run the affordance-derived metrics over existing literature (starting from the testbed corpus, adding a contrasting second domain) and validate against external ground truth (trial-registry concordance, retraction/correction records, prior-literature novelty). That experiment has not yet been run.
+The spec is adversarially hardened but empirically unvalidated. The open experiment — whether the affordance-derived metrics actually discriminate good science from bad, run over existing literature and validated against external ground truth — has not been run. It is described in [`../metrics/README.md`](../metrics/README.md) and [`../SPEC.md`](../SPEC.md) §7.

@@ -36,28 +36,34 @@ The full normative spec, including the honest-limitations section, is [`SPEC.md`
 
 1. **Papers and citations are a Goodharted proxy** for scientific quality — they reward citable work and can't see negative results, replications, reuse, or refutations.
 2. **A metrics testbed** drafted 64 candidate contribution indicators over a structured corpus (~140 Alzheimer's papers, ~60 compiled) and ran them through blind adversarial tournaments.
-3. **The negative result:** *metrics computed over a record's own structure measure the fidelity of the record, not the quality of the science.* A well-compiled record of bad science and of good science were indistinguishable; signal appeared only at the claim level, anchored to external ground truth. (See [`methods/findings.md`](methods/findings.md).)
+3. **The negative result:** *metrics computed over a record's own structure measure the fidelity of the record, not the quality of the science.* A well-compiled record of bad science and of good science were indistinguishable; signal appeared only at the claim level, anchored to external ground truth. (See [`metrics/findings.md`](metrics/findings.md); the ideal metrics themselves are in [`METRICS.md`](METRICS.md).)
 4. **The affordance gap:** auditing every blocked metric against the shape that blocked it produced the three-class taxonomy above — most blocks were format problems, not feasibility problems. (See [`methods/affordance-gap.md`](methods/affordance-gap.md).)
 5. **The design tournament:** each of twelve affordance gaps was run through a four-proposer → judge → refine tournament; the winning designs were merged and put through an adversarial red-team pass that forced every over-claim down to a stated limitation. The output is GRO. (See [`methods/`](methods/).)
 
 ## Repository layout
 
+The program runs **metrics → substrate**: the metrics are the entry point, GRO is the substrate they demanded.
+
 ```
 gro/
   README.md              # you are here
+  METRICS.md             # the ideal metrics — thesis, TOP-10, where existing efforts fall short
   SPEC.md                # the normative GRO specification (the intended data shape)
-  methods/               # how it was built — the experiments and tournaments
-    README.md            #   method overview + reading order
+  metrics/               # the incentive-design program (the metrics + code + experiments)
+    README.md
+    directions.md · candidates.md · merged.md · data-shapes.md
     findings.md          #   the negative result that reframed the program
-    affordance-gap.md    #   the three-class blocked-metric taxonomy
-    metrics-candidates.md #  the 64->23->10 indicator ledger
-    metrics-merged.md    #   merged metric suite (four sources)
-    novelty-comparison.md #  positioning vs external benchmarks (LENS / Novelty Challenge)
-    data-shapes.md       #   the artifact surfaces the metrics compute over
-    tournament-designs.md #  the 12 gaps' winning finalist designs (raw)
+    novelty-comparison.md · verifier-comparison.md · library-metrics.md
+    analysis/            #   comparison-v2-v3, validator-reliability, compiler-model, plan, loop-log
+    code/                #   claim_graph.py (flagship), compute_metrics_v3.py, + experiment modules
+    tournaments/         #   the two metric tournaments — winners + judgements (round1 per-artifact, round2 per-metric)
+  methods/               # how the SUBSTRATE was derived from the metrics
+    README.md
+    affordance-gap.md    #   the three-class blocked-metric taxonomy (the bridge metrics -> format)
+    tournament-designs.md #  the 12 format gaps' winning finalist designs (raw)
     tail-synthesis-log.md #  review verdicts + the adversarial critique the final resolved
   ara/                   # the ARA research-record that came out of this work
-    README.md            #   what this is
+    README.md
     PAPER.md  logic/  trace/  staging/
 ```
 
