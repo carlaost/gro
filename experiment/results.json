@@ -1,0 +1,546 @@
+{
+  "spec_reference": "research/metrics/v3/tournament/IDEAL_FORMAT_SPEC.md #4",
+  "tier": "DETERMINISTIC (Tier A / class D)",
+  "aras_processed": [
+    "che26-diagnostic-performance-of-plasma-p-tau217",
+    "val25-blood-biomarkers-of-alzheimer-s-disease",
+    "han26-tau-pathological-activity-in-plasma-before",
+    "zim25-donanemab-in-early-symptomatic-alzheimer-s",
+    "jes26-efficacy-and-safety-of-donanemab-in",
+    "tit26-automated-high-throughput-quantification-of-plasma",
+    "gau25-single-nucleus-and-spatial-transcriptomic-profiling",
+    "zho25-microglia-networks-within-the-tapestry-of",
+    "aki26-molecular-signatures-of-resilience-to-alzheimer",
+    "cum26-alzheimer-s-disease-drug-development-pipeline",
+    "xu25-epidemiological-and-sociodemographic-transitions-in-the",
+    "ard25-response-of-spatially-defined-microglia-states"
+  ],
+  "aras_failed": [],
+  "metric_definitions": {
+    "quantity_reconciliation_rate": {
+      "description": "Of quantities referenced by >=2 claims, fraction whose ledger value is rounding-consistent with the numeral embedded in its own authoring quote.",
+      "computable_on_prose": false,
+      "prose_reason": "Prose has no typed Q## ledger with a canonical value + claim_refs join; an LLM would first have to re-extract every numeral into a record before any reconciliation check exists."
+    },
+    "claim_typing_coverage": {
+      "description": "Fraction of claims with claim_type in the enum AND a non-empty logical_form != not_specified (FOL-ability proxy).",
+      "computable_on_prose": false,
+      "prose_reason": "Prose claims carry no claim_type or logical_form field; assigning either is LLM inference/annotation, not extraction."
+    },
+    "entailment_precondition_rate": {
+      "description": "Fraction of claims with >=1 result-role quantity_ref AND >=1 proof_ref (structural half of claim<->experiment<->evidence entailment).",
+      "computable_on_prose": false,
+      "prose_reason": "Prose has no explicit quantity_ref/proof_ref linkage between a claim sentence and its supporting experiment; that link is an LLM's inference, not a lookup."
+    },
+    "reference_resolvability_rate": {
+      "description": "Fraction of refs with resolvable == true.",
+      "computable_on_prose": false,
+      "prose_reason": "Prose citations are free-text strings; resolvability requires an LLM/human to look each one up against a resolver, it is not a lookup over an existing field."
+    },
+    "entity_anchoring_rate": {
+      "description": "Fraction of entities with xref != not_specified.",
+      "computable_on_prose": false,
+      "prose_reason": "Prose entity mentions have no xref field; assigning ontology ids requires LLM-driven entity linking against an external KB."
+    },
+    "genre_silent_omissions": {
+      "description": "count(expected_slots) - count(present_slots) - count(absent_declared).",
+      "computable_on_prose": false,
+      "prose_reason": "Prose has no expected_slots/present_slots/absent_declared fields; genre expectations must be inferred by an LLM reading the whole paper against a genre model."
+    },
+    "overclaim_flags": {
+      "description": "Count of claims with population_scope in {population_estimate, claimed_universal} AND population_n == not_specified.",
+      "computable_on_prose": false,
+      "prose_reason": "Prose doesn't carry population_scope/population_n as typed fields; detecting a scope/n mismatch requires LLM comprehension of the methods section."
+    },
+    "broken_ref_integrity": {
+      "description": "Count of quantity_refs / concept_refs / proof_refs on claims that don't resolve to an existing id in quantities.yaml / entities.yaml / the E## experiment ledger.",
+      "computable_on_prose": false,
+      "prose_reason": "Prose has no explicit ref-id graph; 'broken reference' isn't a well-formed question until an LLM has typed the refs into ids in the first place."
+    }
+  },
+  "per_ara": {
+    "che26-diagnostic-performance-of-plasma-p-tau217": {
+      "quantity_reconciliation_rate": 1.0,
+      "claim_typing_coverage": 1.0,
+      "entailment_precondition_rate": 1.0,
+      "reference_resolvability_rate": 0.9444444444444444,
+      "entity_anchoring_rate": 0.0,
+      "genre_silent_omissions": 0,
+      "overclaim_flags": 0,
+      "broken_ref_integrity": 0
+    },
+    "val25-blood-biomarkers-of-alzheimer-s-disease": {
+      "quantity_reconciliation_rate": 1.0,
+      "claim_typing_coverage": 1.0,
+      "entailment_precondition_rate": 0.6923076923076923,
+      "reference_resolvability_rate": 0.0,
+      "entity_anchoring_rate": 0.0,
+      "genre_silent_omissions": 1,
+      "overclaim_flags": 0,
+      "broken_ref_integrity": 0
+    },
+    "han26-tau-pathological-activity-in-plasma-before": {
+      "quantity_reconciliation_rate": 1.0,
+      "claim_typing_coverage": 1.0,
+      "entailment_precondition_rate": 1.0,
+      "reference_resolvability_rate": 0.19047619047619047,
+      "entity_anchoring_rate": 0.0,
+      "genre_silent_omissions": 0,
+      "overclaim_flags": 0,
+      "broken_ref_integrity": 0
+    },
+    "zim25-donanemab-in-early-symptomatic-alzheimer-s": {
+      "quantity_reconciliation_rate": 1.0,
+      "claim_typing_coverage": 1.0,
+      "entailment_precondition_rate": 1.0,
+      "reference_resolvability_rate": 0.9565217391304348,
+      "entity_anchoring_rate": 0.0,
+      "genre_silent_omissions": 0,
+      "overclaim_flags": 0,
+      "broken_ref_integrity": 0
+    },
+    "jes26-efficacy-and-safety-of-donanemab-in": {
+      "quantity_reconciliation_rate": 1.0,
+      "claim_typing_coverage": 1.0,
+      "entailment_precondition_rate": 1.0,
+      "reference_resolvability_rate": 0.8947368421052632,
+      "entity_anchoring_rate": 0.0,
+      "genre_silent_omissions": 0,
+      "overclaim_flags": 0,
+      "broken_ref_integrity": 0
+    },
+    "tit26-automated-high-throughput-quantification-of-plasma": {
+      "quantity_reconciliation_rate": 1.0,
+      "claim_typing_coverage": 1.0,
+      "entailment_precondition_rate": 1.0,
+      "reference_resolvability_rate": 0.1320754716981132,
+      "entity_anchoring_rate": 0.0,
+      "genre_silent_omissions": 0,
+      "overclaim_flags": 0,
+      "broken_ref_integrity": 0
+    },
+    "gau25-single-nucleus-and-spatial-transcriptomic-profiling": {
+      "quantity_reconciliation_rate": 1.0,
+      "claim_typing_coverage": 1.0,
+      "entailment_precondition_rate": 0.5714285714285714,
+      "reference_resolvability_rate": 0.1,
+      "entity_anchoring_rate": 0.0,
+      "genre_silent_omissions": 0,
+      "overclaim_flags": 0,
+      "broken_ref_integrity": 0
+    },
+    "zho25-microglia-networks-within-the-tapestry-of": {
+      "quantity_reconciliation_rate": null,
+      "claim_typing_coverage": 1.0,
+      "entailment_precondition_rate": 0.5,
+      "reference_resolvability_rate": 0.0,
+      "entity_anchoring_rate": 0.0,
+      "genre_silent_omissions": -1,
+      "overclaim_flags": 3,
+      "broken_ref_integrity": 0
+    },
+    "aki26-molecular-signatures-of-resilience-to-alzheimer": {
+      "quantity_reconciliation_rate": null,
+      "claim_typing_coverage": 1.0,
+      "entailment_precondition_rate": 0.4,
+      "reference_resolvability_rate": 0.13636363636363635,
+      "entity_anchoring_rate": 0.0,
+      "genre_silent_omissions": 0,
+      "overclaim_flags": 0,
+      "broken_ref_integrity": 0
+    },
+    "cum26-alzheimer-s-disease-drug-development-pipeline": {
+      "quantity_reconciliation_rate": 1.0,
+      "claim_typing_coverage": 1.0,
+      "entailment_precondition_rate": 1.0,
+      "reference_resolvability_rate": 1.0,
+      "entity_anchoring_rate": 0.0,
+      "genre_silent_omissions": 0,
+      "overclaim_flags": 9,
+      "broken_ref_integrity": 0
+    },
+    "xu25-epidemiological-and-sociodemographic-transitions-in-the": {
+      "quantity_reconciliation_rate": 1.0,
+      "claim_typing_coverage": 1.0,
+      "entailment_precondition_rate": 0.9230769230769231,
+      "reference_resolvability_rate": 0.13725490196078433,
+      "entity_anchoring_rate": 0.0,
+      "genre_silent_omissions": 0,
+      "overclaim_flags": 11,
+      "broken_ref_integrity": 0
+    },
+    "ard25-response-of-spatially-defined-microglia-states": {
+      "quantity_reconciliation_rate": 1.0,
+      "claim_typing_coverage": 1.0,
+      "entailment_precondition_rate": 0.7692307692307693,
+      "reference_resolvability_rate": 0.0,
+      "entity_anchoring_rate": 0.0,
+      "genre_silent_omissions": 4,
+      "overclaim_flags": 0,
+      "broken_ref_integrity": 16
+    }
+  },
+  "per_ara_diagnostics": {
+    "che26-diagnostic-performance-of-plasma-p-tau217": {
+      "n_quantities": 23,
+      "n_multi_claim_quantities": 3,
+      "n_claims": 8,
+      "n_refs": 36,
+      "n_entities": 13,
+      "n_experiment_ids_recovered": 6,
+      "experiment_id_source": "parsed from logic/experiments.md (6 E## headers)",
+      "genre_paper_type": "clinical_biomarker",
+      "genre_silent_omissions_set_form": [],
+      "genre_unexpected_present_slots": [],
+      "overclaiming_claim_ids": [],
+      "broken_ref_detail": [],
+      "warnings": []
+    },
+    "val25-blood-biomarkers-of-alzheimer-s-disease": {
+      "n_quantities": 48,
+      "n_multi_claim_quantities": 5,
+      "n_claims": 13,
+      "n_refs": 55,
+      "n_entities": 16,
+      "n_experiment_ids_recovered": 10,
+      "experiment_id_source": "parsed from logic/experiments.md (10 E## headers)",
+      "genre_paper_type": "clinical_biomarker",
+      "genre_silent_omissions_set_form": [
+        "dataset"
+      ],
+      "genre_unexpected_present_slots": [],
+      "overclaiming_claim_ids": [],
+      "broken_ref_detail": [],
+      "warnings": []
+    },
+    "han26-tau-pathological-activity-in-plasma-before": {
+      "n_quantities": 94,
+      "n_multi_claim_quantities": 4,
+      "n_claims": 12,
+      "n_refs": 63,
+      "n_entities": 13,
+      "n_experiment_ids_recovered": 8,
+      "experiment_id_source": "parsed from logic/experiments.md (8 E## headers)",
+      "genre_paper_type": "clinical_biomarker",
+      "genre_silent_omissions_set_form": [],
+      "genre_unexpected_present_slots": [],
+      "overclaiming_claim_ids": [],
+      "broken_ref_detail": [],
+      "warnings": []
+    },
+    "zim25-donanemab-in-early-symptomatic-alzheimer-s": {
+      "n_quantities": 60,
+      "n_multi_claim_quantities": 1,
+      "n_claims": 12,
+      "n_refs": 23,
+      "n_entities": 16,
+      "n_experiment_ids_recovered": 11,
+      "experiment_id_source": "parsed from logic/experiments.md (11 E## headers)",
+      "genre_paper_type": "clinical_trial_long_term_extension",
+      "genre_silent_omissions_set_form": [],
+      "genre_unexpected_present_slots": [],
+      "overclaiming_claim_ids": [],
+      "broken_ref_detail": [],
+      "warnings": []
+    },
+    "jes26-efficacy-and-safety-of-donanemab-in": {
+      "n_quantities": 89,
+      "n_multi_claim_quantities": 3,
+      "n_claims": 10,
+      "n_refs": 19,
+      "n_entities": 14,
+      "n_experiment_ids_recovered": 8,
+      "experiment_id_source": "parsed from logic/experiments.md (8 E## headers)",
+      "genre_paper_type": "clinical_trial_post_hoc_secondary_analysis",
+      "genre_silent_omissions_set_form": [],
+      "genre_unexpected_present_slots": [],
+      "overclaiming_claim_ids": [],
+      "broken_ref_detail": [],
+      "warnings": []
+    },
+    "tit26-automated-high-throughput-quantification-of-plasma": {
+      "n_quantities": 61,
+      "n_multi_claim_quantities": 3,
+      "n_claims": 11,
+      "n_refs": 53,
+      "n_entities": 13,
+      "n_experiment_ids_recovered": 9,
+      "experiment_id_source": "parsed from logic/experiments.md (9 E## headers)",
+      "genre_paper_type": "clinical_biomarker",
+      "genre_silent_omissions_set_form": [],
+      "genre_unexpected_present_slots": [],
+      "overclaiming_claim_ids": [],
+      "broken_ref_detail": [],
+      "warnings": []
+    },
+    "gau25-single-nucleus-and-spatial-transcriptomic-profiling": {
+      "n_quantities": 46,
+      "n_multi_claim_quantities": 2,
+      "n_claims": 14,
+      "n_refs": 20,
+      "n_entities": 13,
+      "n_experiment_ids_recovered": 9,
+      "experiment_id_source": "parsed from logic/experiments.md (9 E## headers)",
+      "genre_paper_type": "single_nucleus_and_spatial_transcriptomics_biology",
+      "genre_silent_omissions_set_form": [],
+      "genre_unexpected_present_slots": [],
+      "overclaiming_claim_ids": [],
+      "broken_ref_detail": [],
+      "warnings": []
+    },
+    "zho25-microglia-networks-within-the-tapestry-of": {
+      "n_quantities": 38,
+      "n_multi_claim_quantities": 0,
+      "n_claims": 14,
+      "n_refs": 38,
+      "n_entities": 24,
+      "n_experiment_ids_recovered": 12,
+      "experiment_id_source": "parsed from logic/experiments.md (12 E## headers)",
+      "genre_paper_type": "narrative_review",
+      "genre_silent_omissions_set_form": [],
+      "genre_unexpected_present_slots": [
+        "experiments"
+      ],
+      "overclaiming_claim_ids": [
+        "C01",
+        "C13",
+        "C14"
+      ],
+      "broken_ref_detail": [],
+      "warnings": [
+        "no quantities referenced by >=2 claims; reconciliation rate undefined (null)",
+        "genre.yaml present_slots contains slot(s) not in expected_slots: ['experiments'] -- literal count formula can go negative"
+      ]
+    },
+    "aki26-molecular-signatures-of-resilience-to-alzheimer": {
+      "n_quantities": 29,
+      "n_multi_claim_quantities": 0,
+      "n_claims": 10,
+      "n_refs": 88,
+      "n_entities": 12,
+      "n_experiment_ids_recovered": 10,
+      "experiment_id_source": "parsed from logic/experiments.md (10 E## headers)",
+      "genre_paper_type": "molecular_neuropathology_single_cell_omics",
+      "genre_silent_omissions_set_form": [],
+      "genre_unexpected_present_slots": [],
+      "overclaiming_claim_ids": [],
+      "broken_ref_detail": [],
+      "warnings": [
+        "no quantities referenced by >=2 claims; reconciliation rate undefined (null)"
+      ]
+    },
+    "cum26-alzheimer-s-disease-drug-development-pipeline": {
+      "n_quantities": 64,
+      "n_multi_claim_quantities": 2,
+      "n_claims": 10,
+      "n_refs": 10,
+      "n_entities": 12,
+      "n_experiment_ids_recovered": 8,
+      "experiment_id_source": "parsed from logic/experiments.md (8 E## headers)",
+      "genre_paper_type": "clinical_pipeline_registry_census",
+      "genre_silent_omissions_set_form": [],
+      "genre_unexpected_present_slots": [],
+      "overclaiming_claim_ids": [
+        "C01",
+        "C02",
+        "C03",
+        "C05",
+        "C06",
+        "C07",
+        "C08",
+        "C09",
+        "C10"
+      ],
+      "broken_ref_detail": [],
+      "warnings": []
+    },
+    "xu25-epidemiological-and-sociodemographic-transitions-in-the": {
+      "n_quantities": 64,
+      "n_multi_claim_quantities": 2,
+      "n_claims": 13,
+      "n_refs": 51,
+      "n_entities": 10,
+      "n_experiment_ids_recovered": 5,
+      "experiment_id_source": "parsed from logic/experiments.md (5 E## headers)",
+      "genre_paper_type": "epidemiological_secondary_analysis",
+      "genre_silent_omissions_set_form": [],
+      "genre_unexpected_present_slots": [],
+      "overclaiming_claim_ids": [
+        "C01",
+        "C02",
+        "C03",
+        "C05",
+        "C06",
+        "C07",
+        "C08",
+        "C09",
+        "C10",
+        "C11",
+        "C13"
+      ],
+      "broken_ref_detail": [],
+      "warnings": []
+    },
+    "ard25-response-of-spatially-defined-microglia-states": {
+      "n_quantities": 77,
+      "n_multi_claim_quantities": 3,
+      "n_claims": 13,
+      "n_refs": 6,
+      "n_entities": 20,
+      "n_experiment_ids_recovered": 0,
+      "experiment_id_source": "no logic/experiments.md found -- all proof_refs treated as unresolved",
+      "genre_paper_type": "preclinical_mechanistic_study",
+      "genre_silent_omissions_set_form": [
+        "concepts",
+        "dataset",
+        "experiments",
+        "related_work"
+      ],
+      "genre_unexpected_present_slots": [],
+      "overclaiming_claim_ids": [],
+      "broken_ref_detail": [
+        {
+          "claim": "C01",
+          "field": "proof_refs",
+          "ref": "E01"
+        },
+        {
+          "claim": "C01",
+          "field": "proof_refs",
+          "ref": "E02"
+        },
+        {
+          "claim": "C02",
+          "field": "proof_refs",
+          "ref": "E03"
+        },
+        {
+          "claim": "C03",
+          "field": "proof_refs",
+          "ref": "E04"
+        },
+        {
+          "claim": "C04",
+          "field": "proof_refs",
+          "ref": "E05"
+        },
+        {
+          "claim": "C05",
+          "field": "proof_refs",
+          "ref": "E06"
+        },
+        {
+          "claim": "C06",
+          "field": "proof_refs",
+          "ref": "E07"
+        },
+        {
+          "claim": "C07",
+          "field": "proof_refs",
+          "ref": "E08"
+        },
+        {
+          "claim": "C08",
+          "field": "proof_refs",
+          "ref": "E09"
+        },
+        {
+          "claim": "C09",
+          "field": "proof_refs",
+          "ref": "E08"
+        },
+        {
+          "claim": "C09",
+          "field": "proof_refs",
+          "ref": "E09"
+        },
+        {
+          "claim": "C10",
+          "field": "proof_refs",
+          "ref": "E10"
+        },
+        {
+          "claim": "C11",
+          "field": "proof_refs",
+          "ref": "E04"
+        },
+        {
+          "claim": "C11",
+          "field": "proof_refs",
+          "ref": "E10"
+        },
+        {
+          "claim": "C12",
+          "field": "proof_refs",
+          "ref": "E10"
+        },
+        {
+          "claim": "C13",
+          "field": "proof_refs",
+          "ref": "E11"
+        }
+      ],
+      "warnings": [
+        "no logic/experiments.md found -- all proof_refs treated as unresolved"
+      ]
+    }
+  },
+  "corpus_aggregates": {
+    "quantity_reconciliation_rate": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "n_aras_defined": 10,
+      "n_aras_null": 2
+    },
+    "claim_typing_coverage": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "n_aras_defined": 12,
+      "n_aras_null": 0
+    },
+    "entailment_precondition_rate": {
+      "mean": 0.8213369963369965,
+      "min": 0.4,
+      "max": 1.0,
+      "n_aras_defined": 12,
+      "n_aras_null": 0
+    },
+    "reference_resolvability_rate": {
+      "mean": 0.37432276884823895,
+      "min": 0.0,
+      "max": 1.0,
+      "n_aras_defined": 12,
+      "n_aras_null": 0
+    },
+    "entity_anchoring_rate": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "n_aras_defined": 12,
+      "n_aras_null": 0
+    },
+    "genre_silent_omissions": {
+      "total": 4,
+      "mean": 0.3333333333333333,
+      "min": -1,
+      "max": 4,
+      "n_aras_nonzero": 3
+    },
+    "overclaim_flags": {
+      "total": 23,
+      "mean": 1.9166666666666667,
+      "min": 0,
+      "max": 11,
+      "n_aras_nonzero": 3
+    },
+    "broken_ref_integrity": {
+      "total": 16,
+      "mean": 1.3333333333333333,
+      "min": 0,
+      "max": 16,
+      "n_aras_nonzero": 1
+    }
+  }
+}

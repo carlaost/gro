@@ -1,0 +1,88 @@
+claims:
+  - id: C01
+    claim_type: comparison
+    polarity: positive
+    logical_form: "highest_rank(p217_MS, abeta_detection) AND rank_order(p217_MS>p217_Ratio>p217_ALZpath>...>p181_IA) AND mean_diff(p217_MS, p181_IA, 0.10)"
+    population_n: not_specified
+    population_scope: multi_cohort
+    quantity_refs: [Q01, Q02, Q03, Q04, Q05]
+    concept_refs: [EN-marker-p_tau217, EN-marker-p_tau181, EN-measure-p_score, EN-method-nma, EN-measure-md_auc]
+    proof_refs: [E01]
+    depends_on: []
+
+  - id: C02
+    claim_type: improvement
+    polarity: positive
+    logical_form: "significant_gain(p217_ratio, p217_single_analyte, 0.025) AND heterogeneity(I2, 0)"
+    population_n: not_specified
+    population_scope: multi_cohort
+    quantity_refs: [Q06, Q07]
+    concept_refs: [EN-variable-p217_ratio, EN-marker-p_tau217]
+    proof_refs: [E02]
+    depends_on: [C01]
+
+  - id: C03
+    claim_type: comparison
+    polarity: positive
+    logical_form: "highest_rank(p217_MS, tau_pet_staging) AND highest_rank(p217_MS, mci_to_ad_conversion) AND mean_diff(p217_MS, p181_IA, 0.13)"
+    population_n: not_specified
+    population_scope: multi_cohort
+    quantity_refs: [Q08, Q09, Q10, Q11, Q12]
+    concept_refs: [EN-marker-p_tau217, EN-measure-p_score, EN-measure-md_auc]
+    proof_refs: [E03]
+    depends_on: [C01]
+
+  - id: C04
+    claim_type: comparison
+    polarity: positive
+    logical_form: "highest_rank(p_tau231, abeta_detection_preclinical_subgroup, 0.66) AND low_rank(p231_UGOT, full_continuum)"
+    population_n: not_specified
+    population_scope: multi_cohort
+    quantity_refs: [Q13, Q14, Q15]
+    concept_refs: [EN-marker-p_tau231]
+    proof_refs: [E04]
+    depends_on: []
+
+  - id: C05
+    claim_type: generalization
+    polarity: positive
+    logical_form: "consistent_performance(p_tau217, han_chinese_cohorts, western_cohorts) AND rank(p_tau217, han_chinese_cohorts, 1.00)"
+    population_n: not_specified
+    population_scope: multi_cohort
+    quantity_refs: [Q16]
+    concept_refs: [EN-marker-p_tau217]
+    proof_refs: [E05]
+    depends_on: [C01]
+
+  - id: C06
+    claim_type: comparison
+    polarity: positive
+    logical_form: "comparable_performance(p217_Serum, plasma_p_tau217, rank=3, p_score=0.568)"
+    population_n: not_specified
+    population_scope: multi_cohort
+    quantity_refs: [Q17]
+    concept_refs: [EN-variable-sample_matrix, EN-marker-p_tau217]
+    proof_refs: [E06]
+    depends_on: []
+
+  - id: C07
+    claim_type: comparison
+    polarity: positive
+    logical_form: "rank(p217_MS, platform_efficiency, 1) AND outranks(p217_AutoIA, p217_IA) AND lowest_rank(p181_IA, platform_efficiency)"
+    population_n: not_specified
+    population_scope: multi_cohort
+    quantity_refs: [Q18, Q19, Q20, Q21]
+    concept_refs: [EN-method-analytical_platform, EN-marker-p_tau217, EN-marker-p_tau181]
+    proof_refs: [E06]
+    depends_on: [C01]
+
+  - id: C08
+    claim_type: comparison
+    polarity: negative
+    logical_form: "low_rank(p181_IA, all_outcomes, threshold<0.20) AND NOT significant(auc_advantage(p181_IA, baseline))"
+    population_n: not_specified
+    population_scope: multi_cohort
+    quantity_refs: [Q04, Q22, Q11, Q21, Q23]
+    concept_refs: [EN-marker-p_tau181]
+    proof_refs: [E01, E03]
+    depends_on: [C01, C03]

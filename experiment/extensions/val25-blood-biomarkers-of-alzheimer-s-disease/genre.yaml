@@ -1,0 +1,11 @@
+paper_type: clinical_biomarker
+expected_slots:
+- claims
+- experiments
+- evidence
+- dataset
+present_slots:
+- claims
+- experiments
+- evidence
+absent_declared: []

@@ -1,0 +1,4 @@
+paper_type: clinical_pipeline_registry_census
+expected_slots: [claims, experiments, evidence, dataset]
+present_slots: [claims, experiments, evidence, dataset]
+absent_declared: []

@@ -1,0 +1,132 @@
+claims:
+  - id: C01
+    claim_type: comparison
+    polarity: positive
+    logical_form: "diff(CDR_SB, early_start, ADNI_weighted, t=36mo) = -1.2 [ci -1.7,-0.7] AND diff < 0"
+    population_n: 417
+    population_scope: cohort
+    quantity_refs: [Q01, Q02, Q03]
+    concept_refs: [EN-measure-cdr_sb, EN-concept-early_start_group, EN-method-adni_external_control, EN-method-mmrm]
+    proof_refs: [E01]
+    depends_on: []
+
+  - id: C02
+    claim_type: comparison
+    polarity: positive
+    logical_form: "diff(CDR_SB, delayed_start, ADNI_weighted, t=76wk_post_init) = -0.8 [ci -1.3,-0.3] AND diff < 0"
+    population_n: 458
+    population_scope: cohort
+    quantity_refs: [Q04, Q05, Q06]
+    concept_refs: [EN-measure-cdr_sb, EN-concept-delayed_start_group, EN-method-adni_external_control, EN-method-mmrm]
+    proof_refs: [E02]
+    depends_on: []
+
+  - id: C03
+    claim_type: generalization
+    polarity: positive
+    logical_form: "diff(CDR_SB, early_start_52wk_completers, ADNI_weighted, t=36mo) = -1.3 [ci -1.9,-0.7] ~ diff(CDR_SB, early_start_overall, ADNI_weighted, t=36mo)=-1.2"
+    population_n: 198
+    population_scope: cohort
+    quantity_refs: [Q07, Q08, Q09]
+    concept_refs: [EN-measure-cdr_sb, EN-concept-early_start_group, EN-concept-limited_duration_dosing, EN-method-adni_external_control]
+    proof_refs: [E03]
+    depends_on: [C01]
+
+  - id: C04
+    claim_type: comparison
+    polarity: positive
+    logical_form: "HR(CDR_G_progression, early_start, delayed_start, t=154wk) = 0.73 [ci 0.62,0.86] AND p<0.001 AND HR<1"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q10, Q11, Q12]
+    concept_refs: [EN-measure-cdr_g, EN-concept-early_start_group, EN-concept-delayed_start_group, EN-method-cox_ph]
+    proof_refs: [E04]
+    depends_on: []
+
+  - id: C05
+    claim_type: improvement
+    polarity: positive
+    logical_form: "AUC_diff(CDR_SB, early_start, ADNI_weighted, t=78wk) = 0.97 AND p<0.001 AND AUC_diff>0"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q13, Q14]
+    concept_refs: [EN-measure-cdr_sb, EN-method-auc_time_saved, EN-concept-early_start_group, EN-method-adni_external_control]
+    proof_refs: [E05]
+    depends_on: [C01]
+
+  - id: C06
+    claim_type: comparison
+    polarity: positive
+    logical_form: "time_saved(early_start, t=3yr)=6.9mo AND time_saved(delayed_start, t=end_LTE)=5.6mo AND time_saved(early_start) > time_saved(delayed_start); diff=1.3mo"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q15, Q16, Q17]
+    concept_refs: [EN-method-auc_time_saved, EN-concept-early_start_group, EN-concept-delayed_start_group]
+    proof_refs: [E06]
+    depends_on: [C01, C02]
+
+  - id: C07
+    claim_type: comparison
+    polarity: positive
+    logical_form: "reduction(amyloid_CL, early_start, t=76wk)=86.96 ~ reduction(amyloid_CL, delayed_start, t=76wk_post_init)=86.01"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q18, Q19, Q20, Q21]
+    concept_refs: [EN-measure-centiloid, EN-concept-early_start_group, EN-concept-delayed_start_group]
+    proof_refs: [E07]
+    depends_on: []
+
+  - id: C08
+    claim_type: comparison
+    polarity: positive
+    logical_form: "clearance_rate(early_start, t)~clearance_rate(delayed_start, t) for t in {24,52,76}wk_post_init; clearance_rate(t) monotonic_increasing"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q22, Q23, Q24, Q25, Q26, Q27, Q28]
+    concept_refs: [EN-measure-centiloid, EN-concept-early_start_group, EN-concept-delayed_start_group]
+    proof_refs: [E07]
+    depends_on: [C07]
+
+  - id: C09
+    claim_type: comparison
+    polarity: positive
+    logical_form: "completion_rate(LTE, exposure=t) ~ completion_rate(placebo_controlled_period, exposure=t) for t in {24,52,76}wk"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q29, Q30, Q31, Q32, Q33, Q34, Q35, Q36, Q37]
+    concept_refs: [EN-concept-limited_duration_dosing, EN-concept-lte]
+    proof_refs: [E09]
+    depends_on: [C08]
+
+  - id: C10
+    claim_type: association
+    polarity: positive
+    logical_form: "amyloid_level(52wk_completers, t=154wk)=10.99CL < 24.1CL_cutoff AND reaccumulation_rate(amyloid, post_discontinuation)=2.4CL/yr ~ natural_accumulation_rate"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q38, Q39, Q40, Q41]
+    concept_refs: [EN-measure-amyloid_reaccumulation_rate, EN-measure-centiloid, EN-concept-limited_duration_dosing]
+    proof_refs: [E08]
+    depends_on: [C08]
+
+  - id: C11
+    claim_type: existence
+    polarity: negative
+    logical_form: "NOT new_AE_signal(LTE_period) GIVEN established_safety_profile(donanemab, placebo_controlled_period)"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q42, Q43, Q44, Q45, Q46, Q47, Q48, Q49, Q50]
+    concept_refs: [EN-measure-aria_oair, EN-concept-lte]
+    proof_refs: [E10]
+    depends_on: []
+
+  - id: C12
+    claim_type: comparison
+    polarity: positive
+    logical_form: "ARIA_E_incidence(6mo_interval_post_last_dose) <= 1.0% AND decreasing(ARIA_H_risk, time_since_last_dose) AND OAIR(52wk_completers) ~ OAIR(placebo_period)"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q51, Q52, Q53, Q54, Q55, Q56, Q57, Q58, Q59, Q60]
+    concept_refs: [EN-measure-aria_oair, EN-concept-limited_duration_dosing]
+    proof_refs: [E11]
+    depends_on: []

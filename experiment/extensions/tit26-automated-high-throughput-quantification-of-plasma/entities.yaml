@@ -1,0 +1,65 @@
+entities:
+  - id: EN-marker-p_tau217
+    term: "p-tau217"
+    kind: measure
+    xref: not_specified
+
+  - id: EN-marker-p_tau181
+    term: "p-tau181"
+    kind: measure
+    xref: not_specified
+
+  - id: EN-variable-apoe4_carrier_status
+    term: "APOE-ε4 carrier status"
+    kind: variable
+    xref: not_specified
+
+  - id: EN-marker-abeta42_40_ratio
+    term: "Aβ42/40 ratio"
+    kind: measure
+    xref: not_specified
+
+  - id: EN-measure-auc
+    term: "Area under the ROC curve (AUC)"
+    kind: measure
+    xref: not_specified
+
+  - id: EN-method-youden_index
+    term: "Youden index"
+    kind: method
+    xref: not_specified
+
+  - id: EN-concept-grey_zone
+    term: "Two-cut-off strategy / grey (intermediate) zone"
+    kind: concept
+    xref: not_specified
+
+  - id: EN-method-delong_test
+    term: "DeLong test"
+    kind: method
+    xref: not_specified
+
+  - id: EN-method-passing_bablok
+    term: "Passing–Bablok regression"
+    kind: method
+    xref: not_specified
+
+  - id: EN-method-bland_altman
+    term: "Bland–Altman analysis"
+    kind: method
+    xref: not_specified
+
+  - id: EN-concept-atn_framework
+    term: "CSF biomarker reference standard / AT(N) framework"
+    kind: concept
+    xref: not_specified
+
+  - id: EN-measure-lloq
+    term: "Lower limit of quantification (LLOQ)"
+    kind: measure
+    xref: not_specified
+
+  - id: EN-measure-moca
+    term: "Montreal Cognitive Assessment (MoCA)"
+    kind: measure
+    xref: not_specified

@@ -1,0 +1,253 @@
+quantities:
+  - id: Q01
+    value: 0.859
+    unit: "P-score"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "evidence/tables/table2.md"
+    quote: "p217_MS (0.859)"
+    claim_refs: [C01]
+
+  - id: Q02
+    value: 0.783
+    unit: "P-score"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "evidence/tables/table2.md"
+    quote: "p217_Ratio (0.783)"
+    claim_refs: [C01]
+
+  - id: Q03
+    value: 0.686
+    unit: "P-score"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "evidence/tables/table2.md"
+    quote: "p217_ALZpath (0.686)"
+    claim_refs: [C01]
+
+  - id: Q04
+    value: 0.117
+    unit: "P-score"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "evidence/tables/table2.md"
+    quote: "p181_IA (0.117)"
+    claim_refs: [C01, C08]
+
+  - id: Q05
+    value: 0.10
+    unit: "AUC_MD_vs_p181_IA"
+    comparator: none
+    ci_low: 0.04
+    ci_high: 0.16
+    role: result
+    source_ref: "evidence/figures/figure3.md"
+    quote: "p217_MS ... 0.10 [ 0.04; 0.16]"
+    claim_refs: [C01]
+
+  - id: Q06
+    value: 0.025
+    unit: "AUC_MD_ratio_vs_single_analyte"
+    comparator: none
+    ci_low: 0.005
+    ci_high: 0.045
+    role: result
+    source_ref: "logic/claims.md (§3.6 / §4.1)"
+    quote: "p-tau217 showed a significant mean difference of 0.025 (95% CI: 0.005-0.045)"
+    claim_refs: [C02]
+
+  - id: Q07
+    value: 0
+    unit: "I2_percent"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md (§3.6)"
+    quote: "The zero heterogeneity (I2 = 0%) observed in this gain across cohorts"
+    claim_refs: [C02]
+
+  - id: Q08
+    value: 0.907
+    unit: "P-score"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "evidence/tables/table2.md"
+    quote: "p217_MS (0.907)"
+    claim_refs: [C03]
+
+  - id: Q09
+    value: 0.821
+    unit: "P-score"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "evidence/tables/table2.md"
+    quote: "p217_MS (0.821)"
+    claim_refs: [C03]
+
+  - id: Q10
+    value: 0.814
+    unit: "P-score"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "evidence/tables/table2.md"
+    quote: "p217_Ratio (0.814)"
+    claim_refs: [C03]
+
+  - id: Q11
+    value: 0.090
+    unit: "P-score"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "evidence/tables/table2.md"
+    quote: "p181_IA (0.090)"
+    claim_refs: [C03, C08]
+
+  - id: Q12
+    value: 0.13
+    unit: "AUC_MD_vs_p181_IA"
+    comparator: none
+    ci_low: 0.05
+    ci_high: 0.22
+    role: result
+    source_ref: "evidence/figures/figure3.md"
+    quote: "p217_MS ... 0.13 [ 0.05; 0.22]"
+    claim_refs: [C03]
+
+  - id: Q13
+    value: 0.66
+    unit: "P-score"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md (§4.2)"
+    quote: "in the pre-clinical subgroup (Outcome 1), p-tau 231 achieved the highest rank (P-score = 0.66) for detecting early Abeta pathology"
+    claim_refs: [C04]
+
+  - id: Q14
+    value: 0.145
+    unit: "P-score"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "evidence/tables/table2.md"
+    quote: "p231_UGOT (0.145)"
+    claim_refs: [C04]
+
+  - id: Q15
+    value: 0.042
+    unit: "P-score"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "evidence/tables/table2.md"
+    quote: "p231_UGOT (0.042)"
+    claim_refs: [C04]
+
+  - id: Q16
+    value: 1.00
+    unit: "P-score"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md (§4.3)"
+    quote: "The P-score of 1.00 for p-tau 217 in these cohorts indicates it was the top-performing marker across all Asian datasets included"
+    claim_refs: [C05]
+
+  - id: Q17
+    value: 0.568
+    unit: "P-score"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "evidence/tables/table2.md"
+    quote: "p217_Serum (0.568)"
+    claim_refs: [C06]
+
+  - id: Q18
+    value: 0.953
+    unit: "P-score"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "evidence/tables/table2.md"
+    quote: "p217_MS (0.953)"
+    claim_refs: [C07]
+
+  - id: Q19
+    value: 0.706
+    unit: "P-score"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "evidence/tables/table2.md"
+    quote: "p217_AutoIA (0.706)"
+    claim_refs: [C07]
+
+  - id: Q20
+    value: 0.268
+    unit: "P-score"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "evidence/tables/table2.md"
+    quote: "p217_IA (0.268)"
+    claim_refs: [C07]
+
+  - id: Q21
+    value: 0.006
+    unit: "P-score"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "evidence/tables/table2.md"
+    quote: "p181_IA (0.006)"
+    claim_refs: [C07, C08]
+
+  - id: Q22
+    value: 0.159
+    unit: "P-score"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "evidence/tables/table2.md"
+    quote: "p181_IA ... 0.159"
+    claim_refs: [C08]
+
+  - id: Q23
+    value: 0.20
+    unit: "P-score"
+    comparator: lt
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md (§4.1)"
+    quote: "our results (P-score < 0.20) suggest it is effectively obsolete for high-precision AD diagnostics"
+    claim_refs: [C08]

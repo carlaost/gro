@@ -1,0 +1,121 @@
+claims:
+  - id: C01
+    claim_type: prediction
+    polarity: positive
+    logical_form: "AUC(p_tau217_Elecsys, AD_vs_nonAD)=0.939 AND optimal_cutoff(p_tau217_Elecsys)=0.371 AND sensitivity=92.2% AND specificity=89.2%"
+    population_n: 186
+    population_scope: cohort
+    quantity_refs: [Q01, Q02, Q03, Q04]
+    concept_refs: [EN-marker-p_tau217, EN-measure-auc, EN-method-youden_index]
+    proof_refs: [E01]
+    depends_on: []
+
+  - id: C02
+    claim_type: comparison
+    polarity: positive
+    logical_form: "AUC(p_tau217_Elecsys)=0.939 AND AUC(p_tau217_Lumipulse)=0.950 AND DeLong_p=0.485 => not_significantly_different(p_tau217_Elecsys, p_tau217_Lumipulse)"
+    population_n: 186
+    population_scope: cohort
+    quantity_refs: [Q01, Q05, Q06]
+    concept_refs: [EN-marker-p_tau217, EN-method-delong_test]
+    proof_refs: [E01]
+    depends_on: [C01]
+
+  - id: C03
+    claim_type: comparison
+    polarity: positive
+    logical_form: "AUC(p_tau217_Elecsys)=0.939 > AUC(p_tau181_Elecsys)=0.903 AND DeLong_p=0.043 => significantly_greater(p_tau217_Elecsys, p_tau181_Elecsys)"
+    population_n: 187
+    population_scope: cohort
+    quantity_refs: [Q01, Q07, Q08]
+    concept_refs: [EN-marker-p_tau217, EN-marker-p_tau181, EN-method-delong_test]
+    proof_refs: [E01]
+    depends_on: [C01]
+
+  - id: C04
+    claim_type: improvement
+    polarity: positive
+    logical_form: "AUC(p_tau217_Elecsys+APOE4)=0.970 > AUC(p_tau217_Elecsys)=0.939 (p=0.02) AND intermediate_pct(20.0 -> 11.0)"
+    population_n: 187
+    population_scope: cohort
+    quantity_refs: [Q01, Q09, Q10, Q11, Q12]
+    concept_refs: [EN-variable-apoe4_carrier_status, EN-marker-p_tau217, EN-concept-grey_zone]
+    proof_refs: [E03]
+    depends_on: [C01]
+
+  - id: C05
+    claim_type: improvement
+    polarity: negative
+    logical_form: "AUC(p_tau217_Lumipulse)=0.950 vs AUC(p_tau217_Lumipulse+Abeta42)=0.957 (p=0.058) AND AUC(p_tau217_Lumipulse+Abeta42_40_ratio)=0.957 (p=0.322) => NOT significant_increase; intermediate_pct(11.9 -> 10.0 -> 10.5)"
+    population_n: 182
+    population_scope: cohort
+    quantity_refs: [Q05, Q14, Q15, Q16, Q17, Q18, Q19]
+    concept_refs: [EN-marker-p_tau217, EN-marker-abeta42_40_ratio]
+    proof_refs: [E04]
+    depends_on: [C02]
+
+  - id: C06
+    claim_type: comparison
+    polarity: positive
+    logical_form: "intermediate_pct(p_tau217_Elecsys, cutoffs=[0.275,0.497])=19.9 AND intermediate_pct(p_tau217_Lumipulse, cutoffs=[0.130,0.246])=11.9 AND intermediate_pct(p_tau181_Elecsys, cutoffs=[0.936,1.505])=33.2"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q20, Q22, Q23, Q24, Q25, Q26, Q27, Q28, Q29]
+    concept_refs: [EN-concept-grey_zone, EN-marker-p_tau217, EN-marker-p_tau181, EN-method-youden_index]
+    proof_refs: [E02]
+    depends_on: [C01, C03]
+
+  - id: C07
+    claim_type: correlation
+    polarity: positive
+    logical_form: "correlation(p_tau217_Elecsys, p_tau217_Lumipulse)=0.88 AND passing_bablok_slope=1.363 AND passing_bablok_intercept=0.113 AND max_relative_difference<=59% => strongly_correlated AND NOT interchangeable"
+    population_n: 181
+    population_scope: cohort
+    quantity_refs: [Q30, Q31, Q32, Q33]
+    concept_refs: [EN-method-passing_bablok, EN-method-bland_altman, EN-marker-p_tau217]
+    proof_refs: [E05]
+    depends_on: [C02]
+
+  - id: C08
+    claim_type: association
+    polarity: positive
+    logical_form: "association(baseline_p_tau217_Elecsys, baseline_MoCA, beta=-0.267, p<0.001) AND trend(interaction(baseline_p_tau217_Elecsys, time), p=0.07, n=69)"
+    population_n: 69
+    population_scope: cohort
+    quantity_refs: [Q34, Q35, Q36, Q37, Q38]
+    concept_refs: [EN-marker-p_tau217, EN-measure-moca]
+    proof_refs: [E07, E08]
+    depends_on: [C01]
+
+  - id: C09
+    claim_type: association
+    polarity: negative
+    logical_form: "NOT significant(age, p_tau217_Elecsys, p=0.449) AND NOT significant(sex, p_tau217_Elecsys, p=0.054) AND NOT significant(eGFR, p_tau217_Elecsys, p=0.918) AND NOT significant(Fazekas3, p_tau217_Elecsys, p=0.072) AND NOT significant(CAA_microbleeds, p_tau217_Elecsys, p=0.308)"
+    population_n: 187
+    population_scope: cohort
+    quantity_refs: [Q39, Q40, Q41, Q42, Q43, Q44, Q45, Q46, Q47, Q48, Q50, Q51]
+    concept_refs: [EN-marker-p_tau217]
+    proof_refs: [E07]
+    depends_on: [C01]
+
+  - id: C10
+    claim_type: existence
+    polarity: positive
+    logical_form: "CV(p_tau181_Elecsys) in [0.5,3.8]% AND CV(p_tau217_Elecsys) in [0.5,8.6]% AND linearity(p_tau181_Elecsys)>=0.30 AND linearity(p_tau217_Elecsys)>=0.12 AND LLOQ(p_tau181_Elecsys)=0.32 AND LLOQ(p_tau217_Elecsys)=0.10"
+    population_n: not_specified
+    population_scope: sample
+    quantity_refs: [Q52, Q53, Q54, Q55, Q56, Q57, Q58, Q59]
+    concept_refs: [EN-measure-lloq]
+    proof_refs: [E06]
+    depends_on: []
+
+  - id: C11
+    claim_type: existence
+    polarity: positive
+    logical_form: "group_diff(discordant_ATN, AD, p<0.001) AND heterogeneous(discordant_ATN: 62.5%_below_cutoff(p_tau217_Elecsys), 37.5%_above_cutoff(p_tau217_Elecsys))"
+    population_n: 16
+    population_scope: cohort
+    quantity_refs: [Q60, Q61, Q62, Q63, Q64]
+    concept_refs: [EN-concept-atn_framework, EN-marker-p_tau217]
+    proof_refs: [E09]
+    depends_on: [C01]

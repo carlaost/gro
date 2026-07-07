@@ -1,0 +1,847 @@
+quantities:
+  - id: Q01
+    value: 30
+    unit: "µm"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "logic/claims.md"
+    quote: "their cell bodies within a 30-µm radius of said deposits"
+    claim_refs: [C01]
+
+  - id: Q02
+    value: 44
+    unit: "weeks"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "logic/claims.md"
+    quote: "we analyzed the distribution of Pu.1+ microglia in the frontal cortices of 44-week-old female 5×FAD+ animals"
+    claim_refs: [C01]
+
+  - id: Q03
+    value: 0.02
+    unit: "P_value"
+    comparator: lt
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "logic/claims.md"
+    quote: "the null hypothesis ... is rejected with a significance of P < 0.02"
+    claim_refs: [C02]
+
+  - id: Q04
+    value: 10000
+    unit: "simulations"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "logic/claims.md"
+    quote: "After 10,000 shuffling simulations"
+    claim_refs: [C02]
+
+  - id: Q05
+    value: 98
+    unit: "%_CI"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "logic/claims.md"
+    quote: "The 98% confidence interval was calculated"
+    claim_refs: [C02]
+
+  - id: Q06
+    value: 0.28
+    unit: "R"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "Left: correlation for all Methoxy-X04+ plaque sizes (R = 0.28, ***P = 0.00028)"
+    claim_refs: [C03]
+
+  - id: Q07
+    value: 0.00028
+    unit: "P_value"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "Left: correlation for all Methoxy-X04+ plaque sizes (R = 0.28, ***P = 0.00028)"
+    claim_refs: [C03]
+
+  - id: Q08
+    value: 0.27
+    unit: "R"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "Middle: correlation for <1,000-µm3-sized Methoxy-X04+ plaques (R = 0.27, **P = 0.0091)"
+    claim_refs: [C03]
+
+  - id: Q09
+    value: 0.0091
+    unit: "P_value"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "Middle: correlation for <1,000-µm3-sized Methoxy-X04+ plaques (R = 0.27, **P = 0.0091)"
+    claim_refs: [C03]
+
+  - id: Q10
+    value: 0.17
+    unit: "R"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "Right: correlation for Methoxy-X04+ plaques >1,000 µm3 (R = 0.17, NS P = 0.17)"
+    claim_refs: [C03]
+
+  - id: Q11
+    value: 0.17
+    unit: "P_value"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "Right: correlation for Methoxy-X04+ plaques >1,000 µm3 (R = 0.17, NS P = 0.17)"
+    claim_refs: [C03]
+
+  - id: Q12
+    value: 1000
+    unit: "µm3"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "logic/claims.md"
+    quote: "<1,000-µm3-sized Methoxy-X04+ plaques"
+    claim_refs: [C03]
+
+  - id: Q13
+    value: 0.0001
+    unit: "P_value"
+    comparator: lt
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "***P < 0.0001"
+    claim_refs: [C04]
+
+  - id: Q14
+    value: 36
+    unit: "weeks"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "logic/claims.md"
+    quote: "We induced recombination in 36-week-old Tmem119CreERT2R26Confetti5×FAD+ animals"
+    claim_refs: [C05]
+
+  - id: Q15
+    value: 2
+    unit: "weeks"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "logic/claims.md"
+    quote: "the cell number per clone increased from 2 weeks to 8 weeks after TAM injection (Fig. 2j ...)"
+    claim_refs: [C05]
+
+  - id: Q16
+    value: 8
+    unit: "weeks"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "logic/claims.md"
+    quote: "the cell number per clone increased from 2 weeks to 8 weeks after TAM injection (Fig. 2j ...)"
+    claim_refs: [C05]
+
+  - id: Q17
+    value: 0.0021
+    unit: "P_value"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "Symbols represent individual clones from biological replicates (n = 2). P = 0.0021"
+    claim_refs: [C05]
+
+  - id: Q18
+    value: 2
+    unit: "biological_replicates"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "logic/claims.md"
+    quote: "Symbols represent individual clones from biological replicates (n = 2). P = 0.0021"
+    claim_refs: [C05]
+
+  - id: Q19
+    value: 81.37
+    unit: "%"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "81.37% ... 2 weeks after TAM"
+    claim_refs: [C05]
+
+  - id: Q20
+    value: 88.28
+    unit: "%"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "88.28% ... 8 weeks after TAM"
+    claim_refs: [C05]
+
+  - id: Q21
+    value: 16.63
+    unit: "%"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "dark-red = without same-colored non-PAM: 16.63% at 2 wk, 11.72% at 8 wk"
+    claim_refs: [C05]
+
+  - id: Q22
+    value: 11.72
+    unit: "%"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "dark-red = without same-colored non-PAM: 16.63% at 2 wk, 11.72% at 8 wk"
+    claim_refs: [C05]
+
+  - id: Q23
+    value: 0.0001
+    unit: "P_value"
+    comparator: lt
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "Early-stage 30-µm ring: 5xFAD- vs untreated P < 0.0001"
+    claim_refs: [C06]
+
+  - id: Q24
+    value: 0.0958
+    unit: "P_value"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "untreated vs LPS P = 0.0958"
+    claim_refs: [C06]
+
+  - id: Q25
+    value: 0.0014
+    unit: "P_value"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "0.0014"
+    claim_refs: [C06]
+
+  - id: Q26
+    value: 1095
+    unit: "cells"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "Each dot represents one cell (N = 1,095)"
+    claim_refs: [C07]
+
+  - id: Q27
+    value: 2
+    unit: "NES"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "HALLMARK_INFLAMMATORY_RESPONSE: normalized enrichment score (NES) = 2, P = 0.0, false discover rate (FDR) q-value = 0.0"
+    claim_refs: [C07]
+
+  - id: Q28
+    value: 0.0
+    unit: "P_value"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "HALLMARK_INFLAMMATORY_RESPONSE: normalized enrichment score (NES) = 2, P = 0.0, false discover rate (FDR) q-value = 0.0"
+    claim_refs: [C07]
+
+  - id: Q29
+    value: 0.0
+    unit: "FDR_q"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "HALLMARK_INFLAMMATORY_RESPONSE: normalized enrichment score (NES) = 2, P = 0.0, false discover rate (FDR) q-value = 0.0"
+    claim_refs: [C07]
+
+  - id: Q30
+    value: 1.62
+    unit: "NES"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "HALLMARK_INTERFERON_GAMMA_RESPONSE: NES = 1.62"
+    claim_refs: [C07]
+
+  - id: Q31
+    value: 2.66
+    unit: "NES"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "HALLMARK_TNFA_SIGNALING_VIA_NFKB: NES = 2.66"
+    claim_refs: [C07]
+
+  - id: Q32
+    value: -1.51
+    unit: "NES"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "GOBP_REGULATION_OF_INNATE_IMMUNE_RESPONSE: NES = −1.51, P = 0.002, FDR q = 0.13"
+    claim_refs: [C07]
+
+  - id: Q33
+    value: 0.002
+    unit: "P_value"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "GOBP_REGULATION_OF_INNATE_IMMUNE_RESPONSE: NES = −1.51, P = 0.002, FDR q = 0.13"
+    claim_refs: [C07]
+
+  - id: Q34
+    value: 0.13
+    unit: "FDR_q"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "GOBP_REGULATION_OF_INNATE_IMMUNE_RESPONSE: NES = −1.51, P = 0.002, FDR q = 0.13"
+    claim_refs: [C07]
+
+  - id: Q35
+    value: -1.34
+    unit: "NES"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "GOBP_REGULATION_OF_MACROPHAGE_ACTIVATION: NES = −1.34, P = 0.1, FDR q = 0.15"
+    claim_refs: [C07]
+
+  - id: Q36
+    value: 0.1
+    unit: "P_value"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "GOBP_REGULATION_OF_MACROPHAGE_ACTIVATION: NES = −1.34, P = 0.1, FDR q = 0.15"
+    claim_refs: [C07]
+
+  - id: Q37
+    value: 0.15
+    unit: "FDR_q"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "GOBP_REGULATION_OF_MACROPHAGE_ACTIVATION: NES = −1.34, P = 0.1, FDR q = 0.15"
+    claim_refs: [C07]
+
+  - id: Q38
+    value: 4360
+    unit: "DARs_count"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "we identified differentially accessible regions (DARs) and found 4,360 regions with higher accessibility (PAM-up) and 1,301 regions with lower accessibility (PAM-down) in PAM compared to non-PAM"
+    claim_refs: [C08]
+
+  - id: Q39
+    value: 1301
+    unit: "DARs_count"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "we identified differentially accessible regions (DARs) and found 4,360 regions with higher accessibility (PAM-up) and 1,301 regions with lower accessibility (PAM-down) in PAM compared to non-PAM"
+    claim_refs: [C08]
+
+  - id: Q40
+    value: 5661
+    unit: "DARs_count"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "Comparison between PAM and non-PAM revealed 5,661 DARs with 4,360 regions showing a higher accessibility and 1,301 regions with decreased accessibility"
+    claim_refs: [C08]
+
+  - id: Q41
+    value: 7637
+    unit: "DARs_count"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "In the comparison of PAM versus 5×FAD−, out of a total of 7,637 DARs, 5,848 showed increased accessibility, and 1,789 showed decreased accessibility (FDR < 0.05, log2FC ≥ 0.584 or log2FC ≤ −0.584)"
+    claim_refs: [C08]
+
+  - id: Q42
+    value: 5848
+    unit: "DARs_count"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "In the comparison of PAM versus 5×FAD−, out of a total of 7,637 DARs, 5,848 showed increased accessibility, and 1,789 showed decreased accessibility (FDR < 0.05, log2FC ≥ 0.584 or log2FC ≤ −0.584)"
+    claim_refs: [C08]
+
+  - id: Q43
+    value: 1789
+    unit: "DARs_count"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "In the comparison of PAM versus 5×FAD−, out of a total of 7,637 DARs, 5,848 showed increased accessibility, and 1,789 showed decreased accessibility (FDR < 0.05, log2FC ≥ 0.584 or log2FC ≤ −0.584)"
+    claim_refs: [C08]
+
+  - id: Q44
+    value: 22929
+    unit: "enhancer_regions"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "at 22,929 previously defined primed and active microglial enhancer regions"
+    claim_refs: [C08]
+
+  - id: Q45
+    value: 59293
+    unit: "ATAC_peaks"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "consensus ATAC-Seq peak set (59,293 total peaks) across all samples"
+    claim_refs: [C08]
+
+  - id: Q46
+    value: 0.05
+    unit: "FDR"
+    comparator: lt
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "logic/claims.md"
+    quote: "FDR < 0.05, log2FC ≥ 0.584 or log2FC ≤ −0.584"
+    claim_refs: [C08]
+
+  - id: Q47
+    value: 0.584
+    unit: "log2FC"
+    comparator: ge
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "logic/claims.md"
+    quote: "FDR < 0.05, log2FC ≥ 0.584 or log2FC ≤ −0.584"
+    claim_refs: [C08]
+
+  - id: Q48
+    value: 40
+    unit: "µg_per_kg"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "logic/claims.md"
+    quote: "intraperitoneally injected twice per week with 40 μg kg−1 recombinant murine Csf1 (PeproTech, 315-02) in PBS and 100 μg kg−1 IL-34 (BioLegend, 577602) in PBS or PBS alone for 8 weeks"
+    claim_refs: [C10, C12]
+
+  - id: Q49
+    value: 100
+    unit: "µg_per_kg"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "logic/claims.md"
+    quote: "intraperitoneally injected twice per week with 40 μg kg−1 recombinant murine Csf1 (PeproTech, 315-02) in PBS and 100 μg kg−1 IL-34 (BioLegend, 577602) in PBS or PBS alone for 8 weeks"
+    claim_refs: [C10, C12]
+
+  - id: Q50
+    value: 8
+    unit: "weeks"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "logic/claims.md"
+    quote: "intraperitoneally injected twice per week with 40 μg kg−1 recombinant murine Csf1 (PeproTech, 315-02) in PBS and 100 μg kg−1 IL-34 (BioLegend, 577602) in PBS or PBS alone for 8 weeks"
+    claim_refs: [C10, C12]
+
+  - id: Q51
+    value: 0.0164
+    unit: "P_value"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "0.0164 ... 0.0352"
+    claim_refs: [C10]
+
+  - id: Q52
+    value: 0.0352
+    unit: "P_value"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "0.0164 ... 0.0352"
+    claim_refs: [C10]
+
+  - id: Q53
+    value: 0.0037
+    unit: "P_value"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "0.0037"
+    claim_refs: [C10]
+
+  - id: Q54
+    value: 0.0159
+    unit: "P_value"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "0.0159"
+    claim_refs: [C10]
+
+  - id: Q55
+    value: 0.0114
+    unit: "P_value"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "Insoluble Aβ42 0.0114; Soluble Aβ42 0.0159; Insoluble Aβ40 0.0030; Soluble Aβ40 0.0094"
+    claim_refs: [C10]
+
+  - id: Q56
+    value: 0.0159
+    unit: "P_value"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "Insoluble Aβ42 0.0114; Soluble Aβ42 0.0159; Insoluble Aβ40 0.0030; Soluble Aβ40 0.0094"
+    claim_refs: [C10]
+
+  - id: Q57
+    value: 0.0030
+    unit: "P_value"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "Insoluble Aβ42 0.0114; Soluble Aβ42 0.0159; Insoluble Aβ40 0.0030; Soluble Aβ40 0.0094"
+    claim_refs: [C10]
+
+  - id: Q58
+    value: 0.0094
+    unit: "P_value"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "Insoluble Aβ42 0.0114; Soluble Aβ42 0.0159; Insoluble Aβ40 0.0030; Soluble Aβ40 0.0094"
+    claim_refs: [C10]
+
+  - id: Q59
+    value: 0.0083
+    unit: "P_value"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "0.0083"
+    claim_refs: [C10]
+
+  - id: Q60
+    value: 0.0344
+    unit: "P_value"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "0.0344"
+    claim_refs: [C10]
+
+  - id: Q61
+    value: 0.36
+    unit: "R"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "Left: correlation for all Methoxy-X04+ plaque sizes (R = 0.36, ***P = 4.7 × 10−7)"
+    claim_refs: [C11]
+
+  - id: Q62
+    value: 0.00000047
+    unit: "P_value"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "Left: correlation for all Methoxy-X04+ plaque sizes (R = 0.36, ***P = 4.7 × 10−7)"
+    claim_refs: [C11]
+
+  - id: Q63
+    value: -0.084
+    unit: "R"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "Middle: correlation for <1,000-µm3-sized Methoxy-X04+ plaques (R = −0.084, NS P = 0.35)"
+    claim_refs: [C11]
+
+  - id: Q64
+    value: 0.35
+    unit: "P_value"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "Middle: correlation for <1,000-µm3-sized Methoxy-X04+ plaques (R = −0.084, NS P = 0.35)"
+    claim_refs: [C11]
+
+  - id: Q65
+    value: 0.33
+    unit: "R"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "Right: correlation for Methoxy-X04+ plaques >1,000 µm3 (R = 0.33, *P = 0.016)"
+    claim_refs: [C11]
+
+  - id: Q66
+    value: 0.016
+    unit: "P_value"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "Right: correlation for Methoxy-X04+ plaques >1,000 µm3 (R = 0.33, *P = 0.016)"
+    claim_refs: [C11]
+
+  - id: Q67
+    value: 0.3700
+    unit: "P_value"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "Fig 6m (plaques with contact to multiple clones, P = 0.3700)"
+    claim_refs: [C11]
+
+  - id: Q68
+    value: 0.2652
+    unit: "P_value"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "0.2652 ... 0.9143"
+    claim_refs: [C12]
+
+  - id: Q69
+    value: 0.9143
+    unit: "P_value"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "0.2652 ... 0.9143"
+    claim_refs: [C12]
+
+  - id: Q70
+    value: 0.0885
+    unit: "P_value"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "microglial cell number (P = 0.0885 5xFAD+)"
+    claim_refs: [C12]
+
+  - id: Q71
+    value: 0.7986
+    unit: "P_value"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "decoration of plaques with PAM (P = 0.7986)"
+    claim_refs: [C12]
+
+  - id: Q72
+    value: 0.1088
+    unit: "P_value"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "0.1088 ... 0.2712"
+    claim_refs: [C12]
+
+  - id: Q73
+    value: 0.2712
+    unit: "P_value"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "0.1088 ... 0.2712"
+    claim_refs: [C12]
+
+  - id: Q74
+    value: 2686
+    unit: "cells"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "For the CSF1-treated scRNA-seq dataset, 2,686 cells were embedded using the first five principal components"
+    claim_refs: [C13]
+
+  - id: Q75
+    value: 2687
+    unit: "cells"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "Fig 7a caption states N = 2,687"
+    claim_refs: [C13]
+
+  - id: Q76
+    value: 4
+    unit: "weeks"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "logic/claims.md"
+    quote: "scRNA-seq after 4 weeks of Csf1 (2,686 cells, clusters C0–C7)"
+    claim_refs: [C13]
+
+  - id: Q77
+    value: 2
+    unit: "clusters_count"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md"
+    quote: "We identified two specific Csf1-induced clusters in the CD11c+ PAM population, namely C1 and C7, but no cluster specifically enriched for CD11c− non-PAM"
+    claim_refs: [C13]

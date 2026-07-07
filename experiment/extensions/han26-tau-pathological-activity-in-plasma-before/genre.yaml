@@ -1,0 +1,16 @@
+paper_type: clinical_biomarker
+expected_slots:
+- claims
+- experiments
+- evidence
+- dataset
+- code
+- related_work
+present_slots:
+- claims
+- experiments
+- evidence
+- dataset
+- related_work
+absent_declared:
+- code

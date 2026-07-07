@@ -1,0 +1,255 @@
+refs:
+  - id: R01
+    raw: "GBD 2021 Diseases and Injuries Collaborators — Global incidence, prevalence, YLDs, DALYs, HALE for 371 diseases and injuries (ref 15)"
+    external_id: "10.1016/S0140-6736(24)00757-8"
+    resolvable: true
+
+  - id: R02
+    raw: "GBD 2021 Risk Factors Collaborators — Global burden and strength of evidence for 88 risk factors (ref 17)"
+    external_id: "10.1016/S0140-6736(24)00933-4"
+    resolvable: true
+
+  - id: R03
+    raw: "Murray CJL — The Global Burden of Disease study at 30 years (ref 16)"
+    external_id: "10.1038/s41591-022-01990-1"
+    resolvable: true
+
+  - id: R04
+    raw: "Farcomeni A, Geraci M — Multistate quantile regression models (ref 18)"
+    external_id: "10.1002/sim.8393"
+    resolvable: true
+
+  - id: R05
+    raw: "Bai J, Cui J, Shi F, Yu C — Global epidemiological patterns in non-communicable diseases, relationships with SDI (ref 19)"
+    external_id: "10.3389/ijph.2023.1605502"
+    resolvable: true
+
+  - id: R06
+    raw: "GBD 2019 Dementia Forecasting Collaborators (ref 20)"
+    external_id: "10.1016/S2468-2667(21)00249-8"
+    resolvable: true
+
+  - id: R07
+    raw: "GBD 2016 Dementia Collaborators (ref 21)"
+    external_id: "10.1016/S1474-4422(18)30403-4"
+    resolvable: true
+
+  - id: R08
+    raw: "Matej et al. — AD/neurodegenerative dementia comorbidity, clinical/neuropathological overview (ref 1)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R09
+    raw: "Long/Benoist/Weidner — World Alzheimer Report 2023 (ref 4)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R10
+    raw: "2023 Alzheimer's disease facts and figures (ref 5)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R11
+    raw: "Scheltens et al. — Alzheimer's disease, Lancet overview (ref 6)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R12
+    raw: "Winblad et al. — Defeating Alzheimer's disease and other dementias, European priority framing (ref 7)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R13
+    raw: "Baumgart et al. — modifiable risk factors for cognitive decline, population-based review (ref 8)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R14
+    raw: "Tin et al. — genetic risk + Life's Simple 7 + incident dementia, ARIC study (ref 9)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R15
+    raw: "Yu et al. — evidence-based AD prevention, systematic review/meta-analysis of 243 observational + 153 RCT studies (ref 10)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R16
+    raw: "Nianogo et al. — AD/dementia risk factors by sex/race/ethnicity, US (ref 11)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R17
+    raw: "Livingston et al. — 2024 Lancet Commission report (ref 12)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R18
+    raw: "Mazure & Swendsen — sex differences in AD/dementias (ref 13)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R19
+    raw: "Kalaria et al. — AD/vascular dementia in developing countries, prevalence/management/risk-factor review (ref 14)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R20
+    raw: "World Health Organization — Dementia fact sheet (ref 2)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R21
+    raw: "Wimo et al. — worldwide costs of dementia 2019 (ref 3)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R22
+    raw: "Agudelo-Botero et al. — systematic/comparative AD-and-other-dementias burden analysis, Mexico, 1990-2019 (ref 22)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R23
+    raw: "Schwinne et al. — AD-related blood-based biomarkers vs. cognitive screening, Congolese population, medRxiv preprint (ref 23)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R24
+    raw: "Mukadam et al. — improving dementia service access for minority ethnic groups (ref 24)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R25
+    raw: "GBD 2019 Human Resources for Health Collaborators — availability of health-workforce resources and universal health coverage, 204 countries (ref 25)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R26
+    raw: "Wang et al. — GBD 2019 metabolic risk factors, ischemic heart disease (ref 26)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R27
+    raw: "Ikanga et al. — suspected dementia prevalence, Kinshasa-DRC, 6.2% (ref 27)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R28
+    raw: "Guerchet et al. — EDAC survey, Central Africa: 8.1% Bangui, 6.7% Brazzaville (ref 28)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R29
+    raw: "Feter et al. — AD hospitalization trends, Brazil, 87.7% increase over 10 years (ref 29)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R30
+    raw: "Ikeda et al. — economic burden of AD dementia, Japan (ref 30)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R31
+    raw: "Ohara et al. — dementia prevalence/incidence/survival trends, Japanese community (ref 31)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R32
+    raw: "Shimizu et al. — dementia prevalence trends, Nakayama Study, Japan (ref 32)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R33
+    raw: "GBD 2016 Disease and Injury Incidence and Prevalence Collaborators (ref 33)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R34
+    raw: "Kolahchi et al. — sex/gender differences in AD: genetic, hormonal, inflammation (ref 34)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R35
+    raw: "Zhu, Montagne & Zhao — AD pathogenic mechanisms and sex difference (ref 35)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R36
+    raw: "Ardekani, Convit & Bachman — MIRIAD data, sex differences in hippocampal atrophy progression (ref 36)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R37
+    raw: "Mosconi et al. — perimenopause and AD bioenergetic phenotype (ref 37)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R38
+    raw: "Mosconi et al. — brain imaging of endocrine vs. chronologic aging (ref 38)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R39
+    raw: "Eid, Gobinath & Galea — sex differences in depression (ref 39)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R40
+    raw: "Serrano-Pozo & Growdon — is AD risk modifiable? (ref 40)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R41
+    raw: "Charlot et al. — time-restricted feeding and metabolic disease (ref 41)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R42
+    raw: "Hillari, Frank & Cadar — systemic inflammation, lifestyle, dementia, 10-year follow-up (ref 42)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R43
+    raw: "Katzmarzyk et al. — physical inactivity and NCD burden by country income level (ref 43)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R44
+    raw: "Ho et al. — obesity linked to lower brain volume in AD/MCI patients (ref 44)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R45
+    raw: "Maesako et al. — exercise vs. diet control, high-fat-diet-induced amyloid deposition in transgenic AD mice (ref 45)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R46
+    raw: "Fernandes & Caramelli — ischemic stroke and infectious diseases in LMICs (ref 46)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R47
+    raw: "Almeida et al. — 24-month effect of smoking cessation on cognitive function/brain structure (ref 47)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R48
+    raw: "Schiavone et al. — second-hand tobacco smoke prevalence vs. smoke-free legislation, EU (ref 48)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R49
+    raw: "Radó et al. — comprehensive smoke-free legislation and neonatal/infant mortality, 106 middle-income countries, synthetic control study (ref 49)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R50
+    raw: "World Health Organization — World failing to address dementia challenge, 2021 news item (ref 50)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R51
+    raw: "World Health Organization — Draft Intersectoral Global Action Plan on Epilepsy and Other Neurological Disorders 2022-2031 (ref 51)"
+    external_id: not_specified
+    resolvable: false

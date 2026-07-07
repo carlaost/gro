@@ -1,0 +1,221 @@
+refs:
+- id: R01
+  raw: Grande et al. 2025, Nat. Med. 31:2027-2035 (ref. 9)
+  external_id: not_specified
+  resolvable: false
+- id: R02
+  raw: Valletta et al. 2024, Alzheimers Dement. (ref. 42)
+  external_id: not_specified
+  resolvable: false
+- id: R03
+  raw: Jackson 2011, J. Stat. Softw. 38 (ref. 56)
+  external_id: not_specified
+  resolvable: false
+- id: R04
+  raw: van den Hout, Chan & Matthews 2019 (ref. 55)
+  external_id: not_specified
+  resolvable: false
+- id: R05
+  raw: Cullen et al. 2021 (ref. 1)
+  external_id: not_specified
+  resolvable: false
+- id: R06
+  raw: Palmqvist et al. 2021, Nat. Med. (ref. 2)
+  external_id: not_specified
+  resolvable: false
+- id: R07
+  raw: Lu et al. 2024, JAMA (ref. 5)
+  external_id: not_specified
+  resolvable: false
+- id: R08
+  raw: de Wolf et al. 2020, Brain (ref. 6)
+  external_id: not_specified
+  resolvable: false
+- id: R09
+  raw: Stocker et al. 2023, Alzheimers Dement. (ref. 7)
+  external_id: not_specified
+  resolvable: false
+- id: R10
+  raw: Cronjé et al. 2023 (ref. 8)
+  external_id: not_specified
+  resolvable: false
+- id: R11
+  raw: Cullen et al. 2021, Nat. Aging (ref. 13)
+  external_id: not_specified
+  resolvable: false
+- id: R12
+  raw: Pichet Binette et al. 2022 (ref. 14)
+  external_id: not_specified
+  resolvable: false
+- id: R13
+  raw: Groot et al. 2022 (ref. 15)
+  external_id: not_specified
+  resolvable: false
+- id: R14
+  raw: Oeckl et al. 2022 (ref. 16)
+  external_id: not_specified
+  resolvable: false
+- id: R15
+  raw: Lehmann et al. 2024 (ref. 17)
+  external_id: not_specified
+  resolvable: false
+- id: R16
+  raw: Kivisäkk et al. 2023 (ref. 23)
+  external_id: not_specified
+  resolvable: false
+- id: R17
+  raw: Silva-Spínola et al. 2023 (ref. 24)
+  external_id: not_specified
+  resolvable: false
+- id: R18
+  raw: Jack et al. 2024, Alzheimers Dement. (ref. 20)
+  external_id: not_specified
+  resolvable: false
+- id: R19
+  raw: Dubois et al. 2024, JAMA Neurol. (ref. 21)
+  external_id: not_specified
+  resolvable: false
+- id: R20
+  raw: Bouteloup et al. 2025, JAMA Neurol. (ref. 22)
+  external_id: not_specified
+  resolvable: false
+- id: R21
+  raw: Canevelli et al. 2016 (ref. 25)
+  external_id: not_specified
+  resolvable: false
+- id: R22
+  raw: Malek-Ahmadi 2016 (ref. 26)
+  external_id: not_specified
+  resolvable: false
+- id: R23
+  raw: Salemme et al. 2025 (ref. 27)
+  external_id: not_specified
+  resolvable: false
+- id: R24
+  raw: Roher et al. 2009 (ref. 28)
+  external_id: not_specified
+  resolvable: false
+- id: R25
+  raw: Zetterberg & Blennow 2021 (ref. 29)
+  external_id: not_specified
+  resolvable: false
+- id: R26
+  raw: Mattsson et al. 2016 (ref. 30)
+  external_id: not_specified
+  resolvable: false
+- id: R27
+  raw: Palmqvist et al. 2020, JAMA (ref. 31)
+  external_id: not_specified
+  resolvable: false
+- id: R28
+  raw: Ashton et al. 2024, JAMA Neurol. (ref. 32)
+  external_id: not_specified
+  resolvable: false
+- id: R29
+  raw: Janelidze et al. 2023, Brain (ref. 33)
+  external_id: not_specified
+  resolvable: false
+- id: R30
+  raw: Therriault et al. 2025, Lancet Neurol. (ref. 34)
+  external_id: not_specified
+  resolvable: false
+- id: R31
+  raw: Bridel et al. 2019 (ref. 35)
+  external_id: not_specified
+  resolvable: false
+- id: R32
+  raw: Khalil et al. 2018 (ref. 36)
+  external_id: not_specified
+  resolvable: false
+- id: R33
+  raw: MRC CFAS 2001 (ref. 37)
+  external_id: not_specified
+  resolvable: false
+- id: R34
+  raw: White et al. 2005 (ref. 38)
+  external_id: not_specified
+  resolvable: false
+- id: R35
+  raw: Schneider et al. 2007 (ref. 39)
+  external_id: not_specified
+  resolvable: false
+- id: R36
+  raw: Schneider et al. 2009 (ref. 40)
+  external_id: not_specified
+  resolvable: false
+- id: R37
+  raw: Kac et al. 2022 (ref. 44)
+  external_id: not_specified
+  resolvable: false
+- id: R38
+  raw: Koerbel et al. 2024 (ref. 45)
+  external_id: not_specified
+  resolvable: false
+- id: R39
+  raw: Chen et al. 2025 (ref. 46)
+  external_id: not_specified
+  resolvable: false
+- id: R40
+  raw: Pantzar et al. 2014 (ref. 49)
+  external_id: not_specified
+  resolvable: false
+- id: R41
+  raw: Dunne et al. 2020 (ref. 50)
+  external_id: not_specified
+  resolvable: false
+- id: R42
+  raw: Guze 1995 (ref. 51)
+  external_id: not_specified
+  resolvable: false
+- id: R43
+  raw: McKhann et al. 1984 (ref. 52)
+  external_id: not_specified
+  resolvable: false
+- id: R44
+  raw: Calderón-Larrañaga et al. 2017 (ref. 53)
+  external_id: not_specified
+  resolvable: false
+- id: R45
+  raw: von Elm et al. 2007 (ref. 48)
+  external_id: not_specified
+  resolvable: false
+- id: R46
+  raw: Lagergren et al. 2004 (ref. 47)
+  external_id: not_specified
+  resolvable: false
+- id: R47
+  raw: Grande et al. 2020 (ref. 10)
+  external_id: not_specified
+  resolvable: false
+- id: R48
+  raw: Vermunt et al. 2019 (ref. 11)
+  external_id: not_specified
+  resolvable: false
+- id: R49
+  raw: Self & Holtzman 2023 (ref. 12)
+  external_id: not_specified
+  resolvable: false
+- id: R50
+  raw: Brookmeyer & Abdalla 2018 (ref. 18)
+  external_id: not_specified
+  resolvable: false
+- id: R51
+  raw: Villain & Planche 2024 (ref. 19)
+  external_id: not_specified
+  resolvable: false
+- id: R52
+  raw: Khalil et al. 2020 (ref. 43)
+  external_id: not_specified
+  resolvable: false
+- id: R53
+  raw: Hampel et al. 2018 (ref. 3)
+  external_id: not_specified
+  resolvable: false
+- id: R54
+  raw: Teunissen et al. 2022 (ref. 4)
+  external_id: not_specified
+  resolvable: false
+- id: R55
+  raw: De Strooper & Karran 2016 (ref. 41)
+  external_id: not_specified
+  resolvable: false

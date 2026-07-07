@@ -1,0 +1,288 @@
+claims:
+- id: C01
+  claim_type: prediction
+  polarity: positive
+  logical_form: diagnostic_accuracy(VeraBIND_Tau, tau_PET_positivity, sensitivity=Q01, specificity=Q02,
+    accuracy=Q03, AUC=Q04)
+  population_n: 145
+  population_scope: cohort
+  quantity_refs:
+  - Q01
+  - Q02
+  - Q03
+  - Q04
+  concept_refs:
+  - EN-marker-verabind_tau
+  - EN-braak_like_staging
+  proof_refs:
+  - E02
+  - E03
+  depends_on: []
+- id: C02
+  claim_type: comparison
+  polarity: positive
+  logical_form: best_AUC(VeraBIND_Tau, tau_PET_positivity) AND best_AUC(pTau217, amyloid_positivity) AND
+    greater_than(AUC(VeraBIND_Tau,tau), AUC(pTau217,tau)) AND greater_than(AUC(pTau217,amyloid), AUC(VeraBIND_Tau,amyloid))
+  population_n: 145
+  population_scope: cohort
+  quantity_refs:
+  - Q04
+  - Q05
+  - Q06
+  - Q07
+  - Q08
+  - Q09
+  - Q10
+  - Q11
+  - Q12
+  - Q13
+  - Q14
+  - Q15
+  - Q16
+  - Q17
+  - Q18
+  - Q19
+  concept_refs:
+  - EN-marker-verabind_tau
+  - EN-marker-p_tau217
+  - EN-marker-p_tau181
+  - EN-marker-p_tau231
+  - EN-marker-abeta_ratio
+  proof_refs:
+  - E02
+  depends_on: []
+- id: C03
+  claim_type: comparison
+  polarity: positive
+  logical_form: greater_than(PPV(VeraBIND_Tau, CU), max_over_thresholds(PPV(pTau217, CU)))
+  population_n: 79
+  population_scope: cohort
+  quantity_refs:
+  - Q20
+  - Q21
+  - Q22
+  - Q23
+  - Q24
+  - Q25
+  - Q26
+  - Q27
+  concept_refs:
+  - EN-marker-verabind_tau
+  - EN-marker-p_tau217
+  - EN-ptau217-thresholds
+  - EN-ppv-npv-prevalence-adjusted
+  proof_refs:
+  - E03
+  depends_on:
+  - C01
+- id: C04
+  claim_type: comparison
+  polarity: positive
+  logical_form: greater_than(AUC(VeraBIND_Tau, Braak1_3_vs_0), AUC(pTau217, Braak1_3_vs_0), sig=Q31_Q32)
+    AND greater_sensitivity(VeraBIND_Tau, pTau217, at_0.193_and_0.256) AND lower_false_positive(VeraBIND_Tau,
+    pTau217, Braak0)
+  population_n: 17
+  population_scope: cohort
+  quantity_refs:
+  - Q29
+  - Q30
+  - Q31
+  - Q32
+  - Q33
+  - Q34
+  - Q35
+  - Q36
+  - Q37
+  - Q38
+  - Q39
+  - Q40
+  - Q41
+  concept_refs:
+  - EN-marker-verabind_tau
+  - EN-marker-p_tau217
+  - EN-braak_like_staging
+  - EN-ptau217-thresholds
+  proof_refs:
+  - E04
+  depends_on:
+  - C01
+- id: C05
+  claim_type: comparison
+  polarity: negative
+  logical_form: not(significantly_different(AUC(VeraBIND_Tau, Braak4_6_vs_0), AUC(pTau217, Braak4_6_vs_0)))
+  population_n: 52
+  population_scope: cohort
+  quantity_refs:
+  - Q42
+  - Q43
+  - Q44
+  - Q45
+  - Q46
+  - Q47
+  - Q48
+  concept_refs:
+  - EN-marker-verabind_tau
+  - EN-marker-p_tau217
+  - EN-braak_like_staging
+  proof_refs:
+  - E04
+  depends_on:
+  - C04
+- id: C06
+  claim_type: comparison
+  polarity: positive
+  logical_form: plateau(VeraBIND_Tau_score, Braak1_3, Braak4_6, no_diff=Q54) AND graded_increase(pTau217_conc,
+    Braak0, Braak1_3, Braak4_6, sig_only_at_Braak4_6=Q56_Q59)
+  population_n: 145
+  population_scope: cohort
+  quantity_refs:
+  - Q49
+  - Q50
+  - Q51
+  - Q52
+  - Q53
+  - Q54
+  - Q55
+  - Q56
+  - Q57
+  - Q58
+  - Q59
+  - Q60
+  concept_refs:
+  - EN-marker-verabind_tau
+  - EN-marker-p_tau217
+  - EN-braak_like_staging
+  proof_refs:
+  - E04
+  depends_on:
+  - C04
+  - C05
+- id: C07
+  claim_type: prediction
+  polarity: positive
+  logical_form: predicts(VeraBIND_Tau_score, entorhinal_tau_PET_SUVr, beta=Q61, sig=True) AND not(predicts(pTau217_conc,
+    entorhinal_tau_PET_SUVr, beta=Q62, sig=True))
+  population_n: 93
+  population_scope: cohort
+  quantity_refs:
+  - Q61
+  - Q62
+  concept_refs:
+  - EN-marker-verabind_tau
+  - EN-marker-p_tau217
+  - EN-braak_like_staging
+  proof_refs:
+  - E05
+  depends_on:
+  - C04
+- id: C08
+  claim_type: correlation
+  polarity: positive
+  logical_form: correlates(VeraBIND_Tau_score, [MMSE,episodic_memory,entorhinal_SUVr,inf_temporal_SUVr,pTau217,pTau181],
+    entire_sample) AND correlates(VeraBIND_Tau_score, [entorhinal_SUVr,inf_temporal_SUVr,pTau217,pTau181],
+    CU_only) AND not(correlates(VeraBIND_Tau_score, MMSE, CU_only))
+  population_n: 145
+  population_scope: cohort
+  quantity_refs:
+  - Q64
+  - Q65
+  - Q66
+  - Q67
+  - Q68
+  - Q69
+  - Q70
+  - Q71
+  - Q72
+  - Q73
+  - Q74
+  - Q75
+  - Q76
+  concept_refs:
+  - EN-marker-verabind_tau
+  - EN-marker-p_tau217
+  - EN-marker-p_tau181
+  - EN-marker-p_tau231
+  proof_refs:
+  - E06
+  depends_on: []
+- id: C09
+  claim_type: correlation
+  polarity: positive
+  logical_form: correlates(annual_rate_of_change(VeraBIND_Tau_score), [entorhinal_SUVr,Braak_stage,MMSE,episodic_memory,pTau217,pTau181],
+    longitudinal_subsample) AND not(correlates(rate_of_change, pTau231))
+  population_n: 88
+  population_scope: cohort
+  quantity_refs:
+  - Q77
+  - Q78
+  - Q79
+  - Q80
+  - Q81
+  - Q82
+  - Q83
+  - Q84
+  concept_refs:
+  - EN-marker-verabind_tau
+  - EN-marker-p_tau217
+  - EN-marker-p_tau181
+  - EN-marker-p_tau231
+  - EN-braak_like_staging
+  proof_refs:
+  - E07
+  depends_on:
+  - C08
+- id: C10
+  claim_type: existence
+  polarity: positive
+  logical_form: stable_classification(VeraBIND_Tau, proportion=Q87) AND minority_conversion(VeraBIND_Tau,
+    proportion=Q86)
+  population_n: 88
+  population_scope: cohort
+  quantity_refs:
+  - Q85
+  - Q86
+  - Q87
+  concept_refs:
+  - EN-marker-verabind_tau
+  - EN-test-result-score
+  proof_refs:
+  - E08
+  depends_on: []
+- id: C11
+  claim_type: association
+  polarity: positive
+  logical_form: greater_than(positivity_rate(VeraBIND_Tau, A_neg_T_pos), positivity_rate(VeraBIND_Tau,
+    A_pos_T_neg), sig=Q90) AND high_accuracy(VeraBIND_Tau, concordant_groups, Q91)
+  population_n: 145
+  population_scope: cohort
+  quantity_refs:
+  - Q88
+  - Q89
+  - Q90
+  - Q91
+  - Q92
+  - Q93
+  concept_refs:
+  - EN-marker-verabind_tau
+  - EN-at-framework
+  - EN-braak_like_staging
+  proof_refs:
+  - E01
+  depends_on: []
+- id: C12
+  claim_type: existence
+  polarity: positive
+  logical_form: possible(detects(VeraBIND_Tau, non_AD_tauopathy)) GIVEN small_n(Q94, Q95)
+  population_n: 6
+  population_scope: sample
+  quantity_refs:
+  - Q94
+  - Q95
+  concept_refs:
+  - EN-marker-verabind_tau
+  - EN-at-framework
+  - EN-braak_like_staging
+  proof_refs:
+  - E01
+  depends_on:
+  - C11

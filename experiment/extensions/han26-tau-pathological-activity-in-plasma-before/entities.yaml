@@ -1,0 +1,53 @@
+entities:
+- id: EN-marker-pa_ptau
+  term: Pathologically Active Hyperphosphorylated Tau (PA pTau) / Tau Seeding Activity
+  kind: concept
+  xref: not_specified
+- id: EN-marker-verabind_tau
+  term: VeraBIND Tau Assay / VeraBIND™ Technology
+  kind: method
+  xref: not_specified
+- id: EN-test-result-score
+  term: VeraBIND Tau Test Result Score
+  kind: measure
+  xref: not_specified
+- id: EN-braak_like_staging
+  term: Braak-Like Tau-PET Staging
+  kind: method
+  xref: not_specified
+- id: EN-at-framework
+  term: A/T Biomarker Framework
+  kind: concept
+  xref: not_specified
+- id: EN-centiloid
+  term: Centiloid Scale
+  kind: measure
+  xref: not_specified
+- id: EN-core1-core2
+  term: Core 1 / Core 2 Biomarker Framework (NIA-AA)
+  kind: concept
+  xref: not_specified
+- id: EN-ptau217-thresholds
+  term: pTau217 Diagnostic Thresholds (0.142 / 0.193 / 0.256 pg/mL)
+  kind: variable
+  xref: not_specified
+- id: EN-ppv-npv-prevalence-adjusted
+  term: PPV/NPV Adjusted for Population Prevalence
+  kind: measure
+  xref: not_specified
+- id: EN-marker-p_tau217
+  term: plasma pTau217
+  kind: measure
+  xref: not_specified
+- id: EN-marker-p_tau181
+  term: plasma pTau181
+  kind: measure
+  xref: not_specified
+- id: EN-marker-p_tau231
+  term: plasma pTau231
+  kind: measure
+  xref: not_specified
+- id: EN-marker-abeta_ratio
+  term: plasma Aβ42/Aβ40 ratio
+  kind: measure
+  xref: not_specified

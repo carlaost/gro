@@ -1,0 +1,31 @@
+# Genre classification and slot-completeness audit for this ARA.
+# present_slots reflects what actually exists on disk in this ARA directory as of compilation
+# (verified by directory listing), not what PAPER.md's layer index claims to contain.
+# PAPER.md's own Layer Index table declares concepts.md, experiments.md, related_work.md,
+# solution/*, src/*, trace/*, and evidence/README.md — none of these files exist in the
+# directory tree. Only PAPER.md, logic/claims.md, logic/problem.md, and evidence/figures/*.png
+# (images only, no captions transcribed to markdown) are present.
+
+paper_type: preclinical_mechanistic_study
+
+expected_slots:
+  - problem
+  - claims
+  - concepts
+  - experiments
+  - related_work
+  - evidence
+  - dataset
+
+present_slots:
+  - problem
+  - claims
+  - evidence
+
+absent_declared: []
+
+# absent (silent omissions) = expected_slots - present_slots - absent_declared
+#   = [concepts, experiments, related_work, dataset]
+# Note: PAPER.md text does declare one narrow absence explicitly ("No numbered main-text
+# Tables exist in the source"), but that concerns a sub-slot of evidence (tables), not one of
+# the top-level expected_slots enumerated above, so it does not populate absent_declared here.

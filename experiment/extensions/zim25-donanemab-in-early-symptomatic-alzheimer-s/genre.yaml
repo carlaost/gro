@@ -1,0 +1,9 @@
+paper_type: clinical_trial_long_term_extension
+expected_slots: [claims, experiments, evidence, dataset, code]
+present_slots: [claims, experiments, evidence, dataset]
+absent_declared: [code]
+# absent (silent omissions) = expected_slots - present_slots - absent_declared = []
+# "code" is expected_slots-and-declared-absent, not silently missing: src/environment.md states
+# "no code-availability statement in this paper's text (verified by full-text [check])" and
+# "Hardware: n/a (analytical work)"; PAPER.md states "no code repository, dataset, or IPD-access
+# statement is [provided]" per sources.yaml/src/environment.md.

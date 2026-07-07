@@ -1,0 +1,5 @@
+paper_type: epidemiological_secondary_analysis
+expected_slots: [claims, concepts, related_work, experiments, evidence, dataset, code]
+present_slots: [claims, concepts, related_work, experiments, evidence]
+absent_declared: [dataset, code]
+# (absent = expected_slots - present_slots - absent_declared -> the silent omissions)

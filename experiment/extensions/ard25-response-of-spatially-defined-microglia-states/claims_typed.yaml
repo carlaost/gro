@@ -1,0 +1,143 @@
+claims:
+  - id: C01
+    claim_type: comparison
+    polarity: positive
+    logical_form: "exists(PAM) AND exists(non_PAM) AND expanded(PAM, 5xFAD+, vs=5xFAD-) AND unchanged(non_PAM, 5xFAD+, vs=5xFAD-) AND high_proliferation(PAM, 5xFAD+) AND high_proliferation(non_PAM, 5xFAD+)"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q01, Q02]
+    concept_refs: [EN-PAM, EN-nonPAM, EN-5xFAD, EN-MethoxyX04, EN-BrdU, EN-PuIba1]
+    proof_refs: [E01, E02]
+    depends_on: []
+
+  - id: C02
+    claim_type: comparison
+    polarity: positive
+    logical_form: "clonal_expansion(PAM, plaque_site) AND NOT clonal_expansion(non_PAM) AND significant(MC_shuffle_test, P<0.02)"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q03, Q04, Q05]
+    concept_refs: [EN-PAM, EN-nonPAM, EN-confetti, EN-mc-sim]
+    proof_refs: [E03]
+    depends_on: [C01]
+
+  - id: C03
+    claim_type: correlation
+    polarity: positive
+    logical_form: "correlate(clone_size(PAM), plaque_volume, R=0.28, P=0.00028, scope=all) AND correlate(clone_size(PAM), plaque_volume, R=0.27, P=0.0091, scope=lt_1000um3) AND NOT correlate(clone_size(PAM), plaque_volume, scope=gt_1000um3, R=0.17, P=0.17)"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q06, Q07, Q08, Q09, Q10, Q11, Q12]
+    concept_refs: [EN-PAM, EN-voronoi, EN-MethoxyX04]
+    proof_refs: [E04]
+    depends_on: [C02]
+
+  - id: C04
+    claim_type: association
+    polarity: positive
+    logical_form: "specific_marker(CD11c, PAM) AND preferential_marker(Tmem119, non_PAM) AND NOT discriminates(CLEC7A_APOE_AXL_P2RY12, PAM, non_PAM)"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q13]
+    concept_refs: [EN-CD11c, EN-Tmem119, EN-PAM, EN-nonPAM]
+    proof_refs: [E05]
+    depends_on: [C01]
+
+  - id: C05
+    claim_type: causal
+    polarity: positive
+    logical_form: "gives_rise_to(non_PAM, PAM) AND adjacent(non_PAM_clone, PAM_clone) AND increases(cells_per_PAM_clone, t=2wk_to_8wk, P=0.0021) AND stable(fraction_PAM_clones_with_adjacent_nonPAM, 81.37pct_to_88.28pct)"
+    population_n: 2
+    population_scope: sample
+    quantity_refs: [Q14, Q15, Q16, Q17, Q18, Q19, Q20, Q21, Q22]
+    concept_refs: [EN-Tmem119, EN-PAM, EN-nonPAM, EN-confetti]
+    proof_refs: [E06]
+    depends_on: [C01, C04]
+
+  - id: C06
+    claim_type: comparison
+    polarity: positive
+    logical_form: "increases(clonal_expansion(PAM), LPS, stage=early) AND decreases(clonal_expansion(PAM), ABX, stage=early) AND NOT alters(clonal_expansion(PAM), LPS_or_ABX, stage=late) AND greater(clonal_expansion(PAM), age=young, vs=aged)"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q23, Q24, Q25]
+    concept_refs: [EN-PAM, EN-confetti, EN-mc-sim]
+    proof_refs: [E07]
+    depends_on: [C02]
+
+  - id: C07
+    claim_type: comparison
+    polarity: positive
+    logical_form: "transcriptional_plasticity(non_PAM, LPS_ABX) AND NOT transcriptional_plasticity(PAM, LPS_ABX) AND upregulate(inflammatory_gene_sets, non_PAM, stimulus=LPS) AND downregulate(innate_immune_gene_sets, non_PAM, stimulus=ABX)"
+    population_n: 1095
+    population_scope: sample
+    quantity_refs: [Q26, Q27, Q28, Q29, Q30, Q31, Q32, Q33, Q34, Q35, Q36, Q37]
+    concept_refs: [EN-PAM, EN-nonPAM, EN-scRNAseq, EN-GSEA, EN-CD11c]
+    proof_refs: [E08]
+    depends_on: [C01, C06]
+
+  - id: C08
+    claim_type: comparison
+    polarity: positive
+    logical_form: "separates(chromatin_accessibility, PAM, non_PAM) AND resembles(non_PAM, 5xFAD-_microglia) AND DARs(PAM_vs_nonPAM, up=4360, down=1301) AND DARs(PAM_vs_5xFADneg, up=5848, down=1789)"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q38, Q39, Q40, Q41, Q42, Q43, Q44, Q45, Q46, Q47]
+    concept_refs: [EN-PAM, EN-nonPAM, EN-ATACseq, EN-DAR, EN-DAM]
+    proof_refs: [E09]
+    depends_on: [C01]
+
+  - id: C09
+    claim_type: association
+    polarity: positive
+    logical_form: "higher(Csf1r_transcript, non_PAM, vs=PAM) AND higher(Csf1r_chromatin_accessibility, non_PAM, vs=PAM) AND higher(Csf1_chromatin_accessibility, PAM, vs=non_PAM)"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: []
+    concept_refs: [EN-CSF1R, EN-Csf1, EN-PAM, EN-nonPAM, EN-scRNAseq, EN-ATACseq]
+    proof_refs: [E08, E09]
+    depends_on: [C07, C08]
+
+  - id: C10
+    claim_type: causal
+    polarity: positive
+    logical_form: "reduces(clonal_expansion(PAM), Csf1) AND NOT alters(clonal_expansion(non_PAM), Csf1) AND reduces(microglia_count, Csf1, cohort=5xFAD+, P=0.0164) AND increases(microglia_count, Csf1, cohort=5xFAD-, P=0.0352) AND reduces(pct_plaques_with_PAM, Csf1, P=0.0037) AND increases(CD68_lysosomal_compartment_PAM, Csf1, P=0.0159) AND reduces(soluble_insoluble_Abeta40_42, Csf1) AND NOT alters(APP_processing, Csf1) AND reduces(plaque_number, Csf1, P=0.0083) AND reduces(plaque_volume, Csf1, P=0.0344)"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q48, Q49, Q50, Q51, Q52, Q53, Q54, Q55, Q56, Q57, Q58, Q59, Q60]
+    concept_refs: [EN-Csf1, EN-CSF1R, EN-PAM, EN-nonPAM, EN-Abeta, EN-confetti]
+    proof_refs: [E10]
+    depends_on: [C09]
+
+  - id: C11
+    claim_type: correlation
+    polarity: positive
+    logical_form: "correlate(clone_size(PAM), plaque_volume, treatment=Csf1, R=0.36, P=4.7e-7, scope=all) AND correlate(clone_size(PAM), plaque_volume, treatment=Csf1, R=0.33, P=0.016, scope=gt_1000um3) AND NOT correlate(clone_size(PAM), plaque_volume, treatment=Csf1, scope=lt_1000um3, R=-0.084, P=0.35)"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q61, Q62, Q63, Q64, Q65, Q66, Q67]
+    concept_refs: [EN-PAM, EN-voronoi, EN-Csf1, EN-MethoxyX04]
+    proof_refs: [E04, E10]
+    depends_on: [C03, C10]
+
+  - id: C12
+    claim_type: comparison
+    polarity: negative
+    logical_form: "NOT alters(clonal_expansion(PAM), IL34) AND NOT alters(clonal_expansion(non_PAM), IL34) AND NOT alters(microglia_count, IL34) AND NOT alters(pct_plaques_with_PAM, IL34) AND NOT alters(plaque_number_or_volume, IL34)"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q68, Q69, Q70, Q71, Q72, Q73]
+    concept_refs: [EN-IL34, EN-CSF1R, EN-PAM, EN-nonPAM, EN-confetti]
+    proof_refs: [E10]
+    depends_on: [C10]
+
+  - id: C13
+    claim_type: comparison
+    polarity: positive
+    logical_form: "reduces(inflammatory_gene_programs, PAM, Csf1) AND increases(oxidative_phosphorylation_and_autophagy, PAM, Csf1) AND NOT alters(core_homeostatic_or_activation_signature, PAM_or_non_PAM, Csf1) AND induces(Csf1_specific_clusters, PAM) AND NOT induces(Csf1_specific_cluster, non_PAM, cohort=5xFAD+)"
+    population_n: 2686
+    population_scope: sample
+    quantity_refs: [Q74, Q75, Q76, Q77]
+    concept_refs: [EN-Csf1, EN-PAM, EN-nonPAM, EN-scRNAseq, EN-GSEA, EN-DAM]
+    proof_refs: [E11]
+    depends_on: [C10]

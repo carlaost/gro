@@ -1,0 +1,535 @@
+quantities:
+- id: Q01
+  value: 2148
+  unit: participants
+  comparator: none
+  ci_low: not_specified
+  ci_high: not_specified
+  role: result
+  source_ref: logic/claims.md
+  quote: We followed 2148 dementia-free individuals from a Swedish population-based cohort for up to 16 years.
+  claim_refs:
+  - C01
+- id: Q02
+  value: 72.2
+  unit: years
+  comparator: none
+  ci_low: 60.9
+  ci_high: 81.2
+  role: result
+  source_ref: evidence/tables/table1.md
+  quote: median age of study participants was 72.2 years ... Age 72.2 (60.9-81.2)
+  claim_refs:
+  - C01
+- id: Q03
+  value: 61.5
+  unit: '%'
+  comparator: none
+  ci_low: not_specified
+  ci_high: not_specified
+  role: result
+  source_ref: evidence/tables/table1.md
+  quote: 61.5% were females ... Sex (F) 1322 (61.5%)
+  claim_refs:
+  - C01
+- id: Q04
+  value: 35.4
+  unit: '%'
+  comparator: none
+  ci_low: not_specified
+  ci_high: not_specified
+  role: result
+  source_ref: evidence/tables/table1.md
+  quote: 35.4% had a university level of education or higher ... Education (University) 760 (35.4%)
+  claim_refs:
+  - C01
+- id: Q05
+  value: 381
+  unit: participants
+  comparator: none
+  ci_low: not_specified
+  ci_high: not_specified
+  role: result
+  source_ref: logic/claims.md
+  quote: At baseline, 381 (17.7%) participants had MCI.
+  claim_refs:
+  - C01
+  - C11
+- id: Q06
+  value: 17.7
+  unit: '%'
+  comparator: none
+  ci_low: not_specified
+  ci_high: not_specified
+  role: result
+  source_ref: logic/claims.md
+  quote: At baseline, 381 (17.7%) participants had MCI.
+  claim_refs:
+  - C01
+- id: Q07
+  value: 9.6
+  unit: years
+  comparator: none
+  ci_low: not_specified
+  ci_high: not_specified
+  role: result
+  source_ref: logic/claims.md
+  quote: During a mean follow up of 9.6 (4.3) years,
+  claim_refs:
+  - C01
+- id: Q08
+  value: 4.3
+  unit: years_SD
+  comparator: none
+  ci_low: not_specified
+  ci_high: not_specified
+  role: result
+  source_ref: logic/claims.md
+  quote: During a mean follow up of 9.6 (4.3) years,
+  claim_refs:
+  - C01
+- id: Q09
+  value: 16
+  unit: years
+  comparator: le
+  ci_low: not_specified
+  ci_high: not_specified
+  role: result
+  source_ref: logic/claims.md
+  quote: We followed 2148 dementia-free individuals from a Swedish population-based cohort for up to 16 years.
+  claim_refs:
+  - C01
+- id: Q10
+  value: 286
+  unit: participants
+  comparator: none
+  ci_low: not_specified
+  ci_high: not_specified
+  role: result
+  source_ref: logic/claims.md
+  quote: 286 (16.2% of participants who did not have MCI at baseline) participants developed MCI
+  claim_refs:
+  - C01
+- id: Q11
+  value: 16.2
+  unit: '%'
+  comparator: none
+  ci_low: not_specified
+  ci_high: not_specified
+  role: result
+  source_ref: logic/claims.md
+  quote: 286 (16.2% of participants who did not have MCI at baseline) participants developed MCI
+  claim_refs:
+  - C01
+- id: Q12
+  value: 364
+  unit: participants
+  comparator: none
+  ci_low: not_specified
+  ci_high: not_specified
+  role: result
+  source_ref: logic/claims.md
+  quote: 364 (16.9%) developed all-cause dementia
+  claim_refs:
+  - C01
+- id: Q13
+  value: 16.9
+  unit: '%'
+  comparator: none
+  ci_low: not_specified
+  ci_high: not_specified
+  role: result
+  source_ref: logic/claims.md
+  quote: 364 (16.9%) developed all-cause dementia
+  claim_refs:
+  - C01
+- id: Q14
+  value: 212
+  unit: participants
+  comparator: none
+  ci_low: not_specified
+  ci_high: not_specified
+  role: result
+  source_ref: logic/claims.md
+  quote: which in 212 cases (58.2%) was of AD type
+  claim_refs:
+  - C01
+- id: Q15
+  value: 58.2
+  unit: '%'
+  comparator: none
+  ci_low: not_specified
+  ci_high: not_specified
+  role: result
+  source_ref: logic/claims.md
+  quote: which in 212 cases (58.2%) was of AD type
+  claim_refs:
+  - C01
+- id: Q16
+  value: 1101
+  unit: participants
+  comparator: none
+  ci_low: not_specified
+  ci_high: not_specified
+  role: result
+  source_ref: logic/claims.md
+  quote: 1101 (51.3%) participants died.
+  claim_refs:
+  - C01
+- id: Q17
+  value: 51.3
+  unit: '%'
+  comparator: none
+  ci_low: not_specified
+  ci_high: not_specified
+  role: result
+  source_ref: logic/claims.md
+  quote: 1101 (51.3%) participants died.
+  claim_refs:
+  - C01
+- id: Q18
+  value: 5
+  unit: HR
+  comparator: approx
+  ci_low: not_specified
+  ci_high: not_specified
+  role: result
+  source_ref: evidence/figures/figure1.md
+  quote: steepest for NfL, reaching ≈5 at z=2
+  claim_refs:
+  - C02
+- id: Q19
+  value: 1.84
+  unit: HR
+  comparator: none
+  ci_low: 1.43
+  ci_high: 2.36
+  role: result
+  source_ref: evidence/tables/table2.md
+  quote: NfL (HR 1.84, 95% CI 1.43, 2.36 for all-cause and HR 2.34, 95% CI 1.77, 3.11 for AD dementia)
+  claim_refs:
+  - C03
+- id: Q20
+  value: 2.34
+  unit: HR
+  comparator: none
+  ci_low: 1.77
+  ci_high: 3.11
+  role: result
+  source_ref: evidence/tables/table2.md
+  quote: NfL (HR 1.84, 95% CI 1.43, 2.36 for all-cause and HR 2.34, 95% CI 1.77, 3.11 for AD dementia)
+  claim_refs:
+  - C03
+- id: Q21
+  value: 1.74
+  unit: HR
+  comparator: none
+  ci_low: 1.38
+  ci_high: 2.19
+  role: result
+  source_ref: evidence/tables/table2.md
+  quote: p-tau217 (HR 1.74, 95% CI 1.38, 2.19 for all-cause and HR 2.11, 95% CI 1.61, 2.76 for AD dementia)
+  claim_refs:
+  - C03
+- id: Q22
+  value: 2.11
+  unit: HR
+  comparator: none
+  ci_low: 1.61
+  ci_high: 2.76
+  role: result
+  source_ref: evidence/tables/table2.md
+  quote: p-tau217 (HR 1.74, 95% CI 1.38, 2.19 for all-cause and HR 2.11, 95% CI 1.61, 2.76 for AD dementia)
+  claim_refs:
+  - C03
+- id: Q23
+  value: 1.47
+  unit: HR
+  comparator: none
+  ci_low: 1.17
+  ci_high: 1.87
+  role: result
+  source_ref: evidence/tables/table2.md
+  quote: GFAP ... 253/879 vs 111/1269 ... 1.47 (1.17, 1.87)
+  claim_refs:
+  - C03
+- id: Q24
+  value: 1.3
+  unit: HR
+  comparator: none
+  ci_low: 1.04
+  ci_high: 1.61
+  role: result
+  source_ref: evidence/tables/table2.md
+  quote: Aß42/40 Low vs High ... 241/1119 vs 123/1029 ... 1.30 (1.04, 1.61)
+  claim_refs:
+  - C03
+- id: Q25
+  value: 0.6
+  unit: HR
+  comparator: none
+  ci_low: 0.32
+  ci_high: 1.13
+  role: result
+  source_ref: evidence/tables/table2.md
+  quote: P-tau181 High vs Low ... 0.50 (0.30, 0.84) ... 0.60 (0.32, 1.13)
+  claim_refs:
+  - C04
+  - C06
+- id: Q26
+  value: 0.5
+  unit: HR
+  comparator: none
+  ci_low: 0.3
+  ci_high: 0.84
+  role: result
+  source_ref: evidence/tables/table2.md
+  quote: P-tau181 High vs Low ... 0.50 (0.30, 0.84) ... 0.60 (0.32, 1.13)
+  claim_refs:
+  - C04
+  - C06
+  - C11
+- id: Q27
+  value: 0.98
+  unit: HR
+  comparator: none
+  ci_low: 0.72
+  ci_high: 1.34
+  role: result
+  source_ref: evidence/tables/table2.md
+  quote: Aß42/40 ... 0.98 (0.72, 1.34) ... 0.99 (0.70, 1.41)
+  claim_refs:
+  - C05
+- id: Q28
+  value: 0.99
+  unit: HR
+  comparator: none
+  ci_low: 0.7
+  ci_high: 1.41
+  role: result
+  source_ref: evidence/tables/table2.md
+  quote: Aß42/40 ... 0.98 (0.72, 1.34) ... 0.99 (0.70, 1.41)
+  claim_refs:
+  - C05
+- id: Q29
+  value: 0.91
+  unit: HR
+  comparator: none
+  ci_low: 0.57
+  ci_high: 1.45
+  role: result
+  source_ref: evidence/tables/table2.md
+  quote: NfL ... 0.91 (0.57, 1.45) ... 0.70 (0.42, 1.19)
+  claim_refs:
+  - C05
+- id: Q30
+  value: 0.7
+  unit: HR
+  comparator: none
+  ci_low: 0.42
+  ci_high: 1.19
+  role: result
+  source_ref: evidence/tables/table2.md
+  quote: NfL ... 0.91 (0.57, 1.45) ... 0.70 (0.42, 1.19)
+  claim_refs:
+  - C05
+- id: Q31
+  value: 0.91
+  unit: HR
+  comparator: none
+  ci_low: 0.63
+  ci_high: 1.3
+  role: result
+  source_ref: evidence/tables/table2.md
+  quote: GFAP ... 0.91 (0.63, 1.30) ... 0.86 (0.57, 1.31)
+  claim_refs:
+  - C05
+- id: Q32
+  value: 0.86
+  unit: HR
+  comparator: none
+  ci_low: 0.57
+  ci_high: 1.31
+  role: result
+  source_ref: evidence/tables/table2.md
+  quote: GFAP ... 0.91 (0.63, 1.30) ... 0.86 (0.57, 1.31)
+  claim_refs:
+  - C05
+- id: Q33
+  value: 0.56
+  unit: HR
+  comparator: none
+  ci_low: 0.31
+  ci_high: 1.0
+  role: result
+  source_ref: evidence/tables/table2.md
+  quote: NfL ... 84/941 vs 209/1207 ... 0.56 (0.31, 1.00) ... 0.41 (0.22, 0.78)
+  claim_refs:
+  - C06
+- id: Q34
+  value: 0.41
+  unit: HR
+  comparator: none
+  ci_low: 0.22
+  ci_high: 0.78
+  role: result
+  source_ref: evidence/tables/table2.md
+  quote: NfL ... 84/941 vs 209/1207 ... 0.56 (0.31, 1.00) ... 0.41 (0.22, 0.78)
+  claim_refs:
+  - C06
+  - C11
+- id: Q35
+  value: 0.53
+  unit: HR
+  comparator: none
+  ci_low: 0.33
+  ci_high: 0.85
+  role: result
+  source_ref: evidence/tables/table2.md
+  quote: GFAP ... 87/879 vs 206/1269 ... 0.53 (0.33, 0.85) ... 0.50 (0.30, 0.85)
+  claim_refs:
+  - C06
+- id: Q36
+  value: 0.5
+  unit: HR
+  comparator: none
+  ci_low: 0.3
+  ci_high: 0.85
+  role: result
+  source_ref: evidence/tables/table2.md
+  quote: GFAP ... 87/879 vs 206/1269 ... 0.53 (0.33, 0.85) ... 0.50 (0.30, 0.85)
+  claim_refs:
+  - C06
+  - C11
+- id: Q37
+  value: 1.41
+  unit: HR
+  comparator: none
+  ci_low: 0.98
+  ci_high: 2.02
+  role: result
+  source_ref: evidence/figures/figure2.md
+  quote: HR 1.41 (0.98, 2.02) ... HR 2.36 (1.61, 3.46) ... HR 2.22 (1.50, 3.28)
+  claim_refs:
+  - C07
+- id: Q38
+  value: 2.36
+  unit: HR
+  comparator: none
+  ci_low: 1.61
+  ci_high: 3.46
+  role: result
+  source_ref: evidence/figures/figure2.md
+  quote: HR 1.41 (0.98, 2.02) ... HR 2.36 (1.61, 3.46) ... HR 2.22 (1.50, 3.28)
+  claim_refs:
+  - C07
+- id: Q39
+  value: 2.22
+  unit: HR
+  comparator: none
+  ci_low: 1.5
+  ci_high: 3.28
+  role: result
+  source_ref: evidence/figures/figure2.md
+  quote: HR 1.41 (0.98, 2.02) ... HR 2.36 (1.61, 3.46) ... HR 2.22 (1.50, 3.28)
+  claim_refs:
+  - C07
+- id: Q40
+  value: 3.71
+  unit: HR
+  comparator: none
+  ci_low: 2.22
+  ci_high: 6.2
+  role: result
+  source_ref: logic/claims.md
+  quote: an even higher hazard of progression to AD dementia (HR 3.71, 95% CI 2.22, 6.20)
+  claim_refs:
+  - C07
+- id: Q41
+  value: 0.26
+  unit: HR
+  comparator: none
+  ci_low: 0.11
+  ci_high: 0.61
+  role: result
+  source_ref: evidence/figures/figure2.md
+  quote: HR 0.26 (0.11, 0.61)
+  claim_refs:
+  - C07
+- id: Q42
+  value: 70
+  unit: '%'
+  comparator: approx
+  ci_low: not_specified
+  ci_high: not_specified
+  role: result
+  source_ref: logic/claims.md
+  quote: the hazard of MCI reversion to normal cognition decreased with the number of elevated biomarkers at baseline and was 70% lower in individuals with three compared to those with no elevated biomarkers
+  claim_refs:
+  - C07
+- id: Q43
+  value: 1.59
+  unit: HR
+  comparator: none
+  ci_low: 1.13
+  ci_high: 2.22
+  role: result
+  source_ref: logic/claims.md
+  quote: the HRs of progression to all-cause dementia were 1.59 (95% CI 1.13, 2.22) for those with high NfL only, 1.71 (95% CI 1.11, 2.63) for those with high p-tau217 only, and 2.29 (95% CI 1.62, 3.24) for those with both biomarkers elevated.
+  claim_refs:
+  - C08
+- id: Q44
+  value: 1.71
+  unit: HR
+  comparator: none
+  ci_low: 1.11
+  ci_high: 2.63
+  role: result
+  source_ref: logic/claims.md
+  quote: 1.71 (95% CI 1.11, 2.63) for those with high p-tau217 only
+  claim_refs:
+  - C08
+- id: Q45
+  value: 2.29
+  unit: HR
+  comparator: none
+  ci_low: 1.62
+  ci_high: 3.24
+  role: result
+  source_ref: logic/claims.md
+  quote: 2.29 (95% CI 1.62, 3.24) for those with both biomarkers elevated.
+  claim_refs:
+  - C08
+- id: Q46
+  value: 2.09
+  unit: HR
+  comparator: none
+  ci_low: 1.37
+  ci_high: 3.17
+  role: result
+  source_ref: logic/claims.md
+  quote: the HRs were 2.09 (95% CI 1.37, 3.17) for high NfL only, 2.03 (95% CI 1.23, 3.36) for high p-tau217 only, and 3.07 (95% CI 2.04, 4.60) when both biomarkers were elevated.
+  claim_refs:
+  - C08
+- id: Q47
+  value: 2.03
+  unit: HR
+  comparator: none
+  ci_low: 1.23
+  ci_high: 3.36
+  role: result
+  source_ref: logic/claims.md
+  quote: 2.03 (95% CI 1.23, 3.36) for high p-tau217 only
+  claim_refs:
+  - C08
+- id: Q48
+  value: 3.07
+  unit: HR
+  comparator: none
+  ci_low: 2.04
+  ci_high: 4.6
+  role: result
+  source_ref: logic/claims.md
+  quote: 3.07 (95% CI 2.04, 4.60) when both biomarkers were elevated.
+  claim_refs:
+  - C08

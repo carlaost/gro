@@ -1,0 +1,65 @@
+entities:
+  - id: EN-concept-limited_duration_dosing
+    term: "Limited-duration dosing / treatment course completion criteria"
+    kind: concept
+    xref: not_specified
+  - id: EN-concept-early_start_group
+    term: "Early-start group"
+    kind: concept
+    xref: not_specified
+  - id: EN-concept-delayed_start_group
+    term: "Delayed-start group"
+    kind: concept
+    xref: not_specified
+  - id: EN-concept-lte
+    term: "Long-term extension (LTE)"
+    kind: concept
+    xref: not_specified
+  - id: EN-method-adni_external_control
+    term: "ADNI external control cohort"
+    kind: dataset
+    xref: not_specified
+  - id: EN-method-propensity_score_weighting
+    term: "Propensity score weighting (ATT / IPW)"
+    kind: method
+    xref: not_specified
+  - id: EN-measure-ess
+    term: "Effective sample size (ESS)"
+    kind: measure
+    xref: not_specified
+  - id: EN-measure-cdr_sb
+    term: "CDR-Sum of Boxes (CDR-SB)"
+    kind: measure
+    xref: not_specified
+  - id: EN-measure-cdr_g
+    term: "CDR-Global (CDR-G)"
+    kind: measure
+    xref: not_specified
+  - id: EN-concept-mcid
+    term: "Minimal clinically important difference (MCID)"
+    kind: concept
+    xref: not_specified
+  - id: EN-measure-centiloid
+    term: "Amyloid clearance and Centiloids (CL)"
+    kind: measure
+    xref: not_specified
+  - id: EN-measure-amyloid_reaccumulation_rate
+    term: "Amyloid reaccumulation rate"
+    kind: measure
+    xref: not_specified
+  - id: EN-method-mmrm
+    term: "Mixed model for repeated measures (MMRM)"
+    kind: method
+    xref: not_specified
+  - id: EN-method-auc_time_saved
+    term: "Area under the curve (AUC) analysis and time saved"
+    kind: method
+    xref: not_specified
+  - id: EN-measure-aria_oair
+    term: "Amyloid-related imaging abnormalities (ARIA-E, ARIA-H) and observation-time-adjusted incidence rate (OAIR)"
+    kind: measure
+    xref: not_specified
+  - id: EN-method-cox_ph
+    term: "Cox proportional hazards model (CDR-G progression)"
+    kind: method
+    xref: not_specified

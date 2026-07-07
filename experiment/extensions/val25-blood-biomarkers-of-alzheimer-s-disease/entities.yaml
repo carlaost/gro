@@ -1,0 +1,65 @@
+entities:
+- id: EN-marker-abeta4240
+  term: Amyloid-β42/40 ratio (Aβ42/40)
+  kind: measure
+  xref: not_specified
+- id: EN-marker-p_tau181
+  term: p-tau181 (phosphorylated-tau181)
+  kind: measure
+  xref: not_specified
+- id: EN-marker-p_tau217
+  term: p-tau217 (phosphorylated-tau217)
+  kind: measure
+  xref: not_specified
+- id: EN-marker-nfl
+  term: Neurofilament light chain (NfL)
+  kind: measure
+  xref: not_specified
+- id: EN-marker-gfap
+  term: Glial fibrillary acidic protein (GFAP)
+  kind: measure
+  xref: not_specified
+- id: EN-marker-t_tau
+  term: Total-tau (t-tau)
+  kind: measure
+  xref: not_specified
+- id: EN-condition-mci
+  term: Mild cognitive impairment (MCI) — study operationalization
+  kind: concept
+  xref: not_specified
+- id: EN-condition-cind
+  term: Cognitive impairment, no dementia (CIND) — alternative operationalization
+  kind: concept
+  xref: not_specified
+- id: EN-outcome-dementia
+  term: All-cause and AD dementia diagnosis
+  kind: concept
+  xref: not_specified
+- id: EN-method-multistate-markov
+  term: Four-state multistate Markov model
+  kind: method
+  xref: not_specified
+- id: EN-method-rcs-spline
+  term: Restricted cubic spline modeling of biomarker z-scores
+  kind: method
+  xref: not_specified
+- id: EN-method-dichotomization-cutoffs
+  term: Predefined dichotomization cut-offs (Youden's index-derived)
+  kind: method
+  xref: not_specified
+- id: EN-measure-hazard-ratio
+  term: Hazard ratio (HR) with 95% confidence interval
+  kind: measure
+  xref: not_specified
+- id: EN-method-basic-fully-adjusted
+  term: Basic vs. fully adjusted model
+  kind: method
+  xref: not_specified
+- id: EN-method-ipw
+  term: Inverse probability weighting (IPW) for attrition
+  kind: method
+  xref: not_specified
+- id: EN-dataset-snack
+  term: SNAC-K cohort
+  kind: dataset
+  xref: not_specified

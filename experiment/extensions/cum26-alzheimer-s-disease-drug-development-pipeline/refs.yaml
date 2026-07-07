@@ -1,0 +1,41 @@
+refs:
+  - id: R01
+    raw: "Brookmeyer et al., 2018 — Forecasting AD prevalence in the US"
+    external_id: "10.1016/j.jalz.2018.02.001"
+    resolvable: true
+  - id: R02
+    raw: "Cummings, 2025 — Anti-amyloid MAB benefit/risk management"
+    external_id: "10.1016/j.neurot.2025.e00570"
+    resolvable: true
+  - id: R03
+    raw: "Lee et al., 2023 — Brexpiprazole for agitation in AD dementia"
+    external_id: "10.1001/jamaneurol.2023.3810"
+    resolvable: true
+  - id: R04
+    raw: "Cummings et al., 2025 — AD drug development pipeline: 2025"
+    external_id: "10.1002/trc2.70098"
+    resolvable: true
+  - id: R05
+    raw: "Cummings et al., 2024 — AD drug development pipeline: 2024"
+    external_id: "10.1002/trc2.12465"
+    resolvable: true
+  - id: R06
+    raw: "Liggins et al., 2014 — IADRP / CADRO"
+    external_id: "10.1016/j.jalz.2013.12.017"
+    resolvable: true
+  - id: R07
+    raw: "Cummings et al., 2025 — Biomarker-guided decision making"
+    external_id: "10.1038/s41573-025-01203-7"
+    resolvable: true
+  - id: R08
+    raw: "Cummings et al., 2025 — Drug repurposing for AD"
+    external_id: "10.1038/s41467-025-56737-y"
+    resolvable: true
+  - id: R09
+    raw: "Cunha-Oliveira et al., 2024 — Best practices for research data management"
+    external_id: "10.1152/physrev.00043.2023"
+    resolvable: true
+  - id: R10
+    raw: "Hassenstein & Jung, 2025 — Ten simple rules for research data management"
+    external_id: "10.1371/journal.pcbi.1013779"
+    resolvable: true

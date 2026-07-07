@@ -1,0 +1,190 @@
+refs:
+  - id: R01
+    raw: "Chen WT et al. — Spatial Transcriptomics and In Situ Sequencing to Study Alzheimer's Disease (Cell, 2020) [ref. 79/43]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R02
+    raw: "Zeng H et al. — Integrative in situ mapping of single-cell transcriptional states and tissue histopathology in a mouse model of Alzheimer's disease (Nat Neurosci, 2023) [ref. 81]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R03
+    raw: "Mallach A et al. — Microglia-astrocyte crosstalk in the amyloid plaque niche of an Alzheimer's disease mouse model, as revealed by spatial transcriptomics (Cell Rep, 2024) [ref. 84]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R04
+    raw: "Roy ER et al. — Concerted type I interferon signaling in microglia and neural cells promotes memory impairment associated with amyloid beta plaques (Immunity, 2022) [ref. 88]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R05
+    raw: "Allen WE, Blosser TR, Sullivan ZA, Dulac C, Zhuang X — Molecular and spatial signatures of mouse brain aging at single-cell resolution (Cell, 2023) [ref. 116]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R06
+    raw: "Sun ED et al. — Spatial transcriptomic clocks reveal cell proximity effects in brain ageing (Nature, 2024) [ref. 118]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R07
+    raw: "Androvic P et al. — Spatial transcriptomics-correlated electron microscopy maps transcriptional and ultrastructural responses to brain injury (Nat Commun, 2023) [ref. 115]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R08
+    raw: "Keren-Shaul H et al. — A Unique Microglia Type Associated with Restricting Development of Alzheimer's Disease (Cell, 2017) [ref. 69]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R09
+    raw: "Krasemann S et al. — The TREM2-APOE Pathway Drives the Transcriptional Phenotype of Dysfunctional Microglia in Neurodegenerative Diseases (Immunity, 2017) [ref. 63]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R10
+    raw: "Sala Frigerio C et al. — The major risk factors for Alzheimer's disease: age, sex, and genes modulate the microglia response to Abeta plaques (Cell Rep, 2019) [ref. 62]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R11
+    raw: "Safaiyan S et al. — White matter aging drives microglial diversity (Neuron, 2021) [ref. 114]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R12
+    raw: "Masuda T et al. — Spatial and temporal heterogeneity of mouse and human microglia at single-cell resolution (Nature, 2019) [ref. 59]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R13
+    raw: "De Biase LM et al. — Local Cues Establish and Maintain Region-Specific Phenotypes of Basal Ganglia Microglia (Neuron, 2017) [ref. 57]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R14
+    raw: "Ayata P et al. — Epigenetic regulation of brain region-specific microglia clearance activity (Nat Neurosci, 2018) [ref. 58]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R15
+    raw: "Stahl PL et al. — Visualization and analysis of gene expression in tissue sections by spatial transcriptomics (Science, 2016) [ref. 43]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R16
+    raw: "Rodriques SG et al. — Slide-seq (Science, 2019) [ref. 44]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R17
+    raw: "Liu Y et al. — DBiT-seq (Cell, 2020) [ref. 45]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R18
+    raw: "Chen A et al. — Stereo-seq (Cell, 2022) [ref. 46]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R19
+    raw: "Lee JH et al. — FISSEQ (Science, 2014) [ref. 47]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R20
+    raw: "Chen KH et al. — MERFISH (Science, 2015) [ref. 35]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R21
+    raw: "Shah S, Lubeck E, Zhou W, Cai L — seqFISH (Neuron, 2016) [ref. 36]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R22
+    raw: "Eng CL et al. — seqFISH transcriptome-scale (Nature, 2019) [ref. 37]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R23
+    raw: "Wang X et al. — STARmap (Science, 2018) [ref. 42]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R24
+    raw: "Paolicelli RC et al. — Microglia states and nomenclature: a field at its crossroads (Neuron, 2022) [ref. 60]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R25
+    raw: "Miyoshi E et al. — Spatial and single-nucleus transcriptomic analysis of genetic and sporadic forms of Alzheimer's disease (Nat Genet, 2024) [ref. 138]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R26
+    raw: "Gong Y et al. — Stereo-seq of the prefrontal cortex in aging and Alzheimer's disease (Nat Commun, 2025) [ref. 139]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R27
+    raw: "van Olst L et al. — Microglial mechanisms drive amyloid-beta clearance in immunized patients with Alzheimer's disease (Nat Med, 2025) [ref. 140]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R28
+    raw: "Maynard KR et al. — Transcriptome-scale spatial gene expression in the human dorsolateral prefrontal cortex (Nat Neurosci, 2021) [ref. 135]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R29
+    raw: "Chen S et al. — Spatially resolved transcriptomics reveals genes associated with the vulnerability of middle temporal gyrus in Alzheimer's disease (Acta Neuropathol Commun, 2022) [ref. 136]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R30
+    raw: "Fang R et al. — 3D single-cell transcriptome imaging (Elife, 2024) [ref. 141]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R31
+    raw: "Gandin V et al. — deep-tissue single-cell transcriptome imaging (Science, 2025) [ref. 142]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R32
+    raw: "Li Y et al. — Microglial lipid droplet accumulation in tauopathy brain regulated by neuronal AMPK (Cell Metab, 2024) [ref. 143]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R33
+    raw: "Bintu B et al. [ref. 145]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R34
+    raw: "Lu T et al. [ref. 146]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R35
+    raw: "Deng Y et al. [ref. 147]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R36
+    raw: "Zhang D et al. [ref. 148]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R37
+    raw: "Su JH et al. [ref. 149]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R38
+    raw: "Boutej H et al. — Diverging mRNA and protein networks in activated microglia (Cell Rep, 2017) [ref. 150]"
+    external_id: not_specified
+    resolvable: false

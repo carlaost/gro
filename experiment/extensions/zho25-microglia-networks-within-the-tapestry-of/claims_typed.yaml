@@ -1,0 +1,154 @@
+claims:
+  - id: C01
+    claim_type: comparison
+    polarity: positive
+    logical_form: "tradeoff(img_ST, resolution=subcellular_to_single_molecule, panel=fixed_preselected) AND tradeoff(seq_ST, coverage=whole_transcriptome, resolution=variable(50um..220nm))"
+    population_n: not_specified
+    population_scope: claimed_universal
+    quantity_refs: [Q01, Q02, Q03, Q04, Q05, Q06, Q07, Q08, Q09, Q10, Q11]
+    concept_refs: [EN-method-img_ST, EN-method-seq_ST, EN-method-MERFISH, EN-method-seqFISH, EN-method-ISS_padlock, EN-method-Visium, EN-method-Slide_seq, EN-method-Stereo_seq, EN-method-DBiT_seq, EN-method-FISSEQ]
+    proof_refs: [E01]
+    depends_on: []
+
+  - id: C02
+    claim_type: association
+    polarity: positive
+    logical_form: "proportion(microglia, CNS_cells, 0.04..0.10) AND density_rank(cortex=striatum=hippocampus > thalamus=midbrain(~0.5x) > cerebellum)"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q12, Q13, Q14]
+    concept_refs: []
+    proof_refs: [E02]
+    depends_on: []
+
+  - id: C03
+    claim_type: comparison
+    polarity: positive
+    logical_form: "shares_signature(DAM, ARM) AND shares_signature(DAM, MGnD) AND marker_genes(DAM, {Clec7a,B2m,Apoe,Trem2,Tyrobp,Cst7,Lpl})"
+    population_n: not_specified
+    population_scope: multi_cohort
+    quantity_refs: []
+    concept_refs: [EN-state-DAM, EN-state-ARM, EN-state-MGnD]
+    proof_refs: [E03]
+    depends_on: [C02]
+
+  - id: C04
+    claim_type: existence
+    polarity: positive
+    logical_form: "identifies(PIG_network, size=57) AND spot_size(seq_ST, 100um) AND mask_distance(plaque_niche, 50um) AND associated_with(PIGs, DAM) AND associated_with(PIGs, inflammatory_astrocytes) AND cross_cell_type(subset(PIGs))"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q15, Q16, Q17]
+    concept_refs: [EN-concept-PIGs, EN-state-DAM]
+    proof_refs: [E04]
+    depends_on: [C03]
+
+  - id: C05
+    claim_type: comparison
+    polarity: positive
+    logical_form: "closest_to_plaque(microglia, 0..20um) AND peak_distance(other_glia, 10..30um) AND peak_distance(oligodendrocytes, 20..40um) AND peak_distance(OPC, 10..30um)"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q18, Q19, Q20, Q21, Q22, Q23, Q24]
+    concept_refs: [EN-concept-amyloid_plaque_niche]
+    proof_refs: [E05]
+    depends_on: [C04]
+
+  - id: C06
+    claim_type: association
+    polarity: positive
+    logical_form: "fraction(DAA, astrocytes, 0.14) AND peak_distance(DAA, 10..40um) AND marker_genes(DAA, {Gfap,Vim,Ctsb})"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q25, Q26]
+    concept_refs: [EN-state-DAA, EN-concept-amyloid_plaque_niche]
+    proof_refs: [E05]
+    depends_on: [C05]
+
+  - id: C07
+    claim_type: correlation
+    polarity: positive
+    logical_form: "count(RL_pairs, microglia_astrocyte, 130) AND overlap(RL_pairs, PIGs, 11) AND increases_with_proximity(interaction_strength, plaque_distance)"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q27, Q28]
+    concept_refs: [EN-method-RL_interaction_analysis, EN-concept-PIGs]
+    proof_refs: [E06]
+    depends_on: [C04, C06]
+
+  - id: C08
+    claim_type: causal
+    polarity: positive
+    logical_form: "fraction(IFN_responsive, Clec7a_DAM, 0.5) AND causes(microglial_Ifnar1_deletion, reduced_postsynaptic_terminal_loss) AND causes(neural_Ifnar1_deletion, restored_presynaptic_terminals AND reduced_plaque_accumulation)"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q29]
+    concept_refs: [EN-concept-IFN_I_signaling_module, EN-state-DAM]
+    proof_refs: [E07]
+    depends_on: [C04]
+
+  - id: C09
+    claim_type: generalization
+    polarity: positive
+    logical_form: "shifts(p_tau_proximal_excitatory_identity, CTX_Ex2@8mo, CA1@13mo) AND fraction_lt(inhibitory_p_tau_neurons, 0.20) AND enriched(oligodendrocytes, high_p_tau_signal)"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q30, Q31, Q32]
+    concept_refs: []
+    proof_refs: [E08]
+    depends_on: []
+
+  - id: C10
+    claim_type: correlation
+    polarity: positive
+    logical_form: "correlates(activation_score(microglia_genes=11, astrocyte_genes=8, panel=421), oligodendrocyte_inflammation_level)"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q33, Q34, Q35]
+    concept_refs: [EN-measure-activation_score]
+    proof_refs: [E09]
+    depends_on: []
+
+  - id: C11
+    claim_type: causal
+    polarity: positive
+    logical_form: "accelerates(microglia_proximity, neighbor_cell_aging) AND decelerates(NSC_proximity, neighbor_cell_aging) AND panel_size(spatial_ageing_clock, 300)"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q36]
+    concept_refs: [EN-method-spatial_ageing_clock, EN-concept-cell_proximity_effect]
+    proof_refs: [E10]
+    depends_on: [C10]
+
+  - id: C12
+    claim_type: existence
+    polarity: positive
+    logical_form: "coexpresses(foamy_microglia, DAM_signature, {Plin2,Soat1,Abca1,Abcg1}) AND spatially_proximal(foamy_microglia, IFN_responsive_microglia)"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: []
+    concept_refs: [EN-state-foamy_microglia, EN-state-DAM]
+    proof_refs: [E11]
+    depends_on: []
+
+  - id: C13
+    claim_type: other
+    polarity: positive
+    logical_form: "multiplex_range(spatial_proteomics_platforms, 30, 60) AND corroborates(spatial_proteomics, ST_derived_plaque_associated_microglial_subsets)"
+    population_n: not_specified
+    population_scope: claimed_universal
+    quantity_refs: [Q37, Q38]
+    concept_refs: []
+    proof_refs: [E12]
+    depends_on: []
+
+  - id: C14
+    claim_type: association
+    polarity: negative
+    logical_form: "NOT correlates(pro_inflammatory_microglial_mRNA_level, corresponding_protein_abundance) [following innate_immune_challenge]"
+    population_n: not_specified
+    population_scope: claimed_universal
+    quantity_refs: []
+    concept_refs: []
+    proof_refs: [E12]
+    depends_on: []

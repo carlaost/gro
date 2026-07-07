@@ -1,0 +1,37 @@
+# NOTE: logic/related_work.md is declared in PAPER.md's layer index ("Typed dependency graph
+# over the paper's citation footprint") but does not exist as a file in this ARA directory.
+# No reference list (author/year/DOI strings) is present anywhere in the compiled ARA prose —
+# only inline numbered citation markers inside logic/problem.md ("refs 1-7", "ref 2", etc.).
+# Each distinct citation-marker group actually printed in the ARA is recorded as one ref
+# record below; none carry a resolvable external identifier because none is printed.
+
+refs:
+  - id: R01
+    raw: "refs 1–7"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R02
+    raw: "refs 8–20"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R03
+    raw: "ref 2"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R04
+    raw: "refs 23,24,36,37"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R05
+    raw: "ref 43"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R06
+    raw: "refs 40–42"
+    external_id: not_specified
+    resolvable: false

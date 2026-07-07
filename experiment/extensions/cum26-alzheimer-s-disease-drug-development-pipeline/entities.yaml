@@ -1,0 +1,49 @@
+entities:
+  - id: EN-concept-DTT
+    term: "Disease-Targeting Therapy (DTT)"
+    kind: concept
+    xref: not_specified
+  - id: EN-concept-STT
+    term: "Symptom-Targeted Therapy (STT)"
+    kind: concept
+    xref: not_specified
+  - id: EN-method-CADRO
+    term: "Common Alzheimer's Disease Research Ontology (CADRO)"
+    kind: method
+    xref: not_specified
+  - id: EN-concept-MoA
+    term: "Mechanism of Action (MoA)"
+    kind: concept
+    xref: not_specified
+  - id: EN-concept-repurposed_drug
+    term: "Repurposed drug"
+    kind: concept
+    xref: not_specified
+  - id: EN-concept-index_date
+    term: "Index Date"
+    kind: concept
+    xref: not_specified
+  - id: EN-concept-active_trial
+    term: "Active trial"
+    kind: concept
+    xref: not_specified
+  - id: EN-concept-biomarker_context_of_use
+    term: "Biomarker context of use"
+    kind: concept
+    xref: not_specified
+  - id: EN-concept-AD_pathophysiological_continuum
+    term: "AD pathophysiological continuum"
+    kind: concept
+    xref: not_specified
+  - id: EN-dataset-clinicaltrials_gov
+    term: "ClinicalTrials.gov AD trial registry"
+    kind: dataset
+    xref: not_specified
+  - id: EN-dataset-drugbank
+    term: "DrugBank"
+    kind: dataset
+    xref: not_specified
+  - id: EN-measure-amyloid_pet
+    term: "Amyloid positron emission tomography (PET)"
+    kind: measure
+    xref: not_specified

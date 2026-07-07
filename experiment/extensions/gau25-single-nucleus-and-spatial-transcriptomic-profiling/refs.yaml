@@ -1,0 +1,100 @@
+refs:
+  - id: R01
+    raw: "Miyoshi et al., 2023, bioRxiv (Spatial and single-nucleus transcriptomic analysis of genetic and sporadic AD) [ref 8]"
+    external_id: "10.1101/2023.07.24.550282"
+    resolvable: true
+
+  - id: R02
+    raw: "Mathys et al., 2019, Nature (Single-cell transcriptomic analysis of Alzheimer's disease) [ref 5]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R03
+    raw: "Leng et al., 2021, Nat Neurosci (Molecular characterization of selectively vulnerable neurons in Alzheimer's disease) [ref 10]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R04
+    raw: "Grubman et al., 2019, Nat Neurosci (A single-cell atlas of entorhinal cortex from individuals with Alzheimer's disease) [ref 11]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R05
+    raw: "Cain et al., 2020, bioRxiv (Multi-cellular communities are perturbed in the aging human brain and Alzheimer's disease) [ref 12]"
+    external_id: "10.1101/2020.12.22.424084"
+    resolvable: true
+
+  - id: R06
+    raw: "Zhou et al., 2020, Nat Med (Human and mouse single-nucleus transcriptomics reveal TREM2-dependent and TREM2-independent cellular responses in Alzheimer's disease) [ref 13]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R07
+    raw: "Bryois et al., 2022, Nat Neurosci (Cell-type-specific cis-eQTLs in eight human brain cell types identify novel risk genes for psychiatric and neurological disorders) [ref 14]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R08
+    raw: "Gabitto et al., 2024, Nat Neurosci (Integrated multimodal cell atlas of Alzheimer's disease; SEA-AD) [ref 28]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R09
+    raw: "Green et al., 2024, Nature (Cellular communities reveal trajectories of brain ageing and Alzheimer's disease) [ref 30]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R10
+    raw: "AllenInstitute, cell_type_mapper (GitHub) [ref 29]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R11
+    raw: "Korsunsky et al., 2019, Nat Methods (Harmony) [ref 52]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R12
+    raw: "Lin & Peddada, 2020, Nat Commun (ANCOM-BC) [ref 58]; Lin & Peddada, 2024, Nat Methods (multigroup ANCOM-BC2) [ref 60]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R13
+    raw: "Brooks et al., 2017, R Journal (glmmTMB) [ref 62]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R14
+    raw: "de Leeuw et al., 2015, PLOS Comput. Biol. (MAGMA); Wightman et al., 2021, Nat Genet. (AD GWAS, 1,126,563 individuals) [refs 64, 65]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R15
+    raw: "Karczewski et al., 2020, Nature (gnomAD mutational constraint spectrum / LOEUF) [ref 34]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R16
+    raw: "Kuznetsova et al., 2017, J. Stat. Softw. (lmerTest) [ref 67]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R17
+    raw: "Bennett et al., 2012, Ann. Neurol. (Relation of neuropathology to cognition in persons without cognitive impairment) [ref 16]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R18
+    raw: "Serrano-Pozo et al., 2013, J. Neuropathol. Exp. Neurol. (Differential relationships of reactive astrocytes and microglia to fibrillar amyloid deposits in Alzheimer disease) [ref 46]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R19
+    raw: "Satoh et al., 2015/2016, Neuropathology (TMEM119 marks a subset of microglia in the human brain) [ref 47]; Mercurio et al., 2022, Front. Cell. Neurosci. (Tmem119 protein expression changes in a mouse TBI model) [ref 48]"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R20
+    raw: "Otero-Garcia et al., 2022, Neuron (Molecular signatures underlying neurofibrillary tangle susceptibility in Alzheimer's disease) [ref 39]"
+    external_id: not_specified
+    resolvable: false

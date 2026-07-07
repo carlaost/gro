@@ -1,0 +1,65 @@
+entities:
+  - id: EN-braak-staging
+    term: "Braak staging as an AD-progression proxy variable"
+    kind: concept
+    xref: not_specified
+
+  - id: EN-gm-wm-sampling
+    term: "Paired gray matter (GM) / white matter (WM) sampling design"
+    kind: method
+    xref: not_specified
+
+  - id: EN-harmony-louvain-subclustering
+    term: "Harmony/Louvain subclustering with Random Forest-based refinement"
+    kind: method
+    xref: not_specified
+
+  - id: EN-ancom-bc
+    term: "ANCOM-BC trait association (compositional differential abundance)"
+    kind: method
+    xref: not_specified
+
+  - id: EN-glmmtmb-de
+    term: "Pseudobulk differential expression with Braak-stage x tissue interaction (glmmTMB)"
+    kind: method
+    xref: not_specified
+
+  - id: EN-loeuf
+    term: "LOEUF gene constraint score"
+    kind: measure
+    xref: not_specified
+
+  - id: EN-magma-fgsea
+    term: "MAGMA / fgsea AD-genetic-risk pathway enrichment"
+    kind: method
+    xref: not_specified
+
+  - id: EN-cartana
+    term: "CARTANA in-situ sequencing (ISS) platform"
+    kind: method
+    xref: not_specified
+
+  - id: EN-cell-type-mapper
+    term: "Cell Type Mapper label transfer"
+    kind: method
+    xref: not_specified
+
+  - id: EN-distance-spatial-model
+    term: "Distance-based spatial model (plaque/tangle proximity)"
+    kind: method
+    xref: not_specified
+
+  - id: EN-tile-spatial-model
+    term: "Tile-based (plaque-density) spatial model"
+    kind: method
+    xref: not_specified
+
+  - id: EN-gfap-bimodality
+    term: "GFAP expression bimodality (Hartigan's dip statistic)"
+    kind: measure
+    xref: not_specified
+
+  - id: EN-themis-postn-signature
+    term: "THEMIS+/POSTN+ deep-layer glutamatergic resilience signature"
+    kind: concept
+    xref: not_specified

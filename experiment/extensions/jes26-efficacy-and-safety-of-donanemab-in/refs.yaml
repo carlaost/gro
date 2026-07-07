@@ -1,0 +1,77 @@
+refs:
+  - id: R01
+    raw: "Mintun et al., 2021 (donanemab in early AD, phase 2)"
+    external_id: "10.1056/NEJMoa2100708"
+    resolvable: true
+  - id: R02
+    raw: "Sims et al., 2023 — TRAILBLAZER-ALZ 2 primary report (JAMA)"
+    external_id: "10.1001/jama.2023.13239"
+    resolvable: true
+  - id: R03
+    raw: "Electronic Medicines Compendium — Kisunla SmPC (UK), 2025"
+    external_id: "https://www.medicines.org.uk/emc/product/16014/smpc"
+    resolvable: true
+  - id: R04
+    raw: "EMA — Kisunla assessment report, 2025"
+    external_id: not_specified
+    resolvable: false
+  - id: R05
+    raw: "EMA — Kisunla product information (SmPC), 2026"
+    external_id: not_specified
+    resolvable: false
+  - id: R06
+    raw: "Cogswell et al., 2025 — ARIA imaging recommendations (AJNR)"
+    external_id: "10.3174/ajnr.A8469"
+    resolvable: true
+  - id: R07
+    raw: "Zimmer et al., 2026 — TRAILBLAZER-ALZ 2 LTE (J Prev Alzheimers Dis)"
+    external_id: "10.1016/j.tjpad.2025.100446"
+    resolvable: true
+  - id: R08
+    raw: "Carpenter, Roger & Kenward, 2013 — MI framework for protocol deviation (J Biopharm Stat)"
+    external_id: "10.1080/10543406.2013.834911"
+    resolvable: true
+  - id: R09
+    raw: "Mallinckrodt et al., 2012 — estimands/estimators in longitudinal trials (Pharm Stat)"
+    external_id: "10.1002/pst.1536"
+    resolvable: true
+  - id: R10
+    raw: "Wang et al., 2025 — modified titration reduces ARIA (Alzheimers Dement)"
+    external_id: "10.1002/alz.70062"
+    resolvable: true
+  - id: R11
+    raw: "Wang et al., 2025 — TRAILBLAZER-ALZ 6 18-month results (J Prev Alzheimers Dis)"
+    external_id: "10.1016/j.tjpad.2025.100266"
+    resolvable: true
+  - id: R12
+    raw: "[10] Buracchio et al., 2025"
+    external_id: "10.1002/trc2.70113"
+    resolvable: true
+  - id: R13
+    raw: "[11] DiBenedetti et al., 2020"
+    external_id: "10.1186/s13195-020-00659-6"
+    resolvable: true
+  - id: R14
+    raw: "[12] Hauber et al., 2023"
+    external_id: "10.1007/s40120-023-00445-0"
+    resolvable: true
+  - id: R15
+    raw: "[13] Jessen et al., 2024"
+    external_id: "10.14283/jpad.2024.153"
+    resolvable: true
+  - id: R16
+    raw: "[16] Elhefnawy et al., 2025"
+    external_id: "10.1007/s10928-024-09959-y"
+    resolvable: true
+  - id: R17
+    raw: "[17] Jagust & Landau, 2021"
+    external_id: "10.1212/WNL.0000000000011524"
+    resolvable: true
+  - id: R18
+    raw: "[18] Potashman et al., 2021"
+    external_id: "10.1007/s40120-021-00272-1"
+    resolvable: true
+  - id: R19
+    raw: "[19] Trudel et al., 2025"
+    external_id: "10.1002/alz.70624"
+    resolvable: true

@@ -1,0 +1,93 @@
+refs:
+  - id: R01
+    raw: "Hardy & Higgins, 1992 — the amyloid cascade hypothesis (Science)"
+    external_id: "10.1126/science.1566067"
+    resolvable: true
+  - id: R02
+    raw: "Sims et al., 2023 — TRAILBLAZER-ALZ 2 pivotal 76-week trial (JAMA)"
+    external_id: "10.1001/jama.2023.13239"
+    resolvable: true
+  - id: R03
+    raw: "van Dyck et al., 2023 — Lecanemab in early Alzheimer's disease (NEJM)"
+    external_id: "10.1056/NEJMoa2212948"
+    resolvable: true
+  - id: R04
+    raw: "Roche Diagnostics, 2023 — Elecsys total-tau CSF method sheet"
+    external_id: not_specified
+    resolvable: false
+  - id: R05
+    raw: "Gueorguieva et al., 2025 — donanemab exposure-response in early symptomatic AD (Alzheimers Dement)"
+    external_id: "10.1002/alz.70491"
+    resolvable: true
+  - id: R06
+    raw: "Zimmer et al., 2025 — ARIA with donanemab: secondary analysis of TRAILBLAZER-ALZ and ALZ 2 (JAMA Neurol)"
+    external_id: "10.1001/jamaneurol.2025.0065"
+    resolvable: true
+  - id: R07
+    raw: "Jagust & Landau, 2021 — temporal dynamics of β-amyloid accumulation (Neurology, ADNI)"
+    external_id: "10.1212/wnl.0000000000011524"
+    resolvable: true
+  - id: R08
+    raw: "Elhefnawy et al., 2025 — quantifying natural amyloid plaque accumulation using ADNI (J Pharmacokinet Pharmacodyn)"
+    external_id: "10.1007/s10928-024-09959-y"
+    resolvable: true
+  - id: R09
+    raw: "Lansdall et al., 2023 — establishing clinically meaningful change in MCI-due-to-AD outcome measures (J Prev Alzheimers Dis) [also in-text ref 16]"
+    external_id: "10.14283/jpad.2022.102"
+    resolvable: true
+  - id: R10
+    raw: "DiBenedetti et al., 2020 — assessing what matters most to patients with/at risk for AD (Alzheimers Res Ther) [also in-text ref 17]"
+    external_id: "10.1186/s13195-020-00659-6"
+    resolvable: true
+  - id: R11
+    raw: "Wang et al., 2025 — TRAILBLAZER-ALZ 6 modified titration reduces ARIA-E (J Prev Alzheimers Dis)"
+    external_id: "10.1016/j.tjpad.2025.100266"
+    resolvable: true
+  - id: R12
+    raw: "[11] Shcherbinin et al., 2022 — amyloid reduction after donanemab associated with tau pathology and clinical outcomes (JAMA Neurol)"
+    external_id: "10.1001/jamaneurol.2022.2793"
+    resolvable: true
+  - id: R13
+    raw: "[12] Gueorguieva et al., 2023 — donanemab population pharmacokinetics, amyloid plaque reduction, and safety (Clin Pharmacol Ther)"
+    external_id: "10.1002/cpt.2875"
+    resolvable: true
+  - id: R14
+    raw: "[6] Faria, Alves & Charchat-Fichman, 2015 — review of executive-function tests in aging"
+    external_id: "10.1590/1980-57642015dn92000009"
+    resolvable: true
+  - id: R15
+    raw: "[7] Benedetto et al., 2018 — statistical primer on propensity score matching and alternatives (Eur J Cardiothorac Surg)"
+    external_id: "10.1093/ejcts/ezy167"
+    resolvable: true
+  - id: R16
+    raw: "[8] Stürmer et al., 2010 — methodology for handling extreme propensity-score weights (Am J Epidemiol)"
+    external_id: "10.1093/aje/kwq198"
+    resolvable: true
+  - id: R17
+    raw: "[9] Navitsky et al., 2018 — standardization of amyloid quantitation to the Centiloid scale (florbetapir SUVR) (Alzheimers Dement)"
+    external_id: "10.1016/j.jalz.2018.06.1353"
+    resolvable: true
+  - id: R18
+    raw: "[10] Zeltzer et al., 2025 — concordance between amyloid-PET quantification and visual reads (JAMA Neurol)"
+    external_id: "10.1001/jamaneurol.2025.2218"
+    resolvable: true
+  - id: R19
+    raw: "[18] Hauber et al., 2023 — quantitative patient-preference analysis (Neurol Ther)"
+    external_id: "10.1007/s40120-023-00445-0"
+    resolvable: true
+  - id: R20
+    raw: "[19] Raket, 2025 — time-based measures for quantifying disease modification in AD (Alzheimers Dement)"
+    external_id: "10.1002/alz.087702"
+    resolvable: true
+  - id: R21
+    raw: "[20] Raket et al., 2024 — scenarios for long-term efficacy of amyloid-targeting therapies vs natural history (Alzheimers Dement)"
+    external_id: "10.1002/alz.14134"
+    resolvable: true
+  - id: R22
+    raw: "[21] Mullins et al., 2025 — donanemab immunogenicity (antidrug antibodies) and infusion-related reactions (Alzheimers Dement Transl Res Clin Interv)"
+    external_id: "10.1002/trc2.70149"
+    resolvable: true
+  - id: R23
+    raw: "[23] Klein et al., 2024 — donanemab data addressing coverage-with-evidence-development questions (Alzheimers Dement)"
+    external_id: "10.1002/alz.13700"
+    resolvable: true

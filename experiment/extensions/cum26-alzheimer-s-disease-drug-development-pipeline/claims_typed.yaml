@@ -1,0 +1,110 @@
+claims:
+  - id: C01
+    claim_type: existence
+    polarity: positive
+    logical_form: "count(active_trials, index_date=2026-01-01)=192 AND count(drugs, index_date=2026-01-01)=158"
+    population_n: not_specified
+    population_scope: population_estimate
+    quantity_refs: [Q01, Q02]
+    concept_refs: [EN-concept-index_date, EN-concept-active_trial, EN-dataset-clinicaltrials_gov]
+    proof_refs: [E01]
+    depends_on: []
+
+  - id: C02
+    claim_type: comparison
+    polarity: positive
+    logical_form: "proportion(small_molecule_DTT)=0.39 AND proportion(biologic_DTT)=0.34 AND proportion(cognition_enhancing_STT)=0.18 AND proportion(NPS_STT)=0.10 AND count(DTT)=116 AND proportion(DTT, drugs)=0.73 AND majority_class(DTT, drugs)=true"
+    population_n: not_specified
+    population_scope: population_estimate
+    quantity_refs: [Q03, Q04, Q05, Q06, Q07, Q08, Q08b, Q08c]
+    concept_refs: [EN-concept-DTT, EN-concept-STT]
+    proof_refs: [E02]
+    depends_on: [C01]
+
+  - id: C03
+    claim_type: comparison
+    polarity: positive
+    logical_form: "count(drugs, phase=3)=36 AND count(trials, phase=3)=54 AND count(drugs, phase=2)=84 AND count(trials, phase=2)=89 AND count(drugs, phase=1)=45 AND count(trials, phase=1)=49"
+    population_n: not_specified
+    population_scope: population_estimate
+    quantity_refs: [Q09, Q10, Q11, Q12, Q13, Q14]
+    concept_refs: [EN-concept-active_trial]
+    proof_refs: [E01]
+    depends_on: [C01]
+
+  - id: C04
+    claim_type: other
+    polarity: positive
+    logical_form: "sum(target_enrollment, active_trials)=54728 AND share(participants, phase=3)=0.70 AND share(participants, phase=2)=0.26 AND share(participants, phase=1)=0.04"
+    population_n: 54728
+    population_scope: population_estimate
+    quantity_refs: [Q15, Q16, Q17, Q18, Q19, Q20, Q21]
+    concept_refs: [EN-concept-active_trial]
+    proof_refs: [E04]
+    depends_on: [C01, C03]
+
+  - id: C05
+    claim_type: comparison
+    polarity: positive
+    logical_form: "share(industry_sponsored, all_trials)=0.59 AND share(industry_sponsored, phase=3)=0.72 AND share(industry_sponsored, phase=2)=0.48 AND share(industry_sponsored, phase=1)=0.63"
+    population_n: not_specified
+    population_scope: population_estimate
+    quantity_refs: [Q22, Q23, Q24, Q25, Q26, Q27, Q28, Q29]
+    concept_refs: [EN-concept-active_trial]
+    proof_refs: [E05]
+    depends_on: [C01]
+
+  - id: C06
+    claim_type: comparison
+    polarity: positive
+    logical_form: "share(repurposed, drugs)=0.35 AND count(repurposed_drugs)=56 AND count(repurposed_trials)=73 AND share(repurposed, trials)=0.38 AND share(repurposed, non_industry_pipeline)=0.57 AND share(repurposed, industry_pipeline)=0.16"
+    population_n: not_specified
+    population_scope: population_estimate
+    quantity_refs: [Q30, Q31, Q32, Q33, Q34, Q35]
+    concept_refs: [EN-concept-repurposed_drug, EN-dataset-drugbank]
+    proof_refs: [E06]
+    depends_on: [C01]
+
+  - id: C07
+    claim_type: comparison
+    polarity: positive
+    logical_form: "count(cadro_categories_targeted)=17 AND rank(neurotransmitter_receptors, 1, count=38, share=0.24) AND rank(inflammation_immune, 2, count=28, share=0.18) AND rank(amyloid_beta, 3, count=25, share=0.16) AND rank(tau, 4, count=15, share=0.09)"
+    population_n: not_specified
+    population_scope: population_estimate
+    quantity_refs: [Q36, Q37, Q38, Q39, Q40, Q41, Q42, Q43, Q44]
+    concept_refs: [EN-method-CADRO, EN-concept-MoA]
+    proof_refs: [E03]
+    depends_on: [C01]
+
+  - id: C08
+    claim_type: comparison
+    polarity: positive
+    logical_form: "trials(2026)=192 > trials(2025)=182 AND drugs(2026)=158 > drugs(2025)=138 AND pct_increase(trials, 2017, 2026)≈0.35 AND pct_increase(agents, 2017, 2026)≈0.40"
+    population_n: not_specified
+    population_scope: population_estimate
+    quantity_refs: [Q01, Q02, Q45, Q46, Q47, Q48]
+    concept_refs: [EN-concept-index_date]
+    proof_refs: [E07]
+    depends_on: [C01]
+
+  - id: C09
+    claim_type: association
+    polarity: positive
+    logical_form: "share(trials_with_eligibility_biomarker)=0.50 AND count(trials_with_eligibility_biomarker)=96 AND most_common_modality(eligibility)=amyloid_PET(N=49) AND share(trials_with_biomarker_primary_outcome)=0.27 AND count(trials_with_biomarker_primary_outcome)=52"
+    population_n: not_specified
+    population_scope: population_estimate
+    quantity_refs: [Q49, Q50, Q50b, Q51, Q52, Q52b, Q52c, Q52d]
+    concept_refs: [EN-concept-biomarker_context_of_use, EN-measure-amyloid_pet]
+    proof_refs: [E08]
+    depends_on: [C01]
+
+  - id: C10
+    claim_type: comparison
+    polarity: positive
+    logical_form: "share_amyloid(2017)=0.33 > share_amyloid(2026)≈0.20 AND share_inflammation_immune(2017)=0.06 < share_inflammation_immune(2026)≈0.20 AND share_tau(2017)=0.06 < share_tau(2026)≈0.20"
+    population_n: not_specified
+    population_scope: population_estimate
+    quantity_refs: [Q53, Q54, Q55, Q56, Q57, Q58]
+    concept_refs: [EN-method-CADRO]
+    proof_refs: [E07]
+    depends_on: [C07, C08]

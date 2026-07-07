@@ -1,0 +1,154 @@
+claims:
+  - id: C01
+    claim_type: association
+    polarity: positive
+    logical_form: "depleted(RORB_IL1RAPL2_glut[2/5], GM, late_Braak) AND depleted(SPARCL1_glut, GM, late_Braak) AND depleted(COL5A2_L4_glut, GM, late_Braak) AND depleted(GLIS3_L3_glut, GM, late_Braak) AND depleted(GNAL_glut, GM, Braak5_6) AND depleted(TLL1_glut, GM, Braak5_6) AND depleted(PVALB_GABA, GM, late_Braak) AND depleted(SPARCL1_GABA, GM, late_Braak) AND enriched(THEMIS_POSTN_L5_6_glut, GM, Braak5_6) AND enriched(SST_THSD7B_TRHDE_GABA, GM, Braak5_6)"
+    population_n: 36
+    population_scope: cohort
+    quantity_refs: [Q01, Q02, Q03]
+    concept_refs: [EN-braak-staging, EN-ancom-bc, EN-gm-wm-sampling, EN-themis-postn-signature]
+    proof_refs: [E01]
+    depends_on: []
+
+  - id: C02
+    claim_type: association
+    polarity: positive
+    logical_form: "depleted(RPL19_microglia, GM, intermediate_late_Braak) AND enriched(HSPA1A_OPC, GM, late_Braak) AND enriched(MGP_pericyte, GM, late_Braak) AND enriched(TNC_astrocyte, GM, late_Braak)"
+    population_n: 36
+    population_scope: cohort
+    quantity_refs: [Q03]
+    concept_refs: [EN-braak-staging, EN-ancom-bc, EN-gm-wm-sampling]
+    proof_refs: [E01]
+    depends_on: []
+
+  - id: C03
+    claim_type: comparison
+    polarity: positive
+    logical_form: "enriched(TSHZ2_endothelial, WM, advanced_Braak) AND enriched(HSPA1A_OPC, WM, advanced_Braak) AND depleted(RPL19_microglia, WM, intermediate_Braak) AND depleted(TAGLN_pericyte, WM, advanced_Braak) AND depleted(PVALB_TMEM132C_GABA, WM, advanced_Braak) AND depleted(PVALB_SPARCL1_GABA, WM, advanced_Braak) AND opposite_direction(RORB_IL1RAPL2_glut, GM_late_depleted, WM_intermediate2_4_enriched) AND depleted(LAMP5_CHST9_GABA, WM, Braak5_6)"
+    population_n: 36
+    population_scope: cohort
+    quantity_refs: [Q03]
+    concept_refs: [EN-braak-staging, EN-ancom-bc, EN-gm-wm-sampling]
+    proof_refs: [E01]
+    depends_on: []
+
+  - id: C04
+    claim_type: generalization
+    polarity: positive
+    logical_form: "replicates(enriched(THEMIS_POSTN_glut, late_Braak), [TC, EC, PFC, SFG, PFC_WM, SEA_AD_MTG_n84, ROSMAP_PFC_n424]) AND replicates(depleted(PVALB_TMEM132C_GABA, advanced_Braak), all_examined_regions) AND replicates(depleted(TAGLN_pericyte, Braak5_6), multiple_cortical_regions) AND replicates(depleted(RPL19_microglia, Braak5_6), multiple_cortical_regions) AND replicates(enriched(HSPA1A_OPC, Braak5_6), multiple_cortical_regions)"
+    population_n: not_specified
+    population_scope: multi_cohort
+    quantity_refs: [Q04, Q05]
+    concept_refs: [EN-cell-type-mapper, EN-harmony-louvain-subclustering, EN-themis-postn-signature, EN-braak-staging]
+    proof_refs: [E02]
+    depends_on: [C01, C02, C03]
+
+  - id: C05
+    claim_type: comparison
+    polarity: positive
+    logical_form: "count_DEG(Braak2_4_vs_0_1)=17[GABA,oligo,OPC_only] AND count_DEG_GMxWM(Braak2_4)=10 AND count_DEG(Braak5_6_vs_0_1)=1230 AND cell_type_specific_fraction(Braak5_6_DEGs)=0.90[1102/1230]"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q06, Q07, Q08, Q09, Q10]
+    concept_refs: [EN-glmmtmb-de, EN-braak-staging, EN-gm-wm-sampling]
+    proof_refs: [E03]
+    depends_on: []
+
+  - id: C06
+    claim_type: comparison
+    polarity: positive
+    logical_form: "count_DEG_GMxWM_interaction(Braak5_6)=644 AND opposite_direction(FCER1G, GM_lower, WM_higher)[p=4.5e-07] AND downregulated(APOE, GM, greater_magnitude_than_WM)[p=0.04] AND higher(ABCA7, GM_microglia, WM_microglia)"
+    population_n: 39
+    population_scope: cohort
+    quantity_refs: [Q11, Q12, Q13]
+    concept_refs: [EN-glmmtmb-de, EN-gm-wm-sampling]
+    proof_refs: [E03]
+    depends_on: [C05]
+
+  - id: C07
+    claim_type: comparison
+    polarity: positive
+    logical_form: "constrained(Up_genes, Braak5_6, glutamatergic)[LOEUF_lower, p=3.5e-09] AND not_significant(Down_genes, Braak5_6, glutamatergic)[p=0.95] AND constrained(Up_genes, Braak5_6xTC_interaction, glutamatergic)[p=1.8e-05] AND constrained(Down_genes, Braak5_6xTC_interaction, glutamatergic)[p=0.0083]"
+    population_n: 39
+    population_scope: cohort
+    quantity_refs: [Q14, Q15, Q16, Q17, Q18]
+    concept_refs: [EN-loeuf, EN-glmmtmb-de]
+    proof_refs: [E04]
+    depends_on: [C05]
+
+  - id: C08
+    claim_type: association
+    polarity: positive
+    logical_form: "enriched_pathway(negative_regulation_amyloid_fibril_formation, GABAergic, direction=lower, Braak5_6) AND enriched_pathway(phospholipid_binding, microglia, direction=higher, Braak5_6) AND enriched_pathway(cellular_response_to_lipids, OPC, direction=higher, Braak5_6) AND enriched_pathway(endocytosis_kinase_binding, GM_astrocyte, direction=higher, Braak5_6) AND enriched_pathway(regulation_vesicle_transport, GM_glutamatergic, direction=higher, Braak5_6) AND enriched_pathway(cellular_response_lipoprotein_particle, WM_microglia_only, direction=higher, Braak5_6) AND enriched_pathway(regulation_amyloid_beta_formation, WM_oligodendrocyte, Braak5_6)"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q19, Q20]
+    concept_refs: [EN-magma-fgsea, EN-glmmtmb-de]
+    proof_refs: [E05]
+    depends_on: [C05, C06]
+
+  - id: C09
+    claim_type: comparison
+    polarity: positive
+    logical_form: "concordant(snRNA_seq_associations, CARTANA_ISS_validation) AND lower(ACTG1_CC2D1B_PPP1R1A_ALDH1A1_TM2D1, GM_glutamatergic, late_Braak)[selected_genes] AND lower(ACTG1_SCG3_PDCD6, GM_GABAergic, late_Braak) AND lower(CD74_P2RY12, GM_microglia, late_Braak) AND higher(GFAP, GM_astrocyte, late_Braak) AND lower(PDCD6_ANXA7, WM_GABAergic, Braak5_6)"
+    population_n: 11
+    population_scope: cohort
+    quantity_refs: [Q21, Q22, Q23, Q24, Q25, Q26, Q27, Q28, Q29, Q30, Q31, Q32, Q33, Q34, Q35]
+    concept_refs: [EN-cartana, EN-braak-staging, EN-themis-postn-signature]
+    proof_refs: [E06]
+    depends_on: [C01, C02, C03]
+
+  - id: C10
+    claim_type: existence
+    polarity: positive
+    logical_form: "nominal_enrichment(global_CARTANA_signature, Braak_stage_comparison)=2fold[29_genes] AND no_significant_genes_after_correction(Braak_stage_comparison) AND nominal_enrichment(global_CARTANA_signature, low_vs_high_pathology)=~4fold[31_genes, null=8]"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q36, Q37, Q38, Q39, Q40, Q41]
+    concept_refs: [EN-cartana]
+    proof_refs: [E07]
+    depends_on: []
+
+  - id: C11
+    claim_type: existence
+    polarity: positive
+    logical_form: "upregulated(TMEM119, CARTANA, advanced_pathology) AND typically_downregulated_prior_literature(TMEM119, advanced_pathology) AND discordant(TMEM119, P2RY12, direction) AND absent(discordance, snRNA_seq_data)"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: []
+    concept_refs: [EN-cartana]
+    proof_refs: [E07]
+    depends_on: [C10]
+
+  - id: C12
+    claim_type: association
+    polarity: positive
+    logical_form: "expression_gradient(NEFL_NEFM, glutamatergic, plaque_distance, higher_near_lower_far) AND expression_gradient(ALDH5A1, glutamatergic, plaque_distance, higher_far) AND expression_gradient(RELN, GABAergic, plaque_distance, lower_proximal) AND expression_gradient(CD68, microglia, plaque_distance_intermediate, higher) AND expression_gradient(GFAP, astrocyte, plaque_distance, higher_distant) AND expression_gradient(ID3, endothelial_pericyte, plaque_distance, higher_distant) AND expression_gradient([THEMIS_glut, GFAP_astro, PLP1_oligo], tangle_distance, higher_distant) AND interaction_effect([ACTG1, DYNC2LI1], glutamatergic, plaque_x_tangle_distance) AND interaction_effect(KIT, inhibitory, plaque_x_tangle_distance_intermediate, reduced)"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: []
+    concept_refs: [EN-distance-spatial-model, EN-cartana]
+    proof_refs: [E08]
+    depends_on: [C09]
+
+  - id: C13
+    claim_type: comparison
+    polarity: positive
+    logical_form: "higher_bulk_expression(GFAP, plaque_distant) AND non_unimodal(GFAP_expression_distribution, plaque_proximal_bin)[dip=0.124] > non_unimodal(GFAP_expression_distribution, far_bin)[dip=0.121] > non_unimodal(GFAP_expression_distribution, intermediate_bin)[dip=0.119] => reconciles(higher_bulk_distal_GFAP, prior_IHC_higher_proximal_astrocyte_density)"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q42, Q43, Q44]
+    concept_refs: [EN-gfap-bimodality, EN-distance-spatial-model]
+    proof_refs: [E08]
+    depends_on: [C12]
+
+  - id: C14
+    claim_type: association
+    polarity: positive
+    logical_form: "nominal_enrichment(plaque_vs_plaque_free_tile_DEGs)=2fold[15_genes] AND lower(NEFM, glutamatergic, plaque_free_tiles) AND higher(BIN1, microglia, plaque_containing_tiles) AND lower(SERPINE1, plaque_containing_tiles, low_pathology_individuals_only)"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q45, Q46]
+    concept_refs: [EN-tile-spatial-model, EN-cartana]
+    proof_refs: [E09]
+    depends_on: [C12]

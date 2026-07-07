@@ -1,0 +1,319 @@
+quantities:
+  - id: Q01
+    value: 1.75
+    unit: log2FC
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p6"
+    quote: "increase in the proportion of Ex5 neurons in high compared to low pathology cases in both BA9 (log2-fold change = 1.75) and BA17 (log2-fold change = 0.46)"
+    claim_refs: [C01]
+
+  - id: Q02
+    value: 0.46
+    unit: log2FC
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p6"
+    quote: "increase in the proportion of Ex5 neurons in high compared to low pathology cases in both BA9 (log2-fold change = 1.75) and BA17 (log2-fold change = 0.46)"
+    claim_refs: [C01]
+
+  - id: Q03
+    value: 0.008
+    unit: FDR
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p7 Fig.4 caption"
+    quote: "Ex5 neurons showed increased relative abundance in advanced AD in BA9 (FDR = 0.008)"
+    claim_refs: [C01]
+
+  - id: Q04
+    value: 0.06
+    unit: p_value
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p7 Fig.4 caption"
+    quote: "In BA17, Ex5 neurons showed a non-significant trend of increase (p-value = 0.06)"
+    claim_refs: [C01]
+
+  - id: Q05
+    value: 0.21
+    unit: log2FC
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p6"
+    quote: "total L4 IT population remained relatively increased in high-pathology cases in both BA9 (log₂-fold change = 0.21) and BA17 (log₂-fold change = 0.33) (Supplementary Fig. 7)"
+    claim_refs: [C02]
+
+  - id: Q06
+    value: 0.33
+    unit: log2FC
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p6"
+    quote: "total L4 IT population remained relatively increased in high-pathology cases in both BA9 (log₂-fold change = 0.21) and BA17 (log₂-fold change = 0.33) (Supplementary Fig. 7)"
+    claim_refs: [C02]
+
+  - id: Q07
+    value: 986
+    unit: gene_count
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p8"
+    quote: "A total of 986 genes were categorized as 'high-conﬁdence' DE genes."
+    claim_refs: [C03]
+
+  - id: Q08
+    value: 54
+    unit: gene_count
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p9"
+    quote: "We identiﬁed 54 high-conﬁdence DE genes common across all four conditions."
+    claim_refs: [C03]
+
+  - id: Q09
+    value: 962
+    unit: gene_count
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p9"
+    quote: "we identiﬁed a total of 962 'high-conﬁdence' DE genes, with 460 overlapping between both approaches. Of these 962 genes, 35 were shared across all four conditions"
+    claim_refs: [C03]
+
+  - id: Q10
+    value: 460
+    unit: gene_count
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p9"
+    quote: "we identiﬁed a total of 962 'high-conﬁdence' DE genes, with 460 overlapping between both approaches. Of these 962 genes, 35 were shared across all four conditions"
+    claim_refs: [C03]
+
+  - id: Q11
+    value: 35
+    unit: gene_count
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p9"
+    quote: "we identiﬁed a total of 962 'high-conﬁdence' DE genes, with 460 overlapping between both approaches. Of these 962 genes, 35 were shared across all four conditions"
+    claim_refs: [C03]
+
+  - id: Q12
+    value: 6
+    unit: donors_per_group
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p11 Fig.7 caption"
+    quote: "(n = 6 donors per disease group)"
+    claim_refs: [C06]
+
+  - id: Q13
+    value: 200
+    unit: nM
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p10"
+    quote: "treated with 200 nM amyloid-β 1–42 (Aβ1–42) oligomers"
+    claim_refs: [C07]
+
+  - id: Q14
+    value: 100000000000
+    unit: vg
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p11"
+    quote: "with either Kcnip4 AAV or control AAV (1 × 10^11 vg, retroorbitally)"
+    claim_refs: [C08]
+
+  - id: Q15
+    value: 63870
+    unit: cells
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p5"
+    quote: "the number of Ex5 cells predicted in the BA17 reference dataset was high: 63,870 cells (34.42%) out of 185,565 excitatory cells."
+    claim_refs: [C10]
+
+  - id: Q16
+    value: 34.42
+    unit: percent
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p5"
+    quote: "the number of Ex5 cells predicted in the BA17 reference dataset was high: 63,870 cells (34.42%) out of 185,565 excitatory cells."
+    claim_refs: [C10]
+
+  - id: Q17
+    value: 185565
+    unit: cells
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p5"
+    quote: "the number of Ex5 cells predicted in the BA17 reference dataset was high: 63,870 cells (34.42%) out of 185,565 excitatory cells."
+    claim_refs: [C10]
+
+  - id: Q18
+    value: 2152
+    unit: cells
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p5"
+    quote: "In contrast, it was low in the prefrontal cortex reference datasets: 2152 cells (0.33%) out of 660,751"
+    claim_refs: [C10]
+
+  - id: Q19
+    value: 0.33
+    unit: percent
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p5"
+    quote: "In contrast, it was low in the prefrontal cortex reference datasets: 2152 cells (0.33%) out of 660,751"
+    claim_refs: [C10]
+
+  - id: Q20
+    value: 660751
+    unit: cells
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p5"
+    quote: "In contrast, it was low in the prefrontal cortex reference datasets: 2152 cells (0.33%) out of 660,751"
+    claim_refs: [C10]
+
+  - id: Q21
+    value: 19360
+    unit: cells
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p5"
+    quote: "19,360 cells (3.03%) out of 637,968 in Green et al."
+    claim_refs: [C10]
+
+  - id: Q22
+    value: 3.03
+    unit: percent
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p5"
+    quote: "19,360 cells (3.03%) out of 637,968 in Green et al."
+    claim_refs: [C10]
+
+  - id: Q23
+    value: 637968
+    unit: cells
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p5"
+    quote: "19,360 cells (3.03%) out of 637,968 in Green et al."
+    claim_refs: [C10]
+
+  - id: Q24
+    value: 3361
+    unit: cells
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p5"
+    quote: "3,361 cells (3%) out of 112,143 in Mathys et al."
+    claim_refs: [C10]
+
+  - id: Q25
+    value: 3
+    unit: percent
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p5"
+    quote: "3,361 cells (3%) out of 112,143 in Mathys et al."
+    claim_refs: [C10]
+
+  - id: Q26
+    value: 112143
+    unit: cells
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p5"
+    quote: "3,361 cells (3%) out of 112,143 in Mathys et al."
+    claim_refs: [C10]
+
+  - id: Q27
+    value: 7943
+    unit: cells
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p5"
+    quote: "compared with 7943 cells (4.36%) out of 182,140 in our BA9 dataset"
+    claim_refs: [C10]
+
+  - id: Q28
+    value: 4.36
+    unit: percent
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p5"
+    quote: "compared with 7943 cells (4.36%) out of 182,140 in our BA9 dataset"
+    claim_refs: [C10]
+
+  - id: Q29
+    value: 182140
+    unit: cells
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p5"
+    quote: "compared with 7943 cells (4.36%) out of 182,140 in our BA9 dataset"
+    claim_refs: [C10]

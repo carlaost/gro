@@ -1,0 +1,4 @@
+paper_type: single_nucleus_and_spatial_transcriptomics_biology
+expected_slots: [claims, experiments, evidence, dataset, concepts, related_work, code]
+present_slots: [claims, experiments, evidence, dataset, concepts, related_work]
+absent_declared: [code]

@@ -1,0 +1,353 @@
+refs:
+- id: R01
+  raw: Gabitto et al., 2024 — SEA-AD integrated multimodal cell atlas of AD [ref 23]
+  external_id: 10.1038/s41593-024-01774-5
+  resolvable: true
+- id: R02
+  raw: Jorstad et al., 2023 — transcriptomic cytoarchitecture of human neocortex [ref 3]
+  external_id: 10.1126/science.adf6812
+  resolvable: true
+- id: R03
+  raw: Mathys et al., 2023 — single-cell atlas of cognition/resilience to AD [ref 8]
+  external_id: 10.1016/j.cell.2023.08.039
+  resolvable: true
+- id: R04
+  raw: Green et al., 2024 — cellular communities / trajectories of brain ageing and AD [ref 5]
+  external_id: 10.1038/s41586-024-07871-6
+  resolvable: true
+- id: R05
+  raw: Otero-Garcia et al., 2022 — molecular signatures of NFT susceptibility in AD [ref 4]
+  external_id: 10.1016/j.neuron.2022.06.021
+  resolvable: true
+- id: R06
+  raw: Xia et al., 2022 — AppSAA App knock-in mouse model [ref 24]
+  external_id: 10.1186/s13024-022-00547-7
+  resolvable: true
+- id: R07
+  raw: Morohashi et al., 2002 — cloning of CALP/KChIP4 (KCNIP4) [ref 45]
+  external_id: 10.1074/jbc.M200897200
+  resolvable: true
+- id: R08
+  raw: An et al., 2000 — KChIPs modulate A-type potassium channels [ref 48]
+  external_id: 10.1038/35000592
+  resolvable: true
+- id: R09
+  raw: Morabito et al., 2023 — hdWGCNA [ref 56]
+  external_id: 10.1016/j.crmeth.2023.100498
+  resolvable: true
+- id: R10
+  raw: Büttner et al., 2021 — scCODA compositional model [ref 34]
+  external_id: 10.1038/s41467-021-27150-6
+  resolvable: true
+- id: R11
+  raw: Finak et al., 2015 — MAST [ref 47]
+  external_id: 10.1186/s13059-015-0844-5
+  resolvable: true
+- id: R12
+  raw: '**Single-cell AD/brain atlases & methods (background/baseline):** Mathys 2024 multiregion (ref 1)'
+  external_id: not_specified
+  resolvable: false
+- id: R13
+  raw: Cain 2023 multicellular communities (ref 2)
+  external_id: not_specified
+  resolvable: false
+- id: R14
+  raw: Siletti 2023 adult-brain diversity (ref 6)
+  external_id: not_specified
+  resolvable: false
+- id: R15
+  raw: Liu 2025 multiregion epigenomics/cognitive resilience (ref 55)
+  external_id: not_specified
+  resolvable: false
+- id: R16
+  raw: Consens 2022 IT/SST neurons in AD (ref 35)
+  external_id: not_specified
+  resolvable: false
+- id: R17
+  raw: '**Neocortex organization / L4 cytoarchitecture:** Harris & Shepherd 2015 [ref 13]'
+  external_id: not_specified
+  resolvable: false
+- id: R18
+  raw: Palomero-Gallagher & Zilles 2019 [ref 14]
+  external_id: not_specified
+  resolvable: false
+- id: R19
+  raw: Zeng & Sanes 2017 [ref 15]
+  external_id: not_specified
+  resolvable: false
+- id: R20
+  raw: Wei 2022 visual-cortex cell types [ref 16]
+  external_id: not_specified
+  resolvable: false
+- id: R21
+  raw: von Economo & Koskinas 1929 [ref 17]
+  external_id: not_specified
+  resolvable: false
+- id: R22
+  raw: Tasic 2018 [ref 18]
+  external_id: not_specified
+  resolvable: false
+- id: R23
+  raw: Cadwell 2019 [ref 19]
+  external_id: not_specified
+  resolvable: false
+- id: R24
+  raw: Lake 2018 [ref 26]
+  external_id: not_specified
+  resolvable: false
+- id: R25
+  raw: Zeng 2012 [ref 27]
+  external_id: not_specified
+  resolvable: false
+- id: R26
+  raw: Yao 2021 mouse taxonomy [ref 28]
+  external_id: not_specified
+  resolvable: false
+- id: R27
+  raw: Di Bella 2021 [ref 59]
+  external_id: not_specified
+  resolvable: false
+- id: R28
+  raw: Rockland & Pandya 1981 [ref 30]
+  external_id: not_specified
+  resolvable: false
+- id: R29
+  raw: Garcia-Cabezas 2020 [ref 31]
+  external_id: not_specified
+  resolvable: false
+- id: R30
+  raw: Balaram 2014 V1/V2 [ref 32,33]
+  external_id: not_specified
+  resolvable: false
+- id: R31
+  raw: '**AD neuropathology / staging:** Braak & Braak 1991 [ref 9]'
+  external_id: not_specified
+  resolvable: false
+- id: R32
+  raw: Hyman 2012 NIA-AA [ref 10]
+  external_id: not_specified
+  resolvable: false
+- id: R33
+  raw: Du 2007 [ref 11]
+  external_id: not_specified
+  resolvable: false
+- id: R34
+  raw: Ossenkoppele 2019 [ref 12]
+  external_id: not_specified
+  resolvable: false
+- id: R35
+  raw: Serrano-Pozo 2011 [ref 20]
+  external_id: not_specified
+  resolvable: false
+- id: R36
+  raw: Duyckaerts 2009 [ref 21]
+  external_id: not_specified
+  resolvable: false
+- id: R37
+  raw: Braak 2006 [ref 22]
+  external_id: not_specified
+  resolvable: false
+- id: R38
+  raw: Mirra 1991 CERAD [ref 69]
+  external_id: not_specified
+  resolvable: false
+- id: R39
+  raw: Crary 2014 PART [ref 70]
+  external_id: not_specified
+  resolvable: false
+- id: R40
+  raw: Hof 1990 vulnerable pyramidal neurons [ref 58]
+  external_id: not_specified
+  resolvable: false
+- id: R41
+  raw: Leuba & Kraftsik 1994 visual cortex in AD [ref 51]
+  external_id: not_specified
+  resolvable: false
+- id: R42
+  raw: Hawrylycz 2012 Allen Human Brain Atlas [ref 29]
+  external_id: not_specified
+  resolvable: false
+- id: R43
+  raw: '**AD genetic risk / KCNIP:** Zhang 2023 [ref 38]'
+  external_id: not_specified
+  resolvable: false
+- id: R44
+  raw: Prokopenko 2022 DTNB/DLG2 [ref 39]
+  external_id: not_specified
+  resolvable: false
+- id: R45
+  raw: Park 2021 [ref 40]
+  external_id: not_specified
+  resolvable: false
+- id: R46
+  raw: Wang 2014 NRG3 [ref 41]
+  external_id: not_specified
+  resolvable: false
+- id: R47
+  raw: Werren 2024 CSMD1 [ref 42]
+  external_id: not_specified
+  resolvable: false
+- id: R48
+  raw: Athanasiu 2017 CSMD1/CSMD2 [ref 43]
+  external_id: not_specified
+  resolvable: false
+- id: R49
+  raw: Baum 2024 CSMD1/complement [ref 44]
+  external_id: not_specified
+  resolvable: false
+- id: R50
+  raw: Shulman 2013 [ref 46]
+  external_id: not_specified
+  resolvable: false
+- id: R51
+  raw: Kitazawa 2014 Kv4/KChIP stoichiometry [ref 60]
+  external_id: not_specified
+  resolvable: false
+- id: R52
+  raw: Buxbaum 1998 calsenilin/presenilin [ref 61]
+  external_id: not_specified
+  resolvable: false
+- id: R53
+  raw: Polans 1995 recoverin [ref 62]
+  external_id: not_specified
+  resolvable: false
+- id: R54
+  raw: '**Hyperexcitability / therapeutics:** Palop 2007 [ref 50]'
+  external_id: not_specified
+  resolvable: false
+- id: R55
+  raw: Palop & Mucke 2016 [ref 52]
+  external_id: not_specified
+  resolvable: false
+- id: R56
+  raw: Vossel 2017 [ref 53]
+  external_id: not_specified
+  resolvable: false
+- id: R57
+  raw: Targa Dias Anastacio 2022 [ref 54]
+  external_id: not_specified
+  resolvable: false
+- id: R58
+  raw: Mattson & Arumugam 2018 [ref 63]
+  external_id: not_specified
+  resolvable: false
+- id: R59
+  raw: Slutsky 2024 [ref 64]
+  external_id: not_specified
+  resolvable: false
+- id: R60
+  raw: Li 2022 arousal circuits [ref 65]
+  external_id: not_specified
+  resolvable: false
+- id: R61
+  raw: Vossel 2021 levetiracetam RCT [ref 66]
+  external_id: not_specified
+  resolvable: false
+- id: R62
+  raw: Sanchez 2012 levetiracetam [ref 67]
+  external_id: not_specified
+  resolvable: false
+- id: R63
+  raw: Shigihara 2020 non-pharmacological [ref 68]
+  external_id: not_specified
+  resolvable: false
+- id: R64
+  raw: Simon 2024 opto-seq IEGs [ref 49]
+  external_id: not_specified
+  resolvable: false
+- id: R65
+  raw: '**Software / statistical methods (imports):** Macosko 2015 Drop-seq [ref 71]'
+  external_id: not_specified
+  resolvable: false
+- id: R66
+  raw: Melsted 2021 kb-python [ref 72]
+  external_id: not_specified
+  resolvable: false
+- id: R67
+  raw: Lun 2019 DropletUtils/EmptyDrops [ref 73]
+  external_id: not_specified
+  resolvable: false
+- id: R68
+  raw: McGinnis 2019 DoubletFinder [ref 74]
+  external_id: not_specified
+  resolvable: false
+- id: R69
+  raw: Wolf 2018 Scanpy [ref 75]
+  external_id: not_specified
+  resolvable: false
+- id: R70
+  raw: Korsunsky 2019 Harmony [ref 76]
+  external_id: not_specified
+  resolvable: false
+- id: R71
+  raw: Xu 2021 scANVI [ref 77]
+  external_id: not_specified
+  resolvable: false
+- id: R72
+  raw: Mollie 2017 glmmTMB [ref 78]
+  external_id: not_specified
+  resolvable: false
+- id: R73
+  raw: Andersson 2020 Stereoscope [ref 79]
+  external_id: not_specified
+  resolvable: false
+- id: R74
+  raw: Palla 2022 squidpy [ref 80]
+  external_id: not_specified
+  resolvable: false
+- id: R75
+  raw: Shen 2022 spatialID [ref 81]
+  external_id: not_specified
+  resolvable: false
+- id: R76
+  raw: Luke 2017 lme4 significance [ref 82]
+  external_id: not_specified
+  resolvable: false
+- id: R77
+  raw: Muzellec 2023 pyDESeq2 [ref 83]
+  external_id: not_specified
+  resolvable: false
+- id: R78
+  raw: Fang 2023 GSEApy [ref 84]
+  external_id: not_specified
+  resolvable: false
+- id: R79
+  raw: Zhou 2019 Metascape [ref 85]
+  external_id: not_specified
+  resolvable: false
+- id: R80
+  raw: Kolberg 2023 g:profiler [ref 86]
+  external_id: not_specified
+  resolvable: false
+- id: R81
+  raw: GTEx Consortium 2013 [ref 87]
+  external_id: not_specified
+  resolvable: false
+- id: R82
+  raw: Koopmans 2019 SynGO [ref 88]
+  external_id: not_specified
+  resolvable: false
+- id: R83
+  raw: Shannon 2003 Cytoscape [ref 89]
+  external_id: not_specified
+  resolvable: false
+- id: R84
+  raw: Beaudoin 2012 primary neuron culture [ref 90]
+  external_id: not_specified
+  resolvable: false
+- id: R85
+  raw: Gerrits 2021 microglia profiles [ref 25]
+  external_id: not_specified
+  resolvable: false
+- id: R86
+  raw: Squair 2021 false discoveries in scRNA DE [ref 36]
+  external_id: not_specified
+  resolvable: false
+- id: R87
+  raw: Junttila 2022 DE benchmarking [ref 37]
+  external_id: not_specified
+  resolvable: false
+- id: R88
+  raw: Dharshini et al. 2026 — Zenodo code archive (ref 91)
+  external_id: 10.5281/zenodo.18113528
+  resolvable: true

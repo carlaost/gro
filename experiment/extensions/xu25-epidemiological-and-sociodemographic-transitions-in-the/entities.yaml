@@ -1,0 +1,50 @@
+entities:
+  - id: EN-gbd-2021
+    term: "Global Burden of Disease (GBD) study, 2021 vintage"
+    kind: dataset
+    xref: not_specified
+
+  - id: EN-adod
+    term: "Alzheimer's disease and other dementias (ADOD)"
+    kind: concept
+    xref: not_specified
+
+  - id: EN-sdi
+    term: "Socio-demographic index (SDI)"
+    kind: variable
+    xref: not_specified
+
+  - id: EN-asr
+    term: "Age-standardized rate (ASIR / ASDR / ASR-DALYs)"
+    kind: measure
+    xref: not_specified
+
+  - id: EN-dalys
+    term: "Disability-adjusted life-years (DALYs)"
+    kind: measure
+    xref: not_specified
+
+  - id: EN-joinpoint
+    term: "Joinpoint regression (APC, EAPC, AAPC)"
+    kind: method
+    xref: not_specified
+
+  - id: EN-rcs
+    term: "Restricted cubic spline (RCS) with dummy variables for outlier regions"
+    kind: method
+    xref: not_specified
+
+  - id: EN-quantile-regression
+    term: "Quantile regression"
+    kind: method
+    xref: not_specified
+
+  - id: EN-paf
+    term: "Population attributable fraction (PAF) / comparative risk assessment"
+    kind: method
+    xref: not_specified
+
+  - id: EN-risk-factors
+    term: "Attributable risk factors: smoking, high fasting plasma glucose (FPG), high body mass index (BMI)"
+    kind: variable
+    xref: not_specified

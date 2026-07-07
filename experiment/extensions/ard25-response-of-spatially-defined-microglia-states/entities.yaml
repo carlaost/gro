@@ -1,0 +1,106 @@
+# NOTE: logic/concepts.md is declared in PAPER.md's layer index ("12 key technical terms
+# defined") but does not exist as a file in this ARA directory (only logic/claims.md and
+# logic/problem.md are present). Entities below are therefore reconstructed from terms used
+# and defined in-line across logic/claims.md and logic/problem.md, not lifted from a
+# concepts.md source file.
+
+entities:
+  - id: EN-PAM
+    term: "PAM (plaque-associated microglia)"
+    kind: concept
+    xref: not_specified
+
+  - id: EN-nonPAM
+    term: "non-PAM (non-plaque-associated microglia)"
+    kind: concept
+    xref: not_specified
+
+  - id: EN-5xFAD
+    term: "5xFAD mouse model"
+    kind: organism
+    xref: not_specified
+
+  - id: EN-confetti
+    term: "Confetti multicolor fate mapping"
+    kind: method
+    xref: not_specified
+
+  - id: EN-mc-sim
+    term: "Monte Carlo (MC) simulation clonality test"
+    kind: method
+    xref: not_specified
+
+  - id: EN-voronoi
+    term: "Voronoi grid spatial analysis"
+    kind: method
+    xref: not_specified
+
+  - id: EN-CD11c
+    term: "CD11c (Itgax)"
+    kind: measure
+    xref: not_specified
+
+  - id: EN-Tmem119
+    term: "Tmem119"
+    kind: measure
+    xref: not_specified
+
+  - id: EN-CSF1R
+    term: "CSF1R"
+    kind: concept
+    xref: not_specified
+
+  - id: EN-Csf1
+    term: "Csf1 (CSF1R ligand)"
+    kind: variable
+    xref: not_specified
+
+  - id: EN-IL34
+    term: "IL-34 (CSF1R ligand)"
+    kind: variable
+    xref: not_specified
+
+  - id: EN-scRNAseq
+    term: "single-cell RNA sequencing (scRNA-seq)"
+    kind: method
+    xref: not_specified
+
+  - id: EN-ATACseq
+    term: "ATAC-seq (chromatin accessibility profiling)"
+    kind: method
+    xref: not_specified
+
+  - id: EN-BrdU
+    term: "BrdU incorporation (proliferation assay)"
+    kind: method
+    xref: not_specified
+
+  - id: EN-MethoxyX04
+    term: "Methoxy-X04 (amyloid-labeling dye)"
+    kind: measure
+    xref: not_specified
+
+  - id: EN-DAM
+    term: "disease-associated microglia (DAM) / MgnD signature"
+    kind: concept
+    xref: not_specified
+
+  - id: EN-Abeta
+    term: "amyloid-beta (Aβ1-40 / Aβ1-42)"
+    kind: measure
+    xref: not_specified
+
+  - id: EN-GSEA
+    term: "Gene Set Enrichment Analysis (GSEA)"
+    kind: method
+    xref: not_specified
+
+  - id: EN-DAR
+    term: "differentially accessible regions (DARs)"
+    kind: measure
+    xref: not_specified
+
+  - id: EN-PuIba1
+    term: "Pu.1+Iba-1+ microglia"
+    kind: measure
+    xref: not_specified

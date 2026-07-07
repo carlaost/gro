@@ -1,0 +1,4 @@
+paper_type: narrative_review
+expected_slots: [claims, concepts, related_work, problem, evidence, dataset]
+present_slots: [claims, concepts, related_work, problem, evidence, experiments]
+absent_declared: [dataset]  # paper.pdf p.10 Data availability: "No datasets were generated or analysed during the current study"

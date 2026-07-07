@@ -1,0 +1,265 @@
+refs:
+  - id: R01
+    raw: "Therriault, Brum, Trudel et al., 2025 — Lancet Neurol. 2025;24(9):740–52 (ref [14])"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R02
+    raw: "Hibar, Bauer, Rabe et al., 2026 — Alzheimers Dement. 2026;22(1):e71009 (ref [20])"
+    external_id: "10.1002/alz.71009"
+    resolvable: true
+
+  - id: R03
+    raw: "Palmqvist, Warmenhoven, Anastasi et al., 2025 — Nat Med. 2025;31(6):2036–43 (ref [24])"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R04
+    raw: "Warmenhoven, Salvadó, Janelidze et al., 2025 — Brain. 2025;148(2):416–31 (ref [38])"
+    external_id: "10.1093/brain/awae346"
+    resolvable: true
+
+  - id: R05
+    raw: "Janelidze, Bali, Ashton et al., 2022 — Brain. 2022;146(4):1592–601 (ref [15])"
+    external_id: "10.1093/brain/awac333"
+    resolvable: true
+
+  - id: R06
+    raw: "Lehmann, Gabelle, Duchiron et al., 2025 — EBioMedicine. 2025;117:105805 (ref [25])"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R07
+    raw: "Hu, Yu, Gao, 2025 — Drug Discov Ther. 2025;19(3):208–9 (ref [50])"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R08
+    raw: "Schindler, Galasko, Pereira et al., 2024 — Nat Rev Neurol. 2024;20(7):426–39 (ref [44])"
+    external_id: "10.1038/s41582-024-00977-5"
+    resolvable: true
+
+  - id: R09
+    raw: "Dittrich, Blennow, Tan et al., 2025 — Alzheimers Dement. 2025;21(2):e14610 (ref [49])"
+    external_id: "10.1002/alz.14610"
+    resolvable: true
+
+  - id: R10
+    raw: "Janelidze, Barthélemy, He et al., 2023 — JAMA Neurol. 2023;80(5):516–22 (ref [53])"
+    external_id: "10.1001/jamaneurol.2023.0199"
+    resolvable: true
+
+  - id: R11
+    raw: "CLSI EP15-A3, 2017 — CLSI document EP15-A3 (ref [36] in text; item 35 in References)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R12
+    raw: "Leitão, Silva-Spínola, Santana et al., 2019 — Alzheimers Res Ther. 2019;11(1):91 (ref [37] in text mapping; item 36 in References)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R13
+    raw: "Pilotto, Quaresima, Trasciatti et al., 2025 — Brain. 2025;148(2):408–15 (ref [37])"
+    external_id: "10.1093/brain/awae368"
+    resolvable: true
+
+  - id: R14
+    raw: "Hansson et al., Nat Aging 2023 (ref [1]) — background, blood biomarkers in practice/trials"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R15
+    raw: "Hampel et al., Neuron 2023 (ref [2]) — background, future use of BBMs"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R16
+    raw: "Hansson et al., Alz & Dementia 2022 (ref [3]) — background, AA appropriate-use recommendations"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R17
+    raw: "Blennow et al., Alzheimers Dement 2023 (ref [4]) — background, clinical value of plasma biomarkers"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R18
+    raw: "Alcolea et al., Neurology 2023 (ref [5]) — background, blood biomarkers for neurologists"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R19
+    raw: "Karikari et al., Lancet Neurol 2020 (ref [6]) — background, p-tau181 diagnostic/prediction"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R20
+    raw: "Ashton et al., JAMA Neurol 2024 (ref [7]) — background, plasma p-tau217 immunoassay accuracy"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R21
+    raw: "Palmqvist et al., JAMA 2020 (ref [8]) — background, p-tau217 discriminative accuracy"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R22
+    raw: "Benedet et al., JAMA Neurol 2021 (ref [9]) — background, plasma vs CSF GFAP"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R23
+    raw: "Palmqvist et al., Nat Med 2021 (ref [10]) — background, prediction of future AD dementia"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R24
+    raw: "Nakamura et al., Nature 2018 (ref [11]) — background, plasma amyloid-β biomarkers"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R25
+    raw: "Cogswell et al., Alzheimers Dement 2024 (ref [12]) — background, temporal evolution of plasma p-tau"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R26
+    raw: "Therriault et al., Alzheimers Dement 2023 (ref [13]) — background, plasma p-tau217 ≈ CSF"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R27
+    raw: "Palmqvist et al., Alzheimers Dement 2023 (ref [16]) — background, automated plasma panel"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R28
+    raw: "Schindler et al., Alzheimers Dement 2024 (ref [17]) — background, head-to-head leading blood tests"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R29
+    raw: "Kirste et al., Neurology 2025 (ref [18]) — background, IVD p-tau181/ApoE4 rule-out"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R30
+    raw: "Anastasi et al., Alzheimers Dement 2025 (ref [19]) — background, memory-clinic biomarker comparison"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R31
+    raw: "Cooper et al., Alzheimers Dement 2024 (ref [21]) — background, APOE ε4 modifies p-tau181"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R32
+    raw: "Contreras et al., Alzheimers Res Ther 2025 (ref [22]) — background, APOE4 effect on plasma biomarkers (HABS-HD)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R33
+    raw: "Cody et al., Alzheimers Dement 2025 (ref [23]) — background, plasma biomarker accuracy pre-dementia"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R34
+    raw: "Hazan et al., Int J Geriatr Psychiatry 2025 (ref [26]) — background, p-tau181, age, kidney function"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R35
+    raw: "Mielke et al., Alzheimers Dement 2022 (ref [27]) — background, CSF p-tau181 vs 217 cognitive decline; precision context"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R36
+    raw: "Janelidze et al., Nat Med 2020 (ref [28]) — background, plasma p-tau181 differential diagnosis"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R37
+    raw: "Bornhorst et al., Neurology 2025 (ref [29]) — background, CKD effect on plasma p-tau217"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R38
+    raw: "Twait et al., J Am Heart Assoc 2024 (ref [30]) — background, plasma markers vs MRI vascular load"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R39
+    raw: "Kang et al., JAMA Netw Open 2025 (ref [31]) — background, CAA and AD plasma biomarkers"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R40
+    raw: "Mattsson-Carlgren et al., JAMA Neurol 2023 (ref [32]) — background, plasma biomarkers predict decline"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R41
+    raw: "Ossenkoppele et al., Nat Aging 2025 (ref [33]) — background, p-tau217/tau-PET predict decline"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R42
+    raw: "Du et al., Alzheimers Dement 2024 (ref [34]) — background, longitudinal p-tau217"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R43
+    raw: "Wojdała et al., Alzheimers Res Ther 2024 (ref [39]) — discussion, Simoa/Lumipulse assay performance; standardization"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R44
+    raw: "Arslan et al., Clin Chem Lab Med 2025 (ref [40]) — discussion, p-tau217 standardization/harmonization"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R45
+    raw: "Ashton et al., Alzheimers Dement 2025 (ref [41]) — discussion, GBSC plasma phospho-tau Round Robin"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R46
+    raw: "Chen et al., J Neurochem 2025 (ref [42]) — discussion, plasma vs serum equivalence"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R47
+    raw: "Benedet et al., Clin Chem 2025 (ref [43]) — discussion, serum p-tau217 diagnostic value"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R48
+    raw: "Elecsys Phospho-Tau (181P) Plasma leaflet (ref [45]) — discussion, FDA-cleared p-tau181 use"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R49
+    raw: "Ashton et al., JAMA Neurol 2024 (ref [46]) — discussion, p-tau217 immunoassay accuracy (duplicate of ref [7]/R20)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R50
+    raw: "Groot et al., Alzheimers Res Ther 2022 (ref [47]) — discussion, novel p-tau217 assay correlation/agreement"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R51
+    raw: "Therriault et al., EBioMedicine 2024 (ref [48]) — discussion, two p-tau217 assays comparison"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R52
+    raw: "Hu et al., Med 2024 (ref [51]) — discussion, fluid biomarkers with amyloid-targeting DMTs"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R53
+    raw: "Milà-Alomà et al., Nat Med 2022 (ref [52]) — discussion, p-tau231/217 as amyloid state markers (discordant CSF)"
+    external_id: not_specified
+    resolvable: false

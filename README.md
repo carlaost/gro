@@ -67,7 +67,14 @@ gro/
   ara/                   # the ARA research-record that came out of this work
     README.md
     PAPER.md  logic/  trace/  staging/
+  experiment/            # first empirical test: extend real ARAs + compute the deterministic metrics
+    README.md
+    gro-experiment-paper.pdf   # the write-up (5pp)
+    gro_metrics.py · results.json · results.md
+    extensions/<slug>/         # GRO typed sidecars generated per ARA (12 ARAs)
 ```
+
+**Empirical status:** [`experiment/`](experiment/) is the first test of the idea — typed extensions were generated for 12 compiled ARAs and the deterministic-tier metrics computed over them (results independently re-run and verified). It confirms typing the record makes prose-blocked metrics computable as structural joins; it does *not* yet test whether the metrics discriminate good science from bad. That remains the open experiment (§7 of the spec).
 
 ## Using as a submodule of `dasmodel`
 

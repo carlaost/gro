@@ -1,0 +1,60 @@
+entities:
+  - id: EN-concept-selective_neuronal_vulnerability
+    term: "Selective neuronal vulnerability"
+    kind: concept
+    xref: not_specified
+
+  - id: EN-concept-resilience_neuronal
+    term: "Resilience (neuronal)"
+    kind: concept
+    xref: not_specified
+
+  - id: EN-population-ex5
+    term: "Ex5 (resilient L4 IT excitatory subtype)"
+    kind: concept
+    xref: not_specified
+
+  - id: EN-population-ex2
+    term: "Ex2 (vulnerable L2/3 IT prototype)"
+    kind: concept
+    xref: not_specified
+
+  - id: EN-marker-kcnip4
+    term: "KCNIP4 (KChIP4 / CALP)"
+    kind: measure
+    xref: not_specified
+
+  - id: EN-concept-high_confidence_de_gene
+    term: "High-confidence DE gene"
+    kind: concept
+    xref: not_specified
+
+  - id: EN-method-hdwgcna_module
+    term: "hdWGCNA co-expression module"
+    kind: method
+    xref: not_specified
+
+  - id: EN-measure-braak_abc_staging
+    term: "Braak / ABC neuropathological staging"
+    kind: measure
+    xref: not_specified
+
+  - id: EN-concept-spatiotemporal_ad_progression
+    term: "Spatiotemporal AD progression"
+    kind: concept
+    xref: not_specified
+
+  - id: EN-method-fans
+    term: "FANS (fluorescence-activated nuclear sorting)"
+    kind: method
+    xref: not_specified
+
+  - id: EN-method-sccoda
+    term: "scCODA compositional analysis"
+    kind: method
+    xref: not_specified
+
+  - id: EN-concept-neuronal_hyperexcitability
+    term: "Neuronal hyperexcitability"
+    kind: concept
+    xref: not_specified

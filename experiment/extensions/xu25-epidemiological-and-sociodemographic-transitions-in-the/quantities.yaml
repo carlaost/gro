@@ -1,0 +1,704 @@
+quantities:
+  - id: Q01
+    value: 9.84
+    unit: million_cases
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf Abstract"
+    quote: "Globally, 9.84 million cases of ADOD occurred in 2021, with 1.95 million ADOD-related deaths, causing 36.33 million DALYs."
+    claim_refs: [C01]
+
+  - id: Q02
+    value: 1.95
+    unit: million_deaths
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf Abstract"
+    quote: "Globally, 9.84 million cases of ADOD occurred in 2021, with 1.95 million ADOD-related deaths, causing 36.33 million DALYs."
+    claim_refs: [C01]
+
+  - id: Q03
+    value: 36.33
+    unit: million_dalys
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf Abstract"
+    quote: "Globally, 9.84 million cases of ADOD occurred in 2021, with 1.95 million ADOD-related deaths, causing 36.33 million DALYs."
+    claim_refs: [C01]
+
+  - id: Q04
+    value: 9837.06
+    unit: cases_x10^3
+    comparator: none
+    ci_low: 8620.52
+    ci_high: 11163.70
+    role: result
+    source_ref: "paper.pdf §Results"
+    quote: "the number of global incident cases of ADOD was 9837.06 × 103 (95%UI: 8620.52, 11163.70)"
+    claim_refs: [C01]
+
+  - id: Q05
+    value: 119.76
+    unit: ASIR_per_100000
+    comparator: none
+    ci_low: 104.96
+    ci_high: 135.89
+    role: result
+    source_ref: "paper.pdf §Results"
+    quote: "an age‐standardized rate of 119.76 (104.96,135.89) per 100,000 (Table 1)"
+    claim_refs: [C01, C02, C03]
+
+  - id: Q06
+    value: 1952.68
+    unit: deaths_x10^3
+    comparator: none
+    ci_low: 512.98
+    ci_high: 4984.74
+    role: result
+    source_ref: "paper.pdf §Results"
+    quote: "The number of death cases of ADOD was 1952.68 × 103 (512.98, 4984.74) in 2021 globally"
+    claim_refs: [C01]
+
+  - id: Q07
+    value: 67.9
+    unit: percent
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf §Results"
+    quote: "of which 67.9% occurred in females"
+    claim_refs: [C01]
+
+  - id: Q08
+    value: 116.97
+    unit: ASIR_per_100000
+    comparator: none
+    ci_low: 102.77
+    ci_high: 132.32
+    role: result
+    source_ref: "paper.pdf §Results"
+    quote: "the global both-sex age‐standardized incidence rate increased from 116.97(102.77,132.32) to 119.76(104.96,135.89)"
+    claim_refs: [C02]
+
+  - id: Q09
+    value: 0.06
+    unit: AAPC_percent
+    comparator: none
+    ci_low: 0.05
+    ci_high: 0.07
+    role: result
+    source_ref: "paper.pdf §Results"
+    quote: "with an AAPC of 0.06(0.05,0.07) (Table 2 and Fig. 1)"
+    claim_refs: [C02]
+
+  - id: Q10
+    value: 0.32
+    unit: AAPC_percent
+    comparator: none
+    ci_low: 0.27
+    ci_high: 0.38
+    role: result
+    source_ref: "paper.pdf §Results"
+    quote: "with the exception of high-middle (AAPC: 0.32,95%CI: 0.27,0.38)"
+    claim_refs: [C02]
+
+  - id: Q11
+    value: 0.26
+    unit: AAPC_percent
+    comparator: none
+    ci_low: 0.19
+    ci_high: 0.33
+    role: result
+    source_ref: "paper.pdf §Results"
+    quote: "and middle SDI (0.26[0.19,0.33]) regions"
+    claim_refs: [C02]
+
+  - id: Q12
+    value: -3.6
+    unit: ETPC_percent
+    comparator: none
+    ci_low: -5.27
+    ci_high: -2.08
+    role: result
+    source_ref: "evidence/tables/table1.md"
+    quote: "High SDI −3.6(−5.27,−2.08)"
+    claim_refs: [C02]
+
+  - id: Q13
+    value: 11.84
+    unit: ETPC_percent
+    comparator: none
+    ci_low: 10.26
+    ci_high: 13.07
+    role: result
+    source_ref: "evidence/tables/table1.md"
+    quote: "High-middle SDI +11.84(10.26,13.07)"
+    claim_refs: [C02]
+
+  - id: Q14
+    value: 9.29
+    unit: ETPC_percent
+    comparator: none
+    ci_low: 7.14
+    ci_high: 10.88
+    role: result
+    source_ref: "evidence/tables/table1.md"
+    quote: "Middle SDI +9.29(7.14,10.88)"
+    claim_refs: [C02]
+
+  - id: Q15
+    value: -3.08
+    unit: ETPC_percent
+    comparator: none
+    ci_low: -3.94
+    ci_high: -2.38
+    role: result
+    source_ref: "evidence/tables/table1.md"
+    quote: "Low-middle SDI −3.08(−3.94,−2.38)"
+    claim_refs: [C02]
+
+  - id: Q16
+    value: -4.4
+    unit: ETPC_percent
+    comparator: none
+    ci_low: -5.35
+    ci_high: -3.51
+    role: result
+    source_ref: "evidence/tables/table1.md"
+    quote: "Low SDI −4.4(−5.35,−3.51)"
+    claim_refs: [C02]
+
+  - id: Q17
+    value: 0.78
+    unit: ratio
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf §Results"
+    quote: "the ASIR was significantly higher in females than in males, with a male-to-female ratio of 0.78"
+    claim_refs: [C03]
+
+  - id: Q18
+    value: 132.40
+    unit: ASIR_per_100000
+    comparator: none
+    ci_low: 115.43
+    ci_high: 150.85
+    role: result
+    source_ref: "paper.pdf §Results"
+    quote: "The highest ASIR was 132.40(115.43,150.85) per 100,000 in the high-middle SDI region"
+    claim_refs: [C03]
+
+  - id: Q19
+    value: 90.89
+    unit: ASIR_per_100000
+    comparator: none
+    ci_low: 79.00
+    ci_high: 103.12
+    role: result
+    source_ref: "paper.pdf §Results"
+    quote: "whereas the lowest rate was in low SDI area at 90.89(79.00,103.12) per 100,000"
+    claim_refs: [C03]
+
+  - id: Q20
+    value: 149.61
+    unit: ASIR_per_100000
+    comparator: none
+    ci_low: 129.58
+    ci_high: 171.14
+    role: result
+    source_ref: "paper.pdf §Results"
+    quote: "East Asia had the highest ASIR at 149.61(129.58,171.14)"
+    claim_refs: [C03]
+
+  - id: Q21
+    value: 73.18
+    unit: ASIR_per_100000
+    comparator: none
+    ci_low: 63.36
+    ci_high: 83.46
+    role: result
+    source_ref: "paper.pdf §Results"
+    quote: "while Western Sub-Saharan Africa had the lowest (73.18[63.36,83.46])"
+    claim_refs: [C03]
+
+  - id: Q22
+    value: 1
+    unit: rank
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf §Results"
+    quote: "high-income North America ranked 1 st in 1990 and 3rd in 2021 for ASIR of ADOD"
+    claim_refs: [C03]
+
+  - id: Q23
+    value: 3
+    unit: rank
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf §Results"
+    quote: "high-income North America ranked 1 st in 1990 and 3rd in 2021 for ASIR of ADOD"
+    claim_refs: [C03]
+
+  - id: Q24
+    value: 7
+    unit: rank
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf §Results"
+    quote: "East Asia ranked rose from 7 th to 1 st in 2021"
+    claim_refs: [C03]
+
+  - id: Q25
+    value: 1
+    unit: rank
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf §Results"
+    quote: "East Asia ranked rose from 7 th to 1 st in 2021"
+    claim_refs: [C03]
+
+  - id: Q26
+    value: 0.722
+    unit: SDI_index
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf §Results"
+    quote: "China, with an SDI value of 0.722, has the highest number of incident cases of ADOD"
+    claim_refs: [C04]
+
+  - id: Q27
+    value: 0.862
+    unit: SDI_index
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf §Results"
+    quote: "followed by the United States of America (SDI = 0.862)"
+    claim_refs: [C04]
+
+  - id: Q28
+    value: 0.575
+    unit: SDI_index
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf §Results"
+    quote: "and India (0.575)"
+    claim_refs: [C04]
+
+  - id: Q29
+    value: 152
+    unit: count_countries
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf §Results"
+    quote: "Out of the 204 countries, 152 countries had an ASIR greater than 100 per 100,000"
+    claim_refs: [C04]
+
+  - id: Q30
+    value: 204
+    unit: count_countries
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf §Results"
+    quote: "Out of the 204 countries, 152 countries had an ASIR greater than 100 per 100,000"
+    claim_refs: [C04, C12]
+
+  - id: Q31
+    value: 85.5
+    unit: percent
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf §Results"
+    quote: "with 85.5% of them having SDI levels above 0.5"
+    claim_refs: [C04]
+
+  - id: Q32
+    value: 74
+    unit: count_countries
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf §Results"
+    quote: "Among these countries, 74 countries(48.68%) belong to high or high-middle SDI quantiles"
+    claim_refs: [C04]
+
+  - id: Q33
+    value: 48.68
+    unit: percent
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf §Results"
+    quote: "Among these countries, 74 countries(48.68%) belong to high or high-middle SDI quantiles"
+    claim_refs: [C04]
+
+  - id: Q34
+    value: 0.6
+    unit: SDI_index
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf §Results"
+    quote: "but after reaching 0.6, the growth rate slowed down, and even showed a slightly declining trend"
+    claim_refs: [C05]
+
+  - id: Q35
+    value: 0.41
+    unit: AAPC_percent
+    comparator: none
+    ci_low: 0.31
+    ci_high: 0.52
+    role: result
+    source_ref: "paper.pdf Abstract"
+    quote: "with the fastest increase in age-standardized death rate in low-middle SDI quintiles, experienced the highest estimated annual percentage changes (0.41[0.31,0.52])"
+    claim_refs: [C06]
+
+  - id: Q36
+    value: 0.41
+    unit: AAPC_percent
+    comparator: none
+    ci_low: 0.32
+    ci_high: 0.50
+    role: result
+    source_ref: "evidence/tables/table2.md"
+    quote: "Low SDI at 0.41*(0.32,0.50)"
+    claim_refs: [C06]
+
+  - id: Q37
+    value: -0.24
+    unit: EAPC_percent
+    comparator: none
+    ci_low: -0.32
+    ci_high: -0.16
+    role: result
+    source_ref: "paper.pdf §Results"
+    quote: "ASDR only in high SDI region showed a downward trend in the latest segment (EAPC2016-2021 = −0.24[−0.32,−0.16] (Table 2)"
+    claim_refs: [C07]
+
+  - id: Q38
+    value: 0.24
+    unit: AAPC_percent
+    comparator: none
+    ci_low: 0.19
+    ci_high: 0.30
+    role: result
+    source_ref: "paper.pdf §Results"
+    quote: "was highest in the low-middle SDI region, with AAPC of 0.24(0.19,0.30) and 0.22(0.21,0.23), respectively"
+    claim_refs: [C08]
+
+  - id: Q39
+    value: 0.22
+    unit: AAPC_percent
+    comparator: none
+    ci_low: 0.21
+    ci_high: 0.23
+    role: result
+    source_ref: "paper.pdf §Results"
+    quote: "was highest in the low-middle SDI region, with AAPC of 0.24(0.19,0.30) and 0.22(0.21,0.23), respectively"
+    claim_refs: [C08]
+
+  - id: Q40
+    value: 0.25
+    unit: AAPC_percent
+    comparator: none
+    ci_low: 0.18
+    ci_high: 0.31
+    role: result
+    source_ref: "paper.pdf §Results"
+    quote: "For the female population, the highest AAPC of DALYs was found in the low SDI region, with AAPC of 0.25(0.18,0.31)"
+    claim_refs: [C08]
+
+  - id: Q41
+    value: 3.73
+    unit: ASDR_per_100000
+    comparator: none
+    ci_low: 0.15
+    ci_high: 11.84
+    role: result
+    source_ref: "paper.pdf §Results"
+    quote: "Globally, high FPG was the leading risk factor for age-standardized deaths rates and DALYs, accounting for 3.73(0.15,11.84) and 66.42(3.83,178.85) per 100,000, respectively, in 2021"
+    claim_refs: [C09]
+
+  - id: Q42
+    value: 66.42
+    unit: DALY_rate_per_100000
+    comparator: none
+    ci_low: 3.83
+    ci_high: 178.85
+    role: result
+    source_ref: "paper.pdf §Results"
+    quote: "Globally, high FPG was the leading risk factor for age-standardized deaths rates and DALYs, accounting for 3.73(0.15,11.84) and 66.42(3.83,178.85) per 100,000, respectively, in 2021"
+    claim_refs: [C09]
+
+  - id: Q43
+    value: 1.1
+    unit: ASDR_per_100000
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "evidence/figures/figure4.md"
+    quote: "Smoking Both-sexes 1.1→0.8 (down)"
+    claim_refs: [C09]
+
+  - id: Q44
+    value: 0.8
+    unit: ASDR_per_100000
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "evidence/figures/figure4.md"
+    quote: "Smoking Both-sexes 1.1→0.8 (down)"
+    claim_refs: [C09]
+
+  - id: Q45
+    value: 1.2
+    unit: ASDR_per_100000
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "evidence/figures/figure4.md"
+    quote: "High BMI Both-sexes 1.2→1.8 (up)"
+    claim_refs: [C09]
+
+  - id: Q46
+    value: 1.8
+    unit: ASDR_per_100000
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "evidence/figures/figure4.md"
+    quote: "High BMI Both-sexes 1.2→1.8 (up)"
+    claim_refs: [C09]
+
+  - id: Q47
+    value: 2.6
+    unit: ASDR_per_100000
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "evidence/figures/figure4.md"
+    quote: "High FPG Both-sexes 2.6→3.7 (up)"
+    claim_refs: [C09]
+
+  - id: Q48
+    value: 3.7
+    unit: ASDR_per_100000
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "evidence/figures/figure4.md"
+    quote: "High FPG Both-sexes 2.6→3.7 (up)"
+    claim_refs: [C09]
+
+  - id: Q49
+    value: 5.92
+    unit: ASDR_per_100000
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf §Results"
+    quote: "the ADOD burden attributed to high FPG were highest in High-income North America, with ASDRs of 5.92 per100,000 in females and 5.34 per100,000 in males, respectively"
+    claim_refs: [C10]
+
+  - id: Q50
+    value: 5.34
+    unit: ASDR_per_100000
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf §Results"
+    quote: "the ADOD burden attributed to high FPG were highest in High-income North America, with ASDRs of 5.92 per100,000 in females and 5.34 per100,000 in males, respectively"
+    claim_refs: [C10]
+
+  - id: Q51
+    value: 2
+    unit: count_regions
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf §Results"
+    quote: "Conversely, 2 regions had ASDR attributed to high BMI and high FPG less than 1.50 per 100,000."
+    claim_refs: [C10]
+
+  - id: Q52
+    value: 1.50
+    unit: ASDR_per_100000
+    comparator: lt
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf §Results"
+    quote: "Conversely, 2 regions had ASDR attributed to high BMI and high FPG less than 1.50 per 100,000."
+    claim_refs: [C10]
+
+  - id: Q53
+    value: 132.29
+    unit: ASIR_per_100000
+    comparator: none
+    ci_low: 116.3
+    ci_high: 149.8
+    role: result
+    source_ref: "evidence/tables/table1.md"
+    quote: "2021 ASIR female 132.29(116.3,149.8)"
+    claim_refs: [C11]
+
+  - id: Q54
+    value: 103.4
+    unit: ASIR_per_100000
+    comparator: none
+    ci_low: 89.45
+    ci_high: 118.45
+    role: result
+    source_ref: "evidence/tables/table1.md"
+    quote: "vs. male 103.4(89.45,118.45)"
+    claim_refs: [C11]
+
+  - id: Q55
+    value: 3.5
+    unit: ETPC_percent
+    comparator: none
+    ci_low: 2.31
+    ci_high: 4.43
+    role: result
+    source_ref: "evidence/tables/table1.md"
+    quote: "1990-2021 ETPC female 3.5(2.31,4.43)"
+    claim_refs: [C11]
+
+  - id: Q56
+    value: 2.69
+    unit: ETPC_percent
+    comparator: none
+    ci_low: 0.87
+    ci_high: 3.9
+    role: result
+    source_ref: "evidence/tables/table1.md"
+    quote: "vs. male 2.69(0.87,3.9)"
+    claim_refs: [C11]
+
+  - id: Q57
+    value: 6
+    unit: count_countries
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf §Discussion"
+    quote: "All six countries in this region are all in the top 10 with the heaviest disease burden of 204 countries."
+    claim_refs: [C12]
+
+  - id: Q58
+    value: 10
+    unit: rank
+    comparator: le
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf §Discussion"
+    quote: "All six countries in this region are all in the top 10 with the heaviest disease burden of 204 countries."
+    claim_refs: [C12]
+
+  - id: Q59
+    value: 6.2
+    unit: percent
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf §Discussion"
+    quote: "the crude prevalence of suspected dementia was 6.2%"
+    claim_refs: [C12]
+
+  - id: Q60
+    value: 8.1
+    unit: percent
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf §Discussion"
+    quote: "the prevalence of dementia was estimated at 8.1% in Bangui and 6.7% in Brazzaville"
+    claim_refs: [C12]
+
+  - id: Q61
+    value: 6.7
+    unit: percent
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf §Discussion"
+    quote: "the prevalence of dementia was estimated at 8.1% in Bangui and 6.7% in Brazzaville"
+    claim_refs: [C12]
+
+  - id: Q62
+    value: 14.82
+    unit: ETPC_percent
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf §Discussion"
+    quote: "Central Sub-Saharan Africa had the highest ADOD mortality rates among the 21 regions, with an estimated total percentage change of 14.82% from 1990 to 2021."
+    claim_refs: [C13]
+
+  - id: Q63
+    value: -14.82
+    unit: ETPC_percent
+    comparator: none
+    ci_low: -19.55
+    ci_high: -10.2
+    role: result
+    source_ref: "evidence/tables/table1.md"
+    quote: "Table 1 shows \"−14.82(−19.55,−10.2)\" attached to Australasia's ASIR ETPC (not Central Sub-Saharan Africa)"
+    claim_refs: [C13]
+
+  - id: Q64
+    value: -0.59
+    unit: ETPC_percent
+    comparator: none
+    ci_low: -3.02
+    ci_high: 1.79
+    role: result
+    source_ref: "evidence/tables/table1.md"
+    quote: "Table 1 shows Central Sub-Saharan Africa's own ASIR ETPC as −0.59(−3.02,1.79)"
+    claim_refs: [C13]

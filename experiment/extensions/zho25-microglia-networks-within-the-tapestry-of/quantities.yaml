@@ -1,0 +1,429 @@
+quantities:
+  # --- C01: img-ST vs seq-ST platform specs ---
+  - id: Q01
+    value: 50
+    unit: "μm"
+    comparator: approx
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p.3"
+    quote: "resolution of about 50 μm (Fig. 2B and D)"
+    claim_refs: [C01]
+
+  - id: Q02
+    value: 10
+    unit: "μm"
+    comparator: approx
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p.5"
+    quote: "with the resolution of about 10 µm [44] (Fig. 2C)"
+    claim_refs: [C01]
+
+  - id: Q03
+    value: 220
+    unit: "nm"
+    comparator: approx
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p.5"
+    quote: "imaging spots down to approximately 220 nm [46]"
+    claim_refs: [C01]
+
+  - id: Q04
+    value: 4
+    unit: "Hamming_distance"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p.2"
+    quote: "Hamming distance of 4 between barcodes, thereby providing robust error correction across several rounds of hybridization [35]"
+    claim_refs: [C01]
+
+  - id: Q05
+    value: 2000
+    unit: "RNA_species"
+    comparator: ge
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p.2"
+    quote: "similar systems like CosMx developed by NanoString may resolve between 2,000 and 6,000 RNA species"
+    claim_refs: [C01]
+
+  - id: Q06
+    value: 6000
+    unit: "RNA_species"
+    comparator: le
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p.2"
+    quote: "similar systems like CosMx developed by NanoString may resolve between 2,000 and 6,000 RNA species"
+    claim_refs: [C01]
+
+  - id: Q07
+    value: 2000
+    unit: "mRNA_species"
+    comparator: gt
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p.2"
+    quote: "platforms using MERFISH method have demonstrated the imaging of over 2000 mRNA species imaging"
+    claim_refs: [C01]
+
+  - id: Q08
+    value: 100
+    unit: "nm"
+    comparator: ge
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p.5"
+    quote: "FISSEQ can achieve subcellular resolution (around 100–200  nm)"
+    claim_refs: [C01]
+
+  - id: Q09
+    value: 200
+    unit: "nm"
+    comparator: le
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p.5"
+    quote: "FISSEQ can achieve subcellular resolution (around 100–200  nm)"
+    claim_refs: [C01]
+
+  - id: Q10
+    value: 100
+    unit: "transcripts_per_cell"
+    comparator: ge
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p.5"
+    quote: "its sensitivity is limited to detecting approximately 100–200 transcripts per cell under standard experimental conditions [47]"
+    claim_refs: [C01]
+
+  - id: Q11
+    value: 200
+    unit: "transcripts_per_cell"
+    comparator: le
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p.5"
+    quote: "its sensitivity is limited to detecting approximately 100–200 transcripts per cell under standard experimental conditions [47]"
+    claim_refs: [C01]
+
+  # --- C02: microglia regional density ---
+  - id: Q12
+    value: 4
+    unit: "percent_CNS_cells"
+    comparator: ge
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p.5"
+    quote: "microglia are widely distributed throughout the brain, constituting approximately 4–10% of central nervous system cells [48]"
+    claim_refs: [C02]
+
+  - id: Q13
+    value: 10
+    unit: "percent_CNS_cells"
+    comparator: le
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p.5"
+    quote: "microglia are widely distributed throughout the brain, constituting approximately 4–10% of central nervous system cells [48]"
+    claim_refs: [C02]
+
+  - id: Q14
+    value: 0.5
+    unit: "density_ratio_vs_cortex"
+    comparator: approx
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p.5"
+    quote: "the thalamus and midbrain exhibit nearly half the density, and the cerebellum even lower"
+    claim_refs: [C02]
+
+  # --- C04: PIGs ---
+  - id: Q15
+    value: 57
+    unit: "PIG_count"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p.6"
+    quote: "57 different PIGs were identified [43]"
+    claim_refs: [C04]
+
+  - id: Q16
+    value: 100
+    unit: "μm"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p.6"
+    quote: "Using a seq-ST method of a spot imaging size of 100 μm in the AppNL−G−F mouse model"
+    claim_refs: [C04]
+
+  - id: Q17
+    value: 50
+    unit: "μm"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p.6"
+    quote: "The plaque cellular niche was defined by expanding a 50 μm masking area of the Ab staining boundary."
+    claim_refs: [C04]
+
+  # --- C05: distance-graded cell-type enrichment ---
+  - id: Q18
+    value: 2766
+    unit: "RNA_species"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p.7"
+    quote: "simultaneously profiled 2,766 RNA species alongside antibody staining for amyloid and phosphorated-tau [81]"
+    claim_refs: [C05]
+
+  - id: Q19
+    value: 13
+    unit: "cell_types"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p.7"
+    quote: "Among the 13 major cell types, microglia, astrocytes, oligodendrocytes, oligodendrocyte precursor cells (OPC) and endothelial cells showed relative enrichment in the vicinity of plaques."
+    claim_refs: [C05]
+
+  - id: Q20
+    value: 10
+    unit: "μm"
+    comparator: le
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p.7"
+    quote: "Microglia were the most enriched population within the first 10 μm and 10–20 μm regions surrounding plaques"
+    claim_refs: [C05]
+
+  - id: Q21
+    value: 20
+    unit: "μm"
+    comparator: le
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p.7"
+    quote: "Microglia were the most enriched population within the first 10 μm and 10–20 μm regions surrounding plaques"
+    claim_refs: [C05]
+
+  - id: Q22
+    value: 30
+    unit: "μm"
+    comparator: le
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p.7"
+    quote: "whereas other glia populations peaked in a 10–30 μm zone"
+    claim_refs: [C05]
+
+  - id: Q23
+    value: 40
+    unit: "μm"
+    comparator: le
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p.7"
+    quote: "distinct oligodendrocyte clusters are enriched 20–40 μm distance from plaques"
+    claim_refs: [C05]
+
+  - id: Q24
+    value: 30
+    unit: "μm"
+    comparator: le
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p.7"
+    quote: "OPCs are notably enriched within 10–30 μm from plaques in late AD stages"
+    claim_refs: [C05]
+
+  # --- C06: DAA ---
+  - id: Q25
+    value: 14
+    unit: "percent_astrocyte_population"
+    comparator: approx
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p.7"
+    quote: "DAA-like cells account for about 14% of all astrocyte populations"
+    claim_refs: [C06]
+
+  - id: Q26
+    value: 40
+    unit: "μm"
+    comparator: le
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p.7"
+    quote: "they are enriched around plaques at an intermediate distance (10–40 μm)"
+    claim_refs: [C06]
+
+  # --- C07: receptor-ligand pairs ---
+  - id: Q27
+    value: 130
+    unit: "RL_pair_count"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p.7"
+    quote: "analysis of receptor-ligand (RL) interactions identified 130 candidate pairs between microglia and astrocytes"
+    claim_refs: [C07]
+
+  - id: Q28
+    value: 11
+    unit: "RL_pair_count_overlapping_PIGs"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p.7"
+    quote: "and 11 of them are PIGs"
+    claim_refs: [C07]
+
+  # --- C08: IFN-I ---
+  - id: Q29
+    value: 0.5
+    unit: "fraction_Clec7a_DAM_IFN_responsive"
+    comparator: approx
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p.7"
+    quote: "This study showed that half of the Clec7a + DAMs are Interferon responsive in 5xFAD mice."
+    claim_refs: [C08]
+
+  # --- C09: p-tau proximal neuron identity ---
+  - id: Q30
+    value: 20
+    unit: "percent_p_tau_neurons_inhibitory"
+    comparator: lt
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p.8"
+    quote: "Inhibitory neurons account for < 20% of p-tau + neurons"
+    claim_refs: [C09]
+
+  - id: Q31
+    value: 8
+    unit: "months"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p.8"
+    quote: "At 8 months, the majority of p-tau + neurons were CTX-Ex2 excit­atory neurons"
+    claim_refs: [C09]
+
+  - id: Q32
+    value: 13
+    unit: "months"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p.8"
+    quote: "at 13 months, the majority of p-tau + neurons were the CA1 excitatory neurons of the hippocampus"
+    claim_refs: [C09]
+
+  # --- C10: activation score panel ---
+  - id: Q33
+    value: 421
+    unit: "genes"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p.9"
+    quote: "One study using a panel of MERFISH probes targeting 421 genes calculated an 'activation score' in the mouse frontal cortex and stratum of aging brains [116]."
+    claim_refs: [C10]
+
+  - id: Q34
+    value: 11
+    unit: "microglia_genes_in_activation_score_panel"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p.9"
+    quote: "The activation scores were calculated based on selected gene expressions of microglia (B2m, Trem2, Ccl2, Apoe, Axl, Itgax, Cd9, C1qa, C1qc, Lyz2, Ctss)"
+    claim_refs: [C10]
+
+  - id: Q35
+    value: 8
+    unit: "astrocyte_genes_in_activation_score_panel"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p.9"
+    quote: "and Astrocytes (C4b, C3, Serpina3n, Cxcl10, Gfap, Vim, Il18, and Hif3a)."
+    claim_refs: [C10]
+
+  # --- C11: Spatial Ageing Clock ---
+  - id: Q36
+    value: 300
+    unit: "genes"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p.9"
+    quote: "Another study using a 300 gene panel of MERFISH probes identified the 'Spatial Ageing Clock' of each cell in the brains of mice across the whole lifespan [118]."
+    claim_refs: [C11]
+
+  # --- C13: spatial proteomics multiplexing ---
+  - id: Q37
+    value: 30
+    unit: "protein_targets"
+    comparator: ge
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p.10"
+    quote: "particularly imaging-based protein-inclusive methods that multiplex the detection of 30–60 protein targets at subcellular resolution [154–158]"
+    claim_refs: [C13]
+
+  - id: Q38
+    value: 60
+    unit: "protein_targets"
+    comparator: le
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p.10"
+    quote: "particularly imaging-based protein-inclusive methods that multiplex the detection of 30–60 protein targets at subcellular resolution [154–158]"
+    claim_refs: [C13]

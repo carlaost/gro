@@ -1,0 +1,4 @@
+paper_type: molecular_neuropathology_single_cell_omics
+expected_slots: [claims, experiments, evidence, dataset]
+present_slots: [claims, experiments, evidence, dataset]
+absent_declared: []

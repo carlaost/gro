@@ -1,0 +1,120 @@
+entities:
+  - id: EN-method-spatial_transcriptomics
+    term: "Spatial transcriptomics (ST)"
+    kind: method
+    xref: not_specified
+
+  - id: EN-method-img_ST
+    term: "Imaging-based spatial transcriptomics (img-ST)"
+    kind: method
+    xref: not_specified
+
+  - id: EN-method-seq_ST
+    term: "Sequencing-based spatial transcriptomics (seq-ST)"
+    kind: method
+    xref: not_specified
+
+  - id: EN-method-MERFISH
+    term: "MERFISH (Multiplexed Error-Robust FISH)"
+    kind: method
+    xref: not_specified
+
+  - id: EN-method-seqFISH
+    term: "seqFISH"
+    kind: method
+    xref: not_specified
+
+  - id: EN-method-ISS_padlock
+    term: "In situ sequencing (ISS) / padlock probes"
+    kind: method
+    xref: not_specified
+
+  - id: EN-method-STARmap
+    term: "STARmap / STARmap Plus"
+    kind: method
+    xref: not_specified
+
+  - id: EN-method-Visium
+    term: "Visium / Visium HD"
+    kind: method
+    xref: not_specified
+
+  - id: EN-method-Slide_seq
+    term: "Slide-seq"
+    kind: method
+    xref: not_specified
+
+  - id: EN-method-Stereo_seq
+    term: "Stereo-seq"
+    kind: method
+    xref: not_specified
+
+  - id: EN-method-DBiT_seq
+    term: "DBiT-seq (Deterministic Barcoding in Tissue)"
+    kind: method
+    xref: not_specified
+
+  - id: EN-method-FISSEQ
+    term: "FISSEQ (Fluorescent In Situ Sequencing)"
+    kind: method
+    xref: not_specified
+
+  - id: EN-state-DAM
+    term: "Disease-associated microglia (DAM)"
+    kind: concept
+    xref: not_specified
+
+  - id: EN-state-ARM
+    term: "Activated response microglia (ARM)"
+    kind: concept
+    xref: not_specified
+
+  - id: EN-state-MGnD
+    term: "Microglial neurodegenerative phenotype (MGnD)"
+    kind: concept
+    xref: not_specified
+
+  - id: EN-concept-PIGs
+    term: "Plaque-induced genes (PIGs)"
+    kind: concept
+    xref: not_specified
+
+  - id: EN-state-DAA
+    term: "Disease-associated astrocytes (DAA)"
+    kind: concept
+    xref: not_specified
+
+  - id: EN-concept-amyloid_plaque_niche
+    term: "Amyloid plaque niche"
+    kind: concept
+    xref: not_specified
+
+  - id: EN-method-RL_interaction_analysis
+    term: "Receptor-ligand (RL) interaction analysis"
+    kind: method
+    xref: not_specified
+
+  - id: EN-concept-IFN_I_signaling_module
+    term: "Type I interferon (IFN-I) signaling module"
+    kind: concept
+    xref: not_specified
+
+  - id: EN-state-foamy_microglia
+    term: "Foamy microglia"
+    kind: concept
+    xref: not_specified
+
+  - id: EN-measure-activation_score
+    term: "Activation score (aging)"
+    kind: measure
+    xref: not_specified
+
+  - id: EN-method-spatial_ageing_clock
+    term: "Spatial Ageing Clock"
+    kind: method
+    xref: not_specified
+
+  - id: EN-concept-cell_proximity_effect
+    term: "Cell proximity effect"
+    kind: concept
+    xref: not_specified

@@ -1,0 +1,624 @@
+quantities:
+  # --- C01: early-start vs ADNI, 36 months ---
+  - id: Q01
+    value: -1.2
+    unit: "points_CDR-SB"
+    comparator: none
+    ci_low: -1.7
+    ci_high: -0.7
+    role: result
+    source_ref: "paper.pdf p4 §3.2 / p5 Fig. 2a"
+    quote: "−1.2 (−1.7, −0.7)"
+    claim_refs: [C01]
+  - id: Q02
+    value: 417
+    unit: "N_participants"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p5 Fig. 2a"
+    quote: "Early-start group (N): ... 417"
+    claim_refs: [C01]
+  - id: Q03
+    value: 122
+    unit: "ADNI_ESS"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p5 Fig. 2a"
+    quote: "ADNI cohort (ESS): ... 122"
+    claim_refs: [C01]
+
+  # --- C02: delayed-start vs ADNI, 76 weeks post-initiation ---
+  - id: Q04
+    value: -0.8
+    unit: "points_CDR-SB"
+    comparator: none
+    ci_low: -1.3
+    ci_high: -0.3
+    role: result
+    source_ref: "paper.pdf p6 §3.2 / p5 Fig. 2b"
+    quote: "−0.8 (−1.3, −0.3)"
+    claim_refs: [C02]
+  - id: Q05
+    value: 458
+    unit: "N_participants"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p5 Fig. 2b"
+    quote: "Delayed-start group (N): ... 458"
+    claim_refs: [C02]
+  - id: Q06
+    value: 139
+    unit: "ADNI_ESS"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p5 Fig. 2b"
+    quote: "ADNI cohort (ESS): ... 139"
+    claim_refs: [C02]
+
+  # --- C03: 52-week completers subgroup ---
+  - id: Q07
+    value: -1.3
+    unit: "points_CDR-SB"
+    comparator: none
+    ci_low: -1.9
+    ci_high: -0.7
+    role: result
+    source_ref: "paper.pdf p6 §3.2 / p5 Fig. 2c"
+    quote: "−1.3 (−1.9, −0.7)"
+    claim_refs: [C03]
+  - id: Q08
+    value: 198
+    unit: "N_participants"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p5 Fig. 2c"
+    quote: "Early-start group^a (N): ... 198"
+    claim_refs: [C03]
+  - id: Q09
+    value: 122
+    unit: "ADNI_ESS"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p5 Fig. 2c"
+    quote: "ADNI cohort (ESS): ... 122"
+    claim_refs: [C03]
+
+  # --- C04: CDR-G hazard ratio ---
+  - id: Q10
+    value: 0.73
+    unit: "hazard_ratio_CDR-G"
+    comparator: none
+    ci_low: 0.62
+    ci_high: 0.86
+    role: result
+    source_ref: "paper.pdf p6 §3.2 / p5 Fig. 3"
+    quote: "hazard ratio=0.73 [95 % CI, 0.62–0.86]"
+    claim_refs: [C04]
+  - id: Q11
+    value: 0.001
+    unit: "p_value"
+    comparator: lt
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p6 §3.2 / p5 Fig. 3"
+    quote: "p < 0.001"
+    claim_refs: [C04]
+  - id: Q12
+    value: 27
+    unit: "percent_risk_reduction"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p6 §3.2"
+    quote: "a 27 % reduced risk of progressing to the next clinical stage"
+    claim_refs: [C04]
+
+  # --- C05: AUC cumulative benefit ---
+  - id: Q13
+    value: 0.97
+    unit: "points_CDR-SB_AUC_avg_diff_per_78wk"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p6 §3.2"
+    quote: "an average treatment difference of 0.97 points across 78 weeks"
+    claim_refs: [C05]
+  - id: Q14
+    value: 0.001
+    unit: "p_value"
+    comparator: lt
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p6 §3.2"
+    quote: "p < 0.001"
+    claim_refs: [C05]
+
+  # --- C06: time saved ---
+  - id: Q15
+    value: 6.9
+    unit: "months_saved"
+    comparator: approx
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p6 §3.2"
+    quote: "early-start donanemab treatment saved approximately 6.9 months versus the ADNI cohort"
+    claim_refs: [C06]
+  - id: Q16
+    value: 5.6
+    unit: "months_saved"
+    comparator: approx
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p6 §3.2"
+    quote: "delayed-start treatment saved approximately 5.6 months on CDR-SB progression"
+    claim_refs: [C06]
+  - id: Q17
+    value: 1.3
+    unit: "months_absolute_difference"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p8 §4"
+    quote: "the absolute difference in time savings observed between early- and delayed-start donanemab is 1.3 months"
+    claim_refs: [C06]
+
+  # --- C07: amyloid plaque reduction ---
+  - id: Q18
+    value: 86.96
+    unit: "CL_reduction_LSmean"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p6 §3.3"
+    quote: "an LS mean (standard error) reduction in amyloid plaque of 86.96 (0.92) CL at 76 weeks"
+    claim_refs: [C07]
+  - id: Q19
+    value: 0.92
+    unit: "SE_CL"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p6 §3.3"
+    quote: "86.96 (0.92) CL at 76 weeks"
+    claim_refs: [C07]
+  - id: Q20
+    value: 86.01
+    unit: "CL_reduction_LSmean"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p6 §3.3"
+    quote: "a similar reduction (86.01 [0.89] CL) at 154 weeks, 76 weeks after initiating donanemab"
+    claim_refs: [C07]
+  - id: Q21
+    value: 0.89
+    unit: "SE_CL"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p6 §3.3"
+    quote: "86.01 [0.89] CL"
+    claim_refs: [C07]
+
+  # --- C08: amyloid clearance percentages ---
+  - id: Q22
+    value: 29.7
+    unit: "percent_clearance"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p6 §3.3 / Fig. 4b"
+    quote: "week 24 (29.7 % [n = 226/761] ...)"
+    claim_refs: [C08]
+  - id: Q23
+    value: 33.2
+    unit: "percent_clearance"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p6 §3.3 / Fig. 4b"
+    quote: "33.2 % [n = 196/591]"
+    claim_refs: [C08]
+  - id: Q24
+    value: 66.1
+    unit: "percent_clearance"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p6 §3.3 / Fig. 4b"
+    quote: "week 52 (66.1 % [n = 443/670] ...)"
+    claim_refs: [C08]
+  - id: Q25
+    value: 66.7
+    unit: "percent_clearance"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p6 §3.3 / Fig. 4b"
+    quote: "66.7 % [n = 345/517]"
+    claim_refs: [C08]
+  - id: Q26
+    value: 76.4
+    unit: "percent_clearance"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p6 §3.3 / Fig. 4b"
+    quote: "week 76 (76.4 % [n = 469/614] ...)"
+    claim_refs: [C08]
+  - id: Q27
+    value: 76.5
+    unit: "percent_clearance"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p6 §3.3 / Fig. 4b"
+    quote: "76.5 % [n = 345/451]"
+    claim_refs: [C08]
+  - id: Q28
+    value: 56.8
+    unit: "percent_additional_clearance_end_LTE"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p6 §3.3"
+    quote: "Additional early-start participants (56.8 %) who continued donanemab treatment in the LTE period achieved amyloid clearance"
+    claim_refs: [C08]
+
+  # --- C09: treatment-course-completion timing ---
+  - id: Q29
+    value: 29.9
+    unit: "percent_completion"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p6 §3.3"
+    quote: "29.9 % (n = 44/147) met treatment course completion criteria at 102 weeks"
+    claim_refs: [C09]
+  - id: Q30
+    value: 45.6
+    unit: "percent_completion"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p6 §3.3"
+    quote: "45.6 % (n = 62/136) at 130 weeks"
+    claim_refs: [C09]
+  - id: Q31
+    value: 55.6
+    unit: "percent_completion"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p6 §3.3"
+    quote: "55.6 % (n = 70/126) at 154 weeks"
+    claim_refs: [C09]
+  - id: Q32
+    value: 17.6
+    unit: "percent_completion"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p6 §3.3"
+    quote: "17.6 % (n = 105/595) met treatment course completion criteria at 102 weeks"
+    claim_refs: [C09]
+  - id: Q33
+    value: 51.3
+    unit: "percent_completion"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p6 §3.3"
+    quote: "51.3 % (n = 267/520) at 130 weeks"
+    claim_refs: [C09]
+  - id: Q34
+    value: 70.7
+    unit: "percent_completion"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p6 §3.3"
+    quote: "70.7 % (n = 319/451) at 154 weeks"
+    claim_refs: [C09]
+  - id: Q35
+    value: 17.1
+    unit: "percent_completion_placebo_controlled_period"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p6 §3.3 (citing RW02)"
+    quote: "the percentage of donanemab-treated participants in the placebo-controlled period who met treatment course completion criteria at 24 weeks (17.1 %)"
+    claim_refs: [C09]
+  - id: Q36
+    value: 46.6
+    unit: "percent_completion_placebo_controlled_period"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p6 §3.3 (citing RW02)"
+    quote: "52 weeks (46.6 %)"
+    claim_refs: [C09]
+  - id: Q37
+    value: 69.2
+    unit: "percent_completion_placebo_controlled_period"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p6 §3.3 (citing RW02)"
+    quote: "and 76 weeks (69.2 %)"
+    claim_refs: [C09]
+
+  # --- C10: amyloid reaccumulation ---
+  - id: Q38
+    value: 10.99
+    unit: "CL_mean_at_154wk"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p6 §3.3 / Fig. 4c"
+    quote: "maintained a mean (SD) amyloid level of 10.99 (14.41) CL at 154 weeks"
+    claim_refs: [C10]
+  - id: Q39
+    value: 14.41
+    unit: "SD_CL"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p6 §3.3"
+    quote: "10.99 (14.41) CL at 154 weeks"
+    claim_refs: [C10]
+  - id: Q40
+    value: 24.1
+    unit: "CL_amyloid_negativity_cutoff"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p6 §3.3"
+    quote: "below the 24.1 CL cutoff for amyloid negativity"
+    claim_refs: [C10, C08]
+  - id: Q41
+    value: 2.4
+    unit: "CL_per_year"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p6 §3.3"
+    quote: "amyloid plaque reaccumulation was calculated to be 2.4 CL/year"
+    claim_refs: [C10]
+
+  # --- C11: safety by treatment-sequence group ---
+  - id: Q42
+    value: 1.1
+    unit: "percent_deaths"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p7 Table 1"
+    quote: "Deaths ... 7 (1.1 %)"
+    claim_refs: [C11]
+  - id: Q43
+    value: 19.6
+    unit: "percent_SAE"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p7 Table 1"
+    quote: "SAEs ... 129 (19.6 %)"
+    claim_refs: [C11]
+  - id: Q44
+    value: 86.5
+    unit: "percent_TEAE"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p7 Table 1"
+    quote: "TEAEs ... 568 (86.5 %)"
+    claim_refs: [C11]
+  - id: Q45
+    value: 2.0
+    unit: "percent_deaths"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p7 Table 1"
+    quote: "Deaths ... 8 (2.0 %)"
+    claim_refs: [C11]
+  - id: Q46
+    value: 20.4
+    unit: "percent_SAE"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p7 Table 1"
+    quote: "SAEs ... 80 (20.4 %)"
+    claim_refs: [C11]
+  - id: Q47
+    value: 80.2
+    unit: "percent_TEAE"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p7 Table 1"
+    quote: "TEAEs ... 315 (80.2 %)"
+    claim_refs: [C11]
+  - id: Q48
+    value: 1.3
+    unit: "percent_deaths"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p7 Table 1"
+    quote: "Deaths ... 2 (1.3 %)"
+    claim_refs: [C11]
+  - id: Q49
+    value: 13.4
+    unit: "percent_SAE"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p7 Table 1"
+    quote: "SAEs ... 21 (13.4 %)"
+    claim_refs: [C11]
+  - id: Q50
+    value: 84.7
+    unit: "percent_TEAE"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p7 Table 1"
+    quote: "TEAEs ... 133 (84.7 %)"
+    claim_refs: [C11]
+
+  # --- C12: ARIA risk over time / OAIR ---
+  - id: Q51
+    value: 1.0
+    unit: "percent_ARIA-E_per_6mo_interval"
+    comparator: le
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p7 §3.4"
+    quote: "the incidence of ARIA-E was 1.0 % or less in each 6-month interval following participants' last dose of donanemab"
+    claim_refs: [C12]
+  - id: Q52
+    value: 0.1
+    unit: "percent_symptomatic_ARIA-E_per_interval"
+    comparator: le
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p7 §3.4"
+    quote: "did not exceed 0.1 % and 0.3 %, respectively, after the last dose of donanemab"
+    claim_refs: [C12]
+  - id: Q53
+    value: 0.3
+    unit: "percent_symptomatic_ARIA-H_per_interval"
+    comparator: le
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p7 §3.4"
+    quote: "did not exceed 0.1 % and 0.3 %, respectively, after the last dose of donanemab"
+    claim_refs: [C12]
+  - id: Q54
+    value: 20.3
+    unit: "percent_any_ARIA_52wk_completers"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p7 §3.4"
+    quote: "the frequencies of any ARIA, ARIA-E, and ARIA-H after switching to placebo were 20.3 %, 2.0 %, and 18.3 %, respectively"
+    claim_refs: [C12]
+  - id: Q55
+    value: 2.0
+    unit: "percent_ARIA-E_52wk_completers"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p7 §3.4"
+    quote: "20.3 %, 2.0 %, and 18.3 %, respectively"
+    claim_refs: [C12]
+  - id: Q56
+    value: 18.3
+    unit: "percent_ARIA-H_52wk_completers"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p7 §3.4"
+    quote: "20.3 %, 2.0 %, and 18.3 %, respectively"
+    claim_refs: [C12]
+  - id: Q57
+    value: 1.0
+    unit: "OAIR_ARIA-E_per_100_participant_years"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p7 §3.4"
+    quote: "1.0 for ARIA-E and 10.9 for ARIA-H vs 1.5 for ARIA-E and 10.4 for ARIA-H, respectively"
+    claim_refs: [C12]
+  - id: Q58
+    value: 10.9
+    unit: "OAIR_ARIA-H_per_100_participant_years"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "paper.pdf p7 §3.4"
+    quote: "1.0 for ARIA-E and 10.9 for ARIA-H vs 1.5 for ARIA-E and 10.4 for ARIA-H, respectively"
+    claim_refs: [C12]
+  - id: Q59
+    value: 1.5
+    unit: "OAIR_ARIA-E_per_100_participant_years_placebo_period"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p7 §3.4"
+    quote: "vs 1.5 for ARIA-E and 10.4 for ARIA-H, respectively"
+    claim_refs: [C12]
+  - id: Q60
+    value: 10.4
+    unit: "OAIR_ARIA-H_per_100_participant_years_placebo_period"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "paper.pdf p7 §3.4"
+    quote: "vs 1.5 for ARIA-E and 10.4 for ARIA-H, respectively"
+    claim_refs: [C12]

@@ -1,0 +1,257 @@
+refs:
+- id: R01
+  raw: Jack et al., 2024 (NIA-AA revised criteria for diagnosis and staging of AD)
+  external_id: 10.1002/alz.13859
+  resolvable: true
+- id: R02
+  raw: Ossenkoppele et al., 2022 (Nat Med) — A+T+ CU risk of cognitive decline
+  external_id: 10.1038/s41591-022-02049-x
+  resolvable: true
+- id: R03
+  raw: Moscoso et al., 2025 (JAMA) — Frequency and clinical outcomes of tau-PET positivity
+  external_id: 10.1001/jama.2025.7817
+  resolvable: true
+- id: R04
+  raw: Bayart et al. (in revision) — Robustness of plasma pTau217 diagnostic thresholds
+  external_id: not_specified
+  resolvable: false
+- id: R05
+  raw: Therriault et al., 2025 (Lancet Neurol) — Meta-analysis of blood pTau diagnostic accuracy
+  external_id: 10.1016/S1474-4422(25)00227-3
+  resolvable: true
+- id: R06
+  raw: Khalafi et al., 2025 (Alzheimers Dement) — Meta-analysis of pTau217 accuracy in CU vs. CI
+  external_id: 10.1002/alz.14458
+  resolvable: true
+- id: R07
+  raw: Horie et al., 2025 (Nat Med) — Plasma MTBR-tau243 identifies tau tangle pathology
+  external_id: 10.1038/s41591-025-03617-7
+  resolvable: true
+- id: R08
+  raw: Montoliu-Gaya et al., 2024 (Acta Neuropathol) — Optimal blood tau species for AD neuropathology
+    detection
+  external_id: 10.1007/s00401-023-02660-3
+  resolvable: true
+- id: R09
+  raw: Lantero-Rodriguez et al., 2024 (Mol Neurodegener) — Plasma N-terminal tau fragments (NTA-tau)
+  external_id: 10.1186/s13024-024-00707-x
+  resolvable: true
+- id: R10a
+  raw: Hu et al., 2016 — Prion-like tau seeding mechanism
+  external_id: 10.1016/j.jalz.2016.01.014
+  resolvable: true
+- id: R10b
+  raw: Alonso et al., 1994 — Prion-like tau seeding mechanism
+  external_id: 10.1073/pnas.91.12.5562
+  resolvable: true
+- id: R10c
+  raw: Alonso et al., 1996 — Prion-like tau seeding mechanism
+  external_id: 10.1038/nm0796-783
+  resolvable: true
+- id: R11
+  raw: Soldo, Iqbal, Bergmann & Ansari — VeraBIND assay patent (PCT/US24/50852, filed Oct. 10, 2024)
+  external_id: not_applicable_patent_not_doi
+  resolvable: false
+- id: R12
+  raw: Gérard et al., 2025 (Eur J Neurol) — [18F]MK6240 limited affinity for primary tauopathies
+  external_id: 10.1111/ene.70068
+  resolvable: true
+- id: R15
+  raw: Milà-Alomà et al. 2022 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R16
+  raw: Karikari et al. 2020 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R17
+  raw: Ashton et al. 2021 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R18
+  raw: Janelidze et al. 2020 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R19
+  raw: Teunissen et al. 2024 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R20
+  raw: Verberk et al. 2018 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R21
+  raw: Kac et al. 2025 (a) — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R22
+  raw: Kac et al. 2025 (b) — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R23
+  raw: Therriault et al. 2023 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R24
+  raw: Mattsson-Carlgren et al. 2021 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R25
+  raw: Mattsson-Carlgren et al. 2024 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R26
+  raw: Ashton et al. 2024 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R27
+  raw: Salvadó et al. 2023 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R28
+  raw: Montoliu-Gaya et al. 2023 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R29
+  raw: Woo et al. 2024 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R30
+  raw: Shin et al. 2025 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R31
+  raw: Feizpour et al. 2025 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R32
+  raw: Salvadó et al. 2025 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R33
+  raw: Anastasi et al. 2025 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R34
+  raw: Kwon et al. 2025 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R35
+  raw: Rissman et al. 2024 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R36
+  raw: Mendes et al. 2024 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R37
+  raw: Barthélemy et al. 2023 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R38
+  raw: Lantero-Rodriguez et al. 2024 (CSF context, ref 60) — cited in related_work.md 'Other cited works'
+    (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R39
+  raw: Horie et al. 2023 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R40
+  raw: Rissin et al. 2010 (Simoa method, ref 34) — cited in related_work.md 'Other cited works' (no DOI
+    printed)
+  external_id: not_specified
+  resolvable: false
+- id: R41
+  raw: Katzman et al. 2021 (biotin-interference control, ref 67) — cited in related_work.md 'Other cited
+    works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R42
+  raw: Hanseeuw et al. 2021 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R43
+  raw: Amadoru et al. 2020 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R44
+  raw: Bayart et al. 2019 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R45
+  raw: Gérard et al. 2024 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R46
+  raw: Zhang et al. 2011 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R47
+  raw: Greve et al. 2014 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R48
+  raw: Greve et al. 2016 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R49
+  raw: Desikan et al. 2006 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R50
+  raw: Folstein et al. 1975 (MMSE) — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R51
+  raw: Adam et al. 2004 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R52
+  raw: de Partz et al. 2001 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R53
+  raw: Reitan 1955 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R54
+  raw: Bianconi et al. 2005 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R55
+  raw: Rouleau et al. 1992 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R56
+  raw: Morris et al. 1989 (CERAD) — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R57
+  raw: Ivanoiu et al. 2015 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R58
+  raw: Colmant et al. 2023 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R59
+  raw: Roses 1996 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R60
+  raw: Corder et al. 1993 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R61
+  raw: Colmant et al. 2024 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R62
+  raw: Vergallo et al. 2019 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false
+- id: R63
+  raw: Boyer et al. 2024 — cited in related_work.md 'Other cited works' (no DOI printed)
+  external_id: not_specified
+  resolvable: false

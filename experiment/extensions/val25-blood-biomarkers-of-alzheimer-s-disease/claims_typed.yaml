@@ -1,0 +1,254 @@
+claims:
+- id: C01
+  claim_type: existence
+  polarity: positive
+  logical_form: cohort_size(SNAC_K,2148) AND baseline_prevalence(MCI,0.177) AND mean_followup(9.6_years) AND incidence(MCI,0.162) AND incidence(all_cause_dementia,0.169) AND fraction_AD_type(0.582) AND mortality(0.513)
+  population_n: 2148
+  population_scope: cohort
+  quantity_refs:
+  - Q01
+  - Q02
+  - Q03
+  - Q04
+  - Q05
+  - Q06
+  - Q07
+  - Q08
+  - Q09
+  - Q10
+  - Q11
+  - Q12
+  - Q13
+  - Q14
+  - Q15
+  - Q16
+  - Q17
+  concept_refs:
+  - EN-condition-mci
+  - EN-outcome-dementia
+  - EN-dataset-snack
+  proof_refs:
+  - E01
+  depends_on: []
+- id: C02
+  claim_type: association
+  polarity: positive
+  logical_form: 'nonlinear_association(biomarker, MCI_to_dementia) FOR biomarker IN {p_tau217,p_tau181,t_tau,NfL,GFAP} AND NOT association(Abeta4240, MCI_to_dementia) AND negative_association(GFAP, MCI_reversion) AND NOT EXISTS biomarker: association(biomarker, NC_to_MCI)'
+  population_n: 2148
+  population_scope: cohort
+  quantity_refs:
+  - Q18
+  concept_refs:
+  - EN-marker-nfl
+  - EN-marker-gfap
+  - EN-marker-p_tau217
+  - EN-marker-p_tau181
+  - EN-marker-t_tau
+  - EN-marker-abeta4240
+  - EN-method-rcs-spline
+  - EN-method-multistate-markov
+  proof_refs:
+  - E02
+  depends_on: []
+- id: C03
+  claim_type: comparison
+  polarity: positive
+  logical_form: HR(NfL_high_vs_low,allcause_dementia)=1.84 AND HR(NfL_high_vs_low,AD_dementia)=2.34 AND HR(p_tau217_high_vs_low,allcause_dementia)=1.74 AND HR(p_tau217_high_vs_low,AD_dementia)=2.11 AND HR(GFAP_high_vs_low,allcause_dementia)=1.47 AND HR(Abeta4240_low_vs_high,allcause_dementia)=1.30
+  population_n: 2148
+  population_scope: cohort
+  quantity_refs:
+  - Q19
+  - Q20
+  - Q21
+  - Q22
+  - Q23
+  - Q24
+  concept_refs:
+  - EN-marker-nfl
+  - EN-marker-p_tau217
+  - EN-marker-gfap
+  - EN-marker-abeta4240
+  - EN-method-dichotomization-cutoffs
+  - EN-measure-hazard-ratio
+  proof_refs:
+  - E03
+  depends_on:
+  - C02
+- id: C04
+  claim_type: comparison
+  polarity: negative
+  logical_form: HR(p_tau181_high_vs_low,MCI_to_NC,basic)=0.50 AND HR(p_tau181_high_vs_low,MCI_to_NC,fully_adjusted)=0.60 AND significant(basic)=true AND significant(fully_adjusted)=false
+  population_n: 2148
+  population_scope: cohort
+  quantity_refs:
+  - Q25
+  - Q26
+  concept_refs:
+  - EN-marker-p_tau181
+  - EN-method-basic-fully-adjusted
+  - EN-measure-hazard-ratio
+  proof_refs:
+  - E03
+  depends_on:
+  - C03
+- id: C05
+  claim_type: existence
+  polarity: negative
+  logical_form: 'NOT EXISTS biomarker: (association(biomarker, NC_to_MCI, continuous) OR association(biomarker, NC_to_MCI, dichotomized))'
+  population_n: 2148
+  population_scope: cohort
+  quantity_refs:
+  - Q27
+  - Q28
+  - Q29
+  - Q30
+  - Q31
+  - Q32
+  concept_refs:
+  - EN-marker-abeta4240
+  - EN-marker-nfl
+  - EN-marker-gfap
+  - EN-condition-mci
+  - EN-method-multistate-markov
+  proof_refs:
+  - E02
+  - E03
+  depends_on:
+  - C02
+  - C03
+- id: C06
+  claim_type: association
+  polarity: negative
+  logical_form: HR(p_tau181_high_vs_low,MCI_to_NC,basic)=0.50 AND HR(NfL_high_vs_low,MCI_to_NC,basic)=0.56 AND HR(NfL_high_vs_low,MCI_to_NC,fully_adjusted)=0.41 AND HR(GFAP_high_vs_low,MCI_to_NC,basic)=0.53 AND HR(GFAP_high_vs_low,MCI_to_NC,fully_adjusted)=0.50
+  population_n: 2148
+  population_scope: cohort
+  quantity_refs:
+  - Q26
+  - Q33
+  - Q34
+  - Q35
+  - Q36
+  concept_refs:
+  - EN-marker-p_tau181
+  - EN-marker-nfl
+  - EN-marker-gfap
+  - EN-method-basic-fully-adjusted
+  proof_refs:
+  - E03
+  depends_on:
+  - C03
+  - C04
+- id: C07
+  claim_type: improvement
+  polarity: positive
+  logical_form: monotonic_increase(HR(count_elevated{p_tau217,NfL,GFAP}), MCI_to_allcause_dementia) AND HR(three_vs_none,AD_dementia)=3.71 AND monotonic_decrease(HR(count_elevated), MCI_to_NC) AND NOT association(count_elevated, NC_to_MCI)
+  population_n: 2148
+  population_scope: cohort
+  quantity_refs:
+  - Q37
+  - Q38
+  - Q39
+  - Q40
+  - Q41
+  - Q42
+  concept_refs:
+  - EN-marker-p_tau217
+  - EN-marker-nfl
+  - EN-marker-gfap
+  - EN-method-multistate-markov
+  proof_refs:
+  - E04
+  depends_on:
+  - C03
+- id: C08
+  claim_type: comparison
+  polarity: positive
+  logical_form: HR(both_high(p_tau217,NfL),allcause_dementia)=2.29 > HR(NfL_only)=1.59 AND HR(both_high,allcause_dementia)=2.29 > HR(p_tau217_only)=1.71 AND HR(both_high,AD_dementia)=3.07 > HR(NfL_only,AD)=2.09 AND HR(both_high,AD_dementia)=3.07 > HR(p_tau217_only,AD)=2.03
+  population_n: 2148
+  population_scope: cohort
+  quantity_refs:
+  - Q43
+  - Q44
+  - Q45
+  - Q46
+  - Q47
+  - Q48
+  concept_refs:
+  - EN-marker-p_tau217
+  - EN-marker-nfl
+  proof_refs:
+  - E05
+  depends_on:
+  - C07
+- id: C09
+  claim_type: comparison
+  polarity: positive
+  logical_form: association_strength(biomarkers,MCI_to_dementia,age<78) > association_strength(biomarkers,MCI_to_dementia,age>=78) AND mixed(association_strength(biomarkers,MCI_reversion,age_strata))
+  population_n: not_specified
+  population_scope: cohort
+  quantity_refs: []
+  concept_refs:
+  - EN-method-multistate-markov
+  proof_refs:
+  - E06
+  depends_on:
+  - C03
+- id: C10
+  claim_type: comparison
+  polarity: positive
+  logical_form: association_strength(biomarkers,MCI_to_allcause_dementia,female) > association_strength(biomarkers,MCI_to_allcause_dementia,male) AND CI_overlap(female,male)=true
+  population_n: not_specified
+  population_scope: cohort
+  quantity_refs: []
+  concept_refs:
+  - EN-method-multistate-markov
+  proof_refs:
+  - E07
+  depends_on:
+  - C03
+- id: C11
+  claim_type: generalization
+  polarity: positive
+  logical_form: consistent(main_results, exclude_baseline_MCI(n=381)) AND NOT_CONSISTENT(attenuated(p_tau181,MCI_to_dementia)) AND NOT_CONSISTENT(attenuated(NfL_GFAP,MCI_reversion))
+  population_n: 1767
+  population_scope: cohort
+  quantity_refs:
+  - Q05
+  concept_refs:
+  - EN-marker-p_tau181
+  - EN-marker-nfl
+  - EN-marker-gfap
+  - EN-condition-mci
+  proof_refs:
+  - E08
+  depends_on:
+  - C03
+  - C04
+  - C06
+- id: C12
+  claim_type: generalization
+  polarity: positive
+  logical_form: consistent(main_results, IPW_weighted_results)
+  population_n: not_specified
+  population_scope: cohort
+  quantity_refs: []
+  concept_refs:
+  - EN-method-ipw
+  proof_refs:
+  - E09
+  depends_on:
+  - C03
+- id: C13
+  claim_type: generalization
+  polarity: positive
+  logical_form: comparable(MCI_based_results, CIND_based_results)
+  population_n: not_specified
+  population_scope: cohort
+  quantity_refs: []
+  concept_refs:
+  - EN-condition-cind
+  - EN-condition-mci
+  proof_refs:
+  - E10
+  depends_on:
+  - C03

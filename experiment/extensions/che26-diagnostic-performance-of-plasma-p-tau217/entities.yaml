@@ -1,0 +1,65 @@
+entities:
+  - id: EN-concept-p_tau
+    term: "Plasma phosphorylated tau (p-tau)"
+    kind: concept
+    xref: not_specified
+
+  - id: EN-marker-p_tau217
+    term: "p-tau217"
+    kind: measure
+    xref: not_specified
+
+  - id: EN-marker-p_tau181
+    term: "p-tau181"
+    kind: measure
+    xref: not_specified
+
+  - id: EN-marker-p_tau231
+    term: "p-tau231"
+    kind: measure
+    xref: not_specified
+
+  - id: EN-method-nma
+    term: "Network meta-analysis (NMA)"
+    kind: method
+    xref: not_specified
+
+  - id: EN-measure-p_score
+    term: "P-score (SUCRA analog)"
+    kind: measure
+    xref: not_specified
+
+  - id: EN-concept-network_geometry
+    term: "Network geometry"
+    kind: concept
+    xref: not_specified
+
+  - id: EN-measure-md_auc
+    term: "Mean difference (MD) in AUC"
+    kind: measure
+    xref: not_specified
+
+  - id: EN-measure-auc
+    term: "Area Under the Curve (AUC)"
+    kind: measure
+    xref: not_specified
+
+  - id: EN-variable-p217_ratio
+    term: "p-tau217/Abeta42 ratio"
+    kind: variable
+    xref: not_specified
+
+  - id: EN-method-analytical_platform
+    term: "Analytical platform (MS vs. immunoassay)"
+    kind: method
+    xref: not_specified
+
+  - id: EN-variable-sample_matrix
+    term: "Sample matrix (plasma vs. serum)"
+    kind: variable
+    xref: not_specified
+
+  - id: EN-concept-at_n_framework
+    term: "AT(N) framework"
+    kind: concept
+    xref: not_specified

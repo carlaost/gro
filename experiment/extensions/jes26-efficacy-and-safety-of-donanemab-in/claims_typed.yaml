@@ -1,0 +1,101 @@
+claims:
+  - id: C01
+    claim_type: improvement
+    polarity: positive
+    logical_form: "improvement(donanemab, placebo, iADRS_CFB, diff=2.32, ci=[0.69,3.95], p=0.005) AND percent_slowing(iADRS, 17.9, ci=[5.2,30.6])"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q01, Q02, Q03, Q04, Q05]
+    concept_refs: [EN-population-eu_eligible, EN-method-hybrid_imputation, EN-measure-clinical_outcome_scales, EN-measure-percent_slowing]
+    proof_refs: [E01]
+    depends_on: []
+  - id: C02
+    claim_type: improvement
+    polarity: positive
+    logical_form: "improvement(donanemab, placebo, CDR_SB_CFB, diff=-0.67, ci=[-0.97,-0.37], p<0.001) AND percent_slowing(CDR_SB, 28.2, ci=[15.2,41.3])"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q06, Q07, Q08]
+    concept_refs: [EN-population-eu_eligible, EN-method-hybrid_imputation, EN-measure-clinical_outcome_scales, EN-measure-percent_slowing]
+    proof_refs: [E01]
+    depends_on: []
+  - id: C03
+    claim_type: improvement
+    polarity: positive
+    logical_form: "risk_reduction(donanemab, placebo, CDR_G_progression, HR=0.597, ci=[0.473,0.754], p<0.001) AND risk_reduction(donanemab, placebo, moderate_dementia_progression, HR=0.528, ci=[0.303,0.919], p=0.024)"
+    population_n: 581
+    population_scope: cohort
+    quantity_refs: [Q09, Q10, Q11, Q12, Q13, Q14, Q15, Q16, Q17, Q18, Q19, Q20, Q21, Q22]
+    concept_refs: [EN-population-eu_eligible, EN-measure-clinical_outcome_scales]
+    proof_refs: [E02]
+    depends_on: []
+  - id: C04
+    claim_type: improvement
+    polarity: positive
+    logical_form: "improvement(donanemab, placebo, CDR_SB_domains, {memory:29.3,orientation:25.5,judgement_problem_solving:29.9,home_hobbies:28.1,personal_care:31.4,community_affairs:16.2}) AND significant(5_of_6_domains) AND not_significant(community_affairs, p=0.052)"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q23, Q24, Q25, Q26, Q27, Q28, Q29, Q30, Q31, Q32, Q33, Q34]
+    concept_refs: [EN-measure-clinical_outcome_scales, EN-measure-percent_slowing]
+    proof_refs: [E01]
+    depends_on: [C02]
+  - id: C05
+    claim_type: comparison
+    polarity: positive
+    logical_form: "greater_proportion(donanemab, placebo, no_CDR_SB_progression, wk52={37,22}, p<0.001; wk76={25,18}, p=0.006)"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q35, Q36, Q37, Q38, Q39, Q40, Q41, Q42, Q43, Q44, Q45, Q46, Q47, Q48]
+    concept_refs: [EN-measure-clinical_outcome_scales]
+    proof_refs: [E03]
+    depends_on: [C02]
+  - id: C06
+    claim_type: improvement
+    polarity: positive
+    logical_form: "time_saved(donanemab, CDR_SB, overall_months=4.9, ci=[3.1,6.8]; low_medium_tau_months=6.9, ci=[4.9,8.9])"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q49, Q50, Q51]
+    concept_refs: [EN-measure-time_saved, EN-measure-clinical_outcome_scales]
+    proof_refs: [E04]
+    depends_on: [C02]
+  - id: C07
+    claim_type: causal
+    polarity: positive
+    logical_form: "reduces(donanemab, amyloid_CL, diff=-75.8, ci=[-79.4,-72.2], p<0.001) AND clearance_rate_increases(donanemab, wk24=33.5, wk52=69.7, wk76=80.5) AND reduces(donanemab, ptau217_log10, diff=-0.20, ci=[-0.22,-0.17])"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q52, Q53, Q54, Q55, Q56, Q57, Q58, Q59, Q60, Q61]
+    concept_refs: [EN-measure-amyloid_centiloids, EN-population-eu_eligible]
+    proof_refs: [E05]
+    depends_on: []
+  - id: C08
+    claim_type: comparison
+    polarity: positive
+    logical_form: "incidence(ARIA_E, donanemab=19.5, placebo=2.0) AND incidence(ARIA_H, donanemab=26.4, placebo=11.1) AND any_ARIA(donanemab=32.0, placebo=12.4, overall_trial_population=36.8) AND deaths(donanemab=1.3, placebo=1.2, ARIA_related_deaths=0)"
+    population_n: 609
+    population_scope: cohort
+    quantity_refs: [Q62, Q63, Q64, Q65, Q66, Q67, Q68, Q69, Q70, Q71, Q72, Q73, Q74, Q75]
+    concept_refs: [EN-measure-aria, EN-variable-apoe_e4_carrier_status, EN-population-eu_eligible]
+    proof_refs: [E06]
+    depends_on: []
+  - id: C09
+    claim_type: generalization
+    polarity: positive
+    logical_form: "increasing_effect(donanemab, LTE, over_weeks=154) AND risk_reduction(early_start, delayed_start, CDR_G_progression, 29, wk154) AND maintained(amyloid_clearance, post_treatment_completion)"
+    population_n: not_specified
+    population_scope: cohort
+    quantity_refs: [Q76, Q77]
+    concept_refs: [EN-concept-lte_early_delayed_start, EN-method-propensity_score_weighting, EN-concept-treatment_course_completion_criteria]
+    proof_refs: [E07]
+    depends_on: []
+  - id: C10
+    claim_type: generalization
+    polarity: positive
+    logical_form: "consistent(CDR_SB_slowing, with_imputation=28.2, without_imputation=30.8, overall_trial_population=28.9) AND range(percent_slowing_wk76, 18, 28)"
+    population_n: not_specified
+    population_scope: multi_cohort
+    quantity_refs: [Q03, Q06, Q08, Q78, Q79, Q80, Q81, Q82, Q83, Q84, Q85, Q86, Q87, Q88, Q89]
+    concept_refs: [EN-method-hybrid_imputation, EN-measure-percent_slowing, EN-population-eu_eligible]
+    proof_refs: [E08]
+    depends_on: [C01, C02]

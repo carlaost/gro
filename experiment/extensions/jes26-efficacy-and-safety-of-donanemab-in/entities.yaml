@@ -1,0 +1,57 @@
+entities:
+  - id: EN-population-eu_indicated
+    term: "EU-indicated population"
+    kind: concept
+    xref: not_specified
+  - id: EN-population-eu_eligible
+    term: "EU-eligible population"
+    kind: concept
+    xref: not_specified
+  - id: EN-variable-apoe_e4_carrier_status
+    term: "APOE ε4 carrier status (non-carrier / heterozygote / homozygote)"
+    kind: variable
+    xref: not_specified
+  - id: EN-method-hybrid_imputation
+    term: "Conservative hybrid imputation (J2R/CIR)"
+    kind: method
+    xref: not_specified
+  - id: EN-method-jump_to_reference
+    term: "Jump-to-reference (J2R)"
+    kind: method
+    xref: not_specified
+  - id: EN-method-copy_increment_reference
+    term: "Copy increment reference (CIR)"
+    kind: method
+    xref: not_specified
+  - id: EN-measure-percent_slowing
+    term: "Percent slowing"
+    kind: measure
+    xref: not_specified
+  - id: EN-measure-aria
+    term: "Amyloid-related imaging abnormalities (ARIA-E, ARIA-H)"
+    kind: measure
+    xref: not_specified
+  - id: EN-measure-amyloid_centiloids
+    term: "Amyloid clearance / Centiloids"
+    kind: measure
+    xref: not_specified
+  - id: EN-measure-clinical_outcome_scales
+    term: "Clinical outcome scales (iADRS, CDR-SB, CDR-G, ADAS-Cog13, ADCS-iADL, MMSE)"
+    kind: measure
+    xref: not_specified
+  - id: EN-concept-treatment_course_completion_criteria
+    term: "Treatment course completion criteria"
+    kind: concept
+    xref: not_specified
+  - id: EN-concept-lte_early_delayed_start
+    term: "Long-term extension (LTE) with early-start / delayed-start groups"
+    kind: concept
+    xref: not_specified
+  - id: EN-method-propensity_score_weighting
+    term: "Propensity score weighting / ADNI external control"
+    kind: method
+    xref: not_specified
+  - id: EN-measure-time_saved
+    term: "Time saved (time-progression model)"
+    kind: measure
+    xref: not_specified
