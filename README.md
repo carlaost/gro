@@ -6,6 +6,8 @@ This repository is the research outcome of a program asking a blunt question: **
 
 It is designed to be imported into the parent [`dasmodel`](https://github.com/carlaost/dasmodel) repo as a git submodule (see below), but stands on its own.
 
+**Start here:** [`paper/gro-paper.pdf`](paper/gro-paper.pdf) — a 5-page digest of the whole thing (problem → metrics → negative result → affordance gap → GRO → limitations → next steps). The rest of the repo is the long-form backing.
+
 > **Status.** GRO is a design specification, adversarially stress-tested but **empirically unvalidated**. It has not yet been shown to discriminate good science from bad; its judged tier does not scale to a whole corpus; and its anti-gaming guarantees rest on an independence between automated checkers that is asserted, not measured. Those gaps are stated plainly in [`SPEC.md`](SPEC.md) §7 and are the work still to be done, not hidden. This is a substrate *critique and design* artifact — not an implementation, and not a successor to any existing format by inheritance.
 
 ---
