@@ -6,6 +6,8 @@
 
 ## 0. Abstract
 
+*Primary result up front (§2): the core test is the substrate benchmark — the GRO extension vs the raw ARA shape with the metric held constant (H1), and the GRO metrics vs the ARA verifier (H2). The extension's value is affordance, cost, and determinism — not fidelity on metrics the ARA already encodes — and the verifier is complementary to, not beaten by, the deterministic metrics.*
+
 We compare three distinct approaches to evaluating **Agent-Native Research Artifacts (ARAs)** — machine-readable knowledge packages compiled from published papers — over a fixed corpus of **12 ARAs** in the Alzheimer's disease / neurodegeneration domain. The three approaches occupy different **rigor tiers**:
 
 1. **GRO ideal metrics (Tier A, deterministic + reliable-anchored + reproducible-judged).** A battery of metrics computed over the ARA's typed graph (claims, quantities, references, entities, genre), plus a smaller set of externally anchored checks (live PubMed / registry lookups) run on the biomarker/trial half of the corpus.
@@ -62,30 +64,60 @@ The central empirical claim of this paper is that these tiers are **near-orthogo
 
 ---
 
-## 2. The GRO ideal metrics: best vs. most uncertain
+## 2. Core hypothesis — the substrate benchmark (primary result)
+
+The load-bearing test is not "GRO metrics vs v3" (that comparison, later, is secondary context — different metric *designs*). It is two sharper questions: **(H1) does the GRO extension beat the raw ARA shape when the metric is held constant?** and **(H2) how do the GRO metrics stand against the ARA verifier (Seal)?** Both were benchmarked directly (`benchmark.py`, `benchmark.json`).
+
+### 2.1 H1 — GRO extension vs raw ARA, same metric, two shapes
+
+Four of the eight GRO metrics are expressible on *both* shapes, so the identical metric logic was run over (a) the raw ARA prose (parsed from `claims.md` / `related_work.md` / `experiments.md`) and (b) the GRO typed sidecars; reference-resolvability was additionally checked against **live PubMed**.
+
+[[FIG:bench_coverage]]
+
+**The extension's real win is enabling, not improving.** Only 4 of the 8 GRO metrics have *any* prose form; the other 4 — claim-typing, entity-anchoring, over-claim, genre — are computable **only** on the typed shape (the raw ARA has no field to read). That is what the extension buys: metrics the substrate could not express at all.
+
+**But typing an already-expressible metric is not a free lunch — and can lose fidelity.** On the 4 shared constructs the substrate *materially changes the value* (mean |prose − typed| = 0.21 / 0.17 / 0.28), and on the one construct with external ground truth, the **raw ARA prose is closer to PubMed truth than the typed sidecar (MAE 0.31 vs 0.44)** — the LLM extension conservatively under-declared resolvable references that the prose (carrying the actual DOIs) captured. Typing re-encodes, and re-encoding by an LLM can drift.
+
+[[FIG:bench_fidelity]]
+
+[[FIG:bench_shape_speed]]
+
+Where typing wins unambiguously among the shared constructs is **cost and determinism**: reading a typed field is ~100× faster than parsing prose (reference resolvability 0.05 ms vs 4.9 ms across 12 ARAs) and is bit-identical on rerun.
+
+**H1 verdict.** The extension earns its place by (i) making 4 previously-inexpressible metrics computable and (ii) determinism / uniformity / speed — **not** by improving metrics the raw ARA already supports, where LLM re-encoding can even reduce fidelity. "GRO > ARA" holds for *affordance and cost*, not for *fidelity on what ARA already encodes*.
+
+### 2.2 H2 — ARA verifier (Seal L2) vs GRO metrics
+
+[[FIG:verifier_vs_gro]]
+
+Head-to-head on performance: the **GRO metrics win** coverage (12/12), determinism/reproducibility, compute cost (**0 LLM tokens** vs ~66k tokens per ARA for a Seal review), auditability (every score traces to a typed field), and external-truth-checkability. The **Seal wins the one dimension that most bears on science quality**: it reaches semantic judgments — scope calibration, argument coherence, evidence relevance — that the deterministic metrics are structurally blind to (it flags che26's C05 over-generalization where GRO's over-claim count is 0).
+
+**H2 verdict.** Not a winner — **complementary**. The GRO metrics are a cheap, auditable, deterministic *floor*; the verifier is the calibrated *judgement* on top. Neither, alone, separates good science from bad — and this corpus has no known-bad papers to prove either could.
+
+## 3. The GRO ideal metrics: best vs. most uncertain
 
 GRO's own analysis ranks its metrics by reliability. The top-3 are metrics that fire consistently and are hard to game; the bottom-3 are metrics whose *construct validity* is in doubt — including one that is directly falsified by GRO's own anchored check.
 
-### 2.1 The three best
+### 3.1 The three best
 
 1. **`claim_typing_coverage` (deterministic).** 1.0 across all 12/12 ARAs, 0 nulls. A pure structural presence/enum check (`claim_type ∈ enum AND logical_form ≠ not_specified`) with no external dependency. Gaming it would require fabricating a non-empty logical form for *every* claim — a visible, checkable artifact. Zero variance across five very different genres is evidence the check is well-specified, not trivially true. **Caveat: this same zero variance means it has no discriminating power in this corpus.**
 2. **`quantity_reconciliation_rate` (deterministic).** 1.0 across all 10/12 ARAs where it is defined (null for zho25, aki26 — structurally vacuous, no quantity cited by ≥2 claims). An arithmetic cross-check between two independently authored fields (the ledger's canonical value vs. the numeral embedded in the claim's own quote). The only blemish is coverage, not correctness.
 3. **`retractions` (reliable-anchored).** 0 found across all 6 externally-checked ARAs and their top-cited references, each verified via itemized live PubMed publication-type queries. Anchored to an authority the ARA author cannot edit. **Caveat: floor effect — the corpus contains no known-bad papers, so this is proven trustworthy, not proven discriminating.**
 
-### 2.2 The three most uncertain
+### 3.2 The three most uncertain
 
 1. **`reference_resolvability_rate` (self-declared / deterministic).** The one metric with a direct ground-truth check on the *same quantity* — and the ground truth contradicts it. Declared corpus mean **0.5197** vs. independently observed **0.9583** (a ≈0.44 gap). val25 declares 0.0 (0/55) but PubMed resolved 9/12 sampled refs; han26 declares 0.19 but resolves 1.0; tit26 declares 0.132 but resolves 1.0. Per GRO's own conclusion, the deterministic metric "scores DOI-capture completeness rather than reference verifiability" — it measures whether the compiler captured a DOI at compile time, not whether the reference is real.
 2. **Prior-literature novelty verdict (reproducible-judged).** 22.6% of checked claims (7/31) land in `cannot_determine`; verdicts split almost evenly across all four categories (novel 32.3% / incremental 32.3% / cannot_determine 22.6% / previously_reported 12.9%). Each verdict rests on an LLM judgment over a PubMed search, and the methodology surfaces its own limit — "absence of a PubMed hit is not strong evidence of absence." Only 31 claims across 6/12 ARAs are covered at all.
 3. **Trial-registry concordance (anchored + judged).** Only 2 trial papers exist to check (zim25, jes26), and **both are post-hoc analyses of the exact same trial, NCT04437511** — so, per the source file, "registry-concordance evidence is effectively a single data point." The concordance-gap verdict (post-hoc CDR-Global HR, plasma p-tau217, LTE-vs-ADNI comparisons added beyond registered outcomes) is real but generalizes to nothing. 10/12 ARAs have registry = null.
 
-### 2.3 Also flagged (construct-validity concerns)
+### 3.3 Also flagged (construct-validity concerns)
 
 - **`genre_silent_omissions`** has a documented formula bug: `count(expected) − count(present) − count(absent_declared)` can go **negative** (zho25 = −1) when a genre's `present_slots` includes a slot outside its own `expected_slots` list.
 - **`broken_ref_integrity`** is 100% concentrated in one ARA (ard25 = 16/16); ard25's own diagnostics attribute this to a missing `logic/experiments.md` file, not genuinely broken citations — the metric conflates "cites a nonexistent id" with "cites a real id in a ledger the compiler never found."
 - **`overclaim_flags`** concentrates almost entirely in two genres (xu25 epidemiological projections = 11/13; cum26 pipeline census = 9/10) that structurally traffic in population-level estimates lacking a single sample-size field — raising the question of whether it flags overclaiming or just a genre feature.
 - **`entity_anchoring_rate`** = 0.0 for all 12/12 ARAs — a corpus-wide pipeline gap (no ARA does ontology linking), reliably measured but with zero discriminating power.
 
-### 2.4 Per-metric summary
+### 3.4 Per-metric summary
 
 | GRO metric | Tier | Corpus stat | Coverage | Reliability verdict |
 |---|---|---|---|---|
@@ -104,7 +136,7 @@ GRO's own analysis ranks its metrics by reliability. The top-3 are metrics that 
 
 \*`overclaim_flags` is nominally deterministic but scored over LLM-typed `population_scope` / `population_n` fields.
 
-### 2.5 The full deterministic grid
+### 3.5 The full deterministic grid
 
 Every deterministic metric, every ARA. `CTC` and `EAR` are constant (1.0 and 0.0) and carry no discriminating information; the action is in the middle columns.
 
@@ -127,7 +159,7 @@ Every deterministic metric, every ARA. `CTC` and `EAR` are constant (1.0 and 0.0
 
 ---
 
-## 3. Held against the first ARA-inferred design (v3)
+## 4. Held against the first ARA-inferred design (v3)
 
 ### 3.1 The coverage gap is architectural
 
@@ -163,7 +195,7 @@ v3's own tournament headline — **0/6 usable paper_rankers** — is confirmed o
 
 ---
 
-## 4. Held against the ARA verifier (Seal L2)
+## 5. Held against the ARA verifier (Seal L2)
 
 ### 4.1 Per-ARA Seal scorecard
 
@@ -234,7 +266,7 @@ Seal is **essentially uncorrelated** with both structural instruments, which cor
 
 ---
 
-## 5. Synthesis: three complementary tiers
+## 6. Synthesis: three complementary tiers
 
 The correlation structure is not a defect in any instrument — it is the empirical signature of the tier gap.
 
@@ -246,7 +278,7 @@ The correlation structure is not a defect in any instrument — it is the empiri
 
 ---
 
-## 6. Limitations
+## 7. Limitations
 
 We are deliberately conservative about what this comparison establishes.
 

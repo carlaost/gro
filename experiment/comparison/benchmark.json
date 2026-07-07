@@ -1,0 +1,554 @@
+{
+ "per_ara": [
+  {
+   "slug": "che26",
+   "prose": {
+    "quote_consistency": {
+     "value": 1.0,
+     "n": 27
+    },
+    "entailment_precondition": {
+     "value": 1.0,
+     "n": 8
+    },
+    "reference_resolvability": {
+     "value": 0.875,
+     "n": 16
+    },
+    "broken_ref_rate": {
+     "broken": 0,
+     "n": 9
+    }
+   },
+   "typed": {
+    "quote_consistency": {
+     "value": 1.0,
+     "n": 23
+    },
+    "entailment_precondition": {
+     "value": 1.0,
+     "n": 8
+    },
+    "reference_resolvability": {
+     "value": 0.9444444444444444,
+     "n": 36
+    },
+    "broken_ref_rate": {
+     "broken": 0,
+     "n": 9
+    }
+   },
+   "truth": {
+    "reference_resolvability": 1.0
+   }
+  },
+  {
+   "slug": "val25",
+   "prose": {
+    "quote_consistency": {
+     "value": 0.9629629629629629,
+     "n": 27
+    },
+    "entailment_precondition": {
+     "value": 1.0,
+     "n": 13
+    },
+    "reference_resolvability": {
+     "value": 0.0,
+     "n": 13
+    },
+    "broken_ref_rate": {
+     "broken": 0,
+     "n": 13
+    }
+   },
+   "typed": {
+    "quote_consistency": {
+     "value": 1.0,
+     "n": 48
+    },
+    "entailment_precondition": {
+     "value": 0.6923076923076923,
+     "n": 13
+    },
+    "reference_resolvability": {
+     "value": 0.0,
+     "n": 55
+    },
+    "broken_ref_rate": {
+     "broken": 0,
+     "n": 14
+    }
+   },
+   "truth": {
+    "reference_resolvability": 0.75
+   }
+  },
+  {
+   "slug": "han26",
+   "prose": {
+    "quote_consistency": {
+     "value": 0.8709677419354839,
+     "n": 31
+    },
+    "entailment_precondition": {
+     "value": 1.0,
+     "n": 12
+    },
+    "reference_resolvability": {
+     "value": 0.8333333333333334,
+     "n": 12
+    },
+    "broken_ref_rate": {
+     "broken": 0,
+     "n": 13
+    }
+   },
+   "typed": {
+    "quote_consistency": {
+     "value": 0.9574468085106383,
+     "n": 94
+    },
+    "entailment_precondition": {
+     "value": 1.0,
+     "n": 12
+    },
+    "reference_resolvability": {
+     "value": 0.19047619047619047,
+     "n": 63
+    },
+    "broken_ref_rate": {
+     "broken": 0,
+     "n": 13
+    }
+   },
+   "truth": {
+    "reference_resolvability": 1.0
+   }
+  },
+  {
+   "slug": "zim25",
+   "prose": {
+    "quote_consistency": {
+     "value": 1.0,
+     "n": 23
+    },
+    "entailment_precondition": {
+     "value": 1.0,
+     "n": 12
+    },
+    "reference_resolvability": {
+     "value": 0.9090909090909091,
+     "n": 11
+    },
+    "broken_ref_rate": {
+     "broken": 0,
+     "n": 12
+    }
+   },
+   "typed": {
+    "quote_consistency": {
+     "value": 1.0,
+     "n": 60
+    },
+    "entailment_precondition": {
+     "value": 1.0,
+     "n": 12
+    },
+    "reference_resolvability": {
+     "value": 0.9565217391304348,
+     "n": 23
+    },
+    "broken_ref_rate": {
+     "broken": 0,
+     "n": 12
+    }
+   },
+   "truth": {
+    "reference_resolvability": 1.0
+   }
+  },
+  {
+   "slug": "jes26",
+   "prose": {
+    "quote_consistency": {
+     "value": 1.0,
+     "n": 23
+    },
+    "entailment_precondition": {
+     "value": 1.0,
+     "n": 10
+    },
+    "reference_resolvability": {
+     "value": 0.7272727272727273,
+     "n": 11
+    },
+    "broken_ref_rate": {
+     "broken": 0,
+     "n": 10
+    }
+   },
+   "typed": {
+    "quote_consistency": {
+     "value": 1.0,
+     "n": 89
+    },
+    "entailment_precondition": {
+     "value": 1.0,
+     "n": 10
+    },
+    "reference_resolvability": {
+     "value": 0.8947368421052632,
+     "n": 19
+    },
+    "broken_ref_rate": {
+     "broken": 0,
+     "n": 10
+    }
+   },
+   "truth": {
+    "reference_resolvability": 1.0
+   }
+  },
+  {
+   "slug": "tit26",
+   "prose": {
+    "quote_consistency": {
+     "value": 0.9583333333333334,
+     "n": 24
+    },
+    "entailment_precondition": {
+     "value": 1.0,
+     "n": 11
+    },
+    "reference_resolvability": {
+     "value": 0.5384615384615384,
+     "n": 13
+    },
+    "broken_ref_rate": {
+     "broken": 0,
+     "n": 12
+    }
+   },
+   "typed": {
+    "quote_consistency": {
+     "value": 0.9672131147540983,
+     "n": 61
+    },
+    "entailment_precondition": {
+     "value": 1.0,
+     "n": 11
+    },
+    "reference_resolvability": {
+     "value": 0.1320754716981132,
+     "n": 53
+    },
+    "broken_ref_rate": {
+     "broken": 0,
+     "n": 12
+    }
+   },
+   "truth": {
+    "reference_resolvability": 1.0
+   }
+  },
+  {
+   "slug": "gau25",
+   "prose": {
+    "quote_consistency": {
+     "value": 0.0,
+     "n": 48
+    },
+    "entailment_precondition": {
+     "value": 1.0,
+     "n": 14
+    },
+    "reference_resolvability": {
+     "value": 0.1,
+     "n": 20
+    },
+    "broken_ref_rate": {
+     "broken": 0,
+     "n": 14
+    }
+   },
+   "typed": {
+    "quote_consistency": {
+     "value": 0.9347826086956522,
+     "n": 46
+    },
+    "entailment_precondition": {
+     "value": 0.5714285714285714,
+     "n": 14
+    },
+    "reference_resolvability": {
+     "value": 0.1,
+     "n": 20
+    },
+    "broken_ref_rate": {
+     "broken": 0,
+     "n": 14
+    }
+   },
+   "truth": {
+    "reference_resolvability": null
+   }
+  },
+  {
+   "slug": "zho25",
+   "prose": {
+    "quote_consistency": {
+     "value": 1.0,
+     "n": 23
+    },
+    "entailment_precondition": {
+     "value": 0.9285714285714286,
+     "n": 14
+    },
+    "reference_resolvability": {
+     "value": 0.0,
+     "n": 14
+    },
+    "broken_ref_rate": {
+     "broken": 0,
+     "n": 14
+    }
+   },
+   "typed": {
+    "quote_consistency": {
+     "value": 0.6578947368421053,
+     "n": 38
+    },
+    "entailment_precondition": {
+     "value": 0.5,
+     "n": 14
+    },
+    "reference_resolvability": {
+     "value": 0.0,
+     "n": 38
+    },
+    "broken_ref_rate": {
+     "broken": 0,
+     "n": 14
+    }
+   },
+   "truth": {
+    "reference_resolvability": null
+   }
+  },
+  {
+   "slug": "aki26",
+   "prose": {
+    "quote_consistency": {
+     "value": 1.0,
+     "n": 16
+    },
+    "entailment_precondition": {
+     "value": 1.0,
+     "n": 10
+    },
+    "reference_resolvability": {
+     "value": 1.0,
+     "n": 12
+    },
+    "broken_ref_rate": {
+     "broken": 0,
+     "n": 14
+    }
+   },
+   "typed": {
+    "quote_consistency": {
+     "value": 0.9655172413793104,
+     "n": 29
+    },
+    "entailment_precondition": {
+     "value": 0.4,
+     "n": 10
+    },
+    "reference_resolvability": {
+     "value": 0.13636363636363635,
+     "n": 88
+    },
+    "broken_ref_rate": {
+     "broken": 0,
+     "n": 14
+    }
+   },
+   "truth": {
+    "reference_resolvability": null
+   }
+  },
+  {
+   "slug": "cum26",
+   "prose": {
+    "quote_consistency": {
+     "value": 0.9411764705882353,
+     "n": 17
+    },
+    "entailment_precondition": {
+     "value": 1.0,
+     "n": 10
+    },
+    "reference_resolvability": {
+     "value": 1.0,
+     "n": 10
+    },
+    "broken_ref_rate": {
+     "broken": 0,
+     "n": 10
+    }
+   },
+   "typed": {
+    "quote_consistency": {
+     "value": 0.9375,
+     "n": 64
+    },
+    "entailment_precondition": {
+     "value": 1.0,
+     "n": 10
+    },
+    "reference_resolvability": {
+     "value": 1.0,
+     "n": 10
+    },
+    "broken_ref_rate": {
+     "broken": 0,
+     "n": 10
+    }
+   },
+   "truth": {
+    "reference_resolvability": null
+   }
+  },
+  {
+   "slug": "xu25",
+   "prose": {
+    "quote_consistency": {
+     "value": 0.0,
+     "n": 36
+    },
+    "entailment_precondition": {
+     "value": 1.0,
+     "n": 13
+    },
+    "reference_resolvability": {
+     "value": 1.0,
+     "n": 7
+    },
+    "broken_ref_rate": {
+     "broken": 0,
+     "n": 13
+    }
+   },
+   "typed": {
+    "quote_consistency": {
+     "value": 0.984375,
+     "n": 64
+    },
+    "entailment_precondition": {
+     "value": 0.9230769230769231,
+     "n": 13
+    },
+    "reference_resolvability": {
+     "value": 0.13725490196078433,
+     "n": 51
+    },
+    "broken_ref_rate": {
+     "broken": 0,
+     "n": 13
+    }
+   },
+   "truth": {
+    "reference_resolvability": null
+   }
+  },
+  {
+   "slug": "ard25",
+   "prose": {
+    "quote_consistency": {
+     "value": 0.8611111111111112,
+     "n": 36
+    },
+    "entailment_precondition": {
+     "value": 1.0,
+     "n": 13
+    },
+    "reference_resolvability": {
+     "value": null,
+     "n": 0
+    },
+    "broken_ref_rate": {
+     "broken": null,
+     "n": 0
+    }
+   },
+   "typed": {
+    "quote_consistency": {
+     "value": 0.987012987012987,
+     "n": 77
+    },
+    "entailment_precondition": {
+     "value": 0.7692307692307693,
+     "n": 13
+    },
+    "reference_resolvability": {
+     "value": 0.0,
+     "n": 6
+    },
+    "broken_ref_rate": {
+     "broken": null,
+     "n": 0
+    }
+   },
+   "truth": {
+    "reference_resolvability": null
+   }
+  }
+ ],
+ "benchmark": {
+  "constructs": {
+   "quote_consistency": {
+    "prose_coverage": 1.0,
+    "typed_coverage": 1.0,
+    "mean_abs_prose_vs_typed": 0.213,
+    "n_both": 12
+   },
+   "entailment_precondition": {
+    "prose_coverage": 1.0,
+    "typed_coverage": 1.0,
+    "mean_abs_prose_vs_typed": 0.173,
+    "n_both": 12
+   },
+   "reference_resolvability": {
+    "prose_coverage": 0.917,
+    "typed_coverage": 1.0,
+    "mean_abs_prose_vs_typed": 0.278,
+    "n_both": 11
+   }
+  },
+  "timing_ms": {
+   "prose": {
+    "quote_consistency": 1.8,
+    "entailment_precondition": 0.06,
+    "reference_resolvability": 4.91,
+    "broken_ref_rate": 0.03
+   },
+   "typed": {
+    "quote_consistency": 1.96,
+    "entailment_precondition": 0.14,
+    "reference_resolvability": 0.05,
+    "broken_ref_rate": 0.02
+   }
+  },
+  "reference_resolvability_fidelity": {
+   "prose_MAE_vs_pubmed": 0.311,
+   "n": 6,
+   "typed_MAE_vs_pubmed": 0.439
+  },
+  "broken_ref_total": {
+   "prose": 0,
+   "typed": 0
+  }
+ },
+ "note": "Same metric logic over two shapes: prose = parsed from raw ARA (claims.md/related_work.md/experiments.md); typed = read from gro/*.yaml sidecars. Reference-resolvability fidelity is measured against the live-PubMed observed rate (6 ARAs)."
+}
