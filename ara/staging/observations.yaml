@@ -1,0 +1,751 @@
+observations:
+  - id: O01
+    timestamp: "2026-07-05"
+    provenance: ai-suggested
+    content: >
+      The metric-design space over an ARA library decomposes into 7 directions across two axes:
+      scope (local per-artifact / graph across the library / grounded via external DBs) and
+      virtue of good science (reproducibility, rigor, process-transparency, novelty, corroboration,
+      translation). Directions: (1) reproducibility & spec-completeness, (2) claim & evidence
+      integrity, (3) process transparency & negative knowledge, (4) novelty & typed-dependency
+      structure, (5) cross-library claim graph, (6) real-world grounding/translation, (7) artifact
+      quality (meta, used to weight 4-5).
+    context: >
+      User asked (turn 3) to read the ARA paper + compiler and propose metric directions for a
+      ~140-paper ARA library that count 'good science'. AI drafted research/metrics-directions.md.
+    potential_type: concept
+    bound_to: [N27]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+
+  - id: O02
+    timestamp: "2026-07-05"
+    provenance: ai-suggested
+    content: >
+      The flagship metric is a cross-library claim graph built from oshima's typed claims + typed
+      evidence (support/contradict/contextual) + FOL dedup (N14): corroboration count (independent
+      papers supporting an FOL-equivalent claim), contradiction/contested score, replication depth
+      (claims L3-reproduced by >=N artifacts), and real knowledge-reuse (imports/extends/reproduces
+      by later ARAs, time-ordered). Proposed as an evidential alternative to the social citation
+      network, directly targeting O4 (citations as a broken proxy).
+    context: >
+      Highest-leverage of the 7 directions per the drafted proposal; routes the project's
+      distinctive value.
+    potential_type: claim
+    bound_to: [N27, N14]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+
+  - id: O03
+    timestamp: "2026-07-05"
+    provenance: ai-suggested
+    content: >
+      Design principle for the metric system: Goodhart-resistance comes from using many independent
+      structure-derived signals (not one number) and from rewarding exactly what citations punish
+      (documented dead-ends, refutations, contested claims, replications). Any metric needing
+      semantic judgment (evidence-relevance, falsifiability, scope-calibration) must extract findings
+      with an LLM but compute the number deterministically from the findings list — because the ARA
+      paper documents LLM-as-judge grade inflation + finding-score decoupling (N13).
+    context: >
+      Cross-cutting principle in research/metrics-directions.md; ties the metric proposal back to the
+      paper's own review-system failure modes.
+    potential_type: heuristic
+    bound_to: [N27, N13]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O04
+    timestamp: "2026-07-05"
+    provenance: ai-executed
+    content: >
+      Empirical finding from the wave-1 metrics run: this AD blood-biomarker corpus exhibits the
+      Storytelling-Tax pattern the metrics are built to expose — near-zero negative-result share,
+      ~0 documented dead-ends, and status almost uniformly 'supported' across 84 claims. Process
+      transparency (D3) and executable reproduction (D1-L3) are structurally low/N-A for clinical
+      trials, reviews, and guidelines (0 code repos, request-only datasets), while real-world
+      grounding (D6) is strong (verified NCTs). I.e., the metric that discriminates within this
+      corpus is grounding/rigor + translation, not reproduction or negative-knowledge.
+    context: >
+      Ran research/metrics/compute_metrics.py over 10 OA ARAs (turn 9); see coverage-gaps.md.
+    potential_type: claim
+    bound_to: [N30, N27]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+
+  - id: O05
+    timestamp: "2026-07-05"
+    provenance: ai-suggested
+    content: >
+      Metric-design constraint: the D1 spec-completeness 'setup proxy' scores ML-style slots
+      (Model/Hardware/Dataset/System) and reads ~0 for every clinical paper, so it is invalid for
+      this domain. D1 spec-completeness needs a domain-appropriate reproduction rubric (cohort,
+      assay/platform, positivity cutoffs, statistical model, sample size) rather than the ML rubric.
+    context: >
+      Observed across all 10 wave-1 ARAs (spec_completeness_setup_proxy 0.0-0.25); flagged in
+      coverage-gaps.md gap #6.
+    potential_type: constraint
+    bound_to: [N30]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+
+  - id: O06
+    timestamp: "2026-07-05"
+    provenance: ai-suggested
+    content: >
+      Review finding: several [det] metrics are near-ceiling with ~0 variance across the 10 ARAs
+      (falsifiability presence 1.0 all, cross-layer binding 0.99, seal-L1 0.97), so they are measuring
+      the COMPILER's consistency (it reliably emits the fields) rather than the papers' quality — a
+      non-discriminating signal. Relatedly, woj25's grounding=0 is a compile defect, not an authorship
+      defect, so D2 currently conflates artifact-compilation quality (D7) with paper quality (D1-D2).
+      Fix direction: separate/normalize compiler-quality from paper-quality (e.g. per-compiler-version
+      baseline) before treating these scores as quality rankings.
+    context: >
+      My critical review of the wave-1 test run (turn 11), requested by the user.
+    potential_type: constraint
+    bound_to: [N30, N27]
+    promoted: true
+    promoted_to: logic/solution/heuristics.md:H04
+    crystallized_via: artifact-commitment
+    stale: false
+
+  - id: O07
+    timestamp: "2026-07-05"
+    provenance: ai-suggested
+    content: >
+      Review finding: metrics must be GENRE-AWARE. Clinical trials/reviews/guidelines structurally
+      lack code (D1-L3), documented failures (D3 floors ~0), and negative results (negative-result
+      share ~0); scoring these 0 penalizes a paper for its genre rather than its quality. For genres
+      that structurally lack a dimension, report "N/A for genre" not 0. On this clinical corpus the
+      informative discriminators are grounding (D2) and trial-linkage (D6); the near-ceiling structural
+      metrics and the floored D3/L3 are not. D5 (flagship cross-library graph) remains entirely
+      unvalidated at n=10.
+    context: >
+      My critical review of the wave-1 test run (turn 11); complements O05 (spec-proxy mismatch).
+    potential_type: constraint
+    bound_to: [N30, N27]
+    promoted: true
+    promoted_to: logic/solution/heuristics.md:H02
+    crystallized_via: artifact-commitment
+    stale: false
+
+  - id: O08
+    timestamp: "2026-07-05"
+    provenance: ai-suggested
+    content: >
+      Design learning: some 'metrics' are validity GATES, not quality RANKERS, and were mislabeled.
+      Cross-layer binding resolvability (~0.99) and seal-L1 (~0.97) being near-ceiling is correct — a
+      well-formed ARA is supposed to have resolving links; these are L1 pass/fail hygiene checks.
+      Averaging/ranking on them is a category error. Fix: separate binary gate metrics (hygiene) from
+      continuous ranking metrics (quality); don't report variance on gates. Refines O06.
+    context: "Defense/learnings reflection on my own critique (turn 12)."
+    potential_type: constraint
+    bound_to: [N30, N27]
+    promoted: true
+    promoted_to: logic/solution/heuristics.md:H01
+    crystallized_via: artifact-commitment
+    stale: false
+
+  - id: O09
+    timestamp: "2026-07-05"
+    provenance: ai-suggested
+    content: >
+      Design learning (self-caught over-claim): the grounding ratio only verifies that a «quote» is
+      PRESENT beside a number, not that the quote is real or actually supports the number. So
+      grounding=1.0 means 'claims are quote-decorated', not 'claims are verifiably grounded'. A true
+      grounding metric needs a re-open-the-source verification step (the [sem]/[det]-verify pass not
+      yet built). My earlier 'grounding is the metric that earned its keep' was itself scope-inflated —
+      the exact failure the metrics are meant to catch.
+    context: "Turn-12 reflection; the one metric I praised is weaker than claimed."
+    potential_type: constraint
+    bound_to: [N30, N27]
+    promoted: true
+    promoted_to: logic/solution/heuristics.md:H03
+    crystallized_via: artifact-commitment
+    stale: false
+
+  - id: O10
+    timestamp: "2026-07-05"
+    provenance: ai-suggested
+    content: >
+      Meta-learning on evaluation: the wave-1 test bed (10 single-genre, backprocessed, code-free,
+      non-cross-citing clinical papers) is close to worst-case for these metrics, which were designed
+      for cross-genre, at-scale, NATIVE-capture (live-authoring) use. Much of the apparent 'failure'
+      (compiler-conflation, floored L3/D3, all-zero D5) is test-design, not metric-design — and the
+      test-bed choice was mine to own. Learning: evaluate the metrics on a corpus that can actually
+      exercise them (heterogeneous genres, some code-shipping papers, some papers that share trials/
+      cite each other).
+    context: "Turn-12 defense: distinguishing test-design error from metric-design error."
+    potential_type: constraint
+    bound_to: [N30]
+    promoted: true
+    promoted_to: logic/solution/heuristics.md:H05
+    crystallized_via: artifact-commitment
+    stale: false
+
+  - id: O11
+    timestamp: "2026-07-05"
+    provenance: ai-executed
+    content: >
+      Empirical finding (V2 run, N32): in the wave-1 AD-biomarker library, V1's grounding scores were
+      largely unverifiable — 5/10 ARAs (cum26, jes26, kes25, pal25, tit26) ground every claim number to
+      paper.pdf §refs, giving 0 in-repo-checkable quotes despite V1 presence scores of 0.72-1.0. Only
+      che26 grounds richly to in-repo evidence files (verified 0.905). sal25/sal26/the25 verify 1.0 on
+      their (few) in-repo quotes; woj25 has no grounding layer at all. Implication: whether the compiler
+      grounds to in-repo evidence vs the source PDF is the dominant, currently-uncontrolled factor in
+      grounding scores — arguably the compiler should prefer in-repo evidence citations so grounding is
+      verifiable by default.
+    context: "V2 verified-grounding pass (turn 13); see comparison_v1_v2.md."
+    potential_type: claim
+    bound_to: [N32, N27]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+
+  - id: O12
+    timestamp: "2026-07-05"
+    provenance: ai-suggested
+    content: >
+      Deep-critique finding (turn parallel to the V2 thread): Direction 3, the project's self-declared
+      unique differentiator ('what citations structurally cannot see'), is FABRICATED-OR-BLIND on this
+      corpus. (a) dead_ends are compiler-manufactured: che26 is a network meta-analysis with no
+      exploration process of its own, yet its trace carries dead_end nodes N11/N12 with straw
+      hypotheses ('p-tau181 would remain competitive') reformatted from the paper's CONCLUSIONS -
+      violating the doc's own 'no synthetic trace history' premise, so dead_end_density measures
+      compiler creative-writing. (b) negative_result_share counts status:refuted, but a genuine null is
+      stated as a SUPPORTED claim: woj25 C04 ('plasma p-tau181&231 fails to differentiate, Cohen's
+      d<0.2, AUC 0.514') is status:supported, so the metric scores the corpus's one real negative
+      result as zero negative-knowledge while crediting the fabricated dead-ends.
+    context: >
+      Deep critique reading che26 exploration_tree.yaml (N11/N12) + woj25 C04 directly; status mix
+      ~100% 'supported' across all 10 ARAs. Distinct from the V2-thread O08-O10 (gate-vs-rank,
+      grounding-presence, test-bed). See metrics-critique.md.
+    potential_type: claim
+    bound_to: [N30, N27]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+
+  - id: O13
+    timestamp: "2026-07-05"
+    provenance: ai-suggested
+    content: >
+      Deep-critique finding: corrective_science_score (D4) rewards the OPPOSITE of what it claims.
+      refutes=0 across ALL 10 ARAs - not one refutation edge in the corpus. The score (mean 4.6, max
+      12 for jes26) is driven entirely by bounds(14 lib-wide)+extends(11), and 'bounds' tags ordinary
+      baseline-beating: che26 RW14 marks p-tau181 (the prior standard the review improves on) as
+      'bounds'. So the metric built to reward rare, high-value refutation instead rewards the citable
+      'we beat the prior method' behavior the founding essay criticizes citations for over-rewarding.
+    context: >
+      Grepped RW Type counts library-wide (34 imports, 14 bounds, 11 extends, 9 baseline, 0 refutes)
+      + per-ARA typed_delta_profile from metrics.json. See metrics-critique.md.
+    potential_type: claim
+    bound_to: [N30, N27]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+
+  - id: O14
+    timestamp: "2026-07-05"
+    provenance: ai-suggested
+    content: >
+      Deep-critique finding: two flagship [det] signals are compiler template/format-compliance, not
+      epistemic quality. (a) falsifiability_presence=1.0 for every claim in all 10 ARAs because the
+      'Falsification criteria' field holds mechanical post-hoc inversions the compiler wrote (che26
+      C01: 'Refuted if p181_IA outranked p217_MS') - measures whether a field is non-empty. (b)
+      claim_grounding_ratio measures the guillemet quote syntax: woj25 scores 0.0 despite being one of
+      the better-sourced papers (exact AUCs/CIs/Cohen's d + fig/table pointers in Evidence-basis
+      prose) - penalized for a formatting choice. Broader: NO metric is validated against an external
+      quality signal, and the AD-biomarker corpus (0 code, request-only data) structurally pins
+      D1-L3/D3/D5 to zero, so the highest-leverage directions can't be exercised on the only corpus
+      available. Overlaps the V2-thread O08/O09/O10 but adds the falsifiability-template + no-external-
+      validation angles.
+    context: >
+      Deep critique; metrics.json (falsifiability_presence stats all 1.0, woj25 grounding 0.0) + D5
+      rollup all-zero. See metrics-critique.md.
+    potential_type: constraint
+    bound_to: [N30, N27, N04]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+
+  - id: O12
+    timestamp: "2026-07-05"
+    provenance: ai-executed
+    content: >
+      Empirical (N34): in this AD-biomarker corpus, even the most computational papers rarely ship a
+      runnable code repo (1/6 verified) though open datasets are common (3/6 fully open on GEO) and OA
+      PDFs universal. Consequence for the metrics: executable-reproduction (L3) is barely exercisable
+      here (needs a repo), but dataset-connectivity (D6) is broadly computable. Feasibility of the
+      code-dependent metrics is corpus-dependent, and this corpus is close to a floor for it.
+    context: "6-paper verified discovery (turn 15); testing whether V2's code/data metrics have inputs."
+    potential_type: claim
+    bound_to: [N34, N33]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+
+  - id: O15
+    timestamp: "2026-07-05"
+    provenance: ai-suggested
+    content: >
+      Round-2 critique of the V2 metrics redesign (N31/N32): V2 fixes surface bugs (gates-vs-rankers
+      split; verified grounding replaces presence-only) but leaves every validity/fabrication problem
+      untouched. Fabricated dead-ends survive and are now CERTIFIED 'discriminating' (che26
+      dead_end_density=0.25, negative_result_share=0.2 both driven by the compiler-invented straw
+      dead-ends N11/N12); corrective_science_score still refutes=0 lib-wide (bounds/extends
+      relabeling); woj25 C04 real null still status:supported and invisible. Core point: the V2
+      discrimination diagnostic measures VARIANCE, not VALIDITY - it greenlights the fabricated metrics
+      because compiler artifacts vary. A metric can be confidently, discriminatingly wrong. Still no
+      external validation; still computed from compiler YAML not source PDFs.
+    context: >
+      Reviewed research/metrics/v2/ (compute_metrics_v2.py, library_metrics_v2.md, comparison_v1_v2.md),
+      per-ARA metrics/v2/metrics.json, heuristics H01-H05. Round-2 rebuttal written inline in
+      metrics-directions.md + metrics-critique.md.
+    potential_type: claim
+    bound_to: [N31, N32, N27]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+
+  - id: O16
+    timestamp: "2026-07-05"
+    provenance: ai-suggested
+    content: >
+      Round-2: V2 introduced NEW failures. (a) paper_quality vs artifact_quality is a label only -
+      every ranker is tagged paper_quality incl. compiler-determined ones. (b) genre classifier is
+      brittle first-match keyword matching, already WRONG for cum26 (pipeline review labeled
+      clinical_trial), corrupting applicability + within-genre bucket. (c) genre-split atomizes 10
+      papers across 6 genres into SINGLETONS -> 'compare like with like' yields unrankable one-paper
+      buckets. (d) verified grounding computable for only 4/10 (rest cite paper.pdf/§ -> None), so it
+      measures a compiler choice (in-repo vs PDF citation), and only checks the quote STRING exists,
+      not that it supports the number/claim ('presence!=truth' narrowed to 'quote-string-in-file!=
+      truth'). (e) crit-#5 clinical spec rubric is listed as a delivered fix but spec-completeness was
+      DROPPED, not reimplemented - vaporware in the response table.
+    context: >
+      Same V2 review; verified against library_metrics_v2.md genres + discrimination table and the
+      compute_metrics_v2.py ranker set (no spec ranker).
+    potential_type: claim
+    bound_to: [N31, N32, N27]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+
+  - id: O13
+    timestamp: "2026-07-05"
+    provenance: ai-executed
+    content: >
+      Feasibility confirmed (N35): V2's genre-aware applicability model behaves correctly — on the one
+      paper with a real repo + open data (Huu25), executable-reproduction flips N/A->applicable and
+      dataset-connectivity populates (=2), while all code-less papers stay N/A. So the code/data metrics
+      are computable when the artifacts exist; the binding constraint is corpus supply (rare repos), not
+      the metric. Two follow-ups surfaced: the genre classifier is too crude (mislabeled Huu25 as
+      meta_analysis), and even a code paper grounds to the PDF not its repo (H03/O11 recurs).
+    context: "Ran V2 on the partial Huu25 ARA (turn 16); clean rerun pending compile completion."
+    potential_type: claim
+    bound_to: [N35, N33, N27]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+
+  - id: O17
+    timestamp: "2026-07-05"
+    provenance: ai-suggested
+    content: >
+      Judgment on the v2 round-2 critique + v3 spec (produced by the concurrent master-critic/improver
+      loop): endorse RC1-RC11 and the two-axis v3 architecture (paper_rankers vs artifact_trust weight
+      w that never lowers a paper's own rank). The RC3/4/5 findings are the important correct hits —
+      v2's dead_end_density / corrective_science / negative_result_share were substantially counting
+      COMPILER FABRICATIONS (dead-ends reframed from conclusions, bounds=baseline-naming, nulls written
+      as 'supported'). RECOMMENDATION = TRIAGE, don't build all of v3: implement the cheap deterministic
+      parts that fix actual current falsehoods (RC10 routing, RC3/4/5 detectors, RC1 validity scaffold,
+      RC8/9 genre+buckets, RC11 doc); DEFER RC2 external harness + RC7 LLM grounding (n=12 underpowered,
+      spend/LLM-gated). The real next experiment is CHANGING THE CORPUS (larger, heterogeneous,
+      code-shipping, externally-validatable), not v3 — the exercise has now rediscovered this 4x (O10,
+      round-2 meta, master's standing verdict). No v3 code exists yet; the loop is spend-blocked.
+    context: "User asked for my judgment on the v2 critique + v3 proposals (turn 18)."
+    potential_type: claim
+    bound_to: [N27, N31]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+
+  - id: O18
+    timestamp: "2026-07-05"
+    provenance: ai-suggested
+    content: >
+      Refinement (narrows O06/O11/O17): "metrics measure the compiler not the paper" splits into three
+      distinct cases, and the critique only applies to two. (1) EXTRACTIVE layers (claims, numbers,
+      evidence tables) — the compiler is a faithful re-view; metrics on these ARE metrics on the paper,
+      so the flagship claims+evidence work is NOT contaminated (concession — my earlier framing was
+      over-broad). (2) HOMOGENIZATION — a faithful compiler still fills the same template for every
+      paper, so presence-metrics (falsifiability-field-exists, links-resolve) measure field-population,
+      not the paper's rigor; useless as rankers even with a perfect compiler. (3) FABRICATION — where
+      the ARA schema demands a layer the paper lacks (exploration trace/dead-ends for a review/meta-
+      analysis), the compiler INVENTS content (che26 dead-ends = flipped conclusions); NOT a view of the
+      paper. Meta-point that survives a perfect compiler: compiler-fidelity and metric-validity are
+      different axes — a faithful re-view adds no ground truth, so validity still needs an external
+      yardstick (= RC2). "Can't validate on this corpus" holds regardless of compiler quality.
+    context: "User challenged 'if the compiler is a correct different view, why does it matter?' (turn 19)."
+    potential_type: claim
+    bound_to: [N27, N31]
+    promoted: true
+    promoted_to: "logic/claims.md:C16"
+    crystallized_via: verbal-affirmation
+    stale: false
+
+  - id: O19
+    timestamp: "2026-07-05"
+    provenance: ai-suggested
+    content: >
+      Proposed V3 build decomposition (awaiting user confirmation). To avoid three Sonnet agents editing
+      one file, build the SPINE first myself (compute_metrics_v3.py: RC10 two-axis routing, RC1 validity
+      scaffold, RC8/RC9 three-tier genre + K_MIN=3 rollup, corpus pinned) exposing clean module
+      plug-points; then fan out 3 parallel Sonnet agents each owning one isolated module: (A) detectors.py
+      = RC3 genuine-only dead-ends + RC4 evidence-addressing corrective + RC5 semantic negative-result;
+      (B) grounding.py = RC6 reclassify-to-trust + RC7 frozen-findings scorer (degrade if no LLM);
+      (C) external.py = RC2 ClinicalTrials-MCP concordance + retraction lookup + caveated expert rho
+      (degrade to pending if MCP unreachable). Then I integrate, run, write research/metrics/v3/ +
+      per-ARA metrics/v3/ + comparison_v2_v3.md. Two open questions surfaced to user: corpus scope
+      (spec's 12 vs 31 on disk; recommend 12) and spend approval for 3 concurrent Sonnet builds.
+    context: "User issued the Phase-D 4-step directive (turn 20); I loaded all v2/v3 docs + the v2 script and proposed this decomposition for confirmation before executing."
+    potential_type: architecture
+    bound_to: [N40, N39]
+    promoted: true
+    promoted_to: "trace:N43"
+    crystallized_via: artifact-commitment
+    stale: false
+
+  - id: O20
+    timestamp: "2026-07-05"
+    provenance: ai-suggested
+    content: >
+      Wave-sizing for the remaining compile backlog is gated by TWO independent constraints, not one:
+      (1) org spend limit (N38's finding — ~150k tokens/compile made all-509-at-once infeasible) and
+      (2) source content availability — of the 508 papers still uncompiled at this turn's start, only 3
+      (0.6%) have a full-text PDF; 505 are abstract/metadata-only (mostly paywalled). A "pilot batch of N
+      papers" framing implicitly assumes enough full-text material exists to fill it; on this corpus it
+      does not. Future wave-planning should check content availability (data/lib/<slug>/paper.pdf
+      present vs metadata-only) before proposing a batch size, not just spend budget.
+    context: "Surfaced while reconciling the user's contradictory turn-1/turn-2 answers (pilot-batch-of-15-20 vs skip-abstract-only), which only made sense once the 3-vs-505 full-text split was made explicit (N41)."
+    potential_type: heuristic
+    bound_to: [N38, N41]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+
+  - id: O21
+    timestamp: "2026-07-05"
+    provenance: ai-suggested
+    content: >
+      codex:codex-rescue subagent dispatch is NON-blocking, unlike the Claude general-purpose subagent
+      pattern used for N42. The wrapper subagent's single Bash call to `codex-companion.mjs task ...`
+      returns almost immediately with "Codex Task started in the background as task-<id>" — the actual
+      compile work continues as a separate detached Codex CLI process, confirmed via
+      `codex-companion.mjs status --all --json` to be a real running process (with its own pid) after
+      the wrapper subagent had already completed. Any future Codex-subagent batch must poll job status
+      (e.g. a Monitor-tool loop against `status --all --json`) rather than treating the Agent-call
+      return, or the wrapper's stdout, as evidence the compile finished. Caveat from this turn: an
+      ad-hoc jq status filter returned an empty/malformed status field for every job on its first
+      "done" signal — the filter logic itself needs fixing before its output can be trusted, a tooling
+      bug distinct from the finding about Codex's dispatch behavior.
+    context: "Discovered while dispatching batch 1/5 (10 papers) of the Codex-based 50-paper compile wave (N45)."
+    potential_type: heuristic
+    bound_to: [N44, N45]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+
+  - id: O22
+    timestamp: "2026-07-05"
+    provenance: ai-executed
+    content: >
+      Empirical result from V3 cycle-0 run at full n=12 [sem] coverage: adding the LLM-judge [sem] tier
+      (evidence_relevance, falsifiability_quality, scope_calibration, novel_claim_count — scored
+      deterministically from frozen per-claim judge findings) raised usable paper-rankers from 1/9 to
+      4/9. Now usable (discriminating + validated): translation_trial_linkage, evidence_relevance,
+      falsifiability_quality, scope_calibration. Headline finding: across the 12-ARA corpus,
+      falsifiability criteria break down as 79 post_hoc_inversion / 16 real_precommitted / 5 trivial —
+      i.e. ~79% are mechanical negations of the claim, QUANTITATIVELY confirming round-1's original charge
+      that falsifiability_presence was a gamed proxy pinned at 1.0. scope_calibration caught 15 real
+      over-claims corpus-wide (worst: the25 DOR-certainty over-generalized x5; jes26 C09 "clearance
+      maintained" contradicting the paper's "amyloid reaccumulates"; huu25 ungrounded MAPT clause).
+      CAVEAT: the [sem] judges are labeled 'validated' but that means 'scored from a frozen LLM-judge
+      pass', not validated against external ground truth — circularity risk to be tested by the critique.
+    context: "V3 autonomous loop cycle 0; 6 Sonnet judge agents produced the missing [sem] findings, full rerun."
+    potential_type: claim
+    bound_to: [N46, N43]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+
+  - id: O23
+    timestamp: "2026-07-05"
+    provenance: ai-executed
+    content: >
+      V3 loop cycle 1 (Fable metascientist critique) + cycle 2 phase A. The critique showed the cycle-0
+      "4/9 usable" jump was theater: sem_metrics labeled a metric "validated" merely because a frozen
+      judge-findings file existed ("an LLM ran") — variance-with-extra-steps, the exact RC1 disease. The
+      3 "validated" [sem] judges are COMPILER-fidelity detectors, not paper-quality: every flaw they
+      caught is a compiler transcription error (jes26 C09 "amyloid clearance maintained" INVERTS the
+      paper's "reaccumulates"; the25 DOR-certainty over-generalized x5; huu25 ungrounded MAPT). Acted on
+      it (full autonomy): P1 renamed validated→judge_scored (excluded from usable; validated now reserved
+      for external-anchored association); P2/P6 moved evidence_relevance+scope_calibration+
+      falsifiability_quality OFF paper_rankers to a single compiler_fidelity trust signal (stops
+      triple-counting one defect across axes). Honest usable count dropped 4/9 → 1/6 (only
+      translation_trial_linkage). Dispatched P4 (full-text acquisition), P3+P5 (claim-graph + external
+      anchors: ChEMBL/CT.gov/PubMed — make the CLAIM the unit), P8 (validate-the-validators, κ).
+    context: "V3 autonomous loop cycle 1-2; critique at research/metrics/v3/critiques/cycle1.md."
+    potential_type: claim
+    bound_to: [N46, N47]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+
+  - id: O24
+    timestamp: "2026-07-05"
+    provenance: ai-executed
+    content: >
+      V3 loop cycle 2 result. Validator-reliability study (P8): evidence_relevance and scope_calibration
+      judges are reliable (Cohen's κ=+0.894 each) but reliably detect COMPILER errors not paper flaws
+      (independently confirmed the25 DOR / jes26 C09 inversion / huu25 MAPT are all compiler-transcription
+      errors) → correctly rerouted to trust axis. falsifiability_quality κ=−0.031 (chance) → dropped from
+      the trust weight entirely (noise). The claim-graph external-anchor layer (P5, claim_graph.py) is the
+      key advance: cross-ARA corroboration (4 clusters, TF-IDF, thin at n=12) + ChEMBL resolvability
+      (donanemab+aducanumab→same target APP/CHEMBL2487; APOE does NOT resolve = hard un-fakeable negative)
+      + per-claim CT.gov endpoint concordance + PubMed/bioRxiv novelty. It caught 2 REAL novelty over-claims
+      no compiler-fidelity check could (sal25 "first head-to-head" predated by a Feb-2025 review; sal26
+      "first concordance" predated by 2025 papers) — because catching them requires the OUTSIDE literature,
+      not the paper's own text. Validates the critique's core thesis: the claim (not the paper) is the
+      Goodhart-resistant unit, and external anchoring measures science where compiler-derived metrics
+      measure the compiler. Honest usable paper-rankers steady at 1/6. Full text now cached for 10/12
+      (P4); ahm26b+the25 abstract_bound. Caveat: claim_graph value was semi-manual, doesn't yet scale
+      unsupervised.
+    context: "V3 autonomous loop cycle 2 (P4/P5/P8 agents + integration); critique round 2 dispatched."
+    potential_type: claim
+    bound_to: [N46, N47]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+
+  - id: O25
+    timestamp: "2026-07-06"
+    provenance: ai-executed
+    content: >
+      V3 loop cycle 3 phase A (acting on critique round 2, critiques/cycle2.md). Honest usable
+      paper-rankers dropped 1/6 → 0/6: translation_trial_linkage was the last "usable" metric but it is an
+      unnormalized NCT name-drop count (cum26=8.0 wins a review genre by citing 8 trials its own harness
+      calls not_applicable), so it was demoted to a new validity level `ref_string_bound` (below
+      source_bound, never usable). The defensible positive result is now CLAIM-LEVEL, not paper-level:
+      `claim_level_validation` = 3 claims whose own numbers reproduce a registered clinical-trial primary
+      outcome (jes26:C01, sal25:C01, sal25:C02) across 2 ARAs — the only external, non-gameable validation
+      on this corpus. Also enforced abstract_bound (ahm26b + the25 excluded from all paper-quality ranking;
+      previously ahm26b wrongly ranked #1 in two metrics) and stopped emitting sub-K_MIN (n=2) buckets as
+      rankings. This operationalizes the critique's core thesis: the CLAIM anchored to external ground
+      truth is the unit that measures science; paper-level scalars over compiler output do not. Dispatched
+      the extractive_fidelity agent (measures the C16/N47 contradiction directly against full text) and a
+      claim_graph-honesty agent (relabel ChEMBL as fabrication-check never penalizing non-resolution;
+      demote TF-IDF corroboration to exploratory; make novelty computable + run on all headline claims).
+    context: "V3 autonomous loop cycle 3; critique round 2 processed; Phase B agents running."
+    potential_type: claim
+    bound_to: [N46, N47]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+
+  - id: O26
+    timestamp: "2026-07-06"
+    provenance: ai-executed
+    content: >
+      Extractive-fidelity measurement (C3) directly addresses the N47/C16 contradiction with data. Every
+      claim in the 10 full-text ARAs was checked (numbers AND polarity) against the actual paper, not the
+      abstract. Overall extractive_fidelity = 0.918 (78/85 faithful); 8/10 ARAs perfectly faithful; che26
+      and woj25 = 0.625 (dense multi-cohort AUC-comparison biomarker papers where cross-table transposition
+      is the failure mode). 7 real infidelities (4 unsupported_addition, 2 polarity_inversion, 1
+      number_mismatch). RESOLUTION DIRECTION for N47/C16: GATE, don't withdraw — the "extractive layer is a
+      faithful re-view" premise holds per-ARA where measured (8/10) but is false as a blanket axiom (2/10
+      have ranking-flipping infidelities, e.g. woj25 C03 asserts significance the paper explicitly denies).
+      Implemented a per-ARA extractive_fidelity≥0.9 gate on paper-ranking. CORRECTION to the earlier record:
+      huu25 C02 "MAPT downregulated" was flagged as compiler infidelity in cycle-1/2 (critique + κ-study
+      P8) but is a FALSE ALARM — the paper does say "MAPT was downregulated"; the flag was a pdftotext
+      artifact stripping italic gene symbols from the checker's view, not a compiler error. Also: gating
+      exposed that grounding.py's semantic_grounding carried the same "findings-file-exists=validated"
+      theater the sem judges were fixed for (P1) — corrected to judge_scored. Honest usable paper-rankers
+      remains 0/6; the defensible signal is claim-level (3 endpoint-concordant claims).
+    context: "V3 autonomous loop cycle 3 phase B; extractive_fidelity agent landed; claim_graph agent still running."
+    potential_type: claim
+    bound_to: [N47, N46]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+
+  - id: O27
+    timestamp: "2026-07-06"
+    provenance: ai-executed
+    content: >
+      After 3 adversarial critique cycles the V3 metrics loop has CONVERGED on a stable honest conclusion
+      (written up in research/metrics/v3/FINDINGS.md): on this corpus the system measures compiler FIDELITY,
+      not science QUALITY, and that is a property of the CORPUS not a fixable metric bug. Usable paper-rankers
+      = 0/6 (the paper-ranking axis is now formally RETIRED — 6 rankers collapse to 1 genre bucket, none
+      survive the validity gate). The only real signal is CLAIM-LEVEL and externally anchored: 3 claims
+      endpoint-concordant with registered trials, 4 hand-verified priority over-claims caught via prior
+      literature (catches no compiler-based check could make), 1 confirmed compiler polarity inversion
+      (jes26 C09). Extractive fidelity vs full text = 0.918, now enforced as a SEVERITY-WEIGHTED gate
+      (hard-fail on polarity_inversion/number_mismatch, tolerate unsupported_addition) — this resolves the
+      N47/C16 contradiction toward "narrow C16 to gated-per-ARA, don't withdraw." The unlock to actually
+      measure good science is a CORPUS CHANGE, not another metric: (1) multi-topic independent-discovery
+      corpus for real corroboration/replication; (2) a held-out expert-labeled quality set so 'validated'
+      can mean external association; (3) code-shipping papers so claims can be reproduced. AD clinical
+      papers ship no code → structural ceiling. This is not autonomously doable (needs new data). The metric
+      SCAFFOLDING (claim-graph external anchors, severity-weighted fidelity gate, validity×variance honesty
+      gate, validator κ harness) is sound and reusable — it is starved of a corpus that can exercise it.
+    context: "V3 autonomous loop, end of cycle 4 (acting on critique round 3 R1-R7); FINDINGS.md written; outcome_switching agent running."
+    potential_type: claim
+    bound_to: [N46, N47]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+
+  - id: O28
+    timestamp: "2026-07-06"
+    provenance: ai-executed
+    content: >
+      Completed a blind metric-design TOURNAMENT across all 11 artifacts the ARA compiler emits (PAPER
+      manifest, claims, concepts, problem, experiments, related_work, solution, exploration_tree, evidence,
+      implementation, dataset). Per artifact: 4 clean-room proposer agents (no knowledge of any existing
+      metric) each proposed 3-5 good-science metrics under one constraint (assume input availability;
+      PENALIZE unavailability, never skip/N/A) → Fable metascientist judge picked 2 → both improved vs
+      critique → judge picked 1 winner + qualified it. ~88 subagents total; all outputs on disk under
+      research/metrics/v3/tournament/ (DATA_SHAPES.md + per-artifact proposals/critiques/improved +
+      TOURNAMENT_SUMMARY.md). KEY FINDING (independent, blind corroboration of O27/FINDINGS.md): 10 of 11
+      winning metric-sets were judged "honest hygiene / rigor / compilation-craft / provenance proxies,"
+      NOT measures of scientific validity or truth — e.g. claims="measures rigor, not scientific truth",
+      related_work="compilation craft, not science", dataset="provenance-documentation, not validity",
+      concepts="extraction-quality, not science". Reached blind, per-artifact, by a fresh proposer pool
+      with no exposure to the earlier converged conclusion. Strengthens the standing result: artifact-level
+      metrics over compiler output measure documentation/compilation quality, not good science; the
+      science signal requires an external anchor / a corpus that can be reproduced or externally validated.
+    context: "User-directed autonomous tournament (this session); ran to full definition-of-done."
+    potential_type: claim
+    bound_to: [N46, N47]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+
+  - id: O29
+    timestamp: "2026-07-06"
+    provenance: ai-executed
+    content: >
+      The external Metascience Novelty Indicators Challenge (Challenge Works, £300k; winner LENS from
+      FZ Jülich) is a concrete instance of the external-validation layer the V3 loop concluded the
+      project needs (O27/FINDINGS.md unlock #2: a held-out expert-labeled quality set). It supplies
+      100,000 recent OpenAlex papers across all disciplines, each rated for NOVELTY by domain experts —
+      i.e. exactly the human-labeled ground truth our metrics lack. Winner LENS is an LLM pipeline:
+      analyze full text + references -> reconstruct the state of knowledge at publication time ->
+      assess contribution (new methods / unexpected findings / resolving open problems) -> collect
+      for/against arguments -> emit 0-100 + confidence interval + justification; median error 15.4
+      scale points vs 59.6 for others (~2x closer to humans than humans to each other), beating both
+      bibliometrics and inter-human agreement. KEY AXIS FINDING (from the 3-source comparison built
+      this turn): the Challenge measures NOVELTY/significance (a forward-looking scientific-VALUE axis,
+      externally calibrated), whereas BOTH of our indicator sets measure something orthogonal — the
+      ARA Seal verifier measures internal epistemic INTEGRITY (rigor/coherence/falsifiability, one
+      grade, LLM-graded), and our tournament metrics measure compilation FIDELITY (honest/accurate
+      extraction, per-layer, deterministic). Neither B nor C scores novelty or is calibrated to any
+      external ground truth. So the Challenge both (a) exposes a whole missing axis in our toolkit and
+      (b) is a candidate external corpus/benchmark that could finally exercise the "measure good
+      science" goal — though pointed at novelty rather than compilation quality. LENS also validates
+      the direction of FINDINGS' "most promising to build" list (LLM reads real source + reconstructs
+      SOTA + adversarial for/against + source-grounded scoring).
+    context: >
+      User gave the challenge URL + Science.org LENS context and asked for (1) a merged all-metrics doc
+      and (2) a 3-source novelty-indicators comparison with a two-way gap TLDR. Wrote
+      research/metrics/v3/tournament/ALL_METRICS_MERGED.md and NOVELTY_INDICATORS_COMPARISON.md;
+      sourced from the challenge page + FZ Jülich press release (Science.org was Cloudflare-gated).
+    potential_type: claim
+    bound_to: [N46, N47]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+
+  - id: O30
+    timestamp: "2026-07-07"
+    provenance: ai-suggested
+    content: >
+      Fable review of the GRO successor-format spec (N51): the strongest, most reusable critical finding is
+      that GRO — and by extension any structure-computes-its-own-credibility program — RELOCATES trust rather
+      than eliminating it. The deterministic tier is genuinely self-checking, but everything funders care
+      about for IMPORTANCE (novelty, significance, validity) sits in the judged tier, whose trust rests on
+      (a) human calibration corpora that don't exist yet and (b) LLM judge ensembles whose independence the
+      spec itself concedes is ASSERTED, not measured — real decorrelation is earned at exactly one non-LLM
+      checkpoint. Three concrete residuals: (1) the compiler-selection problem (what gets typed at all) is
+      patched only by more LLM ensembles with the same shared-blind-spot risk — comfort, not closure; (2) the
+      corpus-scale promise deflates to "deterministic integrity at 100k scale, judged importance only on a
+      shortlist+audit-sample" — so it does NOT surface the un-shortlisted gem, which was the pitch; (3)
+      adoption/incentive participation is assumed away in the spec's first sentence, which is exactly the
+      incentive-design half of the program and the actual determinant of whether any of this matters. Net:
+      credibility infrastructure is a trust-relocation + participation/incentive problem, not a representation
+      problem; the format is necessary-not-sufficient in the same way its own independence checks are. This is
+      the substrate critique made rigorous and is cleanly separable from the format-building.
+    context: "User asked for a final review of the GRO spec 'as Fable'; review delivered in-chat, then folded into the Astera (What-I-don't-know) and SPRU (RQ2/RQ4, WP2) proposals as work-to-improve."
+    potential_type: claim
+    bound_to: [N51, N53]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+
+  - id: O31
+    timestamp: "2026-07-07"
+    provenance: ai-suggested
+    content: >
+      Coherence check of the three-layer "layer cake" publishing-architecture draft (narrative / particle /
+      latent) against everything built. The architecture holds and GRO is a faithful build-out of the middle
+      layer — but the draft's PARTICLE layer silently does two different jobs and GRO only does one: (a)
+      within-object decomposition into typed, inspectable units that compile to narrative — GRO specs this
+      deeply (L1-L8 = typed claims/evidence/methods/data/quantities + typed cross-layer links + render/reconcile
+      narrative binding); (b) a cross-object, git-style CONTRIBUTION GRAPH where replications, reuse, and
+      refutations across projects are countable first-class contributions with credit accrual — GRO barely
+      touches this (its cross-object surfaces, L6 reference spine + L3 entity commons, are explicitly
+      UNSCORED/diagnostic; there is no fork/merge/credit machinery). So the more novel, adoption-critical half
+      of the particle layer is still unbuilt. Two more reconciliations: (1) do NOT conflate GRO's three rigor
+      TIERS (deterministic/anchored/judged) with the cake's three representation LAYERS (narrative/particle/
+      latent) — orthogonal axes; the tiers live inside the particle layer. (2) Appendix-A's "measurable"
+      prerequisite overpromises: standardization unlocks FIDELITY-measurable cheaply/deterministically, but
+      QUALITY/IMPORTANCE-measurable (novelty, validity, contribution significance) stays judged + calibrated +
+      non-scaling (FINDINGS.md + GRO s7) — the sharpest honest caveat the post should absorb. Latent layer
+      (post-2 origin) and narrative layer both hold; narrative is strengthened and could adopt GRO's
+      render-vs-reconcile distinction.
+    context: "User shared the layer-cake pub-architecture draft + asked 'does GRO account for this / does the rest still hold?'; assessment delivered in-chat. Prior posts (papers-block, alien-proteins) read as grounding."
+    potential_type: architecture
+    bound_to: [N51, N53]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false

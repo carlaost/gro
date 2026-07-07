@@ -1,0 +1,381 @@
+session:
+  id: "2026-07-05_001"
+  date: "2026-07-05"
+  started: "2026-07-05"
+  last_turn: "2026-07-05"
+  turn_count: 22
+  summary: "Turn 22 (paper-compilation thread; concurrent with the separate V3-metrics thread's N43 this same calendar day): user asked for a bigger batch (~50 papers), dispatched via Codex CLI subagents (codex:codex-rescue) instead of Claude subagents. Verified Codex ready/authenticated; resolved N41's deferred abstract-only question in practice (all 505 remaining papers are abstract-only) via N44; picked top-50-by-citation-count, split into 5 batches of 10; dispatched batch 1/5 (N45) as 10 parallel Codex background jobs. Key operational finding: Codex dispatch is non-blocking (job continues after the wrapper subagent returns) — staged as a heuristic (O21) for future batches. Also reconciled N42 (turn 21's 3-paper Claude-subagent compile): confirmed complete, research/ara-library/ now 34 entries. Results of the Codex batch not yet confirmed (monitor's first status check was malformed) — batches 2-5 (papers 11-50) queued, not yet dispatched. Turn 21 (fresh conversation, separate thread from the V3 metrics work): user asked to compile the rest of the paper library. Audit found 508/539 uncompiled but only 3 with full-text PDFs (505 abstract-only); resolved a self-contradictory scoping answer via a follow-up question; user chose to compile just the 3 full-text papers (ave25/han26/val25) now, deferring the 505-abstract-only/fetch-first decision (N41). Dispatched 3 parallel compiler subagents, in flight at turn end (N42); staged a wave-sizing heuristic on content-availability gating (O20). Turns 1-2 scoped the compiler-based backprocessing workflow. Turn 3 drafted the metrics doc (7 good-science metric directions). Turn 4 ran wave-1 discovery (142 scaffolded, 10 discovered; ~8/10 OA PDFs, 0 code repos; declined the non-authorized full-text source N28). Turn 5 expanded the metrics doc. Turn 6 dispatched wave-1 compilation (10 ARAs -> research/ara-library/). Turn 7 mirrored the metrics doc into Obsidian; turn 8 fixed vault visibility (real copy + launchd copy-on-change watcher). Turn 9 built the metrics workflow research/metrics/compute_metrics.py -> per-ARA /metrics layer + library rollup (N29). Turn 10 test-ran it over 10 OA ARAs and wrote coverage-gaps.md (N30): all [det] metrics compute; gaps are the [sem]/[ext] passes, oshima FOL layer, 2 recompiles, a clinical spec rubric, and intrinsically-N/A L3. Turn 11 critical review: validated the engineering not the epistemics — some metrics measure the compiler not the science (O06), metrics need genre-awareness (O07), D5 flagship still unvalidated at n=10. Turn 12 defense/learnings on that critique: gate-vs-ranking mislabeling (O08), grounding-presence != truth (O09), adversarial test-bed = test-design error not metric-design (O10). Turn 13: updated the metrics doc with critiques+responses+paths, then BUILT V2 (research/metrics/v2/) — genre-aware, gates/rankers split, verified grounding, discrimination diagnostic (N31); ran it + V1↔V2 comparison (N32); crystallized 5 metric-design heuristics H01-H05 from O06-O10 (artifact-commitment closure). Key finding: V1 grounding was largely illusory (most ARAs cite paper.pdf, 0 in-repo-verifiable). Turns 18-19 = judgment on the concurrent loop's round-2 critique + V3 spec (O17, O18 staged). Turn 20: user issued the Phase-D 4-step directive (assume compiler critique as ground truth -> per-metric plan -> Sonnet sub-agents -> compare V2); I loaded all v2/v3 docs + the v2 script and proposed a spine-first + 3-module Sonnet decomposition (O19), awaiting confirmation on corpus scope (12 vs 31) + spend; crystallized the compiler critique O18 -> C16 (verbal affirmation: 'assume it as ground truth'); appended decision node N40."
+
+events_logged:
+  - turn: 1
+    type: decision
+    id: "N25"
+    routing: direct
+    provenance: user-revised
+    summary: "Backprocess literature PDFs into per-paper ARAs (research/ara-library/<slug>/) via the compiler skill, run as parallel subagents."
+  - turn: 2
+    type: decision
+    id: "N26"
+    routing: direct
+    provenance: user-revised
+    summary: "Enrich each paper (code repo / dataset / clinical trial + PDF) via parallel discovery subagents; stage compiler-friendly lib under research/data/lib/<slug>/; compile in a capped first wave for the 100+ library."
+  - turn: 3
+    type: question
+    id: "N27"
+    routing: direct
+    provenance: user
+    summary: "What good-science metrics are computable over a ~140-paper ARA library, as an alternative to citation proxies?"
+  - turn: 3
+    type: observation
+    id: "O01"
+    routing: staged
+    provenance: ai-suggested
+    summary: "7-direction metric taxonomy across two axes (scope: local/graph/grounded; virtue: reproducibility/rigor/transparency/novelty/corroboration/translation)."
+  - turn: 3
+    type: observation
+    id: "O02"
+    routing: staged
+    provenance: ai-suggested
+    summary: "Flagship metric = cross-library claim graph (corroboration/contradiction/replication/reuse) from oshima typed claims + FOL dedup; evidential alternative to the citation network."
+  - turn: 3
+    type: observation
+    id: "O03"
+    routing: staged
+    provenance: ai-suggested
+    summary: "Goodhart-resistance via many independent signals + rewarding what citations punish; semantic metrics compute verdicts deterministically (per N13)."
+  - turn: 4
+    type: decision
+    id: "N28"
+    routing: direct
+    provenance: ai-suggested
+    summary: "Restrict PDF acquisition to licit OA sources; declined the user's non-authorized-source request (copyright). Degraded-but-licit fallback = compile from abstract+metadata+links when no OA full text."
+  - turn: 9
+    type: decision
+    id: "N29"
+    routing: direct
+    provenance: user-revised
+    summary: "Implement the metrics as a deterministic /metrics ARA layer + library rollup (compute_metrics.py); [sem]/[ext] emitted as pending, never fabricated."
+  - turn: 10
+    type: experiment
+    id: "N30"
+    routing: direct
+    provenance: ai-executed
+    summary: "Wave-1 test run over 10 OA ARAs + coverage-gap analysis; all [det] metrics compute, gaps enumerated in coverage-gaps.md."
+  - turn: 10
+    type: observation
+    id: "O04"
+    routing: staged
+    provenance: ai-executed
+    summary: "Corpus shows the Storytelling-Tax pattern (~0 negative results/dead-ends, all 'supported'); discriminating axis here is grounding/rigor + translation, not reproduction/negative-knowledge."
+  - turn: 10
+    type: observation
+    id: "O05"
+    routing: staged
+    provenance: ai-suggested
+    summary: "D1 spec-completeness setup-proxy is ML-shaped (Model/Hardware/Dataset/System) → invalid for clinical papers; needs a clinical reproduction rubric."
+  - turn: 11
+    type: observation
+    id: "O06"
+    routing: staged
+    provenance: ai-suggested
+    summary: "Near-ceiling/zero-variance [det] metrics measure compiler consistency, not paper quality; D2 conflates compile-defect with authorship-defect → separate compiler-quality from paper-quality."
+  - turn: 11
+    type: observation
+    id: "O07"
+    routing: staged
+    provenance: ai-suggested
+    summary: "Metrics must be genre-aware (report N/A-for-genre, not 0, where a genre structurally lacks a dimension); grounding + trial-linkage are the informative discriminators on this clinical corpus; D5 unvalidated at n=10."
+  - turn: 12
+    type: observation
+    id: "O08"
+    routing: staged
+    provenance: ai-suggested
+    summary: "Some metrics are validity GATES (binding, seal-L1), not quality RANKERS — separate them; don't rank on hygiene checks. Refines O06."
+  - turn: 12
+    type: observation
+    id: "O09"
+    routing: staged
+    provenance: ai-suggested
+    summary: "Grounding ratio checks quote PRESENCE, not that the quote supports the number → grounding=1.0 != verifiably grounded; needs a re-open-source verify pass."
+  - turn: 12
+    type: observation
+    id: "O10"
+    routing: staged
+    provenance: ai-suggested
+    summary: "Wave-1 test bed was adversarial (single-genre/backprocessed/code-free); metrics are for native-capture at-scale cross-genre → much apparent failure is test-design, evaluate on an exercising corpus."
+  - turn: 13
+    type: decision
+    id: "N31"
+    routing: direct
+    provenance: user-revised
+    summary: "V2 metrics redesign (gates/rankers split, genre-aware applicability, verified grounding, paper/artifact-quality tags, discrimination diagnostic); saved under research/metrics/v2/."
+  - turn: 13
+    type: experiment
+    id: "N32"
+    routing: direct
+    provenance: ai-executed
+    summary: "Ran V2 over 10 OA ARAs + V1↔V2 comparison; V1 grounding largely unverifiable (most cite paper.pdf), only che26 grounds in-repo (verified 0.905)."
+  - turn: 13
+    type: heuristic
+    id: "H01-H05"
+    routing: crystallized
+    provenance: user-revised
+    summary: "Crystallized 5 metric-design heuristics from O06-O10 (artifact-commitment): gates≠rankers (H01), genre-awareness (H02), verify grounding/presence≠truth (H03), paper-vs-artifact quality (H04), discrimination diagnostic (H05)."
+  - turn: 13
+    type: observation
+    id: "O11"
+    routing: staged
+    provenance: ai-executed
+    summary: "Empirical: grounding scores dominated by in-repo-evidence vs paper.pdf citation choice; compiler should prefer in-repo evidence so grounding is verifiable. (staged; awaiting user comment)"
+
+  - turn: 15
+    type: experiment
+    id: "N34"
+    routing: direct
+    provenance: ai-executed
+    summary: "6-paper verified discovery: code repos rare (1/6 = Huu25), open datasets common (3/6 GEO), OA PDFs universal; '140 have a repo' false for this corpus."
+  - turn: 15
+    type: observation
+    id: "O12"
+    routing: staged
+    provenance: ai-executed
+    summary: "Code-dependent metric feasibility is corpus-dependent; this AD-biomarker corpus is near a floor (repos rare) though dataset-connectivity is broadly computable."
+  - turn: 16
+    type: experiment
+    id: "N35"
+    routing: direct
+    provenance: ai-executed
+    summary: "V2 on Huu25 → code/data metrics activate (L3 N/A->pending_exec, datasets=2); genre-fairness works. Caveats: partial compile, genre-classifier bug, grounds to PDF."
+  - turn: 16
+    type: observation
+    id: "O13"
+    routing: staged
+    provenance: ai-executed
+    summary: "Code/data metrics feasible when artifacts exist; binding constraint is corpus supply not the metric. Follow-ups: crude genre classifier, code paper still grounds to PDF."
+  - turn: 18
+    type: observation
+    id: "O17"
+    routing: staged
+    provenance: ai-suggested
+    summary: "Judgment on v3: endorse RC1-11 + two-axis architecture + standing verdict; TRIAGE (build deterministic subset, defer RC2/RC7); real next step = change the corpus, not v3."
+  - turn: 19
+    type: observation
+    id: "O18"
+    routing: staged
+    provenance: ai-suggested
+    summary: "Refines the 'measures the compiler' critique into 3 cases: extractive=faithful (flagship safe, concession), homogenization=faithful-but-non-discriminating, fabrication=confabulated-on-schema-gap; compiler-fidelity != metric-validity."
+  - turn: 20
+    type: decision
+    id: "N40"
+    routing: direct
+    provenance: user
+    summary: "Enter Phase D via 4-step directive: assume compiler critique as ground truth -> per-metric improvement plan -> Sonnet sub-agents -> compare V3 to V2. Axiomatizes the compiler critique instead of closing RC2. Execution gated on user confirming decomposition + corpus scope + spend."
+  - turn: 20
+    type: observation
+    id: "O18"
+    routing: crystallized
+    provenance: user-revised
+    summary: "Crystallized O18 -> C16 via verbal affirmation ('assume it as ground truth'). The compiler critique is now the stated design contract for V3."
+  - turn: 20
+    type: observation
+    id: "O19"
+    routing: staged
+    provenance: ai-suggested
+    summary: "Proposed V3 build decomposition: spine-first (I build compute_metrics_v3.py routing+validity+genre) then 3 parallel Sonnet module agents (detectors RC3/4/5; grounding RC6/7; external RC2). Awaiting user confirmation."
+  - turn: 21
+    type: decision
+    id: "N41"
+    routing: direct
+    provenance: user
+    summary: "Fresh conversation, user asked to compile the rest of the library. Of 508 uncompiled papers, only 3 have full text (505 abstract-only). After a contradictory pair of scoping answers was surfaced and resolved, user chose: compile just the 3 full-text papers now; no PDF fetching; no abstract-only compiles yet."
+  - turn: 21
+    type: experiment
+    id: "N42"
+    routing: direct
+    provenance: ai-executed
+    summary: "Dispatched 3 parallel compiler subagents for ave25/han26/val25 -> research/ara-library/<slug>/. In flight, no results yet."
+  - turn: 21
+    type: observation
+    id: "O20"
+    routing: staged
+    provenance: ai-suggested
+    summary: "Wave-sizing for the compile backlog is gated by content availability (3/508 full-text) as well as spend (N38) — a 'pilot batch of N' must check full-text availability before proposing a batch size."
+  - turn: 22
+    type: decision
+    id: "N44"
+    routing: direct
+    provenance: user
+    summary: "Switch to Codex CLI subagents (codex:codex-rescue) for the next compile wave; proceed with abstract-only compiles for 50 papers, functionally resolving N41's deferred question."
+  - turn: 22
+    type: experiment
+    id: "N45"
+    routing: direct
+    provenance: ai-executed
+    summary: "Batch 1/5 (10 papers) dispatched as parallel Codex CLI background jobs; all confirmed running. First monitor status check was malformed — pass/fail not yet confirmed."
+  - turn: 22
+    type: observation
+    id: "O21"
+    routing: staged
+    provenance: ai-suggested
+    summary: "codex:codex-rescue dispatch is non-blocking (job continues after the wrapper subagent returns) — future Codex batches must poll job status rather than trust the Agent-call return."
+ai_actions:
+  - turn: 22
+    action: "PAPER-COMPILATION THREAD (continues N41/N42, concurrent with the separate V3-metrics turn-21 action above). Verified research/ara-library grew to 34/539 (ave25/han26/val25 all present with logic/evidence/src/trace) — N42 resolved. User asked for ~50 more papers via Codex subagents. Ran codex-companion.mjs setup --json (ready, ChatGPT-authenticated). Read the codex:rescue skill's operating rules (codex:codex-rescue is a thin-forwarder subagent, not a skill; supports --fresh/--resume). Diffed data/lib vs ara-library again (505 remaining, all abstract-only); ranked by citation_count descending; selected top 50, split into 5 batches of 10. Built a Codex-specific prompt template (points at metadata.json/metadata.md only, tells Codex to read /Users/carlaostmann/.claude/skills/compiler/SKILL.md directly since Codex has no native Skill tool, cites the25/sal26 as abstract-only precedents, pins output to research/ara-library/<slug>/). Created 5 TaskCreate entries (#1-#5) for the batches. Dispatched batch 1/5 (10 papers) as codex:codex-rescue Agent calls; discovered each returns almost immediately with a background job id rather than blocking (operational finding, staged as O21). Confirmed all 10 jobs running via codex-companion.mjs status --all --json. Set up a Monitor-tool poll loop (20s interval) to detect completion; its first notification returned a malformed/empty status field for all 10 jobs (an ad-hoc jq bug, not a Codex failure) — actual per-paper pass/fail unconfirmed as of turn end."
+    provenance: ai-executed
+    files_changed: []
+  - turn: 21
+    action: "V3 BUILD (metrics thread; N43, executes N40). After user confirmed decomposition/corpus/spend via AskUserQuestion (12 spec ARAs; 3 Sonnet agents; build+degrade-gracefully): wrote research/metrics/v3/compiler-model.md (compiler critique C16 as ground-truth design contract), compute_metrics_v3.py (two-axis paper_rankers vs artifact_trust geometric-mean w; validity-perp-variance gate + usable flag, no bare 'discriminating'; three-tier genre + gold labels; K_MIN=3 fine->coarse->pairwise ladder), plan.md, and 3 stub modules with a frozen interface. Spine runs green over 12/12 ARAs; against stubs 1/5 paper-rankers usable (extractive translation_trial_linkage only) — matches predicted 0-1. Fixed RC11 in metrics-directions.md row 5. Dispatched 3 Sonnet module agents (detectors.py RC3/4/5, grounding.py RC6/7, external.py RC2), each testing in isolation via build_context. grounding.py already returned; detectors/external in flight. NOTE: this is a separate concurrent turn from the paper-compilation turn-21 (N41/N42) that shares this session record."
+    provenance: ai-executed
+    files_changed: ["research/metrics/v3/compiler-model.md", "research/metrics/v3/compute_metrics_v3.py", "research/metrics/v3/plan.md", "research/metrics/v3/detectors.py", "research/metrics/v3/grounding.py", "research/metrics/v3/external.py", "metrics-directions.md"]
+  - turn: 1
+    action: "Investigated the two candidate tools; established that the oshima API (src/execution/, N14) is a captured artifact not runnable from this repo, and the ARA compiler skill is the actual backprocessing tool (it produced research/ara/)."
+    provenance: ai-executed
+    files_changed: []
+  - turn: 2
+    action: "Attempted to read/copy ~/Downloads/search-papers.csv via Read tool, sandboxed Bash, and sandbox-disabled Bash — all blocked by macOS TCC (Operation not permitted). Asked user to relocate the file via the ! prefix / Finder."
+    provenance: ai-executed
+    files_changed: []
+  - turn: 3
+    action: "Read the ARA paper (ara-paper-2604.24658v3.pdf: p1 framing/abstract, p16 Table 4 Rigor-Auditor detection, p17 Table 5 five agent-native dimensions), the compiler SKILL.md + ara-schema.md, the rigor-reviewer six review dimensions, and the compiled ARA (claims/problem/concepts). Drafted research/metrics-directions.md: 7 directions of good-science metrics over a ~140-paper ARA library."
+    provenance: ai-executed
+    files_changed: ["research/metrics-directions.md"]
+  - turn: 4
+    action: "Executed the backprocessing pipeline. Parsed search-papers.csv -> research/data/papers.json (142 records; 100% DOI+URL; years 2025-2026; AD blood-biomarker/diagnostics domain). Scaffolded research/data/lib/<slug>/ x142 (metadata.json + metadata.md). Dispatched wave-1 = 10 parallel general-purpose discovery subagents (papers idx 1-10); each writes sources.yaml (pdf/code/data/clinical_trials) and appends a Discovered-sources section to metadata.md. Wave-1 yield (8 of 10 in at time of record): OA PDFs downloaded for pal25/sal25/woj25/jes26/tit26/kes25; the25 (Lancet Neurol meta-analysis) + sal26 paywalled/no rendered PDF; 0 code repos; datasets mostly controlled/on-request (Vivli IPD, BioFINDER-2, CCUG, UK cohorts); confirmed trials NCT05108922 (TRAILBLAZER-ALZ 4), NCT04437511 (TRAILBLAZER-ALZ 2), NCT03174938 (BioFINDER-2)."
+    provenance: ai-executed
+    files_changed: ["research/data/papers.json", "research/data/lib/*/metadata.json", "research/data/lib/*/metadata.md", "research/data/lib/<wave1>/sources.yaml"]
+  - turn: 5
+    action: "Expanded research/metrics-directions.md (N27): restructured into Part I (7 metric directions explained), Part II (per-metric computation recipes grounded in the concrete ARA artifact shapes, tagged det/sem/ext), and Appendix A (field-level inventory of claims.md/experiments.md/exploration_tree.yaml/evidence + the oshima Claim/Evidence/fol_json/themes schema + MCP external DBs); added a change log. Confirmed the oshima extract schema by reading src/execution/app/models/extract.py — Claim carries original:bool + confidence + centrality_percentage, Evidence carries direction:{support,contradict,contextual} — which makes D4 novel-claim-count, D1/L3 central-claim repro, and the D5 claim-graph edge typing concrete field reads."
+    provenance: ai-executed
+    files_changed: ["research/metrics-directions.md"]
+  - turn: 6
+    action: "Wave-1 discovery completed (all 10): che26 (network meta-analysis, PROSPERO CRD420261327845 open + 10 controlled AD cohorts) and cum26 (pipeline review: 8 flagship NCTs verified, open ClinicalTrials.gov/alzpipeline data, 158 drugs/192 trials) landed with PDFs. Wave-1 totals: 8/10 OA PDFs; the25 + sal26 paywalled (abstract-grounded); 0 code repos; controlled-access cohorts throughout; confirmed trials NCT05108922, NCT04437511, NCT03174938 + cum26's 8. Then DISPATCHED wave-1 compilation: 10 parallel general-purpose subagents each following the compiler skill (/Users/carlaostmann/.claude/skills/compiler/SKILL.md) to build one ARA into research/ara-library/<slug>/, folding sources.yaml (code/data/trials) into related_work + environment; the 2 paywalled papers compile as grounding: abstract-only."
+    provenance: ai-executed
+    files_changed: ["research/data/lib/*/sources.yaml (che26,cum26)", "research/ara-library/<wave1> (in progress)"]
+  - turn: 7
+    action: "Mirrored the metrics deliverable into the user's local Obsidian vault. Located the sole vault (obsidian_local at ~/Documents/Documents - Carla’s MacBook Pro/obsidian_local) via obsidian.json; created a SYMLINK 'knowledge representation/desciencemodel - good-science metrics.md' -> the live repo file, so vault reads/writes track the repo (two-way, zero-copy). Verified identical md5 through the link. NOTE: metrics-directions.md was moved from research/ to the repo ROOT (/Users/carlaostmann/code/desciencemodel/metrics-directions.md) by the concurrent wave-6 session — the symlink and all future references should use the root path; trace mentions of 'research/metrics-directions.md' (turns 3/5, N27) are now stale path-wise (content unchanged)."
+    provenance: ai-executed
+    files_changed: ["~/Documents/.../obsidian_local/knowledge representation/desciencemodel - good-science metrics.md (symlink)"]
+  - turn: 8
+    action: "Fixed Obsidian visibility: the turn-7 symlink was invisible because Obsidian doesn't index symlinks pointing outside the vault. Replaced it with a REAL copy inside the vault (knowledge representation/desciencemodel - good-science metrics.md) and installed a launchd WatchPaths agent (com.desciencemodel.metrics-obsidian-sync -> research/ara-hooks/sync-metrics-to-obsidian.sh) that re-copies the doc into the vault on every change. Verified propagation (append test marker -> vault picks it up -> removed marker). Local-vault sync only."
+    provenance: ai-executed
+    files_changed: ["research/ara-hooks/sync-metrics-to-obsidian.sh", "~/Library/LaunchAgents/com.desciencemodel.metrics-obsidian-sync.plist", "vault copy (real file)"]
+  - turn: 9
+    action: "Built the metrics workflow research/metrics/compute_metrics.py (N29): stdlib+PyYAML, parses each ARA layer + sources.yaml, computes all [det] metrics, writes per-ARA research/ara-library/<slug>/metrics/{metrics.json,metrics.md} + library rollup research/metrics/library_metrics.{json,md}; [sem]/[ext] emitted as pending_*. Fixed a number-extraction bug (nomenclature digits like p-tau217/C231D181 were miscounted as load-bearing numbers) via alphanumeric-boundary regex. Ran clean over 10 ARAs."
+    provenance: ai-executed
+    files_changed: ["research/metrics/compute_metrics.py", "research/ara-library/*/metrics/*", "research/metrics/library_metrics.*"]
+  - turn: 10
+    action: "Test run over the 10 OA ARAs + coverage-gap analysis (N30). All [det] metrics compute (binding 0.99, env 0.81, grounding 0.80 mean; woj25=0 grounding = no Sources blocks — a real flag). Wrote research/metrics/coverage-gaps.md enumerating what's missing per metric: no [sem] judge pass, no [ext] ClinicalTrials/ChEMBL pass, no oshima FOL layer (D5), pal25 missing exploration_tree + woj25 missing Sources (recompile), 2 paywalled abstract-only, spec-completeness proxy ML-shaped (wrong for clinical), L3 intrinsically N/A (0 code/open data)."
+    provenance: ai-executed
+    files_changed: ["research/metrics/coverage-gaps.md", "research/ara-library/*/metrics/*", "research/metrics/library_metrics.*"]
+  - turn: 11
+    action: "Delivered a critical review of the wave-1 test run (no files changed — assessment only). Verdict: the run validated the engineering, not the epistemics. Key findings staged as O06 (several [det] metrics are near-ceiling/zero-variance → measuring compiler consistency not paper quality; D2 conflates compile-defect with authorship-defect) and O07 (metrics must be genre-aware; L3/D3 floor for clinical genres; grounding + trial-linkage are the informative discriminators here; D5 flagship still unvalidated at n=10)."
+    provenance: ai-executed
+    files_changed: []
+  - turn: 14
+    action: "Feasibility test for the code/data-dependent V2 metrics. Scanned all 142 papers (data/papers.json) → ~39 have computational signal; ranked candidates. Dispatched 6 parallel general-purpose discovery subagents (Zha26, Ave25, Sun25, Sal26b, Huu25, Pan26) to find + VERIFY code repos (GitHub/Zenodo), open datasets (GEO/Synapse/Zenodo), and OA PDFs. In flight at record time. Next: compile the best hit(s) → re-run V2 → check code/data metrics activate. Established '140 papers have a repo' is unlikely for this AD-biomarker list (only ~39 computational)."
+    provenance: ai-executed
+    files_changed: []
+  - turn: 19
+    action: "Answered the user's conceptual challenge ('if the compiler is a correct different view, why does measuring it matter?'). Clarified + partially conceded: split the critique into extractive (faithful → flagship safe), homogenization (template flattens → non-discriminating), and fabrication (schema-gap confabulation → artifact); plus the axis point that compiler-fidelity != metric-validity. Assessment only, no files changed. Staged O18."
+    provenance: ai-executed
+    files_changed: []
+  - turn: 18
+    action: "Reviewed the concurrent loop's v2 round-2 critique (critiques-round2.md, RC1-RC11), the adjudicated v3-spec.md, and metrics-critique.md; gave my judgment (assessment only, no files changed). Verdict: critique is sharper than my own — RC3/4/5 show v2 was counting compiler fabrications (dead-ends from conclusions, bounds=baseline, nulls as 'supported'); RC1/RC2 (validity != variance; no external validation) are the correct gate; the v3 two-axis architecture + master's standing verdict (can't validate at n=12) are right. Recommended TRIAGE: build the deterministic v3 subset (RC10/RC3-5/RC1/RC8-9/RC11), defer RC2+RC7 (underpowered/spend-gated), and treat CHANGING THE CORPUS as the real next experiment. Noted no v3 code exists yet + loop is spend-blocked. Staged O17."
+    provenance: ai-executed
+    files_changed: []
+  - turn: 17
+    action: "Huu25 compile COMPLETED (subagent wrote all files before dying on the org spend-limit in validation). Fixed the V2 genre-classifier bug (the token nma matched inside author name Kleinman → switched to word-boundary matching + added a single_cell_spatial genre). Clean V2 rerun over the now-16-ARA library (a concurrent session compiled 5 more: ahm26b/aku25/ala26/alb26/als26). Result: Huu25 correctly genre=single_cell_spatial, gates 4/4, has_code+has_open_data true, L3 applies=true (pending_exec) — the one library row where executable-repro is applicable. Finding: even Huu25 grounds 100% to the PDF (0/18 in-repo-verifiable), so verified grounding stays low everywhere — reinforces O11/H03. New epi papers (ahm26b/ala26/als26=1.0, alb26=0.923) do verify-ground, giving grounding_verified some spread. BLOCKER: org monthly spend limit hit → no more subagents."
+    provenance: ai-executed
+    files_changed: ["research/metrics/v2/compute_metrics_v2.py", "research/ara-library/*/metrics/v2/*", "research/metrics/v2/*"]
+  - turn: 16
+    action: "Ran V2 on the (partial) Huu25 ARA — feasibility CONFIRMED: L3 flips N/A->applies=true (pending_exec), has_code/has_open_data true, dataset-connectivity=2; the only library row where executable-repro is applicable. Caveats logged: compile partial (seal 3/4), genre classifier mislabeled Huu25 as meta_analysis, grounding still PDF-pointer (verified None). Clean rerun pending compile completion."
+    provenance: ai-executed
+    files_changed: ["research/ara-library/huu25-apoe-e4-alzheimer-s-risk-converges/metrics/v2/metrics.json", "research/metrics/v2/*"]
+  - turn: 15
+    action: "Feasibility test cont'd: ranked the 142-paper list by computational signal (~39/142), dispatched 6 parallel discovery subagents. Results: only Huu25 has a verified runnable repo (LieberInstitute/LFF_spatial_ERC + Zenodo; confirmed via GitHub API); Pan26/Sal26b have open GEO datasets but no repo; Sun25/Ave25 data gated; Zha26 is a conference abstract. Wrote data/lib/huu25-.../sources.yaml and dispatched a compiler subagent to build the Huu25 ARA (from PMC12667772) into research/ara-library/ — IN FLIGHT. Next: run V2 including Huu25 to show code/data metrics activate."
+    provenance: ai-executed
+    files_changed: ["research/data/lib/huu25-apoe-e4-alzheimer-s-risk-converges/sources.yaml"]
+  - turn: 13
+    action: "Updated metrics-directions.md with a Critiques→responses→V2-paths table + changelog. Built research/metrics/v2/compute_metrics_v2.py (reuses V1 parsers): genre classification + applicability model (N/A-for-genre), gates-vs-rankers split, verified grounding (re-opens cited files; resolves .md against ARA dir AND data/lib/<slug>/ — fixed a resolver bug that briefly zeroed the25), paper/artifact-quality tags, discrimination diagnostic. Ran it → per-ARA metrics/v2/metrics.json (x10) + research/metrics/v2/library_metrics_v2.{json,md} + comparison_v1_v2.md. Created logic/solution/heuristics.md with H01-H05."
+    provenance: ai-executed
+    files_changed: ["metrics-directions.md", "research/metrics/v2/compute_metrics_v2.py", "research/metrics/v2/library_metrics_v2.*", "research/metrics/v2/comparison_v1_v2.md", "research/ara-library/*/metrics/v2/metrics.json", "research/ara/logic/solution/heuristics.md"]
+  - turn: 12
+    action: "Reflective defense/learnings pass on my own critique (coverage-gaps.md + turn-11 review); assessment only, no files changed. Verdict: critique ~70% learning, ~30% defensible, but the defensible part ('wrong test corpus') is my error to own. Staged O08 (gate-vs-ranking mislabeling), O09 (grounding-presence != grounding-truth; my earlier praise was itself scope-inflated), O10 (adversarial test-bed = test-design error, not metric-design)."
+    provenance: ai-executed
+    files_changed: []
+  - turn: 20
+    action: "Picked up the concurrent-loop thread on a fresh conversation. Loaded all V3-relevant docs into context (metrics-critique.md, metrics-directions.md, critiques-round2.md RC1-RC11, v3-spec.md, comparison_v1_v2.md, library_metrics_v2.md, compute_metrics_v2.py) + inspected the ARA library on disk. Confirmed NO v3/ dir, NO compute_metrics_v3.py, NO agents running — Phase D is unstarted, not mid-flight. Surfaced a corpus-definition discrepancy: v3-spec names 12 scored ARAs, library_metrics_v2.md says 16, the ara-library on disk now holds 31. Proposed a spine-first + 3-module Sonnet decomposition and returned it for the user's confirmation (no code written; awaiting go)."
+    provenance: ai-executed
+    files_changed: []
+  - turn: 21
+    action: "Fresh conversation (different thread than turns 18-20's V3 work). User asked to compile the rest of the paper library. Diffed research/data/lib vs research/ara-library: 508/539 uncompiled. Checked each remaining slug for paper.pdf: only 3 have full text (ave25, han26, val25); 505 are abstract/metadata-only. Ran AskUserQuestion (scope + abstract-only handling), got a self-contradictory pair of answers, surfaced the conflict, ran a follow-up AskUserQuestion; user resolved to compile just the 3 full-text papers now. Read an existing ara-library entry (20225) as a structure reference, then dispatched 3 parallel general-purpose subagents, each instructed to invoke the compiler skill on one paper (ave25/han26/val25), output to research/ara-library/<slug>/. All 3 in flight at turn end, no results yet."
+    provenance: ai-executed
+    files_changed: []
+
+claims_touched:
+  - id: C16
+    action: crystallized
+    turn: 20
+
+logic_revisions: []
+
+key_context:
+  - turn: 1
+    excerpt: "User: 'there should be a tool to backprocess existing literature into their standardized format ... run it over a bunch of pdfs.' Resolved to: ARA compiler skill (one compile per PDF)."
+  - turn: 1
+    excerpt: "User selected 'One ARA per paper' + 'Parallel subagents' from the offered options."
+  - turn: 2
+    excerpt: "User: 'here's a lib ... spinout subagents for each of these to find if there's code repos or data anywhere or if there's a clinical trial connected to a publication ... create a lib in the way that'll be easiest to process for the compiler. pop this under /data and then run the compiler over it all.'"
+  - turn: 2
+    excerpt: "User selected 'Download PDFs + record links' + 'Large (100+)' → capped first wave."
+  - turn: 3
+    excerpt: "User: 'assuming you have a library of like 140 papers with ideally PDFs and possibly code repos, clinical trial data, and actual data sets connected ... think through possible metrics that are available, given the structure and formatting ... propose different directions for metrics, counting different things that count for good science.'"
+  - turn: 3
+    excerpt: "User (mid-work): 'are u using ur research manager skill btw so we capture the research artifacts for this research as well' → prompted invoking research-manager for this turn."
+  - turn: 4
+    excerpt: "User (mid-wave) asked to route to a non-authorized full-text source (by URL + DOI) when a PDF couldn't be found licitly. → AI declined (N28): that source distributes paywalled articles without authorization; kept acquisition to licit OA + a metadata/links fallback, and offered the user licit ways to fill gaps themselves."
+  - turn: 6
+    excerpt: "User: 'Compile now, licit sources only' (chose the recommended option) + 'do not ask for permissions for web scrape[,] just go.' → AI stopped gating on confirmation and dispatched all 10 wave-1 compiles autonomously (the non-authorized source still excluded — a policy line, not a permission gate)."
+  - turn: 13
+    excerpt: "User: 'Keep your metrics.md updated with the critiques and your responses ... paths forward, and then process those immediately and create alternate metrics. Save them in a V2 ... subdirectory, and then compare them across.' → CLOSURE SIGNAL: verbal affirmation to act on the critiques; V2 code commits O06-O10, so H01-H05 crystallized."
+  - turn: 20
+    excerpt: "User: '1. Write down the critique of the compiler in a separate markdown, and then for now just assume it as ground truth. 2. Create a plan for each metric to be improved based on the current critiques. 3. Spin out sub-agents with Sonnet to build those. 4. Look at the results and compare them to what we have right now.' → CLOSURE SIGNAL for O18: first-person 'assume it as ground truth' = verbal affirmation of the compiler critique → crystallized C16. Directive itself = N40. User also asked to confirm the plan before execution."
+  - turn: 21
+    excerpt: "User: 'Check the paper library that we have. We already created ARA artifacts using the compiler for some of these, but a lot of them still don't have them. Go implement thes rest of these.' → led to N41's scoping decision after the 3-vs-505 full-text split was surfaced."
+  - turn: 21
+    excerpt: "User's two-question answer set was self-contradictory (pilot batch of 15-20 + skip abstract-only, but only 3 full-text papers exist). Surfaced explicitly; user's resolution: 'Compile just those 3 full-text papers now' → N41's final choice, N42's dispatch."
+  - turn: 22
+    excerpt: "User: 'Now do it for another bigger batch for like 50 papers, but use codex as sub-agents. acc to codex plugin.' → N44: switched compile worker from Claude subagents to codex:codex-rescue; treated as implicit resolution of N41's deferred abstract-only question since all 505 remaining papers are abstract-only."
+
+open_threads:
+  - "BLOCKED: ~/Downloads/search-papers.csv is unreadable by the agent shell (macOS TCC). Awaiting user to move it to research/data-in.csv."
+  - "Once CSV lands: parse → per-paper discovery subagents (code/data/trial + PDF) → stage research/data/lib/<slug>/ → compile capped first wave (~10) → report before continuing."
+  - "Confirm exact output dir for compiled ARAs (research/ara-library/<slug>/) vs any preference."
+  - "METRICS (N27): research/metrics-directions.md now has 7 directions explained + per-metric computation recipes (Part II) grounded in artifact shapes + Appendix A field inventory; still no direction chosen/affirmed. Next: user to pick which to prototype (flagship = cross-library claim graph, O02). Open design Qs in the doc (rubric source, FOL-equivalence threshold τ, author/lab entity layer for self-reuse discount, coverage bias in external grounding). Note: wave-1 found 0 code repos → D1 executable-repro (L3) may be low-coverage for this AD-biomarker library; D6 trial-grounding is strong (confirmed NCTs)."
+  - "LICIT-ONLY ACQUISITION (N28): AI declined to route PDF downloads through a non-authorized full-text source; awaiting user response on the licit-only approach. If accepted, paywalled papers (e.g. the25, sal26) compile from abstract+metadata+links, or the user supplies PDFs via their own licit access."
+  - "WAVE-1 discovery finishing: cum26 + che26 still running at record time. Then: review 10 sources.yaml, decide compile inputs, run compiler wave-1 -> research/ara-library/<slug>/ (task #4)."
+  - "OBSIDIAN SYNC (turn 8): metrics doc mirrored to vault as a REAL copy kept current by a launchd copy-on-change watcher (com.desciencemodel.metrics-obsidian-sync watching repo-ROOT metrics-directions.md). Symlink approach abandoned (Obsidian won't index out-of-vault symlinks). Local-machine only; to remove: launchctl unload the plist. Cross-device Obsidian Sync would carry the copy fine now (it's a real file)."
+  - "METRICS NEXT (N29/N30): buildable now — (a) [sem] LLM-judge pass for evidence-relevance/falsifiability-quality/scope/spec-rubric/novelty/fidelity, (b) [ext] ClinicalTrials+ChEMBL enrichment pass for D6 concordance/resolvability. Also: recompile pal25 (missing exploration_tree) + woj25 (missing Sources/grounding); get licit full text for the25 + sal26; replace the ML spec-completeness proxy with a clinical rubric (O05); D5 real graph needs an oshima/FOL layer + more compiled waves (10/142)."
+  - "REVIEW FINDINGS (turn 11, O06/O07) — two must-fixes before scores are trustworthy: (1) separate compiler-quality from paper-quality (near-ceiling metrics measure the compiler; woj25=0 is a compile defect) — normalize within compiler version; (2) genre-awareness — report N/A-for-genre not 0 where a genre lacks a dimension. Best next test: run [sem]+[ext] passes for real variance + compile a heterogeneous set (incl. code-shipping ML papers) so floored dimensions can vary. Awaiting user pick of next step."
+  - "V2 DONE (N31/N32, turn 13): research/metrics/v2/ implements gates/rankers + genre-awareness + verified grounding + diagnostic; H01-H05 crystallized. OPEN: (a) O05 spec-completeness clinical rubric NOT yet implemented in V2 (only dropped) — still staged; (b) O11 finding — compiler should prefer in-repo evidence citations over paper.pdf so grounding is verifiable by default (needs user comment to crystallize); (c) still pending: [sem]/[ext] passes, real D5 FOL graph, heterogeneous corpus to exercise gated metrics."
+
+  - "HUU25 FEASIBILITY (N33/N34): Huu25 is the one full code+data case (repo LFF_spatial_ERC + open GEO GSE307990/GSE308007). Compiler subagent building research/ara-library/huu25-.../ IN FLIGHT. Next: run V2 including huu25 → confirm has_code/has_open_data true, L3 flips N/A→applicable, dataset_connectivity=2. Also: Pan26/Sal26b are open-data-but-no-repo cases worth compiling if we want dataset-connectivity>0 without code."
+
+  - "CLEAN RERUN pending: Huu25 compiler subagent finishing (src/data/trace/evidence-index not yet written); re-run V2 when done for trustworthy claim-side numbers. GENRE CLASSIFIER bug: Huu25 mislabeled meta_analysis — the keyword classifier needs fixing before within-genre ranking is trusted. Optional: compile Pan26/Sal26b (open GEO, no repo) to show dataset-connectivity without code."
+
+  - "SPEND LIMIT: org monthly spend cap reached (killed the Huu25 compiler subagent in its validation step; files were already written). No more subagents until raised via /usage-credits or admin-settings/usage; main-loop direct edits still work."
+  - "CLEAN RERUN DONE: V2 over 16 ARAs, Huu25 complete + correctly classified (genre bug fixed). Still open: compiler grounds to PDF not in-repo evidence (caps verified grounding even for the code paper) — the top actionable fix; actual L3 execution (clone repo + run R pipeline on GEO) not attempted (compute + spend-gated); optional Pan26/Sal26b compiles blocked by spend limit."
+
+  - "PHASE D ENTRY (N40, turn 20): user committed to build V3 by axiomatizing the compiler critique (now C16) rather than closing RC2 external validation. Awaiting confirmation on: (a) my proposed decomposition (O19: spine-first + 3 Sonnet module agents — detectors RC3/4/5, grounding RC6/7, external RC2); (b) corpus scope — v3-spec's 12 scored ARAs vs 31 now on disk (I recommend 12, log rest as not-yet-scored); (c) spend approval for 3 concurrent Sonnet builds (last cycle's RC3+4+5 agent died on the account spend cap). On go: build compute_metrics_v3.py + research/metrics/v3/ + per-ARA metrics/v3/ + comparison_v2_v3.md, then hand back for round-3 review against each RC acceptance criterion."
+
+  - "COMPILE WAVE IN FLIGHT (N42, turn 21): 3 subagents compiling ave25/han26/val25 (the only 3 full-text papers among the 508 uncompiled) were dispatched but not yet returned at turn end. Next turn: check each for Seal Level 1 pass/fail, file counts, claim/experiment/evidence counts; reconcile N42's result; update research/ara-library count (34/539 on success)."
+  - "505-PAPER SCOPE DEFERRED (N41/O20, turn 21): the bulk of the uncompiled backlog (505/508) is abstract/metadata-only, not full-text. User explicitly deferred (not decided) whether to (a) compile abstract-only ARAs now for full coverage, matching the the25/sal26 precedent already in the library, (b) run research/fetch_papers.py against an institutional proxy to pull more real PDFs first, or (c) leave them uncompiled. No plan exists yet for the 505; needs a user decision before any further library-wide compile wave."
+  - "RESOLVED (turn 22): N42's 3-paper compile wave is confirmed complete (research/ara-library at 34 entries); the 505-paper deferral above is superseded in practice — user asked for a 50-paper Codex-driven abstract-only wave (N44/N45), so proceeding with abstract-only compiles is now the live plan, not merely deferred."
+  - "CODEX BATCH 1/5 STATUS UNCONFIRMED (N45, turn 22): 10 papers (ols25, zhu25b, hao25, qi25, kho25, liu25h, div25, raz25, smi25, wan25c) dispatched as Codex CLI background jobs (job ids: task-mr7y1y8g-xwpc0h, task-mr7y26os-5xccw7, task-mr7y28ae-zdwgsj, task-mr7y2eis-9f88xx, task-mr7y2pee-5pifiw, task-mr7y2uvf-nzgx8f, task-mr7y2u96-n7k841, task-mr7y339c-vdapje, task-mr7y33n1-ohe7mz, task-mr7y38zq-wb383g). All confirmed running via codex-companion.mjs status --all --json at dispatch time; the follow-up Monitor poll's status field came back empty for all 10 (jq filter bug), so completion/success is NOT yet verified. Next turn: query `codex-companion.mjs status <id> --json` (or `result <id>`) per job with a corrected filter, verify each produced a valid Seal-Level-1-passing ARA under research/ara-library/<slug>/, THEN dispatch batches 2-5 (papers 11-50, listed in TaskCreate #2-#5)."
+  - "CODEX-VS-CLAUDE QUALITY COMPARISON OPEN (turn 22): no ARA compiled by a Codex subagent has been quality-checked yet against the Claude-compiled abstract-only precedents (the25/sal26) or the Claude-compiled turn-21 papers (ave25/han26/val25). Worth an explicit spot-check once batch 1 lands, since this is the first use of Codex as a compiler-skill executor in this project."
+
+ai_suggestions_pending:
+  - "O01: 7-direction metric taxonomy (scope × virtue axes) — awaiting user selection."
+  - "O19: V3 build decomposition (spine-first + 3 parallel Sonnet module agents) — awaiting user confirmation before any code is written."
+  - "O02: cross-library claim graph as the flagship metric / citation-network alternative — awaiting affirmation."
+  - "O03: Goodhart-resistance via many signals + deterministic verdicts — awaiting affirmation."

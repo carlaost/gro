@@ -1,0 +1,109 @@
+session:
+  id: "2026-07-07_001"
+  date: "2026-07-07"
+  started: "2026-07-07T09:00"
+  last_turn: "2026-07-07T12:45"
+  turn_count: 3
+  summary: >
+    Resumed the format-tournament thread after the prior account hit its session limit (docs + the
+    local d346d4a6 transcript were fully recoverable). Ran a tail workflow (wf_c4cbff37-887, 25 agents,
+    Opus 4.8) completing the two cut-off refines (VALIDITY, HARDSIGNALS), the review gate (all 12 gaps
+    accepted), and the real draft->adversarial-critique->final synthesis of the successor-format spec ->
+    IDEAL_FORMAT_SPEC.md (the Grounded Research Object / GRO), with TAIL_SYNTHESIS_LOG.md; interim spec
+    backed up (N51). Reported the true per-agent model split (proposers = Sonnet 5 + GPT-5.5/Codex;
+    judge/reviewer/synthesis = Opus 4.8, not "Fable" as narrated). Scrubbed all non-authorized-source mentions repo-wide
+    on user directive — operational refs neutralized (fetch_papers.py default -> plain DOI resolver,
+    verified; manifest url nulled), trace refs rephrased not gutted, licit-only decision preserved (N52).
+    Delivered a Fable critical review of GRO (trust-relocation, independence asserted-not-measured,
+    corpus-scale deflation, adoption assumed away -> staged O30). Updated the Astera + SPRU proposals and
+    the program map to feature the GRO spec as an exemplary outcome and its honest gaps as work-to-improve,
+    strictly within the "critique not building ARA" positioning (N53).
+
+events_logged:
+  - turn: 1
+    type: experiment
+    id: "N51"
+    routing: direct
+    provenance: ai-executed
+    summary: "12-gap format tournament (tail-completed) -> GRO successor-format spec; all 12 gaps accepted; spec unvalidated/non-scaling/independence-asserted per its own s7."
+  - turn: 1
+    type: decision
+    id: "N52"
+    routing: direct
+    provenance: user
+    summary: "Scrub all a non-authorized full-text source textual mentions repo-wide; operational refs neutralized + verified, trace refs rephrased (licit-only stance preserved); grep now zero."
+  - turn: 1
+    type: decision
+    id: "N53"
+    routing: direct
+    provenance: user
+    summary: "Fold GRO spec + tournament into Astera/SPRU proposals + program map as exemplary outcome + work-to-improve, within the critique-not-building positioning."
+  - turn: 1
+    type: observation
+    id: "O30"
+    routing: staged
+    provenance: ai-suggested
+    summary: "Fable review: GRO relocates trust rather than eliminating it; credibility infra is a participation/incentive problem, not a representation one."
+  - turn: 2
+    type: observation
+    id: "O31"
+    routing: staged
+    provenance: ai-suggested
+    summary: "Layer-cake coherence check: architecture holds, GRO fleshes the within-object particle layer only; cross-object contribution/credit graph still unbuilt; measurable-prereq overpromises (fidelity vs importance)."
+  - turn: 3
+    type: decision
+    id: "N54"
+    routing: direct
+    provenance: user
+    summary: "Drafted two public posts (layer-cake substrate w/ GRO deep dive + method; metrics-as-entry-point w/ TOP-10 ideal metrics + funder callout)."
+
+ai_actions:
+  - turn: 1
+    action: "Ran tail workflow wf_c4cbff37-887; wrote final GRO spec, backed up interim, wrote tail synthesis log."
+    provenance: ai-executed
+    files_changed:
+      - "research/metrics/v3/tournament/IDEAL_FORMAT_SPEC.md"
+      - "research/metrics/v3/tournament/IDEAL_FORMAT_SPEC.interim.md"
+      - "research/metrics/v3/tournament/TAIL_SYNTHESIS_LOG.md"
+  - turn: 1
+    action: "Removed all non-authorized-source mentions (5 files): neutralized 2 operational refs, rephrased 3 trace files."
+    provenance: ai-executed
+    files_changed:
+      - "research/fetch_papers.py"
+      - "research/data/fetch_manifest.json"
+      - "research/ara/trace/exploration_tree.yaml"
+      - "research/ara/trace/pm_reasoning_log.yaml"
+      - "research/ara/trace/sessions/2026-07-05_001.yaml"
+  - turn: 1
+    action: "Updated both proposals + the program map to feature GRO as exemplary outcome + work-to-improve."
+    provenance: ai-executed
+    files_changed:
+      - "applications/00-research-program-map.md"
+      - "applications/astera-residency.md"
+      - "applications/sussex-spru-phd.md"
+  - turn: 3
+    action: "Drafted two public-facing posts (layer-cake substrate rewrite + metrics entry-point) w/ new figure sketches + method sections."
+    provenance: ai-executed
+    files_changed:
+      - "research/sources/substack/layer-cake-substrate-DRAFT.md"
+      - "research/sources/substack/metrics-entry-point-DRAFT.md"
+
+claims_touched: []
+
+logic_revisions: []
+
+key_context:
+  - turn: 1
+    excerpt: "User: 'can you do a final review of all this as fable? this is all routine stuff, just thinking about metascience' -> delivered a critical (not fawning) review; its core finding staged as O30 and folded into the proposals."
+  - turn: 1
+    excerpt: "User: 'update the research proposals for astera and sussex uni, as exemplary outcomes and work to be improved upon' -> GRO framed as her substrate-design thesis fed by the ARA critique (layer C), never as building ARA v2; honest gaps = the proposed programs."
+
+open_threads:
+  - "GRO spec is unvalidated: no discrimination study (does it separate good from bad science?). Prime next experiment — the Astera WP-C / SPRU WP1 test."
+  - "Proposal pre-submission checklists still open (verify corpus counts, Onno/NADI, Arcadia framing, SPRU supervisors, word limits, route)."
+  - "non-authorized-source strings remain in prior git history; no history rewrite performed — decide if that matters before making the repo public."
+  - "Layer-cake particle layer has an unbuilt half: the cross-object git-style contribution/credit graph (fork/merge, countable replications/reuse) — GRO covers only within-object decomposition. Open design question (O31)."
+  - "O30 (GRO trust-relocation critique) staged, not crystallized — awaiting user affirmation or an artifact that commits to it as a premise."
+
+ai_suggestions_pending:
+  - "O30: the trust-relocation / participation-problem critique of GRO (ai-suggested; folded into proposals but not user-affirmed as a standing claim)."

@@ -1,0 +1,886 @@
+# Exploration graph for the desciencemodel project (agent-native scientific knowledge representation).
+# Reconstructed from four sources. Project-level framing nodes are support_level: inferred;
+# nodes grounded directly in a source carry support_level: explicit with source_refs.
+# evidence: fields reference claim IDs (C##) in logic/claims.md.
+tree:
+  - id: N01
+    type: question
+    support_level: inferred
+    title: "How should scientific knowledge be represented for an agent-native era?"
+    description: >
+      Root project question: when AI agents (not only humans) read, reproduce, and extend research,
+      what representation should replace the narrative paper, and how does an AI-first record stay
+      actionable for humans?
+    status: open
+    children:
+      - id: N02
+        type: question
+        support_level: explicit
+        source_refs: ["ARA paper §1", "ara_figure1", "ara_figure2"]
+        title: "What does compiling research into a linear narrative cost AI agents?"
+        description: "Storytelling Tax (lost process/failures) and Engineering Tax (under-specification)."
+        status: resolved
+        children:
+          - id: N03
+            type: experiment
+            support_level: explicit
+            source_refs: ["ARA paper §7.1", "§7.4", "Table 8", "Table 9", "Table 10"]
+            title: "Quantify the information gap in published artifacts and the cost of failure"
+            result: >
+              Only 45.4% of reproduction requirements fully specified; failed runs are 90.2% of
+              dollar cost (113x median token ratio).
+            evidence: [C04, C05]
+            status: resolved
+
+      - id: N04
+        type: decision
+        support_level: explicit
+        source_refs: ["ARA paper §3", "§4", "ara_figure4", "ara_figure5", "Table 5"]
+        title: "Adopt a four-layer file-system ontology (Knowledge over Narrative)"
+        choice: >
+          Represent the work as /logic + /src + /trace + /evidence with cross-layer forensic
+          bindings and a PAPER.md manifest, rather than a single narrative document.
+        alternatives:
+          - "Single narrative document (PDF) — flattening four conflicting knowledge types is lossy"
+          - "Metadata schema only (FAIR, nanopublications, RO-Crate, ORKG) — no execution semantics + decision history jointly"
+          - "PDF + GitHub + experiment tracker — siloed, no cross-layer bindings"
+        evidence: [C09]
+        status: resolved
+        children:
+          - id: N05
+            type: experiment
+            support_level: explicit
+            source_refs: ["ARA paper §7.2", "Table 3"]
+            title: "Paired QA: does ARA improve agent understanding?"
+            result: "QA accuracy 93.7% vs 72.4%; largest gain on failure questions (+65.7%)."
+            evidence: [C01, C02]
+            status: resolved
+          - id: N06
+            type: experiment
+            support_level: explicit
+            source_refs: ["ARA paper §7.3", "Table 11", "Fig 11"]
+            title: "Reproduction: does ARA improve and widen with difficulty?"
+            result: "Difficulty-weighted success 64.4% vs 57.4%; gap grows easy->hard."
+            evidence: [C03]
+            status: resolved
+          - id: N07
+            type: experiment
+            support_level: explicit
+            source_refs: ["ARA paper §7.4", "Fig 12", "Fig 14", "Fig 15"]
+            title: "Extension: do preserved failure traces help open-ended work?"
+            result: "Faster first useful move with weaker base model; ordering can invert with a stronger one."
+            evidence: [C06, C07]
+            status: resolved
+            children:
+              - id: N08
+                type: dead_end
+                support_level: explicit
+                source_refs: ["ARA paper §7.4", "ara_figure14", "ara_figure15"]
+                title: "Preserved trace can constrain a sufficiently capable agent"
+                hypothesis: "More trace context always helps the extending agent."
+                failure_mode: >
+                  On Sonnet 4.5 the paper-only agent beat ARA (triton 0.64 vs 0.27; restricted_mlm
+                  1.03 vs 0.73) by inventing moves the trace never named.
+                lesson: "Tag trace nodes with model-class provenance so successors can discount stale claims."
+                status: resolved
+
+      - id: N09
+        type: decision
+        support_level: explicit
+        source_refs: ["ARA paper §5", "§6"]
+        title: "Implement mechanisms as natural-language agent skills, not custom SDKs"
+        choice: "Live Manager, Compiler, Rigor Auditor are skills so they improve with the base model."
+        alternatives: ["Bespoke SDK/infrastructure per mechanism"]
+        evidence: [C08]
+        status: resolved
+
+      - id: N10
+        type: decision
+        support_level: explicit
+        source_refs: ["ARA paper §4", "§6.3"]
+        title: "Hold evidence separately and withhold it from verification agents"
+        choice: "Layered access control on /evidence to prevent fabrication-by-copying expected values."
+        alternatives: ["Inline results with claims (enables copying/fabrication)"]
+        evidence: [C08]
+        status: resolved
+        children:
+          - id: N11
+            type: experiment
+            support_level: explicit
+            source_refs: ["ARA paper §7.5", "Table 4", "Table 14"]
+            title: "Rigor-Auditor mutation benchmark (L2 review)"
+            result: "82.6% overall detection; near-100% on high-severity injections."
+            evidence: [C08]
+            status: resolved
+            children:
+              - id: N12
+                type: dead_end
+                support_level: explicit
+                source_refs: ["ARA paper §7.5", "ara_table14"]
+                title: "L2 misses orphan experiments"
+                hypothesis: "An LLM auditor can catch structurally-orphaned experiments."
+                failure_mode: "Only ~22% of orphan experiments detected (5/23 papers)."
+                lesson: "Move orphan detection into deterministic L1 structural checks."
+                status: resolved
+              - id: N13
+                type: dead_end
+                support_level: explicit
+                source_refs: ["ARA paper §7.5"]
+                title: "LLM-as-judge grade inflation and finding-score decoupling"
+                hypothesis: "An LLM judge can both find flaws and assign a calibrated score."
+                failure_mode: >
+                  17/23 ARAs rounded up to clear Accept; 22/23 critical flags did not lower the
+                  dimension score.
+                lesson: "LLMs generate findings; compute the verdict deterministically."
+                status: resolved
+
+      - id: N14
+        type: decision
+        support_level: inferred
+        source_refs: ["src/execution/app/services/pipeline/storage_pipeline.py", "src/artifacts.md"]
+        title: "Build the oshima API as a concrete agent-native KR system"
+        choice: >
+          A FastAPI service that ingests paper PDFs and produces structured claims, typed evidence,
+          first-order-logic, and cross-paper themes (a working instantiation of the ARA cognitive layer).
+        alternatives: ["Manual annotation", "Keep knowledge as prose/PDF"]
+        evidence: [C10, C11, C12]
+        status: open
+        children:
+          - id: N15
+            type: experiment
+            support_level: inferred
+            source_refs: ["src/execution/app/services/extract/extract_paper.py", "src/execution/app/models/extract.py"]
+            title: "Verify ingestion + schema-constrained claim/evidence extraction"
+            result: "Captured code defines typed evidence and chunked claim+evidence extraction; runtime verification pending."
+            evidence: [C10]
+            status: open
+          - id: N16
+            type: pivot
+            support_level: explicit
+            source_refs: ["src/execution/app/api/v1/api.py", "src/execution/app/services/jobs/job_service.py"]
+            title: "File-based JobManager -> DB-only JobService"
+            from: "File-based JobManager + original jobs router"
+            to: "DB-based atomic job claiming (jobs-new) with claim TTL and retries"
+            trigger: "Original upload endpoint broken (storage filename mismatch); two job generations coexisted."
+            status: resolved
+
+      - id: N17
+        type: question
+        support_level: explicit
+        source_refs: ["Otte et al. Abstract", "§1", "mo_figure1"]
+        title: "Can one shared embedding space represent cross-omics biology?"
+        description: "Unify genes/proteins/enzymes/small molecules as directions in a shared space."
+        status: resolved
+        children:
+          - id: N18
+            type: decision
+            support_level: explicit
+            source_refs: ["Otte et al. §Methods", "mo_figure2", "mo_figure3"]
+            title: "Word2Vec-style two-tower network over MetaCyc pathway sequences (128-D)"
+            choice: "Shallow target/context linear+tanh net, MSE on dot product, positive+negative pairs."
+            alternatives: ["Deeper architectures", "Single-modality fingerprints (ECFP/MACCS/SMILES Transformer)"]
+            evidence: [C13]
+            status: resolved
+            children:
+              - id: N19
+                type: decision
+                support_level: explicit
+                source_refs: ["Otte et al. §Methods"]
+                title: "Under-sample hub intermediates (water, O2, CO2)"
+                choice: "Down-weight ubiquitous cofactors to improve space coverage and avoid hub bias."
+                alternatives: ["Sample all nodes uniformly"]
+                evidence: [C13]
+                status: resolved
+              - id: N20
+                type: experiment
+                support_level: explicit
+                source_refs: ["Otte et al. §Results", "mo_figure4"]
+                title: "t-SNE clustering + omics-type coloring"
+                result: "Distinct clusters; modalities intermixed; clusters share functional characteristics."
+                evidence: [C13]
+                status: resolved
+              - id: N21
+                type: experiment
+                support_level: explicit
+                source_refs: ["Otte et al. §Results", "mo_figure4"]
+                title: "Dot-product distribution + nearest-neighbor case study"
+                result: "Bimodal dot products; UDP-alpha-D-galactose neighbor encodes PGM1 (MetaCyc-consistent)."
+                evidence: [C14, C15]
+                status: resolved
+          - id: N22
+            type: dead_end
+            support_level: explicit
+            source_refs: ["Otte et al. §Discussion"]
+            title: "Missing structural/locational dimension; binary edges"
+            hypothesis: "Pathway-sequence context alone captures enough biology."
+            failure_mode: >
+              Structural/3-D and locational information is only implicit; MetaCyc edges are binary so
+              interaction strength/confidence is lost.
+            lesson: "Add structural/functional/compositional channels; need weighted-edge data."
+            status: resolved
+          - id: N23
+            type: dead_end
+            support_level: explicit
+            source_refs: ["Otte et al. §Discussion", "Alien Proteins essay"]
+            title: "Cross-tissue/cross-domain data scarcity and harmonization mismatch"
+            hypothesis: "The embedding generalizes across tissues/organisms."
+            failure_mode: >
+              Annotated pathways thin out away from model organisms; differential-expression data has
+              a different interpretation and often cannot be harmonized across platforms.
+            lesson: "Clean, abundant, standardized data is the binding constraint, not architecture/compute."
+            status: open
+
+      - id: N24
+        type: decision
+        support_level: inferred
+        source_refs: ["Alien Proteins essay", "Papers Block Scientific Progress essay"]
+        title: "Project thesis: an AI-first record needs a human-readable decoding layer"
+        choice: >
+          Pair machine-native representations (ARA layers, FOL stores, embedding spaces) with a
+          decoding layer that returns hypotheses/designs/candidates a scientist can act on
+          (synthetic-node decoding / 'alien proteins').
+        alternatives: ["Machine-only records (unreadable by humans)", "Human-only narrative (lossy for agents)"]
+        also_depends_on: [N04, N18, N14]
+        evidence: [C15]
+        status: open
+
+  - id: N25
+    type: decision
+    support_level: explicit
+    source_refs: ["session 2026-07-05_001"]
+    provenance: user-revised
+    timestamp: "2026-07-05"
+    title: "Backprocess existing literature into per-paper ARAs via the compiler skill"
+    choice: >
+      Use the ARA Compiler skill (not the oshima API service, N14) as the tool to backprocess a
+      collection of literature PDFs. Output layout: one self-contained ARA per paper under
+      research/ara-library/<paper-slug>/ (not a single merged library ARA like research/ara/).
+      Execution: dispatch one compiler subagent per PDF, running in parallel.
+    alternatives:
+      - "One merged library ARA with cross-paper claims/themes (like research/ara/) — rejected for a general literature backprocess; per-paper keeps each independently browsable/validatable"
+      - "Run the oshima API (N14) over the PDFs — not runnable from this repo (no pyproject/.env/README captured; needs Supabase + OpenAI + Adobe PDF Services + CoreNLP)"
+      - "Compile sequentially in the main session — slower for a batch; parallel subagents chosen"
+    also_depends_on: [N04, N14]
+    status: open   # approach decided + confirmed; batch not yet run (blocked on PDF source location)
+
+  - id: N26
+    type: decision
+    support_level: explicit
+    source_refs: ["session 2026-07-05_001 turn 2", "input: ~/Downloads/search-papers.csv"]
+    provenance: user-revised
+    timestamp: "2026-07-05"
+    title: "Enrich each library paper with code/data/clinical-trial discovery before compiling"
+    choice: >
+      Source library = search-papers.csv (a 100+ paper search export). For each paper, dispatch a
+      discovery subagent (parallel, in waves) to find and verify a code repo, a dataset, and any
+      linked clinical trial (any subset may exist). Fetch depth: download the open-access PDF and
+      record repo/data/trial as verified links + metadata. Assemble a compiler-friendly per-paper
+      lib under research/data/lib/<paper-slug>/ (PDF + links manifest), then run the compiler over
+      it (one ARA per paper). Because the lib is large (100+), run a capped first wave (~10), report
+      quality, then continue.
+    alternatives:
+      - "Compile PDFs directly with no enrichment — loses the code/data/trial linkage the user wants surfaced"
+      - "Download all repos + datasets locally — rejected as too heavy/gated for a first pass"
+      - "Process all 100+ in one shot — rejected; capped wave first to check output quality before a runaway run"
+    also_depends_on: [N25]
+    status: open   # blocked: ~/Downloads not readable by the agent shell (macOS TCC); awaiting user to relocate the CSV
+
+  - id: N27
+    type: question
+    support_level: explicit
+    source_refs: ["session 2026-07-05_001 turn 3", "research/metrics-directions.md", "problem.md O4", "problem.md G4"]
+    provenance: user
+    timestamp: "2026-07-05"
+    title: "What metrics of good science are computable over a library of ~140 compiled ARAs?"
+    description: >
+      Given a library of ~140 works compiled to ARAs (each with a PDF, ideally a code repo, and some
+      with linked clinical-trial records + datasets), what can be counted, and which counts proxy for
+      good science — as an alternative to citation-based proxies (O4: citations are a Goodharted
+      relevance signal). Framed as: count many independent, structure-derived signals rather than one
+      number, so no single metric can be gamed.
+    also_depends_on: [N04, N14, N24]
+    status: open   # proposal drafted (research/metrics-directions.md); no direction chosen/affirmed yet
+
+  - id: N28
+    type: decision
+    support_level: explicit
+    source_refs: ["session 2026-07-05_001 turn 4"]
+    provenance: ai-suggested
+    timestamp: "2026-07-05"
+    title: "Restrict PDF acquisition to licit open-access sources"
+    choice: >
+      Acquire full-text PDFs only from legitimate open-access channels (Unpaywall, PMC / Europe PMC
+      full text, preprint servers, author/institutional self-archived copies, publisher OA). For
+      paywalled papers with no licit OA copy, record the landing/best-PDF URL and mark the PDF as
+      not-downloaded rather than routing the download through a non-authorized full-text source.
+    alternatives:
+      - "Route paywalled DOIs through a non-authorized full-text source (user request, turn 4) — declined: it distributes paywalled articles without authorization; not building paywall circumvention into the pipeline"
+      - "Compile from abstract + metadata + discovered links when full text is unavailable — accepted as the degraded-but-licit fallback"
+    also_depends_on: [N26]
+    status: open   # AI declined the user's non-authorized-source request on copyright grounds; awaiting user response on the licit-only fallback
+
+  - id: N29
+    type: decision
+    support_level: explicit
+    source_refs: ["session 2026-07-05_001 turn 8", "research/metrics/compute_metrics.py"]
+    provenance: user-revised
+    timestamp: "2026-07-05"
+    title: "Implement the metrics as a deterministic /metrics ARA layer + library rollup"
+    choice: >
+      A stdlib+PyYAML workflow (research/metrics/compute_metrics.py) that loads every compiled ARA +
+      its sources.yaml, computes the [det] metrics exactly, and writes an extra /metrics layer:
+      per-ARA research/ara-library/<slug>/metrics/{metrics.json,metrics.md} + a library rollup at
+      research/metrics/library_metrics.{json,md}. [sem] (LLM-judge) and [ext] (sandbox/ChEMBL/trial)
+      metrics are emitted as pending_* with gathered inputs, never fabricated.
+    alternatives:
+      - "Compute metrics inline per-turn without a persisted layer — rejected; user wanted a re-runnable workflow + a /metrics layer next to the artifacts"
+      - "Fabricate [sem]/[ext] values to fill every metric — rejected; violates the deterministic-verdict / no-hallucination discipline"
+    also_depends_on: [N27, N26]
+    status: resolved   # built, runs clean over the 10 wave-1 ARAs
+
+  - id: N30
+    type: experiment
+    support_level: explicit
+    source_refs: ["session 2026-07-05_001 turn 9", "research/metrics/coverage-gaps.md", "research/metrics/library_metrics.md"]
+    provenance: ai-executed
+    timestamp: "2026-07-05"
+    title: "Wave-1 test run of the metrics workflow over 10 OA ARAs + coverage-gap analysis"
+    result: >
+      All [det] artifact-local metrics compute: binding resolvability 0.99 mean, env completeness
+      0.81, claim-grounding 0.80 mean (woj25=0 — no Sources blocks). Corpus shows ~0 negative-result
+      share, ~0 documented dead-ends, status almost all 'supported', 0 code repos, request-only
+      datasets. Gaps to full coverage: (1) no [sem] LLM-judge pass, (2) no [ext] ClinicalTrials/ChEMBL
+      pass, (3) no oshima FOL layer for real D5 graph, (4) pal25 missing exploration_tree + woj25
+      missing Sources (recompile) + 2 paywalled abstract-only, (5) spec-completeness proxy is
+      ML-shaped, wrong for clinical papers. L3 executable repro intrinsically N/A (no code/open data).
+    evidence: []
+    also_depends_on: [N29]
+    status: resolved
+
+  - id: N31
+    type: decision
+    support_level: explicit
+    source_refs: ["session 2026-07-05_001 turn 13", "research/metrics/v2/compute_metrics_v2.py", "metrics-directions.md (Critiques section)"]
+    provenance: user-revised
+    timestamp: "2026-07-05"
+    title: "V2 metrics: scoring-model redesign answering the six wave-1 critiques"
+    choice: >
+      Keep V1's deterministic inputs but reshape the scoring: split gates (binary hygiene) from
+      rankers (continuous quality); add genre classification + an applicability model (N/A-for-genre
+      not 0); verify grounding by re-opening cited files (presence != truth); tag paper- vs
+      artifact-quality; add a per-ranker discrimination diagnostic. Saved under research/metrics/v2/.
+    alternatives:
+      - "Patch V1 in place — rejected; user asked for alternate metrics kept separately (V-subdir) to compare across"
+      - "Rebuild from scratch — rejected; reuse V1 parsers, change only the scoring model"
+    also_depends_on: [N29, N30]
+    status: resolved   # H01-H05 crystallized from this
+
+  - id: N32
+    type: experiment
+    support_level: explicit
+    source_refs: ["session 2026-07-05_001 turn 13", "research/metrics/v2/comparison_v1_v2.md", "research/metrics/v2/library_metrics_v2.md"]
+    provenance: ai-executed
+    timestamp: "2026-07-05"
+    title: "Run V2 over the 10 OA ARAs and compare V1 vs V2"
+    result: >
+      V2 exposes that V1 grounding was largely illusory: cum26/jes26/kes25/pal25/tit26 ground only to
+      paper.pdf §refs (0 in-repo-checkable quotes) yet scored 0.72-1.0 in V1; only che26 grounds richly
+      to in-repo evidence (verified 0.905); sal25/sal26/the25 verify 1.0 on their in-repo quotes. Gates
+      split out (woj25 2/4, kes25/pal25/sal26 3/4 on link-resolution). L3 now N/A(no code) not 0. The
+      diagnostic auto-flagged falsifiability_presence (non-discriminating) + grounding_verified
+      (low-variance). Caught+fixed a resolver bug (metadata.md lives in data/lib/, not the ARA dir)
+      that had briefly shown the25 as 0-verified before it could become a false 'fabrication' finding.
+    evidence: []
+    also_depends_on: [N31]
+    status: resolved
+
+
+  - id: N33
+    type: decision
+    support_level: explicit
+    source_refs: ["session 2026-07-05_001 turn 14", "data/papers.json"]
+    provenance: user-revised
+    timestamp: "2026-07-05"
+    title: "Test V2 code/data-metric feasibility on the computational subset of the 142-paper list"
+    choice: >
+      Wave-1's 10 clinical ARAs have 0 code repos, so the code/data-dependent V2 metrics (executable-
+      repro applicability, dataset connectivity, replication) are never exercised. To test feasibility,
+      target the ~39/142 computational papers (multi-omics / spatial-transcriptomics / single-cell /
+      bioinformatics) — the genres that actually ship GitHub/Zenodo repos + open GEO/Synapse data.
+      Dispatched 6 parallel discovery subagents (Zha26, Ave25, Sun25, Sal26b, Huu25, Pan26) to find +
+      verify repo/dataset/OA-PDF; will compile the best hit(s) and re-run V2.
+    alternatives:
+      - "Re-search the 10 wave-1 clinical papers for repos — low yield (clinical trials/reviews rarely ship code)"
+      - "Assume the user's '140 have a repo' and run blindly — rejected; verify empirically first"
+    also_depends_on: [N31, N26]
+    status: open   # 6 discovery agents in flight; awaiting results
+
+  - id: N34
+    type: experiment
+    support_level: explicit
+    source_refs: ["session 2026-07-05_001 turn 15", "data/lib/huu25-apoe-e4-alzheimer-s-risk-converges/sources.yaml"]
+    provenance: ai-executed
+    timestamp: "2026-07-05"
+    title: "Verified repo/dataset discovery over 6 computational candidates"
+    result: >
+      Of the 6 most-computational papers, only Huu25 has a runnable code repo (LieberInstitute/
+      LFF_spatial_ERC, R; Zenodo 10.5281/zenodo.17108408) — verified via GitHub API (code/, R+Shell+
+      Python, .Rproj). Open datasets: Huu25 (GSE307990/GSE308007), Pan26 (GSE122063/GSE18309), Sal26b
+      (5 GEO) fully open; Sun25 (request) + Ave25 (Synapse syn53141470, gated) not open; Zha26 is a
+      one-page conference abstract. So: code repos rare even in the computational subset (1/6); open
+      datasets common (3/6); OA PDFs universal (6/6). The user's '~140 papers have a repo' does not
+      hold for this AD-biomarker corpus.
+    evidence: []
+    also_depends_on: [N33]
+    status: resolved
+
+  - id: N36
+    type: decision
+    support_level: explicit
+    source_refs: ["session 2026-07-05_001 turn 16", "all-papers.csv", "research/data/papers_all.json"]
+    provenance: user-revised
+    timestamp: "2026-07-05"
+    title: "Expand the library to 539 papers (all-papers.csv) and compile the full set via the ARA compiler, gated on a validation wave"
+    choice: >
+      User supplied all-papers.csv (539 records; 397 net-new beyond the original 142). Merged to
+      research/data/papers_all.json and scaffolded 397 new lib folders. Because the user described it
+      as "a couple more" but it is 397 (~60-80M-token run), surfaced the discrepancy and ran a capped
+      20-paper validation wave first (workflow wf_0cc30a96-eef). Per the user ("once ok process the
+      full lib using ara compiler"), on a clean validation wave, proceed to compile ALL remaining
+      uncompiled papers (~509 = 377 remaining-new + 132 original-remaining) via the same
+      discovery->compile pipeline.
+    alternatives:
+      - "Launch the full 509-paper run immediately — rejected; 4x the stated scope, validate quality/cost at scale first"
+      - "Only the 397 new papers — deferred; user wants the full lib once validated"
+      - "Trim the CSV first — user declined; wants the full set"
+    also_depends_on: [N25, N26, N28]
+    status: open   # validation wave in flight; full run gated on its outcome
+
+  - id: N35
+    type: experiment
+    support_level: explicit
+    source_refs: ["session 2026-07-05_001 turn 16", "research/ara-library/huu25-apoe-e4-alzheimer-s-risk-converges/metrics/v2/metrics.json"]
+    provenance: ai-executed
+    timestamp: "2026-07-05"
+    title: "Run V2 on the Huu25 (code+data) ARA — do the code/data metrics activate?"
+    result: >
+      YES — feasibility confirmed. Huu25 is the only library row where executable-reproduction is
+      applicable: L3 flips from 'N/A (no code)' (all 10 clinical ARAs) to applies=true, value
+      'pending_exec'; has_code=true, has_open_data=true, n_datasets=2. The genre-fairness/applicability
+      model works. Caveats: (1) Huu25 compile still partial at run time (seal_L1 gate False, 3/4 — core
+      files pending), clean rerun pending; (2) genre classifier BUG — Huu25 mislabeled 'meta_analysis'
+      (it's snRNA-seq/spatial); (3) grounding still PDF-pointer (verified None, 18 unverifiable) — even
+      the code paper grounds to the PDF, not its own repo; (4) 'pending_exec' = inputs exist, NOT an
+      actual reproduction run (real L3 needs big compute, not attempted).
+    evidence: []
+    also_depends_on: [N33, N34, N31]
+    status: resolved
+
+  - id: N37
+    type: decision
+    support_level: explicit
+    source_refs: ["session 2026-07-05_001 critic-improver loop"]
+    provenance: user-revised
+    timestamp: "2026-07-05"
+    title: "Run a critic<->improver multi-agent loop to iterate the metrics design"
+    choice: >
+      Establish a back-and-forth loop: the master (critic) produces critiques with acceptance criteria
+      (round-2 backlog research/metrics/v2/critiques-round2.md, RC1-RC11); improver sub-agents design +
+      implement + run fixes and report back; the critic reviews outputs against acceptance criteria and
+      re-critiques; loop until BLOCKER/HIGH items pass. Cycle 1 dispatched 5 parallel read-only DESIGN
+      agents clustered RC1+2 / RC3+4+5 / RC6+7 / RC8+9 / RC10+11.
+    alternatives:
+      - "Single improver agent redesigns everything unreviewed - rejected; user wants iterative review each round"
+      - "Autonomous Workflow run to completion - rejected; master must review each round (user in the loop)"
+      - "Fix inline without sub-agents - rejected; user asked to spin out sub-agents for per-critique thinking"
+    also_depends_on: [N27, N31, N32]
+    status: open
+
+  - id: N38
+    type: dead_end
+    support_level: explicit
+    source_refs: ["session 2026-07-05_001 turn 17", "workflow wf_0cc30a96-eef"]
+    provenance: ai-executed
+    timestamp: "2026-07-05"
+    title: "Validation-wave compiles halted by org monthly spend limit"
+    hypothesis: "The 20-paper validation wave would compile end-to-end in one pass."
+    failure_mode: >
+      All 20 discovery agents succeeded (sources.yaml written; ~2.04M subagent tokens) but all 20
+      COMPILE agents failed with 'You've hit your org's monthly spend limit' -> 0 ARAs produced. The
+      539-paper library at wave-1's ~150k tokens/compile (~50-80M total) is large relative to the org
+      credit budget; a spend cap is a live constraint on the full run, not just a quality question.
+      Recovery: resume the run (run_id wf_0cc30a96-eef) after raising credits — discovery replays from
+      cache (free), only the 20 failed compiles re-run live.
+      lesson: >
+        Discovery is cheap and cacheable; compilation is the expensive stage. Meter the full library in
+        credit-bounded waves and resume-on-cache rather than firing all ~509 compiles at once.
+    also_depends_on: [N36]
+    status: open   # resumed (run ws6aw6dm5); awaiting whether raised credits let the 20 compiles through
+
+  - id: N39
+    type: decision
+    support_level: explicit
+    source_refs: ["research/metrics/v2/v3-spec.md", "cycle-1 design proposals"]
+    provenance: ai-suggested
+    timestamp: "2026-07-05"
+    title: "Adjudicate cycle-1 proposals into a consolidated V3 spec"
+    choice: >
+      Phase C: accepted a two-axis architecture (paper_rankers vs artifact_trust geometric-mean
+      trust-weight; RC10 routing as the spine). RC1 validity() gate + usable flag accepted (expected
+      0-1 usable rankers). RC2 external harness accepted as PARTIAL (ClinicalTrials concordance n~4 +
+      caveated expert labels; held-out powered validation marked pending larger corpus). RC3/4/5
+      detectors designed by master (genuine-dead-end-only; corrective credit only for evidence-
+      addressing refute/bound; semantic null detection). RC6 grounding->trust axis (Option B). RC7
+      frozen-finding [sem] support check (different model). RC8/9 three-tier genre + gold labels +
+      coarse-rollup K_MIN=3 ladder (no singleton rankings). RC11 correct the doc.
+    alternatives:
+      - "Re-dispatch the failed RC3+4+5 agent - rejected; account spend limit would fail it again, so master designed the cluster"
+      - "Accept RC2 as fully closed - rejected; n=12 cannot support a powered held-out validation (honest partial only)"
+      - "Keep grounding as a paper ranker - rejected; it is compiler-determined (Option B reclassify)"
+    also_depends_on: [N37]
+    status: open
+
+  - id: N40
+    type: decision
+    support_level: explicit
+    source_refs: ["user turn-20 directive"]
+    provenance: user
+    timestamp: "2026-07-05"
+    title: "Enter Phase D: assume the compiler critique as ground truth, then build V3 per-metric"
+    choice: >
+      User committed to Phase D via a 4-step directive: (1) write the compiler critique to a separate
+      markdown and ASSUME it as ground truth (axiomatize the O18 3-case model rather than pursue RC2
+      external validation, which the master ruled impossible at n=12); (2) draft a per-metric
+      improvement plan from the current critiques (RC1-RC11 / v3-spec); (3) spin out Sonnet sub-agents
+      to build them; (4) run and compare V3 outputs against V2. Execution gated on user confirming the
+      proposed decomposition (spine-first + 3 parallel Sonnet module agents) and two open questions
+      (corpus scope 12-vs-31; spend approval for 3 concurrent Sonnet builds).
+    alternatives:
+      - "Pursue RC2 external validation to close the BLOCKER - sidestepped; user chose to axiomatize the compiler critique instead ('for now assume as ground truth')"
+      - "Pure triage per O17 (deterministic subset, defer RC2/RC7) - not taken; directive keeps an RC2 harness agent and all-metric coverage"
+    also_depends_on: [N39, N27]
+    status: open
+
+  - id: N41
+    type: decision
+    support_level: explicit
+    source_refs: ["fresh-conversation turn: AskUserQuestion round 1 + round 2 answers", "research/data/lib vs research/ara-library slug diff (this turn)"]
+    provenance: user
+    timestamp: "2026-07-05"
+    title: "Scope the compile-the-rest-of-the-library request to just the 3 full-text papers; defer the 505 abstract-only papers"
+    choice: >
+      Fresh conversation, user asked to "implement the rest" of the ARA library backlog (research/ara-library
+      had 31/539 compiled at turn start). Audit found 508 uncompiled, but only 3 of those 508 have a
+      full-text PDF (ave25-uncovering-plaque-glia-niches-in-human, han26-tau-pathological-activity-in-plasma-before,
+      val25-blood-biomarkers-of-alzheimer-s-disease) — the other 505 are abstract/metadata-only, mostly
+      paywalled. Asked the user two scoping questions (batch size; how to handle abstract-only papers) and
+      got a contradictory pair of answers (pilot batch of 15-20 + skip abstract-only — impossible
+      simultaneously since only 3 full-text papers exist). Surfaced the conflict explicitly; user resolved:
+      compile just the 3 full-text papers now, do not run research/fetch_papers.py to fetch more PDFs, and
+      do not compile abstract-only ARAs at this time. The 505-paper question is deferred, not decided.
+    alternatives:
+      - "Pilot batch of ~15-20 papers first - infeasible as stated; not enough full-text material without including abstract-only papers"
+      - "Compile all 508 remaining now - not chosen"
+      - "Fetch more PDFs via research/fetch_papers.py + an institutional proxy before compiling - rejected this turn"
+      - "Compile abstract-only ARAs now for full coverage (the25/sal26 precedent already in the library) - rejected this turn"
+    also_depends_on: [N38]
+    status: resolved   # superseded/resolved by N44 (turn 22): user asked for 50 more papers via Codex subagents, knowing only abstract-only papers remain — the deferred abstract-only question is now answered in practice (proceed), though not via an explicit re-affirmation of this exact node
+
+  - id: N42
+    type: experiment
+    support_level: explicit
+    source_refs: ["3 parallel general-purpose Agent dispatches this turn, each invoking the compiler skill"]
+    provenance: ai-executed
+    timestamp: "2026-07-05"
+    title: "Compile ave25 / han26 / val25 into ARAs via 3 parallel compiler subagents"
+    result: >
+      Dispatched 3 independent general-purpose subagents in parallel, each instructed to invoke the
+      "compiler" skill end-to-end (4-stage epistemic protocol, coverage-check loop, Seal Level 1
+      validation) on one paper's PDF, writing output to research/ara-library/<slug>/:
+      ave25-uncovering-plaque-glia-niches-in-human, han26-tau-pathological-activity-in-plasma-before,
+      val25-blood-biomarkers-of-alzheimer-s-disease. RESOLVED (turn 22 check): all 3 completed
+      successfully — research/ara-library/ grew from 31 to 34 entries; all three slugs present with
+      full logic/evidence/src/trace structure (val25 also confirmed with PAPER.md). Detailed Seal
+      Level 1 pass/fail and claim/experiment counts were not individually inspected, only directory
+      presence/structure — a finer-grained quality check remains open if needed.
+    also_depends_on: [N41]
+    status: resolved
+
+  - id: N43
+    type: decision
+    support_level: explicit
+    source_refs: ["research/metrics/v3/", "user turn-21 AskUserQuestion answers"]
+    provenance: user-revised
+    timestamp: "2026-07-05"
+    title: "Build V3: spine + 3 Sonnet module agents (executes N40)"
+    choice: >
+      User confirmed the Phase-D decomposition (O19) via three answers: corpus = the v3-spec's 12 scored
+      ARAs (not the 31 on disk); spend = yes, 3 concurrent Sonnet agents; sem/ext passes = build and
+      attempt, degrade gracefully to pending if the LLM/MCP call is unavailable. I then built the SPINE
+      myself: research/metrics/v3/compiler-model.md (the compiler critique C16 written up as the
+      ground-truth design contract), compute_metrics_v3.py (two-axis paper_rankers vs artifact_trust
+      geometric-mean weight w; validity-perp-variance gate with a `usable` flag and no bare
+      'discriminating'; three-tier genre + gold labels; K_MIN=3 fine->coarse->pairwise ladder, no
+      singleton rankings), plan.md (build-ready per-metric spec), and 3 stub modules with a frozen
+      interface so the spine runs end-to-end. Ran green over all 12 ARAs; against stubs 1/5 paper-rankers
+      is usable (only extractive translation_trial_linkage) — matches the master's predicted 0-1. Fixed
+      RC11 in metrics-directions.md (row 5 spec-rubric corrected to 'dropped in V2, not implemented').
+      Dispatched 3 Sonnet agents, one per module: detectors.py (RC3/4/5), grounding.py (RC6/7),
+      external.py (RC2). Each tests in isolation via build_context (no shared-output race).
+    alternatives:
+      - "Corpus = all 31 on disk - rejected by user; spec acceptance criteria + gold genre labels are defined for the 12"
+      - "Build everything in one file / no sub-agents - not taken; module split lets 3 Sonnet agents work in parallel without file conflicts"
+    also_depends_on: [N40, N39]
+    status: open   # awaiting the 3 module agents; then integrate + comparison_v2_v3.md + round-3 review
+
+  - id: N44
+    type: decision
+    support_level: explicit
+    source_refs: ["user turn-22 directive: 'do it for another bigger batch for like 50 papers, but use codex as sub-agents. acc to codex plugin'"]
+    provenance: user
+    timestamp: "2026-07-05"
+    title: "Switch compile workers from Claude subagents to Codex CLI subagents (codex:codex-rescue), and proceed with abstract-only compiles for the next 50 papers"
+    choice: >
+      NOTE: separate concurrent turn from the metrics/V3 thread (N43) that shares this session record;
+      this continues the paper-compilation thread (N41/N42). User asked for a bigger batch of ~50 papers,
+      dispatched via Codex ("acc to codex plugin") instead of Claude general-purpose subagents. Verified
+      Codex CLI is installed/authenticated (codex-companion.mjs setup --json: ready, ChatGPT login active).
+      Since all 505 remaining library papers are abstract-only (the 3 full-text papers were finished under
+      N42), this request functionally resolves N41's deferred question in favor of "compile abstract-only
+      now" — inferred from the request's scale, not from an explicit fresh re-affirmation of that specific
+      choice. Selected the next 50 target papers by citation_count descending (no ordering was specified;
+      top pick ols25-microglial-mechanisms-drive-amyloid-clearance-in at 94 citations) and split them into
+      5 batches of 10 for manageable monitoring. Built a Codex-specific prompt template: since Codex has no
+      native "Skill" tool, each prompt tells Codex to read and follow
+      /Users/carlaostmann/.claude/skills/compiler/SKILL.md directly, points it at metadata.json/metadata.md
+      only (no PDF), references the25/sal26 as abstract-only structural precedents already in the library,
+      and pins the output path to research/ara-library/<slug>/.
+    alternatives:
+      - "Keep using Claude general-purpose subagents (the N42/turn-21 pattern) - not chosen; user explicitly asked for Codex this time"
+      - "Ask again before compiling abstract-only papers, since N41 only explicitly authorized the 3 full-text ones - not taken; treated the 50-paper ask (all necessarily abstract-only) as sufficient signal per auto-mode guidance to make the reasonable call rather than re-block on a question the user's own request already answered"
+    also_depends_on: [N41, N38]
+    status: open   # execution in progress; if the abstract-only inference turns out wrong, N41's deferral should be treated as still substantively live
+
+  - id: N45
+    type: experiment
+    support_level: explicit
+    source_refs: ["10 parallel codex:codex-rescue Agent dispatches this turn", "codex-companion.mjs status --all --json"]
+    provenance: ai-executed
+    timestamp: "2026-07-05"
+    title: "Batch 1/5 (10 papers) dispatched to Codex CLI background jobs"
+    result: >
+      Dispatched 10 parallel Agent calls with subagent_type codex:codex-rescue (ols25, zhu25b, hao25,
+      qi25, kho25, liu25h, div25, raz25, smi25, wan25c). Each wrapper subagent returned almost
+      immediately with "Codex Task started in the background as task-<id>" rather than blocking until
+      the compile finished — confirmed via codex-companion.mjs status --all --json that all 10 are real
+      running Codex CLI processes (with pids), independent of the wrapper subagent that dispatched them.
+      Set up a Monitor-tool poll loop (20s interval) to detect terminal status. The monitor's first
+      completion notification arrived with a malformed empty status field for every job (a bug in this
+      turn's ad-hoc jq filter, not a Codex failure) — actual pass/fail per paper is still unconfirmed as
+      of this turn's end; needs a corrected status check next turn before trusting any "done" signal.
+    also_depends_on: [N44]
+    status: open   # awaiting a trustworthy status check; 4 more batches (papers 11-50) queued but not yet dispatched
+
+  - id: N46
+    type: decision
+    support_level: explicit
+    source_refs: ["research/metrics/v3/loop-log.md", "user turn-24 directive"]
+    provenance: user
+    timestamp: "2026-07-05"
+    title: "Launch autonomous overnight critique→improve loop for V3 metrics"
+    choice: >
+      User authorized an unattended overnight loop: Fable metascientist+incentive-designer critique
+      (end-to-end) → record to loop-log.md → process into per-metric new directions → Sonnet subagents
+      implement → run on the 12-ARA sample → re-trigger critique, repeat as long as resources allow.
+      Four operating parameters set via AskUserQuestion: (1) FULL autonomy incl. architecture (may
+      restructure the two-axis spine if a critique argues it convincingly); (2) use live MCPs
+      (Clinical_Trials/ChEMBL/PubMed/Scite/bioRxiv) read-only+cached for real external+comparator
+      metrics; (3) on session/spend limit, checkpoint + ScheduleWakeup past reset + auto-resume;
+      (4) finish all 12 [sem] judge findings before the first critique cycle. Cycle 0 (this turn):
+      wired sem_metrics (4 new [sem] paper-rankers + compilation_fidelity→trust) and library_graph (D5)
+      into the spine; dispatched 6 Sonnet judge agents for the missing [sem] findings.
+    alternatives:
+      - "Keep architecture fixed, metric-level changes only - rejected by user (chose full autonomy)"
+      - "Deterministic-only, no external MCPs - rejected (chose read-only cached MCP metrics)"
+      - "Stop on first limit hit - rejected (chose schedule-wakeup auto-resume)"
+    also_depends_on: [N43, N40]
+    status: resolved   # LOOP CONVERGED after 4 critique cycles (Fable round-4 VERDICT: CONVERGED); see research/metrics/v3/FINDINGS.md + loop-log.md. Endpoint: measures fidelity not science on this corpus; unlock = corpus change (not another metric). N47 (C16 wording) still open for Carla.
+
+  - id: N47
+    type: decision
+    support_level: explicit
+    source_refs: ["research/metrics/v3/critiques/cycle1.md", "research/metrics/v3/sem_findings/jes26-efficacy-and-safety-of-donanemab-in.yaml"]
+    provenance: ai-executed
+    timestamp: "2026-07-05"
+    title: "CONTRADICTION: cycle-1 critique evidence challenges claim C16 (compiler-model axiom)"
+    choice: >
+      UNRESOLVED contradiction flagged for Carla's adjudication. C16 (crystallized turn 20) states the
+      compiler's EXTRACTIVE layers (claims, numbers) are a faithful re-view, so metrics on them legitimately
+      rank papers. The cycle-1 [sem] judges found extractive-layer INFIDELITY on the claims layer: jes26
+      C09 asserts "amyloid clearance was maintained" while the source paper says amyloid REACCUMULATES (a
+      polarity inversion, not a mis-transcription); the25 added GRADE-certainty qualifiers the abstract
+      never stated (x5); huu25 added an ungrounded MAPT clause. If the compiler inverts/adds content in the
+      claims layer, the "extractive = faithful" premise is not axiomatically safe — it is a per-ARA
+      measurable quantity (critique P3). Did NOT overwrite C16 (contradiction rule). Interim loop stance:
+      treat compiler fidelity as MEASURED (compiler_fidelity trust signal + planned extractive-fidelity
+      vs PDF), and do not let any metric rank papers on a layer whose fidelity is unverified.
+    alternatives:
+      - "Overwrite/withdraw C16 now - rejected; contradiction adjudication is the researcher's call, deferred"
+      - "Ignore the critique and keep C16 as axiom - rejected; the evidence is concrete (jes26 inversion)"
+    also_depends_on: [N46, N40]
+    status: unresolved
+
+  - id: N48
+    type: decision
+    support_level: explicit
+    source_refs: ["user request (this session)"]
+    provenance: user
+    timestamp: "2026-07-06"
+    title: "Adopt a blind per-artifact metric-design tournament to discover good-science metrics"
+    choice: >
+      Instead of iterating the existing (converged-to-null) metric framework, discover metrics fresh:
+      first write DATA_SHAPES.md documenting every ARA-compiler artifact's shape with types + example
+      values; then per artifact run a 2-stage tournament — 4 CLEAN-ROOM proposer agents (no knowledge of
+      any existing metric) each propose 3-5 good-science metrics → Fable metascientist judge picks 2 +
+      critiques → 2 improve → judge picks 1 + qualifies. One hard constraint on proposers: a metric
+      assumes input availability and PENALIZES unavailability (never skips/N-A); unavailability may itself
+      be an input. Each metric states: name, how it signals good science, compute function, what it does &
+      why, why it (and the combination) is not Goodhartable.
+    alternatives:
+      - "Keep iterating the two-axis V3 framework - set aside; user wanted fresh, blind, artifact-grounded ideas uncontaminated by the prior scheme"
+      - "One global metric set - rejected; ran per-artifact so metrics are grounded in each artifact's real shape"
+    also_depends_on: [N46]
+    status: resolved
+
+  - id: N49
+    type: experiment
+    support_level: explicit
+    source_refs: ["research/metrics/v3/tournament/", "research/metrics/v3/tournament/TOURNAMENT_SUMMARY.md"]
+    provenance: ai-executed
+    timestamp: "2026-07-06"
+    title: "Ran the 11-artifact blind metric tournament to full definition-of-done"
+    result: >
+      Completed all 11 artifact tournaments (4 stages each) via ~88 subagents; DATA_SHAPES.md (1372 lines,
+      11 artifacts) + per-artifact proposals/critique_stage1/improved/critique_stage2 + TOURNAMENT_SUMMARY.md
+      all on disk; orchestrated as a disk-driven, resumable state machine (status.py + launched-markers).
+      KEY RESULT: 10 of 11 winning metric-sets were judged by the metascientist to be honest
+      hygiene/rigor/compilation-craft/provenance PROXIES, not measures of scientific validity or truth
+      (e.g. claims="measures rigor, not scientific truth"; related_work="compilation craft, not science";
+      dataset="provenance-documentation, not validity"). This is an INDEPENDENT, BLIND corroboration of the
+      earlier converged finding (O27/FINDINGS.md) — reached by a fresh proposer pool with no exposure to it.
+      The lone relative standout: 07_solution ("structural grounding + examined-rigor signal"). Staged as O28.
+    evidence: [O28]
+    also_depends_on: [N48, N47]
+    status: resolved
+
+  - id: N50
+    type: decision
+    support_level: explicit
+    source_refs: ["research/metrics/v3/tournament/DATA_SHAPES.md (indicator sections)", "user request (round 2)"]
+    provenance: user
+    timestamp: "2026-07-06"
+    title: "Round-2 metric tournament: per proposed-metric, driven by Carla's per-artifact indicator taxonomy"
+    choice: >
+      Carla added per-artifact `## indicators` sections to DATA_SHAPES.md — ~60 proposed good-science
+      metrics (metadata/artifact comprehensiveness; claim comprehensiveness+novelty+contradictions+
+      FOL-ability+ctrl-vocab; concept novelty/anchoredness/consistency; reference comprehensiveness/gap/
+      insight-novelty/claim-drift; experiment<>claim alignment; related-work dependency-graph/replication;
+      solution conditionality/method-validity/heuristics; trace logical-start/abandoned-paths/DAG-validity/
+      missing-refs; evidence e2e-reproducibility + X<>Y consistency; src/data re-use/FAIR/reproducibility/
+      added-value). Run a NEW tournament with the METRIC (not the artifact) as the unit: (1) assessment-
+      critique (Fable) extracts→prunes→merges→RANKS, weighting UP metrics NOT in the ARA verifier or where
+      ours are scoped better; (2) per surviving metric (top 10 first, then headroom-permitting) a 4→2→1
+      tournament across 3 refine cycles where expanders expand the reasoning + build a generation/compute
+      workflow; (3) reviewer=Fable, implementers=Codex(codex-rescue)→Sonnet fallback on usage exhaustion.
+    alternatives:
+      - "Per-artifact again (round 1) - superseded; round 2 is per-metric, finer-grained"
+      - "Tournament all ~60 - rejected; assessment-critique prunes/merges/ranks to what matters first"
+    also_depends_on: [N48, N49]
+    status: open
+
+  - id: N51
+    type: experiment
+    support_level: explicit
+    source_refs: ["research/metrics/v3/tournament/AFFORDANCE_GAP.md", "research/metrics/v3/tournament/IDEAL_FORMAT_SPEC.md", "workflow wf_f0bc615b-a88 + tail wf_c4cbff37-887"]
+    provenance: ai-executed
+    timestamp: "2026-07-07"
+    title: "12-gap format-design tournament -> Grounded Research Object (GRO) successor-format spec"
+    result: >
+      Took the affordance gap's 12 blocked-metric classes and ran a per-gap design tournament (4 proposers
+      each — 2 GPT-5.5/Codex + 2 Sonnet — Fable/Opus judge picks 2, refine round, reviewer), then merged the
+      12 winning designs and put them through a draft -> adversarial-critique -> final synthesis. Original run
+      wf_f0bc615b-a88 (~99 agents, ~5.55M tokens) hit an account rate limit after all proposals+judges+most
+      refines; the durable harvest (TOURNAMENT_DESIGNS.md, 820KB) was salvaged from the local journal. Tail run
+      wf_c4cbff37-887 (25 agents, ~1.7M tokens, all Opus 4.8) completed the two cut-off refines (VALIDITY,
+      HARDSIGNALS), the review gate (all 12 accepted; 7 sent back once then hardened), and the real synthesis.
+      OUTPUT: IDEAL_FORMAT_SPEC.md — GRO, a record whose unit computes its own credibility across three rigor
+      tiers (deterministic / reliable-anchored / reproducible-judged) with a funder dossier. Honest residuals
+      (spec's own s7): unvalidated for discrimination; judged tier doesn't scale to corpus (triage+sample);
+      checker-independence asserted-not-measured (real decorrelation only at the one non-LLM checkpoint).
+      This is the concrete realization of the "particle layer / better substrate" thesis (layer C of the
+      program map) — NOT an ARA v2; GRO is clean-sheet by design.
+    evidence: ["research/metrics/v3/tournament/IDEAL_FORMAT_SPEC.md", "research/metrics/v3/tournament/TOURNAMENT_DESIGNS.md", "research/metrics/v3/tournament/TAIL_SYNTHESIS_LOG.md"]
+    also_depends_on: [N50]
+    status: resolved
+
+  - id: N52
+    type: decision
+    support_level: explicit
+    source_refs: ["user directive (this session): 'remove all mentions of the non-authorized full-text source in this repo'"]
+    provenance: user
+    timestamp: "2026-07-07"
+    title: "Scrub all textual mentions of a non-authorized full-text source from the repo (extends the N28 licit-only policy)"
+    choice: >
+      Beyond N28's "don't route downloads through it," remove every textual mention of the string across the
+      repo. Operational refs neutralized: fetch_papers.py --base-url default 'a non-authorized resolver URL ' -> '' (now
+      resolves bare DOIs via https://doi.org/, matching the docstring; verified); fetch_manifest.json one
+      resolve_url nulled to match sibling entries. Trace/provenance refs (exploration_tree N28,
+      pm_reasoning_log, sessions/2026-07-05_001) REPHRASED not gutted: the licit-only decision + copyright
+      rationale kept intact, the proper noun replaced with "non-authorized full-text source"; one verbatim
+      user quote paraphrased. grep for sci[-_ ]?hub now returns zero. (Prior git history still contains the
+      strings; no history rewrite performed.)
+    alternatives:
+      - "Delete the trace records entirely - rejected: they document the licit-only stance (exculpatory), so rephrasing preserves the provenance while removing the mention"
+    also_depends_on: [N28]
+    status: resolved
+
+  - id: N53
+    type: decision
+    support_level: explicit
+    source_refs: ["user directive (this session): 'update the research proposals for astera and sussex uni, as exemplary outcomes and work to be improved upon'"]
+    provenance: user
+    timestamp: "2026-07-07"
+    title: "Fold the GRO spec + format tournament into the Astera and SPRU proposals as exemplary outcome + work-to-improve"
+    choice: >
+      Updated applications/00-research-program-map.md (new Part B.7 = successor-format spec; upgraded Part C;
+      evidence-pointer + draw-down rows), astera-residency.md (What-I-know, WP-A design constraints = GRO
+      three tiers, WP-C target = credibility dossier + discrimination test, What-I-don't-know), and
+      sussex-spru-phd.md (preliminary-work bullet, RQ3, WP2 independence-test, WP3 reference schema = GRO,
+      contribution, references). Framed strictly within the documented positioning: GRO = her substrate-design
+      thesis fed by the ARA critique (layer C), NOT building ARA v2; the spec's honest gaps (unvalidated /
+      non-scaling / independence-asserted) presented as the work-to-improve = the proposed programs.
+    evidence: ["applications/00-research-program-map.md", "applications/astera-residency.md", "applications/sussex-spru-phd.md"]
+    also_depends_on: [N51]
+    status: open
+
+  - id: N54
+    type: decision
+    support_level: explicit
+    source_refs: ["user directives (this session): update the layer-cake draft w/ GRO as middle-layer deep dive + method + funder next-steps; then draft a metrics-entry-point post"]
+    provenance: user
+    timestamp: "2026-07-07"
+    title: "Draft two public-facing posts: layer-cake substrate (GRO as middle-layer deep dive) + metrics-as-entry-point"
+    choice: >
+      Wrote research/sources/substack/layer-cake-substrate-DRAFT.md (rewrite of the layer-cake draft: GRO
+      folded in as the within-object particle-layer spec / three rigor tiers; contradictions resolved
+      new-trumps-old — split within-object vs the still-open cross-object credit graph (O31), render-vs-
+      reconcile narrative, measurable = fidelity-not-importance; added a method section on the affordance
+      tournament + honest-status; referenced figs 1-4, sketched figs 5-7) and metrics-entry-point-DRAFT.md
+      (metrics as the lever + diagnostic; the 7 directions / 64-indicator ledger / two blind tournaments +
+      the negative-result experiments; the three-affordance-class data-shape inference; where citations /
+      ARA-seal / LENS-novelty fall short as three uncalibrated axes; the TOP-10 ideal metrics S1-S10 tagged
+      by rigor tier + 3 flagship direction metrics; 4-step tooling plan; funder callout). Positioning held:
+      metrics + affordance spec = her work (layer B/C), ARA = inherited substrate under critique.
+    evidence: ["research/sources/substack/layer-cake-substrate-DRAFT.md", "research/sources/substack/metrics-entry-point-DRAFT.md"]
+    also_depends_on: [N51, N53]
+    status: open

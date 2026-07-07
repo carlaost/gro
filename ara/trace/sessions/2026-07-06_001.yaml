@@ -1,0 +1,85 @@
+session:
+  id: "2026-07-06_001"
+  date: "2026-07-06"
+  started: "2026-07-06"
+  last_turn: "2026-07-06"
+  turn_count: 2
+  summary: "Blind per-artifact metric-design tournament (N48 decision, N49 experiment). Wrote DATA_SHAPES.md (11 ARA-compiler artifacts, types+examples); split into clean-room per-artifact shape files; ran a 2-stage tournament per artifact (4 blind Sonnet proposers -> Fable judge picks 2 -> 2 improve -> judge picks 1 + qualifies), ~88 subagents, orchestrated as a resumable disk-driven state machine. All 11 reached DoD + TOURNAMENT_SUMMARY.md written. Key result: 10/11 winning metric-sets judged honest hygiene/compilation-craft proxies, NOT scientific-validity measures -> independent blind corroboration of O27/FINDINGS.md. Staged O28. Turn 2: merged the 3 metric docs (DATA_SHAPES + VERIFIER_COMPARISON + TOURNAMENT_SUMMARY) into ALL_METRICS_MERGED.md, then built a 3-source novelty-indicators comparison (Challenge/LENS vs Verifier vs Tournament) against the external Metascience Novelty Indicators Challenge; staged O29 — the Challenge is the external human-labeled ground-truth layer FINDINGS.md said the project needs, and it measures a NOVELTY axis orthogonal to our integrity/fidelity metrics."
+
+events_logged:
+  - turn: 1
+    type: decision
+    id: "N48"
+    routing: direct
+    provenance: user
+    summary: "Adopt blind per-artifact metric-design tournament (DATA_SHAPES -> 4 blind proposers -> judge picks 2 -> improve -> judge picks 1); one constraint: metrics penalize unavailability, never skip."
+  - turn: 1
+    type: experiment
+    id: "N49"
+    routing: direct
+    provenance: ai-executed
+    summary: "Ran all 11 artifact tournaments to DoD (~88 subagents); 10/11 winners judged hygiene/craft proxies not science; 07_solution the lone relative standout. TOURNAMENT_SUMMARY.md written."
+  - turn: 1
+    type: observation
+    id: "O28"
+    routing: staged
+    provenance: ai-executed
+    summary: "Independent blind corroboration of O27/FINDINGS: artifact-level metrics over compiler output measure documentation/compilation quality, not good science."
+  - turn: 2
+    type: observation
+    id: "O29"
+    routing: staged
+    provenance: ai-executed
+    summary: "External Metascience Novelty Indicators Challenge (winner LENS) = the human-labeled ground-truth layer FINDINGS.md #2 named; measures a NOVELTY axis orthogonal to our verifier (integrity) + tournament (fidelity) metrics."
+
+ai_actions:
+  - turn: 1
+    action: "Wrote research/metrics/v3/tournament/DATA_SHAPES.md (11 artifacts, types+example values) via a subagent; split into shapes/*.md clean-room files; wrote PROPOSER_BRIEF.md + CRITIQUE_BRIEF.md; built status.py disk-driven state machine with launched-markers; dispatched ~88 subagents (44 proposers, 11 stage-1 critiques, 22 improvers, 11 stage-2 critiques) + a summary writer; produced per-artifact proposals/critiques/improved + TOURNAMENT_SUMMARY.md; captured O28 + N48/N49."
+    provenance: ai-executed
+    files_changed: ["research/metrics/v3/tournament/DATA_SHAPES.md", "research/metrics/v3/tournament/shapes/*.md", "research/metrics/v3/tournament/*/proposals/*.md", "research/metrics/v3/tournament/*/critique_stage1.md", "research/metrics/v3/tournament/*/improved/*.md", "research/metrics/v3/tournament/*/critique_stage2.md", "research/metrics/v3/tournament/TOURNAMENT_SUMMARY.md", "research/metrics/v3/tournament/TOURNAMENT_LOG.md", "research/metrics/v3/tournament/status.py"]
+  - turn: 2
+    action: "Merged DATA_SHAPES.md + VERIFIER_COMPARISON.md + TOURNAMENT_SUMMARY.md into one all-possible-metrics reference (11 measurement surfaces + verifier L1/L2 + ~55 tournament metrics + cross-cutting synthesis). Fetched the Metascience Novelty Indicators Challenge page + FZ Jülich LENS press release (Science.org Cloudflare-gated) and wrote a 3-source comparison (Challenge/LENS vs Verifier vs Tournament) with a big two-part table (novelty axis + rigor/fidelity axis) and a two-way gap TLDR."
+    provenance: ai-executed
+    files_changed: ["research/metrics/v3/tournament/ALL_METRICS_MERGED.md", "research/metrics/v3/tournament/NOVELTY_INDICATORS_COMPARISON.md"]
+
+  - turn: 2
+    type: decision
+    id: "N50"
+    routing: direct
+    provenance: user
+    summary: "Round-2 per-metric tournament from Carla's per-artifact indicator taxonomy; assessment-critique prune/merge/rank (weight non-verifier/better-scoped up) -> per-metric 4->2->1 x3-cycle; Codex->Sonnet impl, Fable review; top-10 then headroom."
+
+claims_touched: []
+
+logic_revisions: []
+
+key_context:
+  - turn: 1
+    excerpt: "User: '4 subagents per artifact output that come up with a few metrics to measure good science -- completely setup without context of what metrics we already have ... one turnament with 2 stages per artifact ... assume ideal case where all inputs available -- unavailability can be an input for a metric; but if computing a metric over sth it should assume availability and otherwise punish unavailability instead of not computing.'"
+  - turn: 1
+    excerpt: "Per-artifact winners + qualifiers: 01 A (manifest-integrity proxy); 02 B (rigor not truth); 03 A (extraction-quality not science); 04 A (compile-quality proxy); 05 B (structural rigor, lexical); 06 A (compilation craft not science); 07 A (structural grounding + examined-rigor — lone standout); 08 A (disclosure-integrity proxy); 09 A (hygiene, grounding gameable); 10 B (reproducibility-reporting hygiene); 11 A (provenance-documentation not validity)."
+  - turn: 2
+    excerpt: "LENS (winner) = analyze full text + references -> reconstruct state-of-knowledge at pub time -> assess contribution (new methods / unexpected findings / open problems) -> for/against args -> 0-100 + CI + justification; median error 15.4 vs 59.6, ~2x closer to humans than humans to each other; dataset = 100k expert-rated OpenAlex papers across all disciplines. Comparison headline: A=novelty(value,external), B=integrity, C=fidelity — orthogonal axes; the Challenge is the external ground-truth corpus FINDINGS.md said we lack."
+
+open_threads:
+  - "TOURNAMENT_SUMMARY.md cross-artifact synthesis: which winning metrics are worth actually building; 07_solution's examined-rigor metric is the most promising candidate to reach real scientific signal."
+  - "O28 staged (ai-executed, no user affirmation) — corroborates C16/O27; would crystallize on user affirmation or if a built metric depends on it."
+  - "O29 staged: the Metascience Novelty Indicators Challenge / LENS is a candidate external benchmark + human-labeled corpus that could exercise the 'measure good science' goal (FINDINGS.md unlock #2), but on a NOVELTY axis our current metrics don't touch. Open decision for the user: adopt/adapt it as the external anchor, and whether to add a novelty/significance indicator alongside the fidelity/integrity ones."
+
+ai_suggestions_pending:
+  - "O28: tournament corroborates that artifact-level metrics measure compilation/documentation hygiene, not scientific validity — the science signal needs an external anchor / reproducible corpus (per FINDINGS.md)."
+  - "O29: the external Novelty Indicators Challenge (LENS) supplies the human-labeled ground truth FINDINGS.md #2 named and demonstrates an LLM-judge novelty indicator beating bibliometrics + inter-human agreement — a concrete template for the external-anchor layer, on a novelty axis orthogonal to our integrity/fidelity metrics."
+
+# --- turn 2 ai_action (round-2 launch) ---
+round2_ai_action:
+  - turn: 2
+    action: "Inserted Carla's 11 per-artifact indicator blocks into tournament/DATA_SHAPES.md (now 1477 lines); created tournament2/ with TOURNAMENT2_LOG.md (flow+DoD+Codex->Sonnet policy) and EXPAND_BRIEF.md; dispatched the Fable assessment-critique to extract/prune/merge/rank the ~60 proposed metrics into a ranked ledger + top-10 (METRICS_CANDIDATES.md)."
+    provenance: ai-executed
+    files_changed: ["research/metrics/v3/tournament/DATA_SHAPES.md", "research/metrics/v3/tournament2/TOURNAMENT2_LOG.md", "research/metrics/v3/tournament2/EXPAND_BRIEF.md"]
+
+# --- turn 3 ai_action (merged-doc correction) ---
+turn3_ai_action:
+  - turn: 3
+    action: "User flagged the merged doc missed the rough indicator metric drafts ('not just the data shapes but what they afford'). Added PART E to ALL_METRICS_MERGED.md folding in Carla's per-artifact Indicators blocks via tournament2/METRICS_CANDIDATES.md: full 64-candidate table (M01-M64), 23 ranked survivors (S1-S23), top-10, and the net-new MISSING list; updated the intro to name the 4th source. Added a connecting note to NOVELTY_INDICATORS_COMPARISON.md — the round-2 candidates (S1/S2/S14/M40) already reach toward the external novelty axis LENS occupies."
+    provenance: ai-executed
+    files_changed: ["research/metrics/v3/tournament/ALL_METRICS_MERGED.md", "research/metrics/v3/tournament/NOVELTY_INDICATORS_COMPARISON.md"]
