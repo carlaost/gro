@@ -1,0 +1,198 @@
+claims:
+- id: C01
+  claim_type: existence
+  polarity: positive
+  logical_form: converts_to_deterministic_join(tier_a_metrics=8, sidecars=5, llm_calls=0, network_calls=0) ∧ processed(ARAs=12, failures=0)
+  population_n: 12
+  population_scope: cohort
+  quantity_refs:
+  - Q01
+  - Q02
+  - Q03
+  - Q04
+  concept_refs:
+  - EN-concept-tier-a-metric
+  - EN-concept-computable-on-prose
+  - EN-method-typed-sidecar
+  - EN-method-structural-join
+  proof_refs:
+  - E01
+  - E02
+  - E08
+  depends_on: []
+- id: C02
+  claim_type: other
+  polarity: positive
+  logical_form: rate(quantity_reconciliation_rate) = 1.000 ∧ defined_on(ARAs=10/12) ∧ weaker_than(independent_cross_mention_reconciliation)
+  population_n: 12
+  population_scope: cohort
+  quantity_refs:
+  - Q05
+  - Q06
+  - Q07
+  - Q08
+  concept_refs:
+  - EN-measure-quantity-reconciliation-rate
+  proof_refs:
+  - E02
+  depends_on:
+  - C01
+- id: C03
+  claim_type: other
+  polarity: positive
+  logical_form: rate(claim_typing_coverage) = 1.000 ∧ defined_on(ARAs=12/12)
+  population_n: 12
+  population_scope: cohort
+  quantity_refs:
+  - Q09
+  - Q10
+  concept_refs:
+  - EN-measure-claim-typing-coverage
+  proof_refs:
+  - E02
+  depends_on:
+  - C01
+- id: C04
+  claim_type: other
+  polarity: positive
+  logical_form: mean(entailment_precondition_rate) = 0.821 ∧ range(0.400, 1.000) ∧ defined_on(ARAs=12/12)
+  population_n: 12
+  population_scope: cohort
+  quantity_refs:
+  - Q11
+  - Q12
+  - Q13
+  - Q14
+  concept_refs:
+  - EN-measure-entailment-precondition-rate
+  proof_refs:
+  - E02
+  depends_on:
+  - C01
+- id: C05
+  claim_type: comparison
+  polarity: positive
+  logical_form: range(reference_resolvability_rate) = [0.000, 1.000] ∧ value(cum26) = 1.000 ∧ value(val25) = value(zho25) = value(ard25) = 0.000 ∧ uneven_application(reference_resolution_step)
+  population_n: 12
+  population_scope: cohort
+  quantity_refs:
+  - Q15
+  - Q16
+  - Q17
+  - Q18
+  - Q19
+  - Q20
+  concept_refs:
+  - EN-measure-reference-resolvability-rate
+  proof_refs:
+  - E05
+  depends_on:
+  - C01
+- id: C06
+  claim_type: generalization
+  polarity: positive
+  logical_form: '∀ARA∈corpus, ∀entity∈ARA: entity_anchoring_rate(ARA) = 0.000 ∧ xref(entity) = not_specified'
+  population_n: 12
+  population_scope: cohort
+  quantity_refs:
+  - Q21
+  - Q22
+  - Q23
+  concept_refs:
+  - EN-measure-entity-anchoring-rate
+  proof_refs:
+  - E04
+  depends_on:
+  - C01
+- id: C07
+  claim_type: existence
+  polarity: positive
+  logical_form: 'broken_ref_integrity(ard25) = 16 ∧ ¬exists(experiment_ledger, ard25) ∧ ∀ARA∈corpus\{ard25}: broken_ref_integrity(ARA) = 0'
+  population_n: 12
+  population_scope: cohort
+  quantity_refs:
+  - Q24
+  - Q25
+  - Q26
+  - Q27
+  - Q28
+  - Q29
+  - Q30
+  concept_refs:
+  - EN-measure-broken-ref-integrity
+  proof_refs:
+  - E03
+  depends_on:
+  - C01
+- id: C08
+  claim_type: comparison
+  polarity: positive
+  logical_form: 'sum(overclaim_flags) = 23 ∧ contribution(cum26) + contribution(xu25) = 20 ∧ contribution(zho25) = 3 ∧ ∀ARA∈{other 10}: overclaim_flags(ARA) = 0'
+  population_n: 12
+  population_scope: cohort
+  quantity_refs:
+  - Q31
+  - Q32
+  - Q33
+  - Q34
+  - Q35
+  - Q36
+  - Q37
+  - Q38
+  - Q39
+  - Q40
+  - Q41
+  - Q42
+  concept_refs:
+  - EN-measure-overclaim-flags
+  proof_refs:
+  - E06
+  depends_on:
+  - C01
+- id: C09
+  claim_type: existence
+  polarity: positive
+  logical_form: sum(genre_silent_omissions) = 4 ∧ genre_silent_omissions(zho25) = -1 ∧ present_slots(zho25) ⊄ expected_slots(zho25)
+  population_n: 12
+  population_scope: cohort
+  quantity_refs:
+  - Q43
+  - Q44
+  - Q45
+  - Q46
+  - Q47
+  concept_refs:
+  - EN-measure-genre-silent-omissions
+  proof_refs:
+  - E07
+  depends_on:
+  - C01
+- id: C10
+  claim_type: causal
+  polarity: positive
+  logical_form: prints_unicode_minus(zim25, jes26, xu25, ard25) → drops_sign(reconciliation_lexer) → misreads(jes26, computed=0.667, correct=1.000) ∧ fix(normalize_unicode_minus) → corrects(jes26, 1.000)
+  population_n: not_specified
+  population_scope: cohort
+  quantity_refs:
+  - Q48
+  - Q49
+  concept_refs:
+  - EN-concept-unicode-minus-bug
+  proof_refs:
+  - E02
+  depends_on:
+  - C01
+- id: C11
+  claim_type: generalization
+  polarity: negative
+  logical_form: '∀metric∈tier_a_metrics: reads_only(metric, gro_sidecars) → ¬can_verify(metric, world_outside_artifact) ∧ ¬tested(discriminates(metric, good_science, bad_science))'
+  population_n: not_specified
+  population_scope: claimed_universal
+  quantity_refs: []
+  concept_refs:
+  - EN-concept-ground-truth-discrimination
+  - EN-dataset-ara-corpus-12
+  proof_refs:
+  - E09
+  depends_on:
+  - C01

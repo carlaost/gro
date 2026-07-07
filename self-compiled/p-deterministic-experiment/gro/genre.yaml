@@ -1,0 +1,12 @@
+paper_type: experiment-report (methods/negative-result paper on a research-tooling mechanism)
+expected_slots:
+- problem
+- claims
+- experiments
+- evidence
+present_slots:
+- problem
+- claims
+- experiments
+- evidence
+absent_declared: []

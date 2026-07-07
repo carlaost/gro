@@ -1,0 +1,22 @@
+paper_type: "empirical metascience comparison (three-instrument benchmark of ARA-evaluation approaches over a fixed corpus)"
+expected_slots:
+  - abstract_summary
+  - background_motivation
+  - related_work
+  - methods_setup
+  - results
+  - discussion_limitations
+  - conclusion
+  - future_work
+  - formal_statistical_testing
+present_slots:
+  - abstract_summary
+  - background_motivation
+  - methods_setup
+  - results
+  - discussion_limitations
+  - conclusion
+absent_declared:
+  - related_work
+  - future_work
+  - formal_statistical_testing

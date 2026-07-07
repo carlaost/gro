@@ -1,0 +1,110 @@
+claims:
+  - id: C01
+    claim_type: comparison
+    polarity: positive
+    logical_form: "prose_expressible(metric_subset, count=4, total=8) ∧ typed_shape_only(remaining_4, {claim_typing, entity_anchoring, overclaim, genre})"
+    population_n: 12
+    population_scope: sample
+    quantity_refs: [Q01]
+    concept_refs: [EN-method-gro-metrics, EN-measure-claim-typing, EN-measure-entity-anchoring, EN-measure-overclaim-flags, EN-measure-genre-silent-omissions, EN-dataset-12-ara-corpus]
+    proof_refs: [E01]
+    depends_on: []
+
+  - id: C02
+    claim_type: comparison
+    polarity: positive
+    logical_form: "substrate_changes_value(shared_metrics, prose, typed, mean_abs_diff={0.21,0.17,0.28}) ∧ closer_to_truth(prose, typed, construct=reference_resolvability, MAE_prose=0.31, MAE_typed=0.44)"
+    population_n: 12
+    population_scope: sample
+    quantity_refs: [Q02, Q03, Q04, Q05, Q06]
+    concept_refs: [EN-method-gro-metrics, EN-measure-reference-resolvability-rate, EN-method-pubmed-lookup, EN-dataset-12-ara-corpus]
+    proof_refs: [E01]
+    depends_on: [C01]
+
+  - id: C03
+    claim_type: comparison
+    polarity: positive
+    logical_form: "faster(typed_field_lookup, prose_parsing, ratio≈100x) ∧ deterministic(typed_field_lookup) ∧ ¬guaranteed_deterministic(prose_parsing)"
+    population_n: 12
+    population_scope: sample
+    quantity_refs: [Q07, Q08, Q09]
+    concept_refs: [EN-method-gro-metrics, EN-measure-reference-resolvability-rate, EN-dataset-12-ara-corpus]
+    proof_refs: [E01]
+    depends_on: [C01]
+
+  - id: C04
+    claim_type: comparison
+    polarity: positive
+    logical_form: "wins(GRO, Seal_L2, {coverage, determinism, cost, auditability, external_checkability}) ∧ wins(Seal_L2, GRO, {semantic_judgment_reach}) ∧ example(che26, C05, Seal_D3=3, GRO_overclaim_flags=0)"
+    population_n: 12
+    population_scope: sample
+    quantity_refs: [Q10, Q11, Q12, Q13, Q14]
+    concept_refs: [EN-method-gro-metrics, EN-method-seal-l2, EN-measure-overclaim-flags, EN-variable-llm-tokens, EN-dataset-12-ara-corpus]
+    proof_refs: [E02]
+    depends_on: []
+
+  - id: C05
+    claim_type: correlation
+    polarity: negative
+    logical_form: "uncorrelated(Seal_overall, GRO_health, rho=-0.011, p=0.974) ∧ uncorrelated(Seal_overall, v3_trust, rho=0.035, p=0.913) ∧ correlated(GRO_health, v3_trust, rho=0.678, p=0.015)"
+    population_n: 12
+    population_scope: sample
+    quantity_refs: [Q15, Q16, Q17, Q18, Q19, Q20, Q21, Q22, Q23, Q24]
+    concept_refs: [EN-method-gro-metrics, EN-method-seal-l2, EN-method-v3-metrics, EN-measure-spearman-rank-correlation, EN-measure-structural-health, EN-measure-artifact-trust, EN-dataset-12-ara-corpus]
+    proof_refs: [E03]
+    depends_on: []
+
+  - id: C06
+    claim_type: comparison
+    polarity: positive
+    logical_form: "coverage(v3, rank_eligible, n=3, total=12) ∧ coverage(GRO, fully_scored, n=12, total=12) ∧ architectural_cause(v3_gap, llm_dependency)"
+    population_n: 12
+    population_scope: sample
+    quantity_refs: [Q25, Q26, Q27, Q28, Q29, Q30, Q31, Q32]
+    concept_refs: [EN-method-gro-metrics, EN-method-v3-metrics, EN-measure-extractive-fidelity, EN-dataset-12-ara-corpus]
+    proof_refs: [E04]
+    depends_on: []
+
+  - id: C07
+    claim_type: existence
+    polarity: negative
+    logical_form: "falsified_by(reference_resolvability_rate, external_pubmed_check) ∧ gap(declared=0.5197, observed=0.9583) ∧ per_ara_mismatch({val25, han26, tit26})"
+    population_n: 6
+    population_scope: sample
+    quantity_refs: [Q33, Q34, Q35, Q36, Q37, Q38, Q39, Q40]
+    concept_refs: [EN-measure-reference-resolvability-rate, EN-method-pubmed-lookup, EN-method-gro-metrics]
+    proof_refs: [E05]
+    depends_on: []
+
+  - id: C08
+    claim_type: comparison
+    polarity: positive
+    logical_form: "catches(v3_extractive_fidelity, fabricated_statistic(che26, MD=0.10, CI=[0.04,0.16])) ∧ ¬catches(GRO_ledger_metrics, same_fabrication) ∧ reason(ledger_only_checks_self_consistency, ¬source_pdf)"
+    population_n: 1
+    population_scope: sample
+    quantity_refs: [Q41, Q42, Q43, Q44]
+    concept_refs: [EN-method-v3-metrics, EN-measure-extractive-fidelity, EN-measure-quantity-reconciliation-rate, EN-measure-entailment-precondition-rate, EN-method-gro-metrics]
+    proof_refs: [E06]
+    depends_on: [C06]
+
+  - id: C09
+    claim_type: comparison
+    polarity: positive
+    logical_form: "converge_worst(ard25, {GRO_health=0.000, v3_trust=0.150, Seal_overall=3.0}) ∧ shared_root_cause(missing_file='logic/experiments.md', broken_ref_integrity=16/16)"
+    population_n: 1
+    population_scope: sample
+    quantity_refs: [Q45, Q46, Q47, Q48]
+    concept_refs: [EN-method-gro-metrics, EN-method-v3-metrics, EN-method-seal-l2, EN-measure-broken-ref-integrity, EN-measure-structural-health, EN-measure-artifact-trust, EN-dataset-12-ara-corpus]
+    proof_refs: [E07]
+    depends_on: [C05]
+
+  - id: C10
+    claim_type: existence
+    polarity: negative
+    logical_form: "formula_defect(genre_silent_omissions, count(expected)-count(present)-count(absent_declared)) ∧ produces_negative_value(zho25, value=-1)"
+    population_n: 1
+    population_scope: sample
+    quantity_refs: [Q49]
+    concept_refs: [EN-measure-genre-silent-omissions]
+    proof_refs: [E08]
+    depends_on: []

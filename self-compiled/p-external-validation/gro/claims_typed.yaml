@@ -1,0 +1,88 @@
+claims:
+  - id: C01
+    claim_type: existence
+    polarity: positive
+    logical_form: "resolves_live(anchored_tier, pubmed, sampled=67, matched=64, pooled_rate=0.955)"
+    population_n: 67
+    population_scope: sample
+    quantity_refs: [Q01, Q02, Q03, Q04, Q05, Q06, Q07, Q08, Q09, Q10, Q11, Q12, Q13, Q14, Q15, Q16]
+    concept_refs: [EN-concept-anchored-tier, EN-method-mcp-search-articles, EN-method-mcp-get-article-metadata, EN-dataset-six-ara-corpus, EN-measure-pubmed-resolution-rate]
+    proof_refs: [E01]
+    depends_on: []
+
+  - id: C02
+    claim_type: comparison
+    polarity: negative
+    logical_form: "conflates(field=resolvable, measures=compile_time_doi_capture, not=true_external_verifiability); gap(declared_mean=0.520, observed_mean=0.958)"
+    population_n: 6
+    population_scope: sample
+    quantity_refs: [Q04, Q10, Q11, Q12, Q15, Q16, Q17, Q19, Q20]
+    concept_refs: [EN-variable-declared-resolvable-field, EN-variable-observed-resolvability, EN-measure-pubmed-resolution-rate]
+    proof_refs: [E01]
+    depends_on: [C01]
+
+  - id: C03
+    claim_type: association
+    polarity: positive
+    logical_form: "verdict_distribution(judged_tier, novel=10, incremental=10, cannot_determine=7, previously_reported=4, total=31)"
+    population_n: 31
+    population_scope: sample
+    quantity_refs: [Q21, Q22, Q23, Q24, Q25, Q26, Q27, Q28, Q29]
+    concept_refs: [EN-concept-judged-tier, EN-measure-novelty-verdict]
+    proof_refs: [E02]
+    depends_on: []
+
+  - id: C04
+    claim_type: comparison
+    polarity: positive
+    logical_form: "differentiates(novelty_axis, han26_first_in_literature=4/5_novel, tit26_reimplementation=3/5_previously_reported, val25_restates=PMID_40140622)"
+    population_n: 3
+    population_scope: sample
+    quantity_refs: [Q30, Q31, Q32, Q33, Q34, Q35]
+    concept_refs: [EN-concept-judged-tier, EN-measure-novelty-verdict, EN-dataset-verabind-tau, EN-dataset-snac-k-cohort]
+    proof_refs: [E02]
+    depends_on: [C03]
+
+  - id: C05
+    claim_type: existence
+    polarity: positive
+    logical_form: "correctly_classifies(registry_concordance_join, papers={zim25,jes26}, trial=NCT04437511, concealed_outcome_switching=false)"
+    population_n: 2
+    population_scope: sample
+    quantity_refs: []
+    concept_refs: [EN-concept-registry-concordance, EN-dataset-clinicaltrials-nct04437511, EN-concept-post-hoc-endpoint-elevation, EN-method-mcp-search-trials, EN-method-mcp-get-trial-details]
+    proof_refs: [E03]
+    depends_on: []
+
+  - id: C06
+    claim_type: existence
+    polarity: negative
+    logical_form: "retractions_found(corpus=six_aras_plus_most_cited_refs) = 0"
+    population_n: 6
+    population_scope: sample
+    quantity_refs: [Q36]
+    concept_refs: [EN-measure-retraction-correction-search, EN-dataset-six-ara-corpus]
+    proof_refs: [E04]
+    depends_on: []
+
+  - id: C07
+    claim_type: generalization
+    polarity: negative
+    logical_form: "cannot_demonstrate(discrimination_validity, corpus=six_ara_corpus) because contains(known_bad_papers)=0"
+    population_n: 6
+    population_scope: sample
+    quantity_refs: []
+    concept_refs: [EN-concept-discrimination-validity, EN-dataset-six-ara-corpus]
+    proof_refs: [E01, E02, E03, E04]
+    depends_on: [C01, C05, C06]
+
+  - id: C08
+    claim_type: other
+    polarity: negative
+    logical_form: "deterministic(mcp_retrieval_calls)=true; deterministic(adjudication_of_results)=false; exercised(l3_non_llm_matcher)=false"
+    population_n: not_specified
+    population_scope: not_specified
+    quantity_refs: []
+    concept_refs: [EN-concept-l3-matcher, EN-concept-llm-mediated-adjudication]
+    proof_refs: [E01, E02, E03]
+    depends_on: []

@@ -1,0 +1,21 @@
+refs:
+  - id: R01
+    raw: "PMID 40140622 — Nature Medicine companion paper, same author group, same SNAC-K cohort (n=2148), published ~7 months before val25"
+    external_id: "PMID:40140622"
+    resolvable: true
+  - id: R02
+    raw: "NCT04437511 — ClinicalTrials.gov registration shared by zim25 and jes26 (donanemab trials)"
+    external_id: "NCT04437511"
+    resolvable: true
+  - id: R03
+    raw: "Jack 2024, Alzheimers Dement (cited bare, no DOI, in val25's compiled input; resolved live via PubMed search on citation text)"
+    external_id: not_specified
+    resolvable: true
+  - id: R04
+    raw: "Palmqvist 2020, JAMA (cited bare, no DOI, in val25's compiled input; resolved live via PubMed search on citation text)"
+    external_id: not_specified
+    resolvable: true
+  - id: R05
+    raw: "Dubois 2024, JAMA Neurol (cited bare, no DOI, in val25's compiled input; resolved live via PubMed search on citation text)"
+    external_id: not_specified
+    resolvable: true

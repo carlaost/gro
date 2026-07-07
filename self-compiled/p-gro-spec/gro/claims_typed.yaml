@@ -1,0 +1,132 @@
+claims:
+  - id: C01
+    claim_type: generalization
+    polarity: positive
+    logical_form: "∀m ∈ metrics_afforded: partitions_into_exactly_one(tier(m), {tier_A_deterministic, tier_B_anchored, tier_C_judged}) ∧ displays_tier_on_face(dossier_row(m))"
+    population_n: not_specified
+    population_scope: claimed_universal
+    quantity_refs: []
+    concept_refs: [EN-method-tier-classification, EN-concept-id-graph, EN-measure-credibility-dossier]
+    proof_refs: [E01]
+    depends_on: []
+
+  - id: C02
+    claim_type: prediction
+    polarity: negative
+    logical_form: "cost(full_density_tierC, mid_size_GRO≈40_edges) ∈ [10^3, 10^4] judge_inferences ∧ ¬scales(full_density_tierC, corpus=100000_papers)"
+    population_n: not_specified
+    population_scope: sample
+    quantity_refs: [Q01, Q02, Q03, Q04, Q05, Q06, Q07]
+    concept_refs: [EN-method-tier-c-protocols, EN-measure-judge-inference-cost]
+    proof_refs: [E02]
+    depends_on: [C01]
+
+  - id: C03
+    claim_type: existence
+    polarity: positive
+    logical_form: "∃ 5 distinct provenance_regimes(L1_raw_sha256, L1_quant_lexer, L6_norm_v1, L3_text_hash, L4_containment_double_lock) ∧ ¬shared_hash_identity(L1, L6) ∧ cross_layer_identity_via(id_reference_only)"
+    population_n: not_specified
+    population_scope: sample
+    quantity_refs: []
+    concept_refs: [EN-method-provenance-regime]
+    proof_refs: [E03]
+    depends_on: []
+
+  - id: C04
+    claim_type: causal
+    polarity: negative
+    logical_form: "∀x: self_reported_provenance(x) → applies_cap(confidence(x)) ∧ ¬raises(self_report(x), confidence(x)) ∧ (raise(confidence(x)) → requires(independent_machine_checkable_evidence(x)))"
+    population_n: not_specified
+    population_scope: claimed_universal
+    quantity_refs: [Q08, Q09, Q10]
+    concept_refs: [EN-measure-novelty-confidence-cap, EN-variable-provenance-tag]
+    proof_refs: [E04]
+    depends_on: [C01]
+
+  - id: C05
+    claim_type: comparison
+    polarity: positive
+    logical_form: "severity_lattice: refuted < not_supported < contested < weakly_supported < supported < strongly_supported ∧ floor(contested) = not_supported ∧ (∃run: grounded_refuted(run) → floor(edge) = refuted, ¬contested)"
+    population_n: not_specified
+    population_scope: claimed_universal
+    quantity_refs: []
+    concept_refs: [EN-method-entailment-severity-lattice]
+    proof_refs: [E05]
+    depends_on: [C01]
+
+  - id: C06
+    claim_type: comparison
+    polarity: positive
+    logical_form: "decorrelated(L3_ArmA) ∧ ∀p ∈ independence_passes \\ {L3_ArmA}: pipeline_independent(p) ∧ ¬measured_statistical_decorrelation(p) ∧ ¬rules_out(p, shared_pretraining_correlation)"
+    population_n: not_specified
+    population_scope: claimed_universal
+    quantity_refs: []
+    concept_refs: [EN-method-pipeline-independence-test]
+    proof_refs: [E06]
+    depends_on: []
+
+  - id: C07
+    claim_type: generalization
+    polarity: negative
+    logical_form: "fires_reliably(prior_art_cap, predecessor ∈ neighborhood(q_auto)) ∧ ¬guarantee(prior_art_cap, predecessor ∉ neighborhood(q_auto) ∨ leaked ∨ evaded)"
+    population_n: not_specified
+    population_scope: sample
+    quantity_refs: []
+    concept_refs: [EN-method-prior-art-cap]
+    proof_refs: [E07]
+    depends_on: []
+
+  - id: C08
+    claim_type: comparison
+    polarity: negative
+    logical_form: "deterministic_clear(genre_shopping_defense, anchorable_genre) ∧ ¬deterministic_clear(genre_shopping_defense, narrative_genre) → bounded_residual(false_absence, contested_ttl_lazy_omission)"
+    population_n: not_specified
+    population_scope: sample
+    quantity_refs: []
+    concept_refs: [EN-method-genre-shopping-defense]
+    proof_refs: [E07]
+    depends_on: []
+
+  - id: C09
+    claim_type: generalization
+    polarity: negative
+    logical_form: "coverage(M04_outcome_switch_detection) = m04_joinable_rate(corpus) ∧ ¬universal(coverage, corpus) ∧ reported_explicitly(m04_joinable_rate)"
+    population_n: not_specified
+    population_scope: population_estimate
+    quantity_refs: []
+    concept_refs: [EN-measure-m04-outcome-switching]
+    proof_refs: [E08]
+    depends_on: []
+
+  - id: C10
+    claim_type: existence
+    polarity: positive
+    logical_form: "∃ exactly_3 blind_reconstruction_passes(numeral_reconstruction, claim_coverage, assumption_coverage_BCR) ∧ diffs(independent_extraction_ensemble, compiler_typed_set) ∧ bounds(¬eliminates, content_selection_residual)"
+    population_n: not_specified
+    population_scope: claimed_universal
+    quantity_refs: [Q11]
+    concept_refs: [EN-method-blind-reconstruction-passes]
+    proof_refs: [E01]
+    depends_on: []
+
+  - id: C11
+    claim_type: existence
+    polarity: positive
+    logical_form: "∃ ledger(XQ##) ∧ resolves(XQ##, id_conflict(L1.Q##, L8.baseline_value)) ∧ carries(XQ##, source_anchor ∧ baseline_verification) ∧ exempt(XQ##, numeral_coverage)"
+    population_n: not_specified
+    population_scope: claimed_universal
+    quantity_refs: []
+    concept_refs: [EN-dataset-external-quantities-ledger]
+    proof_refs: [E08]
+    depends_on: []
+
+  - id: C12
+    claim_type: comparison
+    polarity: positive
+    logical_form: "generality(claim) ∈ {population_estimate, claimed_universal} → expected_slot(n ∨ n_not_recoverable{reason,anchor}) ∧ omission → penalized(UNDER_SPECIFIED_EXPECTED); generality(claim) < threshold → honest_absence(missing_n) ∧ ¬penalized"
+    population_n: not_specified
+    population_scope: claimed_universal
+    quantity_refs: []
+    concept_refs: [EN-variable-n-expectation]
+    proof_refs: [E08]
+    depends_on: []

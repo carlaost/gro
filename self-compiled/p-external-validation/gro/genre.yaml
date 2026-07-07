@@ -1,0 +1,22 @@
+paper_type: "empirical validation study (partial spec-conformance experiment over an external ARA corpus)"
+expected_slots:
+  - abstract_summary
+  - background_motivation
+  - related_work
+  - methods_setup
+  - results
+  - discussion_limitations
+  - conclusion
+  - future_work
+  - formal_statistical_testing
+present_slots:
+  - abstract_summary
+  - background_motivation
+  - methods_setup
+  - results
+  - discussion_limitations
+  - future_work
+absent_declared:
+  - related_work
+  - formal_statistical_testing
+  - conclusion

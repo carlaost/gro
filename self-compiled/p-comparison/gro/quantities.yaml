@@ -1,0 +1,510 @@
+quantities:
+  # C01
+  - id: Q01
+    value: 4
+    unit: "metrics (of 8 GRO deterministic metrics)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "benchmark.json / §2.1"
+    quote: "Only 4 of the 8 GRO metrics have *any* prose form; the other 4 — claim-typing, entity-anchoring, over-claim, genre — are computable **only** on the typed shape (the raw ARA has no field to read)."
+    claim_refs: [C01]
+
+  # C02
+  - id: Q02
+    value: 0.21
+    unit: "mean |prose - typed| absolute difference (score)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "benchmark.json / §2.1"
+    quote: "On the 4 shared constructs the substrate *materially changes the value* (mean |prose − typed| = 0.21 / 0.17 / 0.28)"
+    claim_refs: [C02]
+  - id: Q03
+    value: 0.17
+    unit: "mean |prose - typed| absolute difference (score)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "benchmark.json / §2.1"
+    quote: "On the 4 shared constructs the substrate *materially changes the value* (mean |prose − typed| = 0.21 / 0.17 / 0.28)"
+    claim_refs: [C02]
+  - id: Q04
+    value: 0.28
+    unit: "mean |prose - typed| absolute difference (score)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "benchmark.json / §2.1"
+    quote: "On the 4 shared constructs the substrate *materially changes the value* (mean |prose − typed| = 0.21 / 0.17 / 0.28)"
+    claim_refs: [C02]
+  - id: Q05
+    value: 0.31
+    unit: "MAE vs PubMed ground truth (reference resolvability, prose arm)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "benchmark.json / §2.1"
+    quote: "on the one construct with external ground truth, the **raw ARA prose is closer to PubMed truth than the typed sidecar (MAE 0.31 vs 0.44)** — the LLM extension conservatively under-declared resolvable references that the prose (carrying the actual DOIs) captured."
+    claim_refs: [C02]
+  - id: Q06
+    value: 0.44
+    unit: "MAE vs PubMed ground truth (reference resolvability, typed arm)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "benchmark.json / §2.1"
+    quote: "on the one construct with external ground truth, the **raw ARA prose is closer to PubMed truth than the typed sidecar (MAE 0.31 vs 0.44)** — the LLM extension conservatively under-declared resolvable references that the prose (carrying the actual DOIs) captured."
+    claim_refs: [C02]
+
+  # C03
+  - id: Q07
+    value: 0.05
+    unit: "ms per ARA (typed-field lookup, reference resolvability)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "benchmark.json / §2.1"
+    quote: "reading a typed field is ~100× faster than parsing prose (reference resolvability 0.05 ms vs 4.9 ms across 12 ARAs) and is bit-identical on rerun."
+    claim_refs: [C03]
+  - id: Q08
+    value: 4.9
+    unit: "ms per ARA (prose parsing, reference resolvability)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "benchmark.json / §2.1"
+    quote: "reading a typed field is ~100× faster than parsing prose (reference resolvability 0.05 ms vs 4.9 ms across 12 ARAs) and is bit-identical on rerun."
+    claim_refs: [C03]
+  - id: Q09
+    value: 12
+    unit: "ARAs (corpus size)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "benchmark.json / §2.1"
+    quote: "reading a typed field is ~100× faster than parsing prose (reference resolvability 0.05 ms vs 4.9 ms across 12 ARAs) and is bit-identical on rerun."
+    claim_refs: [C03]
+
+  # C04
+  - id: Q10
+    value: 12
+    unit: "ARAs scored (of 12 corpus)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "compare/vs_seal.json / §2.2"
+    quote: "the **GRO metrics win** coverage (12/12), determinism/reproducibility, compute cost (**0 LLM tokens** vs ~66k tokens per ARA for a Seal review), auditability (every score traces to a typed field), and external-truth-checkability."
+    claim_refs: [C04]
+  - id: Q11
+    value: 0
+    unit: "LLM tokens per ARA (GRO)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "compare/vs_seal.json / §2.2"
+    quote: "the **GRO metrics win** coverage (12/12), determinism/reproducibility, compute cost (**0 LLM tokens** vs ~66k tokens per ARA for a Seal review), auditability (every score traces to a typed field), and external-truth-checkability."
+    claim_refs: [C04]
+  - id: Q12
+    value: 66000
+    unit: "LLM tokens per ARA (Seal L2 review)"
+    comparator: approx
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "compare/vs_seal.json / §2.2"
+    quote: "the **GRO metrics win** coverage (12/12), determinism/reproducibility, compute cost (**0 LLM tokens** vs ~66k tokens per ARA for a Seal review), auditability (every score traces to a typed field), and external-truth-checkability."
+    claim_refs: [C04]
+  - id: Q13
+    value: 0
+    unit: "overclaim_flags (che26, GRO)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "seal/che26-diagnostic-performance-of-plasma-p-tau217.json / §4.2"
+    quote: "GRO `overclaim_flags` = 0 here, because its rule fires only when `population_n` is literally missing. Seal flags C05 verbatim … The cohort sizes *are* named, so the structural rule is satisfied — detecting the overreach requires knowing what statistical test the claim needs."
+    claim_refs: [C04]
+  - id: Q14
+    value: 3
+    unit: "Seal D3 dimension score (che26, 0-6 scale)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "seal/che26-diagnostic-performance-of-plasma-p-tau217.json / §4.2"
+    quote: "GRO `overclaim_flags` = 0 here, because its rule fires only when `population_n` is literally missing. Seal flags C05 verbatim … The cohort sizes *are* named, so the structural rule is satisfied — detecting the overreach requires knowing what statistical test the claim needs."
+    claim_refs: [C04]
+
+  # C05
+  - id: Q15
+    value: -0.011
+    unit: "Spearman rho (Seal overall vs GRO health, n=12)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "compare/vs_seal.json / §4.4"
+    quote: "Seal overall vs GRO health | **−0.011** | 0.974 | −0.318"
+    claim_refs: [C05]
+  - id: Q16
+    value: 0.974
+    unit: "p-value (Seal overall vs GRO health, n=12)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "compare/vs_seal.json / §4.4"
+    quote: "Seal overall vs GRO health | **−0.011** | 0.974 | −0.318"
+    claim_refs: [C05]
+  - id: Q17
+    value: -0.318
+    unit: "Spearman rho (Seal overall vs GRO health, n=11, excl. ard25)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "compare/vs_seal.json / §4.4"
+    quote: "Seal overall vs GRO health | **−0.011** | 0.974 | −0.318"
+    claim_refs: [C05]
+  - id: Q18
+    value: 0.035
+    unit: "Spearman rho (Seal overall vs v3 artifact-trust, n=12)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "compare/vs_seal.json / §4.4"
+    quote: "Seal overall vs v3 artifact-trust | **0.035** | 0.913 | −0.258"
+    claim_refs: [C05]
+  - id: Q19
+    value: 0.913
+    unit: "p-value (Seal overall vs v3 artifact-trust, n=12)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "compare/vs_seal.json / §4.4"
+    quote: "Seal overall vs v3 artifact-trust | **0.035** | 0.913 | −0.258"
+    claim_refs: [C05]
+  - id: Q20
+    value: -0.258
+    unit: "Spearman rho (Seal overall vs v3 artifact-trust, n=11, excl. ard25)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "compare/vs_seal.json / §4.4"
+    quote: "Seal overall vs v3 artifact-trust | **0.035** | 0.913 | −0.258"
+    claim_refs: [C05]
+  - id: Q21
+    value: 0.678
+    unit: "Spearman rho (GRO health vs v3 artifact-trust, n=12)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "compare/gro_vs_v3.json / §4.4"
+    quote: "GRO health vs v3 artifact-trust | **0.678** | 0.015 | 0.582 (p = 0.060)"
+    claim_refs: [C05]
+  - id: Q22
+    value: 0.015
+    unit: "p-value (GRO health vs v3 artifact-trust, n=12)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "compare/gro_vs_v3.json / §4.4"
+    quote: "GRO health vs v3 artifact-trust | **0.678** | 0.015 | 0.582 (p = 0.060)"
+    claim_refs: [C05]
+  - id: Q23
+    value: 0.582
+    unit: "Spearman rho (GRO health vs v3 artifact-trust, n=11, excl. ard25)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "compare/gro_vs_v3.json / §4.4"
+    quote: "GRO health vs v3 artifact-trust | **0.678** | 0.015 | 0.582 (p = 0.060)"
+    claim_refs: [C05]
+  - id: Q24
+    value: 0.060
+    unit: "p-value (GRO health vs v3 artifact-trust, n=11, excl. ard25)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "compare/gro_vs_v3.json / §4.4"
+    quote: "GRO health vs v3 artifact-trust | **0.678** | 0.015 | 0.582 (p = 0.060)"
+    claim_refs: [C05]
+
+  # C06
+  - id: Q25
+    value: 3
+    unit: "ARAs fully scored by v3 (of 12)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "compare/gro_vs_v3.json / §4"
+    quote: "v3 could **fully score 3/12 ARAs (25%)**; GRO scored **all 12/12 (100%)**."
+    claim_refs: [C06]
+  - id: Q26
+    value: 25
+    unit: "% of corpus fully scored by v3"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "compare/gro_vs_v3.json / §4"
+    quote: "v3 could **fully score 3/12 ARAs (25%)**; GRO scored **all 12/12 (100%)**."
+    claim_refs: [C06]
+  - id: Q27
+    value: 12
+    unit: "ARAs fully scored by GRO (of 12)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "compare/gro_vs_v3.json / §4"
+    quote: "v3 could **fully score 3/12 ARAs (25%)**; GRO scored **all 12/12 (100%)**."
+    claim_refs: [C06]
+  - id: Q28
+    value: 4
+    unit: "ARAs with non-pending v3 extractive_fidelity (of 12)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "compare/gro_vs_v3.json / §4"
+    quote: "v3 `extractive_fidelity` computed (non-pending): 4/12 — che26 (0.625), jes26 (0.9), tit26 (1.0), cum26 (1.0); `pending` on the other 8/12."
+    claim_refs: [C06]
+  - id: Q29
+    value: 0.625
+    unit: "extractive_fidelity (che26)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "compare/gro_vs_v3.json / §4"
+    quote: "v3 `extractive_fidelity` computed (non-pending): 4/12 — che26 (0.625), jes26 (0.9), tit26 (1.0), cum26 (1.0); `pending` on the other 8/12."
+    claim_refs: [C06]
+  - id: Q30
+    value: 0.9
+    unit: "extractive_fidelity (jes26)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "compare/gro_vs_v3.json / §4"
+    quote: "v3 `extractive_fidelity` computed (non-pending): 4/12 — che26 (0.625), jes26 (0.9), tit26 (1.0), cum26 (1.0); `pending` on the other 8/12."
+    claim_refs: [C06]
+  - id: Q31
+    value: 1.0
+    unit: "extractive_fidelity (tit26)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "compare/gro_vs_v3.json / §4"
+    quote: "v3 `extractive_fidelity` computed (non-pending): 4/12 — che26 (0.625), jes26 (0.9), tit26 (1.0), cum26 (1.0); `pending` on the other 8/12."
+    claim_refs: [C06]
+  - id: Q32
+    value: 1.0
+    unit: "extractive_fidelity (cum26)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "compare/gro_vs_v3.json / §4"
+    quote: "v3 `extractive_fidelity` computed (non-pending): 4/12 — che26 (0.625), jes26 (0.9), tit26 (1.0), cum26 (1.0); `pending` on the other 8/12."
+    claim_refs: [C06]
+
+  # C07
+  - id: Q33
+    value: 0.5197
+    unit: "declared corpus-mean reference_resolvability_rate"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "external_validation.json / §3.2"
+    quote: "Declared corpus mean **0.5197** vs. independently observed **0.9583** (a ≈0.44 gap)."
+    claim_refs: [C07]
+  - id: Q34
+    value: 0.9583
+    unit: "observed corpus-mean PubMed resolution rate"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "external_validation.json / §3.2"
+    quote: "Declared corpus mean **0.5197** vs. independently observed **0.9583** (a ≈0.44 gap)."
+    claim_refs: [C07]
+  - id: Q35
+    value: 0.0
+    unit: "declared reference_resolvability_rate (val25)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "external/val25-blood-biomarkers-of-alzheimer-s-disease.json / §3.2"
+    quote: "val25 declares 0.0 (0/55) but PubMed resolved 9/12 sampled refs; han26 declares 0.19 but resolves 1.0; tit26 declares 0.132 but resolves 1.0."
+    claim_refs: [C07]
+  - id: Q36
+    value: 9
+    unit: "PubMed-resolved refs (of 12 sampled, val25)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "external/val25-blood-biomarkers-of-alzheimer-s-disease.json / §3.2"
+    quote: "val25 declares 0.0 (0/55) but PubMed resolved 9/12 sampled refs; han26 declares 0.19 but resolves 1.0; tit26 declares 0.132 but resolves 1.0."
+    claim_refs: [C07]
+  - id: Q37
+    value: 0.19
+    unit: "declared reference_resolvability_rate (han26)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "external/han26-tau-pathological-activity-in-plasma-before.json / §3.2"
+    quote: "val25 declares 0.0 (0/55) but PubMed resolved 9/12 sampled refs; han26 declares 0.19 but resolves 1.0; tit26 declares 0.132 but resolves 1.0."
+    claim_refs: [C07]
+  - id: Q38
+    value: 1.0
+    unit: "observed PubMed resolution rate (han26)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "external/han26-tau-pathological-activity-in-plasma-before.json / §3.2"
+    quote: "val25 declares 0.0 (0/55) but PubMed resolved 9/12 sampled refs; han26 declares 0.19 but resolves 1.0; tit26 declares 0.132 but resolves 1.0."
+    claim_refs: [C07]
+  - id: Q39
+    value: 0.132
+    unit: "declared reference_resolvability_rate (tit26)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "external/tit26-automated-high-throughput-quantification-of-plasma.json / §3.2"
+    quote: "val25 declares 0.0 (0/55) but PubMed resolved 9/12 sampled refs; han26 declares 0.19 but resolves 1.0; tit26 declares 0.132 but resolves 1.0."
+    claim_refs: [C07]
+  - id: Q40
+    value: 1.0
+    unit: "observed PubMed resolution rate (tit26)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "external/tit26-automated-high-throughput-quantification-of-plasma.json / §3.2"
+    quote: "val25 declares 0.0 (0/55) but PubMed resolved 9/12 sampled refs; han26 declares 0.19 but resolves 1.0; tit26 declares 0.132 but resolves 1.0."
+    claim_refs: [C07]
+
+  # C08
+  - id: Q41
+    value: 0.625
+    unit: "v3 extractive_fidelity (che26)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "compare/gro_vs_v3.json / §4"
+    quote: "v3 `extractive_fidelity` = 0.625 catches a **fabricated forest-plot statistic** (MD = 0.10, 95% CI 0.04–0.16) that appears nowhere in the source. GRO scores this same ARA `quantity_reconciliation_rate` = 1.0 and `entailment_precondition_rate` = 1.0 — clean — because those metrics only check the ledger against its own quote and never touch the PDF."
+    claim_refs: [C08]
+  - id: Q42
+    value: 0.10
+    unit: "fabricated forest-plot mean difference (MD), che26"
+    comparator: none
+    ci_low: 0.04
+    ci_high: 0.16
+    role: result
+    source_ref: "compare/gro_vs_v3.json / §4"
+    quote: "v3 `extractive_fidelity` = 0.625 catches a **fabricated forest-plot statistic** (MD = 0.10, 95% CI 0.04–0.16) that appears nowhere in the source. GRO scores this same ARA `quantity_reconciliation_rate` = 1.0 and `entailment_precondition_rate` = 1.0 — clean — because those metrics only check the ledger against its own quote and never touch the PDF."
+    claim_refs: [C08]
+  - id: Q43
+    value: 1.0
+    unit: "GRO quantity_reconciliation_rate (che26)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "compare/gro_vs_v3.json / §4"
+    quote: "v3 `extractive_fidelity` = 0.625 catches a **fabricated forest-plot statistic** (MD = 0.10, 95% CI 0.04–0.16) that appears nowhere in the source. GRO scores this same ARA `quantity_reconciliation_rate` = 1.0 and `entailment_precondition_rate` = 1.0 — clean — because those metrics only check the ledger against its own quote and never touch the PDF."
+    claim_refs: [C08]
+  - id: Q44
+    value: 1.0
+    unit: "GRO entailment_precondition_rate (che26)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "compare/gro_vs_v3.json / §4"
+    quote: "v3 `extractive_fidelity` = 0.625 catches a **fabricated forest-plot statistic** (MD = 0.10, 95% CI 0.04–0.16) that appears nowhere in the source. GRO scores this same ARA `quantity_reconciliation_rate` = 1.0 and `entailment_precondition_rate` = 1.0 — clean — because those metrics only check the ledger against its own quote and never touch the PDF."
+    claim_refs: [C08]
+
+  # C09
+  - id: Q45
+    value: 0.000
+    unit: "GRO structural health score (ard25)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "seal/ard25-response-of-spatially-defined-microglia-states.json / §4.1"
+    quote: "ard25 | 4 | 3 | 4 | 4 | 1 | 2 | 3.0 | **Reject** | 0.000 | 0.150"
+    claim_refs: [C09]
+  - id: Q46
+    value: 0.150
+    unit: "v3 artifact-trust score (ard25)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "compare/gro_vs_v3.json / §4.1"
+    quote: "ard25 | 4 | 3 | 4 | 4 | 1 | 2 | 3.0 | **Reject** | 0.000 | 0.150"
+    claim_refs: [C09]
+  - id: Q47
+    value: 3.0
+    unit: "Seal overall score (ard25, 0-6 scale)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "seal/ard25-response-of-spatially-defined-microglia-states.json / §4.1"
+    quote: "ard25 | 4 | 3 | 4 | 4 | 1 | 2 | 3.0 | **Reject** | 0.000 | 0.150"
+    claim_refs: [C09]
+  - id: Q48
+    value: 16
+    unit: "broken_ref_integrity count (ard25, of 16 proof_refs)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "results.json / §3.3"
+    quote: "`broken_ref_integrity` is 100% concentrated in one ARA (ard25 = 16/16); ard25's own diagnostics attribute this to a missing `logic/experiments.md` file, not genuinely broken citations"
+    claim_refs: [C09]
+
+  # C10
+  - id: Q49
+    value: -1
+    unit: "genre_silent_omissions (zho25)"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "results.json / §3.3"
+    quote: "**`genre_silent_omissions`** has a documented formula bug: `count(expected) − count(present) − count(absent_declared)` can go **negative** (zho25 = −1) when a genre's `present_slots` includes a slot outside its own `expected_slots` list."
+    claim_refs: [C10]

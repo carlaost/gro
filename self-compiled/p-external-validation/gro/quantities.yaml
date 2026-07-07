@@ -1,0 +1,362 @@
+quantities:
+  # --- C01: pooled/aggregate resolution numbers ---
+  - id: Q01
+    value: 67
+    unit: "references"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "§3.1"
+    quote: "«All 67 sampled references were resolved live; **64 matched PubMed records (pooled observed rate 0.955; unweighted per-ARA mean 0.958)**.»"
+    claim_refs: [C01]
+  - id: Q02
+    value: 64
+    unit: "references"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "§3.1"
+    quote: "«All 67 sampled references were resolved live; **64 matched PubMed records (pooled observed rate 0.955; unweighted per-ARA mean 0.958)**.»"
+    claim_refs: [C01]
+  - id: Q03
+    value: 0.955
+    unit: not_specified
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "§3.1"
+    quote: "«64 matched PubMed records (pooled observed rate 0.955; unweighted per-ARA mean 0.958)**.»"
+    claim_refs: [C01]
+  - id: Q04
+    value: 0.958
+    unit: not_specified
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "§3.1"
+    quote: "«64 matched PubMed records (pooled observed rate 0.955; unweighted per-ARA mean 0.958)**.»"
+    claim_refs: [C01, C02]
+
+  # --- C01 table rows (zim25, val25, tit26 as quoted) ---
+  - id: Q05
+    value: 12
+    unit: "references"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "§3.1 table"
+    quote: "«zim25 | 12/12 | 1.00 | 0.957 ...»"
+    claim_refs: [C01]
+  - id: Q06
+    value: 12
+    unit: "references"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "§3.1 table"
+    quote: "«zim25 | 12/12 | 1.00 | 0.957 ...»"
+    claim_refs: [C01]
+  - id: Q07
+    value: 1.00
+    unit: not_specified
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "§3.1 table"
+    quote: "«zim25 | 12/12 | 1.00 | 0.957 ...»"
+    claim_refs: [C01]
+  - id: Q08
+    value: 0.957
+    unit: not_specified
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "§3.1 table"
+    quote: "«zim25 | 12/12 | 1.00 | 0.957 ...»"
+    claim_refs: [C01]
+  - id: Q09
+    value: 12
+    unit: "references"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "§3.1 table"
+    quote: "«val25 | 9/12 | 0.75 | 0.00 ...»"
+    claim_refs: [C01]
+  - id: Q10
+    value: 9
+    unit: "references"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "§3.1 table"
+    quote: "«val25 | 9/12 | 0.75 | 0.00 ...»"
+    claim_refs: [C01, C02]
+  - id: Q11
+    value: 0.75
+    unit: not_specified
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "§3.1 table"
+    quote: "«val25 | 9/12 | 0.75 | 0.00 ...»"
+    claim_refs: [C01, C02]
+  - id: Q12
+    value: 0.00
+    unit: not_specified
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "§3.1 table"
+    quote: "«val25 | 9/12 | 0.75 | 0.00 ...»"
+    claim_refs: [C01, C02]
+  - id: Q13
+    value: 7
+    unit: "references"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "§3.1 table"
+    quote: "«tit26 | 7/7 | 1.00 | 0.132»"
+    claim_refs: [C01]
+  - id: Q14
+    value: 7
+    unit: "references"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "§3.1 table"
+    quote: "«tit26 | 7/7 | 1.00 | 0.132»"
+    claim_refs: [C01]
+  - id: Q15
+    value: 1.00
+    unit: not_specified
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "§3.1 table"
+    quote: "«tit26 | 7/7 | 1.00 | 0.132»"
+    claim_refs: [C01, C02]
+  - id: Q16
+    value: 0.132
+    unit: not_specified
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "§3.1 table"
+    quote: "«tit26 | 7/7 | 1.00 | 0.132»"
+    claim_refs: [C01, C02]
+
+  # --- C02: declared-vs-observed gap ---
+  - id: Q17
+    value: 0.520
+    unit: not_specified
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "§3.1"
+    quote: "«The unweighted mean self-declared rate across the six ARAs was **0.520** — far below the 0.958 observed»"
+    claim_refs: [C02]
+  - id: Q19
+    value: 0.19
+    unit: not_specified
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "§3.1"
+    quote: "«the gap is concentrated in `val25` (declared 0.00, observed 0.75), `han26` (declared 0.19, observed 1.00), and `tit26` (declared 0.132, observed 1.00)»"
+    claim_refs: [C02]
+  - id: Q20
+    value: 1.00
+    unit: not_specified
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "§3.1"
+    quote: "«`han26` (declared 0.19, observed 1.00)»"
+    claim_refs: [C02]
+
+  # --- C03: novelty verdict distribution ---
+  - id: Q21
+    value: 31
+    unit: "claims"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "§3.2"
+    quote: "«Across **31 headline claims** checked against PubMed, verdicts spanned the full spectrum: **10 novel (32%), 10 incremental (32%), 7 cannot_determine (23%), 4 previously_reported (13%)**.»"
+    claim_refs: [C03]
+  - id: Q22
+    value: 10
+    unit: "claims"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "§3.2"
+    quote: "«10 novel (32%)»"
+    claim_refs: [C03]
+  - id: Q23
+    value: 32
+    unit: "%"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "§3.2"
+    quote: "«10 novel (32%)»"
+    claim_refs: [C03]
+  - id: Q24
+    value: 10
+    unit: "claims"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "§3.2"
+    quote: "«10 incremental (32%)»"
+    claim_refs: [C03]
+  - id: Q25
+    value: 32
+    unit: "%"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "§3.2"
+    quote: "«10 incremental (32%)»"
+    claim_refs: [C03]
+  - id: Q26
+    value: 7
+    unit: "claims"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "§3.2"
+    quote: "«7 cannot_determine (23%)»"
+    claim_refs: [C03]
+  - id: Q27
+    value: 23
+    unit: "%"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "§3.2"
+    quote: "«7 cannot_determine (23%)»"
+    claim_refs: [C03]
+  - id: Q28
+    value: 4
+    unit: "claims"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "§3.2"
+    quote: "«4 previously_reported (13%)**.»"
+    claim_refs: [C03]
+  - id: Q29
+    value: 13
+    unit: "%"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "§3.2"
+    quote: "«4 previously_reported (13%)**.»"
+    claim_refs: [C03]
+
+  # --- C04: case-study novelty contrasts ---
+  - id: Q30
+    value: 4
+    unit: "claims"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "§3.2"
+    quote: "«**High-novelty end:** `han26` — 4 of 5 claims `novel`.»"
+    claim_refs: [C04]
+  - id: Q31
+    value: 5
+    unit: "claims"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "§3.2"
+    quote: "«`han26` — 4 of 5 claims `novel`.»"
+    claim_refs: [C04]
+  - id: Q32
+    value: 3
+    unit: "claims"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "§3.2"
+    quote: "«`tit26` — 3 of 5 `previously_reported`»"
+    claim_refs: [C04]
+  - id: Q33
+    value: 5
+    unit: "claims"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "§3.2"
+    quote: "«`tit26` — 3 of 5 `previously_reported`»"
+    claim_refs: [C04]
+  - id: Q34
+    value: 7
+    unit: "months"
+    comparator: approx
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "§3.2"
+    quote: "«`val25`, whose headline claims restate a same-cohort companion *Nature Medicine* paper (PMID 40140622) published ~7 months earlier by the same author group»"
+    claim_refs: [C04]
+  - id: Q35
+    value: 2148
+    unit: "participants"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "§3.2"
+    quote: "«on the same SNAC-K cohort (n=2148) with the same biomarker panel.»"
+    claim_refs: [C04]
+
+  # --- C06: retraction search artifact ---
+  - id: Q36
+    value: 1007
+    unit: "hits"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "§3.4"
+    quote: "«One unconstrained broad query returned 1007 spurious hits from PubMed boolean OR-scoping and was discarded as a query-construction artifact, not evidence.»"
+    claim_refs: [C06]

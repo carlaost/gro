@@ -1,0 +1,30 @@
+refs:
+  - id: R01
+    raw: "research/metrics/v3/tournament/IDEAL_FORMAT_SPEC.md (post-adversarial revision; primary compiled source, 83,941 bytes)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R02
+    raw: "research/metrics/v3/tournament/TOURNAMENT_DESIGNS.md (twelve gap-tournament-winning designs merged into pre-critique draft: QUANT, CLAIMFOL, ENTITY, EDGES, GENRE, REFGRAPH, REGISTRY, NOVELANCHOR, NOVELSCORE, ENTAIL, VALIDITY, HARDSIGNALS)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R03
+    raw: "research/metrics/v3/tournament/AFFORDANCE_GAP.md (gap analysis the draft was evaluated against)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R04
+    raw: "research/metrics/v3/tournament/ALL_METRICS_MERGED.md (gap analysis the draft was evaluated against)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R05
+    raw: "research/metrics/v3/tournament/CRITIQUE_BRIEF.md (adversarial critique, verdict: needs_major_revision)"
+    external_id: not_specified
+    resolvable: false
+
+  - id: R06
+    raw: "research/metrics/v3/tournament/TAIL_SYNTHESIS_LOG.md (eleven must-fix items and additional over-claim/missing/cross-layer findings)"
+    external_id: not_specified
+    resolvable: false

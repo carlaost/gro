@@ -1,0 +1,61 @@
+entities:
+- id: EN-concept-tier-a-metric
+  term: Tier-A (deterministic) metric
+  kind: concept
+  xref: not_specified
+- id: EN-concept-computable-on-prose
+  term: computable_on_prose flag
+  kind: concept
+  xref: not_specified
+- id: EN-method-typed-sidecar
+  term: typed GRO sidecar extension
+  kind: method
+  xref: not_specified
+- id: EN-method-structural-join
+  term: structural join (pure function over typed fields)
+  kind: method
+  xref: not_specified
+- id: EN-measure-quantity-reconciliation-rate
+  term: quantity_reconciliation_rate
+  kind: measure
+  xref: not_specified
+- id: EN-measure-claim-typing-coverage
+  term: claim_typing_coverage
+  kind: measure
+  xref: not_specified
+- id: EN-measure-entailment-precondition-rate
+  term: entailment_precondition_rate
+  kind: measure
+  xref: not_specified
+- id: EN-measure-reference-resolvability-rate
+  term: reference_resolvability_rate
+  kind: measure
+  xref: not_specified
+- id: EN-measure-entity-anchoring-rate
+  term: entity_anchoring_rate
+  kind: measure
+  xref: not_specified
+- id: EN-measure-genre-silent-omissions
+  term: genre_silent_omissions
+  kind: measure
+  xref: not_specified
+- id: EN-measure-overclaim-flags
+  term: overclaim_flags
+  kind: measure
+  xref: not_specified
+- id: EN-measure-broken-ref-integrity
+  term: broken_ref_integrity
+  kind: measure
+  xref: not_specified
+- id: EN-dataset-ara-corpus-12
+  term: 12-ARA corpus (che26, val25, han26, tit26, zim25, jes26, gau25, ard25, zho25, aki26, cum26, xu25)
+  kind: dataset
+  xref: not_specified
+- id: EN-concept-ground-truth-discrimination
+  term: external good/bad-science ground-truth discrimination test
+  kind: concept
+  xref: not_specified
+- id: EN-concept-unicode-minus-bug
+  term: Unicode-minus (U+2212) parsing bug in reconciliation lexer
+  kind: concept
+  xref: not_specified

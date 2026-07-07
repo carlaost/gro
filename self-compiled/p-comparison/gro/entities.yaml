@@ -1,0 +1,81 @@
+entities:
+  - id: EN-method-gro-metrics
+    term: "GRO deterministic metric battery"
+    kind: method
+    xref: not_specified
+  - id: EN-method-v3-metrics
+    term: "v3 ARA-inferred metric design (extractive_fidelity, paper_rankers, artifact_trust)"
+    kind: method
+    xref: not_specified
+  - id: EN-method-seal-l2
+    term: "Seal Level 2 semantic verifier (D1-D6)"
+    kind: method
+    xref: not_specified
+  - id: EN-dataset-12-ara-corpus
+    term: "12-ARA comparison corpus (che26, val25, han26, zim25, jes26, tit26, gau25, zho25, aki26, cum26, xu25, ard25)"
+    kind: dataset
+    xref: not_specified
+  - id: EN-measure-quote-consistency
+    term: "quote_consistency"
+    kind: measure
+    xref: not_specified
+  - id: EN-measure-entailment-precondition-rate
+    term: "entailment_precondition_rate"
+    kind: measure
+    xref: not_specified
+  - id: EN-measure-reference-resolvability-rate
+    term: "reference_resolvability_rate"
+    kind: measure
+    xref: not_specified
+  - id: EN-measure-broken-ref-integrity
+    term: "broken_ref_integrity"
+    kind: measure
+    xref: not_specified
+  - id: EN-measure-claim-typing
+    term: "claim-typing metric"
+    kind: measure
+    xref: not_specified
+  - id: EN-measure-entity-anchoring
+    term: "entity-anchoring metric"
+    kind: measure
+    xref: not_specified
+  - id: EN-measure-overclaim-flags
+    term: "overclaim_flags"
+    kind: measure
+    xref: not_specified
+  - id: EN-measure-genre-silent-omissions
+    term: "genre_silent_omissions"
+    kind: measure
+    xref: not_specified
+  - id: EN-measure-extractive-fidelity
+    term: "extractive_fidelity"
+    kind: measure
+    xref: not_specified
+  - id: EN-measure-quantity-reconciliation-rate
+    term: "quantity_reconciliation_rate"
+    kind: measure
+    xref: not_specified
+  - id: EN-measure-artifact-trust
+    term: "v3 artifact-trust score"
+    kind: measure
+    xref: not_specified
+  - id: EN-measure-structural-health
+    term: "GRO structural health score"
+    kind: measure
+    xref: not_specified
+  - id: EN-measure-spearman-rank-correlation
+    term: "Spearman rank correlation"
+    kind: measure
+    xref: not_specified
+  - id: EN-method-pubmed-lookup
+    term: "live PubMed reference-resolution lookup"
+    kind: method
+    xref: not_specified
+  - id: EN-variable-llm-tokens
+    term: "LLM tokens per ARA review"
+    kind: variable
+    xref: not_specified
+  - id: EN-concept-rigor-tier
+    term: "rigor tier (Tier A deterministic / Tier B reliable-anchored / Tier C reproducible-judged)"
+    kind: concept
+    xref: not_specified

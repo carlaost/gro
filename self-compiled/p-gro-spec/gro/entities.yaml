@@ -1,0 +1,80 @@
+entities:
+  - id: EN-method-tier-classification
+    term: "three rigor tiers (Tier A deterministic / Tier B anchored / Tier C judged)"
+    kind: method
+    xref: not_specified
+
+  - id: EN-concept-id-graph
+    term: "id-graph (frozen input set spanning L1-L5)"
+    kind: concept
+    xref: not_specified
+
+  - id: EN-measure-credibility-dossier
+    term: "Credibility Dossier (§5, per-row tier labelling)"
+    kind: measure
+    xref: not_specified
+
+  - id: EN-method-tier-c-protocols
+    term: "Tier-C judged protocols P1-P4 (novelty, entailment, validity, frontier triangulation)"
+    kind: method
+    xref: not_specified
+
+  - id: EN-measure-judge-inference-cost
+    term: "judge-inference cost model (order-of-magnitude count per GRO)"
+    kind: measure
+    xref: not_specified
+
+  - id: EN-method-provenance-regime
+    term: "cross-layer provenance/normalization regime (hash and non-hash)"
+    kind: method
+    xref: not_specified
+
+  - id: EN-measure-novelty-confidence-cap
+    term: "novelty confidence cap (self-reported provenance ceiling)"
+    kind: measure
+    xref: not_specified
+
+  - id: EN-variable-provenance-tag
+    term: "provenance tag (reviewer_confirmed / author-authored / ai-suggested)"
+    kind: variable
+    xref: not_specified
+
+  - id: EN-method-entailment-severity-lattice
+    term: "entailment effective-verdict severity lattice (contested floor)"
+    kind: method
+    xref: not_specified
+
+  - id: EN-method-pipeline-independence-test
+    term: "pipeline_independent test (four-part: pipeline id, model family, prompt-lineage hash, packet-only inputs)"
+    kind: method
+    xref: not_specified
+
+  - id: EN-method-prior-art-cap
+    term: "undisclosed-prior-art novelty cap (q_auto neighborhood bound)"
+    kind: method
+    xref: not_specified
+
+  - id: EN-method-genre-shopping-defense
+    term: "genre-shopping structural corroborator (anchorable vs. narrative genres)"
+    kind: method
+    xref: not_specified
+
+  - id: EN-measure-m04-outcome-switching
+    term: "M04 registry outcome-switching detection (m04_joinable_rate)"
+    kind: measure
+    xref: not_specified
+
+  - id: EN-method-blind-reconstruction-passes
+    term: "Class-C blind-reconstruction passes (numeral_reconstruction, claim_coverage, assumption_coverage/BCR)"
+    kind: method
+    xref: not_specified
+
+  - id: EN-dataset-external-quantities-ledger
+    term: "external_quantities.yaml XQ## ledger (off-paper baseline values)"
+    kind: dataset
+    xref: not_specified
+
+  - id: EN-variable-n-expectation
+    term: "n / n_not_recoverable expected-slot promotion (generality-gated)"
+    kind: variable
+    xref: not_specified

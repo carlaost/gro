@@ -1,0 +1,121 @@
+quantities:
+  - id: Q01
+    value: 40
+    unit: "claim-evidence edges"
+    comparator: approx
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "logic/claims.md#C02 (§9 must-fix #11)"
+    quote: "a mid-size GRO (say ~40 claim↔evidence edges) incurs on the order of **10³–10⁴ judge inferences** if every protocol runs fully on every element. This does **not** scale to a hundred-thousand-paper corpus at full density"
+    claim_refs: [C02]
+
+  - id: Q02
+    value: 1000
+    unit: "judge inferences per mid-size GRO"
+    comparator: ge
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md#C02 (§9 must-fix #11)"
+    quote: "a mid-size GRO (say ~40 claim↔evidence edges) incurs on the order of **10³–10⁴ judge inferences** if every protocol runs fully on every element. This does **not** scale to a hundred-thousand-paper corpus at full density"
+    claim_refs: [C02]
+
+  - id: Q03
+    value: 10000
+    unit: "judge inferences per mid-size GRO"
+    comparator: le
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md#C02 (§9 must-fix #11)"
+    quote: "a mid-size GRO (say ~40 claim↔evidence edges) incurs on the order of **10³–10⁴ judge inferences** if every protocol runs fully on every element. This does **not** scale to a hundred-thousand-paper corpus at full density"
+    claim_refs: [C02]
+
+  - id: Q04
+    value: 100000
+    unit: "papers (corpus size)"
+    comparator: approx
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "logic/claims.md#C02 (§9 must-fix #11)"
+    quote: "a mid-size GRO (say ~40 claim↔evidence edges) incurs on the order of **10³–10⁴ judge inferences** if every protocol runs fully on every element. This does **not** scale to a hundred-thousand-paper corpus at full density"
+    claim_refs: [C02]
+
+  - id: Q05
+    value: 3
+    unit: "judges (J)"
+    comparator: ge
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "logic/claims.md#C02 (§9 must-fix #11)"
+    quote: "P2 J≥3 × R≥3 (~12 verdicts) *per edge* + INVARIANCE_AUDIT + CALIBRATION_REPORT"
+    claim_refs: [C02]
+
+  - id: Q06
+    value: 3
+    unit: "runs (R)"
+    comparator: ge
+    ci_low: not_specified
+    ci_high: not_specified
+    role: input
+    source_ref: "logic/claims.md#C02 (§9 must-fix #11)"
+    quote: "P2 J≥3 × R≥3 (~12 verdicts) *per edge* + INVARIANCE_AUDIT + CALIBRATION_REPORT"
+    claim_refs: [C02]
+
+  - id: Q07
+    value: 12
+    unit: "verdicts per edge"
+    comparator: approx
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md#C02 (§9 must-fix #11)"
+    quote: "P2 J≥3 × R≥3 (~12 verdicts) *per edge* + INVARIANCE_AUDIT + CALIBRATION_REPORT"
+    claim_refs: [C02]
+
+  - id: Q08
+    value: 1.0
+    unit: not_specified
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md#C04 (§8 P1 fix(1))"
+    quote: "reviewer_confirmed → cap 1.0; author-authored → cap 0.6; ai-suggested → cap 0.3"
+    claim_refs: [C04]
+
+  - id: Q09
+    value: 0.6
+    unit: not_specified
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md#C04 (§8 P1 fix(1))"
+    quote: "reviewer_confirmed → cap 1.0; author-authored → cap 0.6; ai-suggested → cap 0.3"
+    claim_refs: [C04]
+
+  - id: Q10
+    value: 0.3
+    unit: not_specified
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md#C04 (§8 P1 fix(1))"
+    quote: "reviewer_confirmed → cap 1.0; author-authored → cap 0.6; ai-suggested → cap 0.3"
+    claim_refs: [C04]
+
+  - id: Q11
+    value: 3
+    unit: "blind-reconstruction passes"
+    comparator: none
+    ci_low: not_specified
+    ci_high: not_specified
+    role: result
+    source_ref: "logic/claims.md#C10 (§7)"
+    quote: "Three reproducible blind-reconstruction passes (`numeral_reconstruction`, `claim_coverage`, `assumption_coverage`/BCR) diff an independent extraction against the typed set and score the gap"
+    claim_refs: [C10]

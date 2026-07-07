@@ -1,0 +1,22 @@
+paper_type: "format/architecture specification (design paper, non-empirical)"
+expected_slots:
+  - problem_or_gap_statement
+  - design_claims_with_falsification_criteria
+  - methodology_or_design_process
+  - grounding_evidence_or_source_pointer
+  - honest_limitations_or_residuals
+  - empirical_dataset
+  - statistical_results
+  - external_replication_target
+present_slots:
+  - problem_or_gap_statement
+  - design_claims_with_falsification_criteria
+  - methodology_or_design_process
+  - grounding_evidence_or_source_pointer
+  - honest_limitations_or_residuals
+absent_declared:
+  - empirical_dataset
+  - statistical_results
+  - benchmark_json
+  - external_replication_target
+  - seal_level1_level2_review

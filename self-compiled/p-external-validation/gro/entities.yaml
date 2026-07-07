@@ -1,0 +1,81 @@
+entities:
+  - id: EN-concept-anchored-tier
+    term: "Tier B · Anchored (anchored-tier reference resolution)"
+    kind: concept
+    xref: not_specified
+  - id: EN-concept-judged-tier
+    term: "Tier C · Judged (judged-tier novelty/entailment verdicts)"
+    kind: concept
+    xref: not_specified
+  - id: EN-concept-l3-matcher
+    term: "L3 non-LLM matcher"
+    kind: method
+    xref: not_specified
+  - id: EN-concept-llm-mediated-adjudication
+    term: "LLM-mediated adjudication of tool outputs"
+    kind: concept
+    xref: not_specified
+  - id: EN-concept-registry-concordance
+    term: "trial-registry concordance join"
+    kind: method
+    xref: not_specified
+  - id: EN-concept-discrimination-validity
+    term: "good-versus-bad discrimination validity"
+    kind: concept
+    xref: not_specified
+  - id: EN-concept-post-hoc-endpoint-elevation
+    term: "transparent post-hoc endpoint elevation"
+    kind: concept
+    xref: not_specified
+  - id: EN-measure-pubmed-resolution-rate
+    term: "observed PubMed resolvability rate"
+    kind: measure
+    xref: not_specified
+  - id: EN-variable-declared-resolvable-field
+    term: "self-declared `resolvable` field (sidecar)"
+    kind: variable
+    xref: not_specified
+  - id: EN-variable-observed-resolvability
+    term: "observed (live-checked) resolvability"
+    kind: variable
+    xref: not_specified
+  - id: EN-measure-novelty-verdict
+    term: "novelty verdict (novel / incremental / previously_reported / cannot_determine)"
+    kind: measure
+    xref: not_specified
+  - id: EN-measure-retraction-correction-search
+    term: "retraction/correction search"
+    kind: method
+    xref: not_specified
+  - id: EN-dataset-six-ara-corpus
+    term: "six-ARA Alzheimer's corpus (zim25, jes26, che26, val25, han26, tit26)"
+    kind: dataset
+    xref: not_specified
+  - id: EN-dataset-clinicaltrials-nct04437511
+    term: "ClinicalTrials.gov trial record NCT04437511"
+    kind: dataset
+    xref: "NCT04437511"
+  - id: EN-method-mcp-search-articles
+    term: "MCP `search_articles` (PubMed)"
+    kind: method
+    xref: not_specified
+  - id: EN-method-mcp-get-article-metadata
+    term: "MCP `get_article_metadata` (PubMed)"
+    kind: method
+    xref: not_specified
+  - id: EN-method-mcp-search-trials
+    term: "MCP `search_trials` (ClinicalTrials.gov)"
+    kind: method
+    xref: not_specified
+  - id: EN-method-mcp-get-trial-details
+    term: "MCP `get_trial_details` (ClinicalTrials.gov)"
+    kind: method
+    xref: not_specified
+  - id: EN-dataset-verabind-tau
+    term: "VeraBIND Tau proprietary functional tau-seeding assay (han26)"
+    kind: method
+    xref: not_specified
+  - id: EN-dataset-snac-k-cohort
+    term: "SNAC-K cohort (n=2148, val25)"
+    kind: dataset
+    xref: not_specified

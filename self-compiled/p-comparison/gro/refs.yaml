@@ -1,0 +1,49 @@
+refs:
+  - id: R01
+    raw: "results.json / results.md — full GRO metric run over all 12 ARAs"
+    external_id: not_specified
+    resolvable: true
+  - id: R02
+    raw: "benchmark.py / benchmark.json — H1/H2 substrate benchmark (prose vs typed vs truth)"
+    external_id: not_specified
+    resolvable: true
+  - id: R03
+    raw: "compare/gro_metrics_analysis.json — GRO's self-ranking of its own metrics by reliability"
+    external_id: not_specified
+    resolvable: true
+  - id: R04
+    raw: "compare/gro_vs_v3.json — coverage, construct-mapping, agreement/divergence comparison of GRO vs v3"
+    external_id: not_specified
+    resolvable: true
+  - id: R05
+    raw: "compare/vs_seal.json — head-to-head GRO vs Seal L2 comparison, three-way rank correlation"
+    external_id: not_specified
+    resolvable: true
+  - id: R06
+    raw: "external_validation.json — corpus-level declared vs observed reference-resolvability, retractions, novelty, registry concordance"
+    external_id: not_specified
+    resolvable: true
+  - id: R07
+    raw: "external/val25-blood-biomarkers-of-alzheimer-s-disease.json — live PubMed lookup results, val25"
+    external_id: not_specified
+    resolvable: true
+  - id: R08
+    raw: "external/han26-tau-pathological-activity-in-plasma-before.json — live PubMed lookup results, han26"
+    external_id: not_specified
+    resolvable: true
+  - id: R09
+    raw: "external/tit26-automated-high-throughput-quantification-of-plasma.json — live PubMed lookup results, tit26"
+    external_id: not_specified
+    resolvable: true
+  - id: R10
+    raw: "seal/che26-diagnostic-performance-of-plasma-p-tau217.json — Seal Level 2 review, che26"
+    external_id: not_specified
+    resolvable: true
+  - id: R11
+    raw: "seal/ard25-response-of-spatially-defined-microglia-states.json — Seal Level 2 review, ard25"
+    external_id: not_specified
+    resolvable: true
+  - id: R12
+    raw: "../../../metrics/v4-gro/COMPARISON_PAPER.md — \"Three Ways to Judge an Agent-Native Research Artifact\" (source paper this ARA compiles)"
+    external_id: not_specified
+    resolvable: true
