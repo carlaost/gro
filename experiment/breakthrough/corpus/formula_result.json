@@ -1,0 +1,165 @@
+{
+  "formula": "(0.5*(r['contrib_peak'] or 0) + 0.5*(r['contrib_wmean'] or 0)) * (1 - (r['anchor_max_overlap'] or 0)) * min((r['anchor_n'] or 0), 10) / 10",
+  "name": "candidate",
+  "n": 26,
+  "spearman_new": 0.5343,
+  "spearman_old": 0.5034,
+  "rows": [
+    {
+      "slug": "ave25-uncovering-plaque-glia-niches-in-human",
+      "candidate": 0.187,
+      "expert": 51.33,
+      "significance": 0.4486
+    },
+    {
+      "slug": "als26-early-onset-alzheimer-s-disease-mortality",
+      "candidate": 0.1653,
+      "expert": 8.0,
+      "significance": 0.4067
+    },
+    {
+      "slug": "the25-blood-phosphorylated-tau-for-the-diagnosis",
+      "candidate": 0.1562,
+      "expert": 26.0,
+      "significance": 0.5096
+    },
+    {
+      "slug": "woj25-immunoassay-detection-of-multiphosphorylated-tau-proteoforms",
+      "candidate": 0.1547,
+      "expert": 59.33,
+      "significance": 0.5642
+    },
+    {
+      "slug": "ard25-response-of-spatially-defined-microglia-states",
+      "candidate": 0.1544,
+      "expert": 67.67,
+      "significance": 0.4633
+    },
+    {
+      "slug": "wee25-early-intervention-anti-a-immunotherapy-attenuates",
+      "candidate": 0.1136,
+      "expert": 34.33,
+      "significance": 0.4243
+    },
+    {
+      "slug": "wu25-a-2025-update-on-treatment-strategies",
+      "candidate": 0.1113,
+      "expert": 7.67,
+      "significance": 0.3702
+    },
+    {
+      "slug": "kho25-explainable-artificial-intelligence-in-neuroimaging-of",
+      "candidate": 0.109,
+      "expert": 7.67,
+      "significance": 0.3495
+    },
+    {
+      "slug": "liu25i-single-cell-multiregion-epigenomic-rewiring-in",
+      "candidate": 0.1074,
+      "expert": 66.33,
+      "significance": 0.4464
+    },
+    {
+      "slug": "yu25-global-mortality-prevalence-and-disability-adjusted",
+      "candidate": 0.0881,
+      "expert": 5.33,
+      "significance": 0.2784
+    },
+    {
+      "slug": "aks25-an-explainable-web-based-diagnostic-system",
+      "candidate": 0.0876,
+      "expert": 17.0,
+      "significance": 0.3183
+    },
+    {
+      "slug": "cav25-global-societal-burden-of-alzheimer-s",
+      "candidate": 0.0768,
+      "expert": 8.67,
+      "significance": 0.3481
+    },
+    {
+      "slug": "zim25-donanemab-in-early-symptomatic-alzheimer-s",
+      "candidate": 0.0698,
+      "expert": 39.0,
+      "significance": 0.7408
+    },
+    {
+      "slug": "xu25-epidemiological-and-sociodemographic-transitions-in-the",
+      "candidate": 0.0693,
+      "expert": 8.67,
+      "significance": 0.44
+    },
+    {
+      "slug": "zha25h-a-review-of-multimodal-fusion-based",
+      "candidate": 0.0615,
+      "expert": 7.67,
+      "significance": 0.3694
+    },
+    {
+      "slug": "guo25c-the-disease-burden-risk-factors-and",
+      "candidate": 0.0549,
+      "expert": 6.67,
+      "significance": 0.3492
+    },
+    {
+      "slug": "zho25-microglia-networks-within-the-tapestry-of",
+      "candidate": 0.0499,
+      "expert": 11.0,
+      "significance": 0.2936
+    },
+    {
+      "slug": "ali25-multimodal-self-supervised-learning-for-early",
+      "candidate": 0.0434,
+      "expert": 22.33,
+      "significance": 0.4199
+    },
+    {
+      "slug": "xu25d-global-incidence-trends-and-projections-of",
+      "candidate": 0.0416,
+      "expert": 6.67,
+      "significance": 0.3275
+    },
+    {
+      "slug": "jes26-efficacy-and-safety-of-donanemab-in",
+      "candidate": 0.0407,
+      "expert": 22.33,
+      "significance": 0.7784
+    },
+    {
+      "slug": "pal25-alzheimer-s-association-clinical-practice-guideline",
+      "candidate": 0.0333,
+      "expert": 15.0,
+      "significance": 0.2768
+    },
+    {
+      "slug": "raz25-advancements-in-deep-learning-for-early",
+      "candidate": 0.0266,
+      "expert": 6.67,
+      "significance": 0.3736
+    },
+    {
+      "slug": "kes25-the-alzheimer-s-disease-diagnosis-and",
+      "candidate": 0.0211,
+      "expert": 30.67,
+      "significance": 0.386
+    },
+    {
+      "slug": "zha25-assessing-and-projecting-the-global-impacts",
+      "candidate": 0.0163,
+      "expert": 6.0,
+      "significance": 0.3233
+    },
+    {
+      "slug": "20225-2025-alzheimer-s-disease-facts-and",
+      "candidate": 0.0099,
+      "expert": 4.0,
+      "significance": 0.689
+    },
+    {
+      "slug": "zhu25b-global-burden-of-alzheimer-s-disease",
+      "candidate": 0.0099,
+      "expert": 4.67,
+      "significance": 0.3826
+    }
+  ]
+}

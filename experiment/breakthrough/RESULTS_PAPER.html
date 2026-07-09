@@ -1,0 +1,263 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><title>Measuring breakthrough-ness on new papers</title><style>
+  @page { size: A4; margin: 22mm 20mm 20mm 20mm; }
+  html { font-size: 10.5pt; }
+  body { font-family:"Georgia","Times New Roman",serif; line-height:1.45; color:#111; max-width:44rem; margin:0 auto; text-rendering:optimizeLegibility; }
+  h1 { font-size:1.6rem; line-height:1.2; margin:0 0 .6rem; letter-spacing:-.01em; }
+  h2 { font-size:1.12rem; margin:1.6rem 0 .5rem; border-bottom:1px solid #ccc; padding-bottom:.15rem; page-break-after:avoid; }
+  h3 { font-size:.98rem; margin:1.1rem 0 .35rem; color:#7a1f2b; page-break-after:avoid; }
+  p { margin:0 0 .7rem; text-align:justify; hyphens:auto; }
+  ul,ol { margin:0 0 .7rem 1.1rem; padding:0; } li { margin:0 0 .3rem; }
+  em { color:#555; } code { font-family:"SF Mono","Menlo",monospace; font-size:.82em; background:#f3f3f3; padding:0 .2em; border-radius:2px; }
+  pre { background:#f6f6f4; padding:.7rem .9rem; border-radius:4px; border:1px solid #e2e2e2; overflow-x:auto; page-break-inside:avoid; }
+  pre code { background:none; padding:0; font-size:.8rem; }
+  table { border-collapse:collapse; width:100%; font-size:.8rem; margin:.5rem 0 1rem; page-break-inside:avoid; }
+  th,td { border:1px solid #ccc; padding:.26rem .4rem; text-align:left; vertical-align:top; }
+  th { background:#f2eeee; font-family:-apple-system,sans-serif; font-size:.72rem; }
+  strong { font-weight:700; } hr { border:none; border-top:1px solid #ddd; margin:1.6rem 0; }
+</style></head><body><h1>Measuring breakthrough-ness on new papers — how far a GRO metric gets, and the ceiling above it</h1>
+<p><em>Written 2026-07-09 (v2, supersedes the 2026-07-08 draft). Companion to <code>breakthrough-metric.md</code> ("Do we have a scientific-breakthrough metric? — assessment + design"), which argued no metric in the program measures breakthroughs, decomposed "breakthrough" into three signals (disruption / significance / realized uptake), and named three blockers.</em></p>
+<h2>Abstract</h2>
+<p>We asked whether a metric computed over GRO's structured sidecars can rank recent papers by breakthrough-ness the way domain experts do. We GRO-compiled <strong>66 recent (2025–2026) Alzheimer's papers</strong>, rated each with a blind, prior-art-grounded <strong>3-persona expert panel</strong> (0–100), and searched for the best metric — including via a 16→4→2→1 design tournament — under a strict <strong>held-out train/test split</strong>.</p>
+<p>Three results, in order of importance:</p>
+<ol>
+<li>
+<p><strong>We are far from the ceiling, and the ceiling is measurable.</strong> A single expert judge predicts the panel at <strong>ρ ≈ 0.97</strong> (leave-one-judge-out) — that is the best any predictor could do. Our best metric reaches <strong>ρ ≈ 0.57</strong> on held-out papers. So the metric captures <strong>~59% of the achievable rank signal</strong>; ~40 points of correlation are lost between <em>reading the paper</em> and <em>the GRO feature vector</em>. <strong>We have not hit a ceiling</strong> — and the residual gap is <em>structured</em> (specific paper genres the features cannot see), not noise, so a better data shape can genuinely close it.</p>
+</li>
+<li>
+<p><strong>The simplest metric wins; complexity overfits.</strong> The best metric is a <strong>single feature</strong> — the compiler's mean assessed contribution-novelty (<code>contrib_wmean</code>), ρ ≈ 0.57 held-out with <em>no</em> train→test gap. Every richer formula the tournament produced climbed the training score and failed to transfer (winner: 0.77 train → 0.53 test). The shipped composite manages only ρ ≈ 0.30.</p>
+</li>
+<li>
+<p><strong>The generalizing signal is the compiler's reading of the paper — not the "GRO-native" machinery.</strong> The prior-art anchor and delta-ledger shapes we invested most in did not transfer. This is either a real finding (contribution-typing is what matters) or a warning that our LLM metric and our LLM panel share a bias — distinguishable only on a second corpus.</p>
+</li>
+</ol>
+<p>The honest deliverable: a <strong>one-feature triage metric</strong> at 0.57, a <strong>measured ceiling</strong> at 0.97, and a precise list of the three GRO extensions — a normalized genre field, a clean anchor-confidence field, and a downstream-stance edge — needed to climb toward it.</p>
+<hr />
+<h2>1. Features and metrics — definitions (read this first)</h2>
+<p>Every metric below is deterministic arithmetic over per-paper GRO sidecars. What matters is that the sidecars come from <strong>three sources with different epistemic status</strong> — conflating them is the shipped metric's core error.</p>
+<p><strong>Provenance tags used throughout:</strong>
+- <strong>[PAPER→LLM]</strong> — the compiler read <em>this paper's text</em> and made a typed judgment. Not externally verified; blind to what happened after publication.
+- <strong>[PRIOR-ART]</strong> — resolved against <em>earlier</em> literature (the paper's references + an OpenAlex search for pre-publication near-neighbors).
+- <strong>[FOLLOW-ON]</strong> — from <em>later</em> papers citing this one (the citation graph).</p>
+<p><strong>The features</strong> (each defined on first use; full dictionary in <code>corpus/FEATURES.md</code>):</p>
+<table>
+<thead>
+<tr>
+<th>feature</th>
+<th>provenance</th>
+<th>definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>contribution</code></td>
+<td>[PAPER→LLM]</td>
+<td>composite <code>0.6·peak + 0.4·wmean</code> over the paper's typed contributions</td>
+</tr>
+<tr>
+<td><code>contrib_wmean</code></td>
+<td>[PAPER→LLM]</td>
+<td><strong>confidence-weighted <em>mean</em> novelty weight across a paper's contributions.</strong> Each contribution is typed by the compiler from a closed taxonomy (<code>new_paradigm</code> 1.0 … <code>replication</code> 0.1); wmean is a <em>mean</em>, so it cannot be inflated by padding a paper with shallow contributions. <strong>This is the winning metric.</strong></td>
+</tr>
+<tr>
+<td><code>contrib_peak</code></td>
+<td>[PAPER→LLM]</td>
+<td>the single strongest <code>weight × confidence</code> contribution ("does it have ≥1 landmark result?")</td>
+</tr>
+<tr>
+<td><code>n_contribs</code></td>
+<td>[PAPER→LLM]</td>
+<td>raw count of contributions (breadth; gameable)</td>
+</tr>
+<tr>
+<td><code>n_puffery</code></td>
+<td>[PAPER→LLM]</td>
+<td>contributions voided by the anti-puffery lock (claimed but not tied to a real claim)</td>
+</tr>
+<tr>
+<td><code>delta</code> / <code>delta_max</code> / <code>n_deltas</code></td>
+<td>[PAPER→LLM, baseline PRIOR-ART]</td>
+<td>the paper's quantified comparisons-vs-prior-work: composite / largest magnitude / count</td>
+</tr>
+<tr>
+<td><code>anchor_mean_overlap</code></td>
+<td>[PRIOR-ART]</td>
+<td>mean overlap of the resolved prior-art neighborhood — <strong>high = dense prior art (incremental); low = sparse (novel).</strong> <code>(1 − overlap)</code> is a novelty signal</td>
+</tr>
+<tr>
+<td><code>anchor_max_overlap</code></td>
+<td>[PRIOR-ART]</td>
+<td>overlap of the single closest prior work (near-duplicate detector)</td>
+</tr>
+<tr>
+<td><code>anchor_n</code></td>
+<td>[PRIOR-ART]</td>
+<td>how many prior works resolved (doubles as a resolution-confidence proxy)</td>
+</tr>
+<tr>
+<td><code>anchor</code></td>
+<td>[PRIOR-ART]</td>
+<td>composite scoring <em>resolution success</em> (a known-buggy field: rewards that the neighborhood resolved, not its density)</td>
+</tr>
+<tr>
+<td><code>uptake_per_year</code> / <code>cd_index</code></td>
+<td>[FOLLOW-ON]</td>
+<td>age-normalized in-corpus citations / disruption index — <strong>structurally dead on a 2025–2026 corpus</strong> (no downstream edges yet)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key definition — "contribution."</strong> <code>contributions.yaml</code> is the compiler's answer to <em>"what does this paper claim to contribute, and how novel is each claim on its face?"</em> Each entry is <strong>double-typed</strong>: <code>author_framed_type</code> (the authors' pitch) vs <code>compiler_assessed_type</code> (the compiler's own call), with a rationale and an anti-puffery lock. So <code>contrib_wmean</code> measures <strong>the compiler's reading of the paper's stated contributions, in isolation</strong> — reproducible and auditable, but a judgment, never checked against how the field reacted. That distinction drives every result.</p>
+<h2>2. Corpus and method</h2>
+<ul>
+<li><strong>Corpus:</strong> 66 recent (2025–2026) Alzheimer's papers in <code>research/ara-library/</code>, each GRO-compiled with L8 sidecars; <strong>all 66 SOTA anchors genuinely resolved</strong> (references + live OpenAlex), verified via <code>corpus/audit_l8.py</code>.</li>
+<li><strong>Ground truth — prior-art-grounded expert panel.</strong> Each paper rated 0–100 by three blind personas (clinical trialist, molecular neuroscientist, metascience analyst). Each judge received a <strong>prior-art reading list</strong> — the titles/years of the paper's resolved precedence neighborhood, but <strong>not</strong> the metric's overlap <em>scores</em> (to avoid circularity with the anchor feature) — and rated <em>advance beyond that specific prior art</em>. Score = <strong>mean</strong> of the three judges (mean, not median, so a lone dissenting judge counts). Raw votes in <code>corpus/expert_votes_raw_grounded.json</code>.</li>
+<li><strong>Held-out evaluation.</strong> 40 train / 26 test, stratified by expert score (<code>corpus/split.json</code>). Formula search (including the tournament) happens on <strong>train only</strong>; the test set is scored <strong>once</strong>, by the organizer, via <code>corpus/apply_formula.py</code>. No test information ever entered the design loop.</li>
+<li><strong>Grounding sanity-check.</strong> Re-judging with vs without the prior-art brief agreed at ρ = 0.97 on rank but deflated borderline scores (mean 29.6 → 24.7) — SOTA context makes judges correctly harsher on work that only <em>sounds</em> novel. So the grounded panel is the right target.</li>
+</ul>
+<h2>3. The shipped metric is weak, for a diagnosable reason</h2>
+<p><code>significance = 0.40·contribution + 0.40·delta + 0.20·anchor</code> reaches only <strong>ρ ≈ 0.30</strong> (all 66). Per-feature correlation with the grounded panel shows it is worse than its own best part:</p>
+<table>
+<thead>
+<tr>
+<th>feature</th>
+<th>ρ vs experts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>contribution</code> / <code>contrib_wmean</code></td>
+<td><strong>+0.57 / +0.56</strong> (the real signal)</td>
+</tr>
+<tr>
+<td><code>contrib_peak</code></td>
+<td>+0.46</td>
+</tr>
+<tr>
+<td><code>anchor_n</code></td>
+<td>+0.35</td>
+</tr>
+<tr>
+<td><code>anchor</code> (composite)</td>
+<td>+0.20</td>
+</tr>
+<tr>
+<td><code>delta</code> / <code>delta_max</code> / <code>n_deltas</code></td>
+<td>−0.09 / −0.09 / −0.15</td>
+</tr>
+<tr>
+<td><code>anchor_mean_overlap</code> / <code>anchor_max_overlap</code></td>
+<td>−0.39 / −0.49</td>
+</tr>
+<tr>
+<td><code>uptake_per_year</code> / <code>cd_index</code></td>
+<td>−0.03 / −0.08 (dead)</td>
+</tr>
+</tbody>
+</table>
+<p>80% of the composite's weight is on <code>contribution + delta</code>, and <code>delta</code> points the wrong way. Strip to the one good component and it roughly doubles.</p>
+<h2>4. The tournament, and the overfitting it exposed</h2>
+<p>A <strong>16→4→2→1 critique-carrying tournament</strong> (<code>tournament16_workflow.js</code>): 16 clean-room contestants (Sonnet) each designed a formula, hill-climbing on the train split; a judge critiqued residuals and advanced the strongest; every later round saw the critiques. It converged on a principled-looking winner (<code>depth × novelty × resolution-confidence</code>). Then we scored everything on the <strong>held-out test</strong> — the paper's core table:</p>
+<table>
+<thead>
+<tr>
+<th>metric</th>
+<th>train (40)</th>
+<th><strong>held-out test (26)</strong></th>
+<th>all (66)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>plain depth</strong> <code>0.5·peak + 0.5·wmean</code></td>
+<td>0.546</td>
+<td><strong>0.572</strong></td>
+<td>0.569</td>
+</tr>
+<tr>
+<td><strong><code>contrib_wmean</code> alone (1 feature)</strong></td>
+<td>0.533</td>
+<td><strong>0.571</strong></td>
+<td>0.564</td>
+</tr>
+<tr>
+<td>tournament winner (depth×novelty×conf)</td>
+<td>0.771</td>
+<td>0.534</td>
+<td>0.687</td>
+</tr>
+<tr>
+<td>depth × novelty (no gate)</td>
+<td>0.693</td>
+<td>0.455</td>
+<td>0.604</td>
+</tr>
+<tr>
+<td>v1 draft (depth − delta report-tells)</td>
+<td>0.712</td>
+<td>0.449</td>
+<td>0.641</td>
+</tr>
+<tr>
+<td>novelty alone (<code>1 − max_overlap</code>)</td>
+<td>0.627</td>
+<td>0.266</td>
+<td>0.494</td>
+</tr>
+<tr>
+<td>shipped <code>significance</code></td>
+<td>0.141</td>
+<td>0.503</td>
+<td>0.304</td>
+</tr>
+</tbody>
+</table>
+<p>Read the train-vs-test columns: <strong>plain depth has no gap (0.55→0.57); every elaboration has a large one.</strong> The tournament, by optimizing train ρ, walked into overfitting 40 points. Its real result is <em>negative</em>: the added machinery does not generalize.</p>
+<p><strong>Honesty note on models (as requested).</strong> Contestants ran <code>claude-sonnet-5</code> (verified from transcripts). The judges were requested as Fable but <strong>silently fell back to <code>claude-opus-4-8</code></strong> (the <code>'fable'</code> alias didn't resolve; it needs <code>'claude-fable-5'</code>). Moot for the conclusion — the <em>selected</em> winner loses to a one-feature baseline on held-out data regardless of who selected it.</p>
+<h2>5. The adopted metric</h2>
+<p><strong>Use <code>contrib_wmean</code></strong> (the compiler's confidence-weighted mean assessed contribution-novelty): <strong>ρ ≈ 0.57 vs grounded experts on held-out papers, with no overfitting.</strong> Even across persona (trialist / neuroscientist / metascientist ≈ 0.5–0.57). It ranks real discoveries on top and floors every annual report and burden re-estimate. A usable <strong>triage prior</strong>, not an oracle. (A rank correlation on n=26 has a wide CI, so plain depth does not <em>significantly</em> beat the elaborate metrics — but that is the argument: if machinery can't beat one feature on unseen data despite fitting train harder, it isn't justified.)</p>
+<h2>6. How far from the experts — the ceiling (the headline)</h2>
+<p>The right yardstick is not zero, it is <strong>how well the experts predict each other.</strong> Leave-one-judge-out — one persona predicting the mean of the other two — gives the best score any predictor could achieve given panel noise:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>ρ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ceiling</strong> (single judge → panel)</td>
+<td><strong>0.97</strong></td>
+</tr>
+<tr>
+<td>Our best metric (<code>contrib_wmean</code>, held-out)</td>
+<td><strong>0.57</strong></td>
+</tr>
+<tr>
+<td>Shipped composite</td>
+<td>0.30</td>
+</tr>
+</tbody>
+</table>
+<p><strong>We are at ~59% of the achievable ceiling — not near it.</strong> The ~0.40 gap is the information lost between reading the paper and the GRO feature vector. And it is <strong>structured</strong>, not noise — the biggest metric-vs-expert disagreements cluster on genres the features cannot distinguish:</p>
+<ul>
+<li><code>sal26</code> (plasma-tau biomarker): experts 61, metric floors it — a real advance the compiler under-typed.</li>
+<li><code>kes25</code> (diagnosis review): experts 31, metric ranks it <em>last</em> — reviews the field values.</li>
+<li><code>cum26</code> / <code>wan25c</code> (drug-pipeline review, burden re-estimate): experts ~6, metric over-rates them — pure genre confusion.</li>
+</ul>
+<p>Because the errors are systematic, better data shapes can close the gap. This is not a wall.</p>
+<h2>7. Why the winner is principled — the sign-flip point</h2>
+<p>The v1 draft subtracted <code>delta</code>. That was theoretically wrong, not just weak. A negatively-correlated feature may be sign-flipped only if it is a <strong>true inverse construct</strong> (<code>1 − overlap</code> = novelty: causal, generalizes) — not if it is a <strong>confound proxy</strong> (<code>n_deltas</code> correlates with breakthrough only because report-genre papers pile up deltas <em>in this corpus</em>). Test: <em>would intervening on the feature causally change breakthrough-ness?</em> Adding a quantified comparison to a real discovery should not lower its score — so <code>delta</code> must not be subtracted. The held-out numbers confirm the theory: the delta-hack underperforms doing nothing.</p>
+<h2>8. How GRO needs to be extended — to climb toward 0.97</h2>
+<p>All 16 contestants independently reported the substrate is missing signals the ideal metric needs. The 38 proposals cluster into three asks, and §6's residuals say which would help most:</p>
+<ol>
+<li><strong>A normalized <code>genre.primary</code> on every paper</strong> (19 proposals) — <em>highest confidence.</em> The metric's worst errors (<code>cum26</code>, <code>kes25</code>, <code>wan25c</code>) are genre confusions. GRO emits <code>genre.yaml</code> but inconsistently schematized (some papers carry <code>genre.primary</code> + <code>novelty_prior</code>, most only free-text <code>paper_type</code>). A controlled vocabulary (<code>primary_research | surveillance_report | review | trial_readout | method_paper</code>) on all papers would let a metric detect genre <em>directly</em> instead of laundering it through delta-counts.</li>
+<li><strong>A <code>downstream_assessment</code> / stance edge</strong> (4 proposals) — <em>highest ceiling, slowest.</em> Per-citer: does later work <em>confirm/extend</em> vs <em>contest/supersede/fail-to-replicate</em>? The substrate has citation <em>counts</em> (dead) and the compiler's <em>untested</em> reading, but nothing for <strong>how the field reacted</strong> — the materialized "cross-object contribution graph" (observation O31), and the only path to measuring <em>realized</em> impact and to breaking the shared-LLM-bias worry (§9).</li>
+<li><strong>A standalone <code>anchor_resolution_confidence ∈ [0,1]</code></strong> (14 proposals) — <em>marginal.</em> Splits resolution-success from the buggy density reward in <code>anchor</code>; the winner had to repurpose <code>anchor_n</code> for lack of it.</li>
+</ol>
+<h2>9. The caveat that outranks the extensions</h2>
+<p>Our signal (<code>contrib_wmean</code>, an LLM's reading) and our target (an LLM panel — inter-judge ρ ≈ 0.96, implausibly high for independent humans) <strong>may share a model bias.</strong> The 0.57 might be two LLMs agreeing with themselves rather than a transferable notion of breakthrough. We cannot tell on this data. Before building any extension, the cheap decisive test is: <strong>run <code>contrib_wmean</code> against a second, non-AD corpus, ideally with a few human ratings.</strong> If 0.57 holds, the metric is real and the genre/stance extensions are worth building; if it collapses, we have been measuring an echo.</p>
+<h2>10. Where this leaves the program</h2>
+<p>The assessment paper said "no metric measures breakthroughs, and we can't compute one on the current shape." This sharpens it: <strong>the shipped composite is weak (0.30); the best available metric is a single contribution-depth feature (0.57 held-out); the achievable ceiling is 0.97; and the ~0.40 gap is structured signal a better data shape can attack — starting with a normalized genre field.</strong> Enriching the metric with GRO's prior-art/delta machinery overfits and is not recommended. Next: validate on a second domain against human raters, then build <code>genre.primary</code>.</p>
+<hr />
+<h3>Reproduction</h3>
+<p>All under <code>research/metrics/v5-breakthrough/</code>: <code>corpus/compute_corpus.py</code> (features → <code>corpus_scored.json</code>), <code>corpus/FEATURES.md</code> (dictionary), <code>gro_extend_workflow.js</code> (anchor resolution), <code>expert_panel_sota_workflow.js</code> + <code>corpus/briefs/*</code> (grounded panel), <code>corpus/split.json</code> (40/26), <code>tournament16_workflow.js</code> → <code>corpus/tournament16_result.json</code>, <code>corpus/apply_formula.py "&lt;formula&gt;" --split train|test|all</code> (reproduces every ρ in §4/§6). All correlations recomputed from raw data by the organizer; models read from transcripts (Sonnet contestants, Opus judges).</p></body></html>
