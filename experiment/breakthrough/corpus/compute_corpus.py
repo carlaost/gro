@@ -41,17 +41,33 @@ def slug_to_citekey(slug):
 
 
 def anchor_density(gro):
-    """Mean neighborhood overlap = how crowded the prior art is (high = incremental/update)."""
+    """Neighborhood overlap stats = how close this paper sits to prior work.
+    Shared definition (see FEATURES.md / SPEC L8): `overlap` in [0,1] per resolved
+    prior-art neighbor = fraction of THIS paper's contribution already covered by that
+    neighbor. We report min / mean / max over the neighborhood, plus `resolvability` =
+    fraction of the paper's references that resolved to an external id (the confidence
+    in the overlap estimate). High overlap = convergence/consolidation; low = novelty.
+    """
     import yaml
     fp = os.path.join(gro, "sota_anchor.yaml")
+    rp = os.path.join(gro, "refs.yaml")
+    # resolvability: fraction of refs with resolvable == true
+    resolvability = None
+    if os.path.exists(rp):
+        r = yaml.safe_load(open(rp)); rl = r.get("refs") if isinstance(r, dict) else r
+        flags = [bool(x.get("resolvable")) for x in (rl or []) if isinstance(x, dict) and "resolvable" in x]
+        if flags:
+            resolvability = round(sum(flags) / len(flags), 4)
     if not os.path.exists(fp):
-        return {"anchor_mean_overlap": None, "anchor_max_overlap": None, "anchor_n": 0}
+        return {"anchor_min_overlap": None, "anchor_mean_overlap": None, "anchor_max_overlap": None,
+                "anchor_n": 0, "resolvability": resolvability}
     doc = yaml.safe_load(open(fp)) or {}
     neigh = doc.get("neighborhood") or []
     ovs = [n.get("overlap") for n in neigh if isinstance(n.get("overlap"), (int, float))]
-    return {"anchor_mean_overlap": round(sum(ovs) / len(ovs), 4) if ovs else None,
+    return {"anchor_min_overlap": round(min(ovs), 4) if ovs else None,
+            "anchor_mean_overlap": round(sum(ovs) / len(ovs), 4) if ovs else None,
             "anchor_max_overlap": round(max(ovs), 4) if ovs else None,
-            "anchor_n": len(neigh)}
+            "anchor_n": len(neigh), "resolvability": resolvability}
 
 
 def graph_for(citekey):

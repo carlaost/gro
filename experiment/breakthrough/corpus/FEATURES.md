@@ -54,17 +54,39 @@ Empirically these are **report tells** — reports/re-estimates announce many bi
 
 ## Prior-art / novelty features — from `sota_anchor.yaml`  [PRIOR-ART]
 
-The **resolver-produced** precedence neighborhood: the set of *earlier* works closest to this
-paper, built from the paper's actual reference list plus an OpenAlex search for
-pre-publication near-neighbors it may have missed. Each neighbor carries an `overlap` in [0,1]
-= how much this paper's contribution is already covered by that prior work. **Dense, high-overlap
-neighborhood = incremental/update; sparse, low-overlap = genuinely novel / near first-in-field.**
-Overlaps are LLM/resolver estimates against real resolved neighbors (not made up, not follow-on).
+### SHARED DEFINITION of `overlap` (canonical — mirror of SPEC.md L8)
 
-- **`anchor`** — the *current* scoring of the anchor (rewards resolution success: real neighborhood + 2nd resolver = 1.0; compiler-estimated = 0.2). NOTE: this rewards *that it resolved*, not density — a known bug. ρ −0.20.
-- **`anchor_mean_overlap`** — mean overlap across neighbors. **The real novelty signal**: low = novel. Use `(1 − anchor_mean_overlap)` as a positive novelty term. ρ −0.19 (so `1−` is +0.19).
-- **`anchor_max_overlap`** — the single closest prior work's overlap. High = there's a near-duplicate predecessor.
-- **`anchor_n`** — number of neighbors resolved. Very few + low overlap can indicate first-in-field (or just an unresolved anchor — be careful).
+The **precedence neighborhood** is the set of *earlier* works closest to this paper, built from
+its reference list plus an OpenAlex search for pre-publication near-neighbors. Each neighbor
+carries an **`overlap` ∈ [0,1] = the fraction of THIS paper's core contribution already covered
+by that prior work** (0 = unrelated; 1 = a near-duplicate that already did this). To be a *shared*
+definition it must be computed the same way for every paper — the reference implementation is a
+deterministic OpenAlex measure (bibliographic-coupling Jaccard and/or topic-vector cosine), NOT a
+per-agent LLM guess (the v5 corpus used inconsistent per-agent overlaps and this is why the signal
+did not transfer).
+
+Aggregate the neighborhood into three numbers, each with distinct meaning:
+- **`min_overlap`** — connectedness (very low = barely attached to any prior art).
+- **`mean_overlap`** — neighborhood density (the core *convergence* signal).
+- **`max_overlap`** — closest-predecessor (near-duplicate detector; high = not a breakthrough regardless of the rest).
+
+**`resolvability` ∈ [0,1]** = fraction of the paper's references that resolved to an external id.
+It gates confidence: novelty credit is scaled by resolvability so an *unresolved* neighborhood
+(spuriously low overlap) cannot masquerade as genuine distance. If a paper is entirely unresolvable,
+novelty → 0 (conservative); realistically DOI/reference resolution is high, so this rarely bites.
+
+### Two metrics from one measurement (see RESULTS_PAPER §7b)
+
+Overlap reads with **opposite sign** for two distinct research virtues:
+- **breakthrough / novelty = `1 − overlap`** — distance from prior work.
+- **convergence / consolidation = `+ overlap`** — proximity to, and pulling-together of, prior work.
+
+A paper can be high on one and low on the other. This work validated the breakthrough reading; the
+convergence metric is defined but **not yet validated** (needs its own labeled panel).
+
+- **`anchor`** — LEGACY composite scoring *resolution success* (real neighborhood + 2nd resolver = 1.0; compiler-estimated = 0.2). Known bug: rewards *that it resolved*, not overlap. ρ +0.20 for spurious reasons. Superseded by the min/mean/max definition above.
+- **`anchor_mean_overlap` / `anchor_max_overlap` / `anchor_min_overlap`** — the aggregates above (ρ vs experts on the noisy v5 data: −0.39 / −0.49 / −0.18; i.e. `1−mean` ≈ +0.39). Right construct, but does not transfer here due to inconsistent per-agent overlap scoring.
+- **`anchor_n`** — number of neighbors resolved (a resolvability proxy).
 
 ## Follow-on / impact features — from the citation graph  [FOLLOW-ON]
 

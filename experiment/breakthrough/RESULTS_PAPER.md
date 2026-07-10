@@ -12,9 +12,11 @@ Three results, in order of importance:
 
 2. **The simplest metric wins; complexity overfits.** The best metric is a **single feature** — the compiler's mean assessed contribution-novelty (`contrib_wmean`), ρ ≈ 0.57 held-out with *no* train→test gap. Every richer formula the tournament produced climbed the training score and failed to transfer (winner: 0.77 train → 0.53 test). The shipped composite manages only ρ ≈ 0.30.
 
-3. **The generalizing signal is the compiler's reading of the paper — not the "GRO-native" machinery.** The prior-art anchor and delta-ledger shapes we invested most in did not transfer. This is either a real finding (contribution-typing is what matters) or a warning that our LLM metric and our LLM panel share a bias — distinguishable only on a second corpus.
+3. **The generalizing signal is the compiler's reading of the paper — not the "GRO-native" machinery.** The prior-art anchor and delta-ledger shapes we invested most in did not transfer. This is either a real finding (contribution-typing is what matters) or a warning that our LLM metric and our LLM panel share a bias — distinguishable only on a second corpus. We also tested adding **genre** (fetched deterministically from OpenAlex): it did not improve held-out ranking and is excluded from the metric.
 
-The honest deliverable: a **one-feature triage metric** at 0.57, a **measured ceiling** at 0.97, and a precise list of the three GRO extensions — a normalized genre field, a clean anchor-confidence field, and a downstream-stance edge — needed to climb toward it.
+4. **We found a second metric while building the first.** Prior-art *overlap* — how close a paper sits to existing work — is one measurement that reads with **opposite sign for two distinct constructs**: low overlap = **breakthrough/novelty** (distance from prior art), high overlap = **convergence/consolidation** (pulling a field together). We set out to measure the former and, in doing so, defined the latter. Convergence is specified here but not yet validated (it needs its own labeled panel).
+
+The honest deliverable: a **one-feature triage metric** (`contrib_wmean`) at 0.57, a **measured ceiling** at 0.97, a **shared `overlap` definition** that cleanly separates breakthrough from convergence, and the finding that no cheap structural feature (genre, overlap, delta) beats plain contribution depth on this corpus — so the next move is validation on a second domain, not a richer formula.
 
 ---
 
@@ -37,10 +39,9 @@ Every metric below is deterministic arithmetic over per-paper GRO sidecars. What
 | `n_contribs` | [PAPER→LLM] | raw count of contributions (breadth; gameable) |
 | `n_puffery` | [PAPER→LLM] | contributions voided by the anti-puffery lock (claimed but not tied to a real claim) |
 | `delta` / `delta_max` / `n_deltas` | [PAPER→LLM, baseline PRIOR-ART] | the paper's quantified comparisons-vs-prior-work: composite / largest magnitude / count |
-| `anchor_mean_overlap` | [PRIOR-ART] | mean overlap of the resolved prior-art neighborhood — **high = dense prior art (incremental); low = sparse (novel).** `(1 − overlap)` is a novelty signal |
-| `anchor_max_overlap` | [PRIOR-ART] | overlap of the single closest prior work (near-duplicate detector) |
-| `anchor_n` | [PRIOR-ART] | how many prior works resolved (doubles as a resolution-confidence proxy) |
-| `anchor` | [PRIOR-ART] | composite scoring *resolution success* (a known-buggy field: rewards that the neighborhood resolved, not its density) |
+| `overlap` (min/mean/max) | [PRIOR-ART] | **the shared measurement (see SPEC.md): fraction of this paper's contribution already covered by each resolved prior-art neighbor, in [0,1].** `mean` = neighborhood density; `max` = closest-predecessor (near-duplicate detector); `min` = connectedness. Read two ways (§7b): **breakthrough = `1 − overlap`; convergence = `+ overlap`.** |
+| `resolvability` | [PRIOR-ART] | fraction of the paper's references that resolved to an external id — the confidence in the overlap estimate (novelty is discounted when low, so an unresolved neighborhood cannot masquerade as distance). *Unreliable in this corpus — see §7b/§8.* |
+| `anchor` | [PRIOR-ART] | legacy composite scoring *resolution success* — a known-buggy field that rewards that the neighborhood resolved, not its overlap. Superseded by the min/mean/max definition above. |
 | `uptake_per_year` / `cd_index` | [FOLLOW-ON] | age-normalized in-corpus citations / disruption index — **structurally dead on a 2025–2026 corpus** (no downstream edges yet) |
 
 **Key definition — "contribution."** `contributions.yaml` is the compiler's answer to *"what does this paper claim to contribute, and how novel is each claim on its face?"* Each entry is **double-typed**: `author_framed_type` (the authors' pitch) vs `compiler_assessed_type` (the compiler's own call), with a rationale and an anti-puffery lock. So `contrib_wmean` measures **the compiler's reading of the paper's stated contributions, in isolation** — reproducible and auditable, but a judgment, never checked against how the field reacted. That distinction drives every result.
@@ -112,11 +113,30 @@ Because the errors are systematic, better data shapes can close the gap. This is
 
 The v1 draft subtracted `delta`. That was theoretically wrong, not just weak. A negatively-correlated feature may be sign-flipped only if it is a **true inverse construct** (`1 − overlap` = novelty: causal, generalizes) — not if it is a **confound proxy** (`n_deltas` correlates with breakthrough only because report-genre papers pile up deltas *in this corpus*). Test: *would intervening on the feature causally change breakthrough-ness?* Adding a quantified comparison to a real discovery should not lower its score — so `delta` must not be subtracted. The held-out numbers confirm the theory: the delta-hack underperforms doing nothing.
 
+## 7b. A second metric fell out — convergence vs breakthrough
+
+The most interesting conceptual result was unplanned. Prior-art **overlap** — computed per resolved neighbor as the fraction of this paper's contribution already covered by that neighbor — is a *single measurement* that a metric can read with **opposite sign for two different constructs**:
+
+- **Breakthrough / novelty = `1 − overlap`** (distance from prior work). A genuine advance sits *far* from what exists.
+- **Convergence / consolidation = `+ overlap`** (proximity to, and pulling together of, prior work). A synthesis, a unifying framework, or a field-consolidating review sits *close* to many prior works — and that is valuable, just not *breakthrough*.
+
+We set out to build the first and, in specifying the overlap shape, defined the second. The three aggregates carry distinct meaning and belong in the shared definition:
+
+- **`max` overlap** — the single closest predecessor. High max = a near-duplicate exists ⇒ *not* a breakthrough regardless of the rest (this is what should have caught the `cum26` pipeline review, whose max overlap was 0.93 while its mean looked deceptively novel).
+- **`mean` overlap** — neighborhood density. High mean = a crowded, incremental space; the core convergence signal.
+- **`min` overlap** — connectedness. Very low min = the work is barely attached to any prior art (either genuinely first-in-field, or unresolved — hence the resolvability discount below).
+
+**This is a genuine second metric, not a rephrasing.** Breakthrough and convergence are different research virtues; a paper can be high on one and low on the other (a bold-but-isolated hypothesis: high breakthrough, low convergence; a masterful synthesis: low breakthrough, high convergence). We validated the breakthrough reading against the expert panel; the **convergence reading is defined but unvalidated** — it needs its own labeled panel ("how much does this paper consolidate the field?"). We flag it as the clearest spin-off hypothesis of this work.
+
+Honest caveat on the current data: neither overlap reading beats plain depth on held-out here, because the 66 per-neighbor overlaps were scored by 66 different resolver agents with no shared rubric. That is a *measurement* problem, not a conceptual one — which is exactly why the shared `overlap` definition (below, and now written into `SPEC.md`) matters before either metric can be trusted.
+
 ## 8. How GRO needs to be extended — to climb toward 0.97
 
 All 16 contestants independently reported the substrate is missing signals the ideal metric needs. The 38 proposals cluster into three asks, and §6's residuals say which would help most:
 
-1. **A normalized `genre.primary` on every paper** (19 proposals) — *highest confidence.* The metric's worst errors (`cum26`, `kes25`, `wan25c`) are genre confusions. GRO emits `genre.yaml` but inconsistently schematized (some papers carry `genre.primary` + `novelty_prior`, most only free-text `paper_type`). A controlled vocabulary (`primary_research | surveillance_report | review | trial_readout | method_paper`) on all papers would let a metric detect genre *directly* instead of laundering it through delta-counts.
+1. **A standardized `overlap` definition (min/mean/max) + `resolvability`** — *now specified in `SPEC.md`.* The overlap signal is conceptually right (it powers both the breakthrough and convergence readings, §7b) but was unusable here because 66 agents scored it 66 different ways, and `resolvability` was unusable for 38/66 papers (derived from inconsistent compiler flags). The fix is a shared, reproducible overlap measure — ideally computed deterministically from OpenAlex (bibliographic coupling / topic-vector cosine) rather than per-agent LLM judgment — discounted by a resolvability fraction so an unresolved neighborhood cannot masquerade as novelty.
+
+   *Note on genre (tested, not adopted).* Contestants proposed a normalized `genre.primary` field, so we fetched genre deterministically from OpenAlex and tested it. The clean signal available (`type: review`) is redundant with contribution depth, and the surveillance-report distinction is not in OpenAlex `type`; genre-conditioning **hurt** held-out ranking (0.57 → 0.50). Genre is therefore **excluded from the metric**. A finer, validated genre classifier might help, but it is not the easy win the residuals suggested.
 2. **A `downstream_assessment` / stance edge** (4 proposals) — *highest ceiling, slowest.* Per-citer: does later work *confirm/extend* vs *contest/supersede/fail-to-replicate*? The substrate has citation *counts* (dead) and the compiler's *untested* reading, but nothing for **how the field reacted** — the materialized "cross-object contribution graph" (observation O31), and the only path to measuring *realized* impact and to breaking the shared-LLM-bias worry (§9).
 3. **A standalone `anchor_resolution_confidence ∈ [0,1]`** (14 proposals) — *marginal.* Splits resolution-success from the buggy density reward in `anchor`; the winner had to repurpose `anchor_n` for lack of it.
 
@@ -126,7 +146,7 @@ Our signal (`contrib_wmean`, an LLM's reading) and our target (an LLM panel — 
 
 ## 10. Where this leaves the program
 
-The assessment paper said "no metric measures breakthroughs, and we can't compute one on the current shape." This sharpens it: **the shipped composite is weak (0.30); the best available metric is a single contribution-depth feature (0.57 held-out); the achievable ceiling is 0.97; and the ~0.40 gap is structured signal a better data shape can attack — starting with a normalized genre field.** Enriching the metric with GRO's prior-art/delta machinery overfits and is not recommended. Next: validate on a second domain against human raters, then build `genre.primary`.
+The assessment paper said "no metric measures breakthroughs, and we can't compute one on the current shape." This sharpens it: **the shipped composite is weak (0.30); the best available metric is a single contribution-depth feature (0.57 held-out); the achievable ceiling is 0.97; and the ~0.40 gap is fine-grained judgment that no cheap structural feature we tried (genre, overlap, delta) captures.** Enriching the metric with GRO's prior-art/delta machinery overfits and is not recommended. Two things are worth more than a richer formula: (1) validate `contrib_wmean` on a second domain against human raters — to learn whether the 0.57 is real signal or shared LLM bias; (2) with the now-standardized `overlap` definition, build and validate the **convergence** metric (§7b) — the distinct second construct this work surfaced.
 
 ---
 
