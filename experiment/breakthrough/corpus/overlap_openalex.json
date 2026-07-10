@@ -1,0 +1,464 @@
+{
+ "20225-2025-alzheimer-s-disease-facts-and": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "20226-2026-alzheimer-s-disease-facts-and": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": null
+ },
+ "ada26-adult-human-ex-vivo-brain-slices": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "afi25-vision-and-convolutional-transformers-for-alzheimer": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "ahm26-machine-learning-and-deep-learning-for": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "ahm26b-trends-and-disparities-in-alzheimer-disease": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "aki26-molecular-signatures-of-resilience-to-alzheimer": {
+  "min": 0.0305,
+  "mean": 0.0465,
+  "max": 0.0652,
+  "n_neighbors": 5,
+  "resolvability": 1.0
+ },
+ "aks25-an-explainable-web-based-diagnostic-system": {
+  "min": 0.0,
+  "mean": 0.0045,
+  "max": 0.029,
+  "n_neighbors": 9,
+  "resolvability": 0.75
+ },
+ "aku25-population-attributable-fractions-associated-with-alzheimer": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "aku25b-effects-of-medicare-predictors-in-health": {
+  "min": 0.0,
+  "mean": 0.0096,
+  "max": 0.0385,
+  "n_neighbors": 4,
+  "resolvability": 0.5714
+ },
+ "ala26-trends-in-alzheimer-s-disease-mortality": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "alb26-early-detection-of-alzheimer-s-disease": {
+  "min": 0.0,
+  "mean": 0.0145,
+  "max": 0.0526,
+  "n_neighbors": 8,
+  "resolvability": 0.8
+ },
+ "ali25-multimodal-self-supervised-learning-for-early": {
+  "min": 0.0,
+  "mean": 0.0211,
+  "max": 0.0833,
+  "n_neighbors": 5,
+  "resolvability": 0.4167
+ },
+ "ali26-privacy-preserving-multimodal-fusion-for-alzheimer": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "als25-the-role-of-glial-cell-senescence": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "als26-early-onset-alzheimer-s-disease-mortality": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "ami25-prevalence-deaths-and-disability-adjusted-life": {
+  "min": 0.1183,
+  "mean": 0.1183,
+  "max": 0.1183,
+  "n_neighbors": 1,
+  "resolvability": 0.1429
+ },
+ "amo25-regional-differences-in-the-incidence-of": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "ant26-mapea-project-evolution-of-care-for": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "ard25-response-of-spatially-defined-microglia-states": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "ave25-uncovering-plaque-glia-niches-in-human": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "bec25-a-neuroimmune-cerebral-assembloid-model-to": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "bor25b-harmonized-prevalence-estimates-of-dementia-in": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "cav25-global-societal-burden-of-alzheimer-s": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "che25e-apoe4-reprograms-microglial-lipid-metabolism-in": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "che26-diagnostic-performance-of-plasma-p-tau217": {
+  "min": 0.0317,
+  "mean": 0.0739,
+  "max": 0.1094,
+  "n_neighbors": 8,
+  "resolvability": 0.8889
+ },
+ "cum26-alzheimer-s-disease-drug-development-pipeline": {
+  "min": 0.0,
+  "mean": 0.0061,
+  "max": 0.0154,
+  "n_neighbors": 6,
+  "resolvability": 0.75
+ },
+ "div25-the-microcirculation-the-blood-brain-barrier": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "gau25-single-nucleus-and-spatial-transcriptomic-profiling": {
+  "min": 0.0455,
+  "mean": 0.0455,
+  "max": 0.0455,
+  "n_neighbors": 1,
+  "resolvability": 0.1429
+ },
+ "gie25-geographical-inequalities-in-dementia-diagnosis-and": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "gon25b-stereo-seq-of-the-prefrontal-cortex": {
+  "min": 0.0113,
+  "mean": 0.0113,
+  "max": 0.0113,
+  "n_neighbors": 1,
+  "resolvability": 0.1
+ },
+ "guo25c-the-disease-burden-risk-factors-and": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "han26-tau-pathological-activity-in-plasma-before": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.7778
+ },
+ "hao25-trend-analysis-and-future-predictions-of": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "huu25-apoe-e4-alzheimer-s-risk-converges": {
+  "min": 0.0054,
+  "mean": 0.0301,
+  "max": 0.0881,
+  "n_neighbors": 6,
+  "resolvability": 0.75
+ },
+ "iac25-a-practical-overview-of-the-use": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "jes26-efficacy-and-safety-of-donanemab-in": {
+  "min": 0.0,
+  "mean": 0.067,
+  "max": 0.2143,
+  "n_neighbors": 6,
+  "resolvability": 1.0
+ },
+ "ji25-alzheimer-s-disease-patient-brain-extracts": {
+  "min": 0.0,
+  "mean": 0.0258,
+  "max": 0.0504,
+  "n_neighbors": 10,
+  "resolvability": 1.0
+ },
+ "kes25-the-alzheimer-s-disease-diagnosis-and": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "kho25-explainable-artificial-intelligence-in-neuroimaging-of": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "liu25h-global-burden-of-alzheimer-s-disease": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "liu25i-single-cell-multiregion-epigenomic-rewiring-in": {
+  "min": 0.0276,
+  "mean": 0.0627,
+  "max": 0.1,
+  "n_neighbors": 9,
+  "resolvability": 1.0
+ },
+ "ols25-microglial-mechanisms-drive-amyloid-clearance-in": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "pal25-alzheimer-s-association-clinical-practice-guideline": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "qi25-alzheimer-s-disease-digital-biomarkers-multidimensional": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "raz25-advancements-in-deep-learning-for-early": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "sal25-trailblazer-alz-4-a-phase-3": {
+  "min": 0.0222,
+  "mean": 0.0997,
+  "max": 0.2449,
+  "n_neighbors": 5,
+  "resolvability": 1.0
+ },
+ "sal26-plasma-emtbr-tau243-and-p-tau217": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "sim26-multi-modal-graph-neural-network-with": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "smi25-contribution-of-modifiable-midlife-and-late": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "sor25-barriers-for-access-and-utilization-of": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "the25-blood-phosphorylated-tau-for-the-diagnosis": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "tit26-automated-high-throughput-quantification-of-plasma": {
+  "min": 0.0526,
+  "mean": 0.0841,
+  "max": 0.1163,
+  "n_neighbors": 3,
+  "resolvability": 0.6
+ },
+ "val25-blood-biomarkers-of-alzheimer-s-disease": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "wan25c-global-burden-of-alzheimer-s-disease": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "wee25-early-intervention-anti-a-immunotherapy-attenuates": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "woj25-immunoassay-detection-of-multiphosphorylated-tau-proteoforms": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "wu25-a-2025-update-on-treatment-strategies": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "xu25-epidemiological-and-sociodemographic-transitions-in-the": {
+  "min": 0.0,
+  "mean": 0.0081,
+  "max": 0.0108,
+  "n_neighbors": 6,
+  "resolvability": 0.6667
+ },
+ "xu25d-global-incidence-trends-and-projections-of": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "yu25-global-mortality-prevalence-and-disability-adjusted": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "zha25-assessing-and-projecting-the-global-impacts": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "zha25h-a-review-of-multimodal-fusion-based": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "zho25-microglia-networks-within-the-tapestry-of": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "zhu25b-global-burden-of-alzheimer-s-disease": {
+  "min": null,
+  "mean": null,
+  "max": null,
+  "n_neighbors": 0,
+  "resolvability": 0.0
+ },
+ "zim25-donanemab-in-early-symptomatic-alzheimer-s": {
+  "min": 0.0,
+  "mean": 0.0682,
+  "max": 0.1765,
+  "n_neighbors": 7,
+  "resolvability": 0.875
+ }
+}
