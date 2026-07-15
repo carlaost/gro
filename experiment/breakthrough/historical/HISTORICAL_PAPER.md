@@ -6,7 +6,7 @@
 
 ## Abstract
 
-v5 established a breakthrough metric — `max(peak, cwmean)` over a paper's typed contributions — that reached Spearman ρ ≈ 0.58 against a same-model LLM expert panel but only ≈ 0.34 against an independent model (≈⅓ of its apparent skill was shared-model bias). The decisive question it could not answer on a recent-paper corpus: **does the publication-time metric predict which papers actually reshaped their field?** We answer it with a longitudinal design: **72 Alzheimer's papers from 2004–2010**, the metric computed *at publication time* from full text, validated against **what the field did over the following 15–20 years** — mature citation-based disruption, with no LLM in the ground truth. Contribution typing was done **twice, by Claude and by GPT-5.5** (dual-model). Result: **the metric does not predict field disruption** — consensus ρ = −0.16 (95% CI [−0.57, +0.27], n = 27); it does not track raw citations either (ρ ≈ +0.05); and the two models' metrics agree only ρ ≈ 0.17. Meanwhile the two LLM *judge panels* from v5 agree with each other at ρ = 0.89. The picture is unambiguous: **LLMs agree with LLMs; no LLM-derived metric agrees with the field.** The metric measures *LLM-perceived contribution depth*, which is not *field-reshaping impact*.
+**The question, stated as a prediction task:** given a paper *at publication time only* — holding out everything that cited it afterward — can a metric predict its eventual **breakthrough effect** (did the field pivot on it?) or its **convergence effect** (did it consolidate a field?). v5 built the candidate metric (`max(peak, cwmean)` over typed contributions) and validated it only against an LLM expert panel (ρ ≈ 0.58 same-model, but ≈ 0.34 cross-model — ≈⅓ shared-model bias). Here the target carries **no LLM at all**: **72 Alzheimer's papers from 2004–2010**, metric computed from full text at publication time (typed **twice — Claude and GPT-5.5**), the outcome read from **15–20 years of downstream citations** as a Funk–Owen-Smith disruption index (breakthrough = disruptive; convergence = consolidating). **Answer: no, for either effect.** Predicting breakthrough: Spearman −0.16 (95% CI [−0.56, +0.28]), classification **AUC 0.35** (below chance). Predicting convergence: ρ +0.16 (CI [−0.29, +0.57]), **AUC 0.58** (barely above chance). Both straddle chance — the metric predicts neither — though it leans, weakly and symmetrically, *toward convergence and away from breakthrough*. The two models' metrics agree only ρ ≈ 0.17, so there isn't even a stable construct; meanwhile the two v5 LLM *judge panels* agree at ρ = 0.89. **LLMs agree with LLMs; no LLM-derived metric agrees with the field.**
 
 ## 1. Why this study
 
@@ -27,21 +27,20 @@ Every pairwise overlap, across both corpora:
 
 *Left — correlation network (edge width strictly ∝ |ρ|, blue = positive, red = negative). The two LLM judge panels sit on a thick edge (ρ=0.89); each metric links to its own-model panel moderately (0.49–0.54) and cross-model a bit less (0.41); the two model metrics link only thinly to each other (0.16); and both link to field disruption on thin red (negative) edges (−0.17, −0.27). Right — the exact Spearman matrix. "—" marks pairs not co-measurable: the LLM panels were run on the recent corpus (no mature citations) and field disruption on the historical corpus, so panel↔field was never measured on shared papers — which is why the two validations use different paper sets and are never cross-substituted.*
 
-**Breakthrough (metric vs mature disruption, n=27, full text, dual-model):**
+**The two prediction tasks** (consensus metric, n=27 with ≥10 mature citers; rank skill = Spearman, decision skill = AUC of top-tercile classification where 0.5 = chance):
 
-| predictor | ρ vs disruption |
-|---|---|
-| Claude full-text metric | −0.27 (95% CI [−0.59, +0.14]) |
-| GPT full-text metric | −0.17 |
-| **Consensus (Claude+GPT)** | **−0.16 (95% CI [−0.57, +0.27])** |
+| prediction task | Spearman ρ (95% CI) | AUC |
+|---|---|---|
+| **Breakthrough** — predict eventual disruption | −0.16 ([−0.56, +0.28]) | **0.35** (below chance) |
+| **Convergence** — predict eventual consolidation | +0.16 ([−0.29, +0.57]) | **0.58** (≈ chance) |
 
-**Other readings (consensus metric):** convergence/consolidation ρ = +0.16; raw citations ρ ≈ +0.05. **Dual-model metric agreement:** Claude-FT vs GPT-FT ρ = +0.17. **For contrast (v5, recent corpus):** the two LLM judge *panels* agree at ρ = 0.89.
+Per model on the breakthrough task: Claude −0.27, GPT −0.17. **Dual-model agreement:** Claude-FT vs GPT-FT metric ρ = +0.17 — so there isn't even a stable "contribution depth" to validate. Raw-citation impact: ρ ≈ +0.05 (the metric doesn't track attention either). **For contrast (v5, recent corpus):** the two LLM judge *panels* agree at ρ = 0.89.
 
-Every correlation between an LLM-derived metric and the real-world outcome sits at or below zero, with confidence intervals spanning zero. The metric does not even track raw citation count. If anything it leans *very weakly toward consolidation* and *away from disruption* — consistent with the metascience result that disruptive work is not the most-cited.
+Both tasks straddle chance — the publication-time metric predicts **neither** the breakthrough nor the convergence effect. The one interpretable regularity is the *symmetry*: it anti-predicts breakthrough (AUC 0.35) and weakly predicts convergence (AUC 0.58). Insofar as contribution-depth leans anywhere, it leans toward *consolidating/well-received* work, not disruptive work — consistent with the metascience result that disruptive papers are not the most-cited (in this corpus disruption and citation count anti-correlate, ρ = −0.18).
 
 ## 4. Interpretation
 
-- **No field signal.** On the strongest test we can run — real 15–20-year outcomes, no LLM in the ground truth — the publication-time metric has no reliable relationship to which papers disrupted their field.
+- **Neither effect is predictable.** On the strongest test we can run — real 15–20-year outcomes, no LLM in the ground truth — the publication-time metric predicts *neither* breakthrough (AUC 0.35) *nor* convergence (AUC 0.58) above chance. It leans weakly toward convergence, but not reliably.
 - **No stable construct.** Claude and GPT typing agree only ρ ≈ 0.17. There is not even a model-independent "contribution depth" for the field to fail to match — the metric is substantially an artifact of *which* model read the paper.
 - **The 0.89 vs ≈0 gap is the whole story.** LLM judges agree with LLM judges (0.89); LLM-derived metrics do not agree with the field (≤0). v5's ρ≈0.58 was two LLMs sharing a prior about what sounds important — vindicated directly: when the grader is the world, the signal is gone.
 - **Disruptive ≠ cited.** In this corpus mature disruption and citation count anti-correlate (ρ = −0.18), so "landmark" and "step-change" are largely disjoint sets; the metric predicts neither.

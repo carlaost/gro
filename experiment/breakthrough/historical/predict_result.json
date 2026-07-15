@@ -1,0 +1,11 @@
+{
+ "n": 27,
+ "breakthrough_rho": -0.16,
+ "breakthrough_ci": [
+  -0.557,
+  0.281
+ ],
+ "breakthrough_auc": 0.352,
+ "convergence_rho": 0.16,
+ "convergence_auc": 0.582
+}
