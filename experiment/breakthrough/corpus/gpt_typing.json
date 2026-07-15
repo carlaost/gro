@@ -1,0 +1,1351 @@
+{
+ "20225-2025-alzheimer-s-disease-facts-and": [
+  {
+   "type": "synthesis",
+   "confidence": 0.95
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.76
+  }
+ ],
+ "20226-2026-alzheimer-s-disease-facts-and": [],
+ "ada26-adult-human-ex-vivo-brain-slices": [
+  {
+   "type": "new_method",
+   "confidence": 0.94
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.9
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.88
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  }
+ ],
+ "afi25-vision-and-convolutional-transformers-for-alzheimer": [
+  {
+   "type": "synthesis",
+   "confidence": 0.93
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.88
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.86
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.87
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.9
+  },
+  {
+   "type": "synthesis",
+   "confidence": 0.76
+  }
+ ],
+ "ahm26-machine-learning-and-deep-learning-for": [
+  {
+   "type": "synthesis",
+   "confidence": 0.95
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.72
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.74
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.76
+  }
+ ],
+ "ahm26b-trends-and-disparities-in-alzheimer-disease": [
+  {
+   "type": "new_finding",
+   "confidence": 0.93
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.9
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.88
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.88
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.87
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.86
+  }
+ ],
+ "aki26-molecular-signatures-of-resilience-to-alzheimer": [
+  {
+   "type": "new_finding",
+   "confidence": 0.92
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.9
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.9
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.86
+  },
+  {
+   "type": "new_method",
+   "confidence": 0.7
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.84
+  }
+ ],
+ "aks25-an-explainable-web-based-diagnostic-system": [
+  {
+   "type": "new_method",
+   "confidence": 0.9
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.78
+  },
+  {
+   "type": "incremental_improvement",
+   "confidence": 0.72
+  }
+ ],
+ "aku25-population-attributable-fractions-associated-with-alzheimer": [
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.78
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.8
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.76
+  }
+ ],
+ "aku25b-effects-of-medicare-predictors-in-health": [
+  {
+   "type": "new_method",
+   "confidence": 0.9
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.86
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.84
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.78
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.8
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.76
+  }
+ ],
+ "ala26-trends-in-alzheimer-s-disease-mortality": [
+  {
+   "type": "new_finding",
+   "confidence": 0.86
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.84
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.8
+  }
+ ],
+ "alb26-early-detection-of-alzheimer-s-disease": [
+  {
+   "type": "new_method",
+   "confidence": 0.82
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.78
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.74
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.68
+  }
+ ],
+ "ali25-multimodal-self-supervised-learning-for-early": [
+  {
+   "type": "new_method",
+   "confidence": 0.96
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.86
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.84
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.8
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.76
+  }
+ ],
+ "ali26-privacy-preserving-multimodal-fusion-for-alzheimer": [
+  {
+   "type": "new_method",
+   "confidence": 0.93
+  },
+  {
+   "type": "incremental_improvement",
+   "confidence": 0.86
+  },
+  {
+   "type": "new_method",
+   "confidence": 0.9
+  },
+  {
+   "type": "new_method",
+   "confidence": 0.88
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  }
+ ],
+ "als25-the-role-of-glial-cell-senescence": [
+  {
+   "type": "synthesis",
+   "confidence": 0.95
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.72
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.72
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.68
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.7
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.64
+  },
+  {
+   "type": "incremental_improvement",
+   "confidence": 0.76
+  }
+ ],
+ "als26-early-onset-alzheimer-s-disease-mortality": [
+  {
+   "type": "new_finding",
+   "confidence": 0.9
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.88
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.84
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.84
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.78
+  }
+ ],
+ "ami25-prevalence-deaths-and-disability-adjusted-life": [
+  {
+   "type": "new_finding",
+   "confidence": 0.93
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.91
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.88
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.86
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.86
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.84
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.8
+  }
+ ],
+ "amo25-regional-differences-in-the-incidence-of": [],
+ "ant26-mapea-project-evolution-of-care-for": [
+  {
+   "type": "new_finding",
+   "confidence": 0.84
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.76
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.8
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.78
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.77
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.78
+  }
+ ],
+ "ard25-response-of-spatially-defined-microglia-states": [
+  {
+   "type": "new_finding",
+   "confidence": 0.9
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.9
+  },
+  {
+   "type": "new_method",
+   "confidence": 0.82
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.92
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.86
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.88
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.9
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.86
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.9
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.89
+  }
+ ],
+ "ave25-uncovering-plaque-glia-niches-in-human": [
+  {
+   "type": "new_method",
+   "confidence": 0.78
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.86
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.84
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.8
+  },
+  {
+   "type": "synthesis",
+   "confidence": 0.7
+  },
+  {
+   "type": "replication",
+   "confidence": 0.82
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.8
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.84
+  }
+ ],
+ "bec25-a-neuroimmune-cerebral-assembloid-model-to": [],
+ "bor25b-harmonized-prevalence-estimates-of-dementia-in": [
+  {
+   "type": "new_method",
+   "confidence": 0.91
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.94
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.9
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.86
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  }
+ ],
+ "cav25-global-societal-burden-of-alzheimer-s": [
+  {
+   "type": "synthesis",
+   "confidence": 0.93
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.8
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.72
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.76
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.7
+  },
+  {
+   "type": "synthesis",
+   "confidence": 0.74
+  }
+ ],
+ "che25e-apoe4-reprograms-microglial-lipid-metabolism-in": [
+  {
+   "type": "synthesis",
+   "confidence": 0.93
+  }
+ ],
+ "che26-diagnostic-performance-of-plasma-p-tau217": [
+  {
+   "type": "synthesis",
+   "confidence": 0.95
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.86
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.84
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.78
+  },
+  {
+   "type": "refutation",
+   "confidence": 0.77
+  }
+ ],
+ "cum26-alzheimer-s-disease-drug-development-pipeline": [
+  {
+   "type": "new_finding",
+   "confidence": 0.9
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.86
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.83
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.84
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.81
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.78
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.8
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.79
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  }
+ ],
+ "div25-the-microcirculation-the-blood-brain-barrier": [
+  {
+   "type": "synthesis",
+   "confidence": 0.9
+  },
+  {
+   "type": "new_paradigm",
+   "confidence": 0.82
+  },
+  {
+   "type": "new_method",
+   "confidence": 0.62
+  }
+ ],
+ "gau25-single-nucleus-and-spatial-transcriptomic-profiling": [
+  {
+   "type": "new_finding",
+   "confidence": 0.89
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.83
+  },
+  {
+   "type": "replication",
+   "confidence": 0.86
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.78
+  },
+  {
+   "type": "replication",
+   "confidence": 0.78
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.84
+  }
+ ],
+ "gie25-geographical-inequalities-in-dementia-diagnosis-and": [
+  {
+   "type": "synthesis",
+   "confidence": 0.92
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.78
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.74
+  },
+  {
+   "type": "synthesis",
+   "confidence": 0.68
+  }
+ ],
+ "gon25b-stereo-seq-of-the-prefrontal-cortex": [
+  {
+   "type": "new_method",
+   "confidence": 0.83
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.84
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.86
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  }
+ ],
+ "guo25c-the-disease-burden-risk-factors-and": [
+  {
+   "type": "new_finding",
+   "confidence": 0.89
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.86
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.8
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.78
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.84
+  }
+ ],
+ "han26-tau-pathological-activity-in-plasma-before": [
+  {
+   "type": "new_method",
+   "confidence": 0.92
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.9
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.88
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.86
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.84
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.8
+  }
+ ],
+ "hao25-trend-analysis-and-future-predictions-of": [
+  {
+   "type": "new_finding",
+   "confidence": 0.86
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.78
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.8
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.84
+  }
+ ],
+ "huu25-apoe-e4-alzheimer-s-risk-converges": [
+  {
+   "type": "new_finding",
+   "confidence": 0.92
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.86
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.84
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  },
+  {
+   "type": "synthesis",
+   "confidence": 0.78
+  },
+  {
+   "type": "replication",
+   "confidence": 0.9
+  }
+ ],
+ "iac25-a-practical-overview-of-the-use": [
+  {
+   "type": "synthesis",
+   "confidence": 0.9
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.72
+  },
+  {
+   "type": "incremental_improvement",
+   "confidence": 0.62
+  }
+ ],
+ "jes26-efficacy-and-safety-of-donanemab-in": [
+  {
+   "type": "new_finding",
+   "confidence": 0.88
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.84
+  },
+  {
+   "type": "new_method",
+   "confidence": 0.62
+  },
+  {
+   "type": "synthesis",
+   "confidence": 0.55
+  }
+ ],
+ "ji25-alzheimer-s-disease-patient-brain-extracts": [
+  {
+   "type": "new_method",
+   "confidence": 0.93
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.9
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.86
+  }
+ ],
+ "kes25-the-alzheimer-s-disease-diagnosis-and": [
+  {
+   "type": "new_method",
+   "confidence": 0.86
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.88
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.8
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.78
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.75
+  }
+ ],
+ "kho25-explainable-artificial-intelligence-in-neuroimaging-of": [
+  {
+   "type": "synthesis",
+   "confidence": 0.93
+  }
+ ],
+ "liu25h-global-burden-of-alzheimer-s-disease": [
+  {
+   "type": "new_finding",
+   "confidence": 0.88
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.78
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.76
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.74
+  }
+ ],
+ "liu25i-single-cell-multiregion-epigenomic-rewiring-in": [
+  {
+   "type": "new_method",
+   "confidence": 0.9
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.93
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.94
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.9
+  }
+ ],
+ "ols25-microglial-mechanisms-drive-amyloid-clearance-in": [
+  {
+   "type": "new_finding",
+   "confidence": 0.91
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.89
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.94
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.9
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.73
+  }
+ ],
+ "pal25-alzheimer-s-association-clinical-practice-guideline": [
+  {
+   "type": "synthesis",
+   "confidence": 0.92
+  },
+  {
+   "type": "new_method",
+   "confidence": 0.82
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.78
+  }
+ ],
+ "qi25-alzheimer-s-disease-digital-biomarkers-multidimensional": [
+  {
+   "type": "synthesis",
+   "confidence": 0.94
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.88
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.86
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.9
+  }
+ ],
+ "raz25-advancements-in-deep-learning-for-early": [
+  {
+   "type": "synthesis",
+   "confidence": 0.92
+  }
+ ],
+ "sal25-trailblazer-alz-4-a-phase-3": [
+  {
+   "type": "new_finding",
+   "confidence": 0.93
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.9
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.86
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.74
+  }
+ ],
+ "sal26-plasma-emtbr-tau243-and-p-tau217": [
+  {
+   "type": "new_method",
+   "confidence": 0.9
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.88
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  }
+ ],
+ "sim26-multi-modal-graph-neural-network-with": [
+  {
+   "type": "new_method",
+   "confidence": 0.95
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.86
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.78
+  }
+ ],
+ "smi25-contribution-of-modifiable-midlife-and-late": [
+  {
+   "type": "new_finding",
+   "confidence": 0.9
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.86
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.84
+  },
+  {
+   "type": "synthesis",
+   "confidence": 0.72
+  }
+ ],
+ "sor25-barriers-for-access-and-utilization-of": [
+  {
+   "type": "synthesis",
+   "confidence": 0.96
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.78
+  }
+ ],
+ "the25-blood-phosphorylated-tau-for-the-diagnosis": [
+  {
+   "type": "synthesis",
+   "confidence": 0.96
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.9
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.86
+  }
+ ],
+ "tit26-automated-high-throughput-quantification-of-plasma": [
+  {
+   "type": "new_finding",
+   "confidence": 0.92
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.9
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.88
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.86
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.78
+  }
+ ],
+ "val25-blood-biomarkers-of-alzheimer-s-disease": [
+  {
+   "type": "new_finding",
+   "confidence": 0.89
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.86
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.84
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.8
+  }
+ ],
+ "wan25c-global-burden-of-alzheimer-s-disease": [
+  {
+   "type": "new_finding",
+   "confidence": 0.84
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.78
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.8
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.76
+  }
+ ],
+ "wee25-early-intervention-anti-a-immunotherapy-attenuates": [
+  {
+   "type": "new_finding",
+   "confidence": 0.28
+  }
+ ],
+ "woj25-immunoassay-detection-of-multiphosphorylated-tau-proteoforms": [
+  {
+   "type": "new_method",
+   "confidence": 0.9
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.86
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.88
+  },
+  {
+   "type": "refutation",
+   "confidence": 0.8
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.72
+  }
+ ],
+ "wu25-a-2025-update-on-treatment-strategies": [
+  {
+   "type": "synthesis",
+   "confidence": 0.9
+  }
+ ],
+ "xu25-epidemiological-and-sociodemographic-transitions-in-the": [
+  {
+   "type": "new_finding",
+   "confidence": 0.94
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.9
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.88
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.87
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.91
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.92
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.89
+  }
+ ],
+ "xu25d-global-incidence-trends-and-projections-of": [
+  {
+   "type": "new_method",
+   "confidence": 0.86
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.92
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.9
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.88
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.84
+  },
+  {
+   "type": "synthesis",
+   "confidence": 0.72
+  }
+ ],
+ "yu25-global-mortality-prevalence-and-disability-adjusted": [
+  {
+   "type": "new_finding",
+   "confidence": 0.86
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.78
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.8
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.76
+  }
+ ],
+ "zha25-assessing-and-projecting-the-global-impacts": [
+  {
+   "type": "new_finding",
+   "confidence": 0.84
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.8
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.81
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.78
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.83
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.8
+  }
+ ],
+ "zha25h-a-review-of-multimodal-fusion-based": [
+  {
+   "type": "synthesis",
+   "confidence": 0.93
+  }
+ ],
+ "zho25-microglia-networks-within-the-tapestry-of": [
+  {
+   "type": "synthesis",
+   "confidence": 0.96
+  },
+  {
+   "type": "synthesis",
+   "confidence": 0.9
+  },
+  {
+   "type": "synthesis",
+   "confidence": 0.88
+  }
+ ],
+ "zhu25b-global-burden-of-alzheimer-s-disease": [
+  {
+   "type": "new_finding",
+   "confidence": 0.86
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.84
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.78
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.76
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.72
+  }
+ ],
+ "zim25-donanemab-in-early-symptomatic-alzheimer-s": [
+  {
+   "type": "new_finding",
+   "confidence": 0.9
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.88
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.86
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.82
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.78
+  },
+  {
+   "type": "new_finding",
+   "confidence": 0.74
+  }
+ ]
+}
