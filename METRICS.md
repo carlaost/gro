@@ -61,12 +61,23 @@ Three efforts, three orthogonal axes, none calibrated against the others, none c
 
 The gap is a **substrate** gap first — most of the ideal set can't be computed until the record carries the right shapes. That is what GRO is for.
 
+## First discrimination result (2026-07 — the experiment below has now been run)
+
+The open test was run on one axis — **breakthrough-ness** — over 66 recent + 72 historical (2004–2010) Alzheimer's papers ([`experiment/breakthrough/`](experiment/breakthrough/)). It is the program's first contact with external ground truth, and the result is sobering and reported in full:
+
+- The one signal that carries is the **L8 contribution-typing** (metric #2's substrate), aggregated as `max(peak, cwmean)`. The prior-art `overlap`/`sota_anchor` axis (metric #2's novelty half), the delta ledger, and genre added **no transferable signal**.
+- Its measured skill **collapses as the LLM is removed from the ground truth**: ρ≈**0.58** vs a same-model LLM expert panel (held-out) → ρ≈**0.34** vs an *independent* model family (≈⅓ was shared-method bias — the lean flips when the metric is built by the other model, Steiger p=0.003) → ρ≈**0** vs a *real-world, LLM-free* ground truth (mature citation-disruption of the historical papers over 15–20 years; 95% CI [−0.38, +0.14]).
+- So the metric flags **LLM-perceived contribution depth**, which is *not shown to be* field-reshaping impact. This is the §"negative result" one level up: structure-derived metrics measure the record's fidelity, and here even an externally-anchored novelty attempt, when its ground truth is finally the real world, does not discriminate.
+- **Caveat (honest):** the historical test used abstract-only typing (full text is paywalled for that vintage — an access wall that is itself a finding), which compresses the predictor's variance and makes this a *weak* test — a null on a weak test, not proof of zero. A full-text, multi-domain historical corpus is the sharpening move.
+
+Full write-up: [`experiment/breakthrough/RESULTS_PAPER.pdf`](experiment/breakthrough/RESULTS_PAPER.pdf). SPEC §7a records the same status against the shape.
+
 ## Steps forward
 
-1. **emit the shapes** so the [det] tier computes (the GRO typed sidecars).
+1. **emit the shapes** so the [det] tier computes (the GRO typed sidecars — done for the corpus above).
 2. **build the resolvers** for the [anc] tier (literature index, registries, ontologies).
-3. **stand up calibration** sets + judge ensembles for the [jud] tier.
-4. **run the discrimination experiment** — the open test: do these metrics actually separate good science from bad, over real literature, validated against external ground truth? (Not yet run.)
+3. **stand up calibration** sets + judge ensembles for the [jud] tier — and prefer **cross-model or real-world** ground truth over a same-family LLM panel (the shared-method-bias lesson above).
+4. **sharpen the discrimination test**: full-text (not abstract-only) historical compile across multiple domains and vintages, trained against real disruption rather than only correlated — the one move that could turn the current null into signal, or confirm it.
 
 ## How the metrics were built (tournaments)
 

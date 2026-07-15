@@ -8,7 +8,7 @@ It is designed to be imported into the parent [`dasmodel`](https://github.com/ca
 
 **Start here:** [`paper/gro-paper.pdf`](paper/gro-paper.pdf) — a 5-page digest of the whole thing (problem → metrics → negative result → affordance gap → GRO → limitations → next steps). The rest of the repo is the long-form backing.
 
-> **Status.** GRO is a design specification, adversarially stress-tested but **empirically unvalidated**. It has not yet been shown to discriminate good science from bad; its judged tier does not scale to a whole corpus; and its anti-gaming guarantees rest on an independence between automated checkers that is asserted, not measured. Those gaps are stated plainly in [`SPEC.md`](SPEC.md) §7 and are the work still to be done, not hidden. This is a substrate *critique and design* artifact — not an implementation, and not a successor to any existing format by inheritance.
+> **Status.** GRO is a design specification, adversarially stress-tested and now **empirically tested on one axis with a largely negative result**. A first discrimination test (breakthrough-ness, 66 recent + 72 historical AD papers — [`experiment/breakthrough/`](experiment/breakthrough/)) found that the one metric carrying signal (L8 contribution-typing) tracks a same-model LLM panel at ρ≈0.58 but an independent model at only ≈0.34 (≈⅓ shared-method bias) and **real-world 15–20-year citation-disruption at ≈0** — i.e. it flags *LLM-perceived contribution depth*, not shown to be field impact. The judged tier also does not scale to a whole corpus, and anti-gaming rests on asserted, not measured, checker independence. These are stated plainly in [`SPEC.md`](SPEC.md) §7/§7a and [`METRICS.md`](METRICS.md); they are the work still to be done, not hidden. This is a substrate *critique and design* artifact — not an implementation, and not a successor to any existing format by inheritance.
 
 ---
 
@@ -67,14 +67,17 @@ gro/
   ara/                   # the ARA research-record that came out of this work
     README.md
     PAPER.md  logic/  trace/  staging/
-  experiment/            # first empirical test: extend real ARAs + compute the deterministic metrics
+  experiment/            # empirical tests
     README.md
-    gro-experiment-paper.pdf   # the write-up (5pp)
+    gro-experiment-paper.pdf   # test 1 write-up: computability (5pp)
     gro_metrics.py · results.json · results.md
     extensions/<slug>/         # GRO typed sidecars generated per ARA (12 ARAs)
+    breakthrough/              # test 2: DISCRIMINATION — the breakthrough metric vs LLM panels & real-world disruption
+      RESULTS_PAPER.pdf        #   full write-up (the 0.58 -> 0.34 -> ~0 arc, shared-method bias, historical null)
+      corpus/ · historical/    #   66 recent + 72 historical (2004-2010) AD papers, scores, reproducible scripts
 ```
 
-**Empirical status:** [`experiment/`](experiment/) is the first test of the idea — typed extensions were generated for 12 compiled ARAs and the deterministic-tier metrics computed over them (results independently re-run and verified). It confirms typing the record makes prose-blocked metrics computable as structural joins; it does *not* yet test whether the metrics discriminate good science from bad. That remains the open experiment (§7 of the spec).
+**Empirical status:** two experiments now exist. [`experiment/`](experiment/) confirmed typing the record makes prose-blocked metrics *computable* as structural joins (12 ARAs, deterministic tier). [`experiment/breakthrough/`](experiment/breakthrough/) then ran the harder test — do they *discriminate*? — on the breakthrough axis over 66 recent + 72 historical AD papers, validated against an independent LLM family and, decisively, against real-world citation-disruption. Result: **no reliable discrimination against real outcomes** (ρ≈0; the same metric scored 0.58 against a same-model LLM panel, so ≈⅓ was shared-method bias). The metric flags LLM-perceived contribution depth, not field impact. The sharpening move (full-text, multi-domain historical corpus) is blocked partly by paywall access for older papers. See [`experiment/breakthrough/RESULTS_PAPER.pdf`](experiment/breakthrough/RESULTS_PAPER.pdf) and SPEC §7a.
 
 ## Using as a submodule of `dasmodel`
 
