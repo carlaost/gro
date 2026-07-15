@@ -1,0 +1,12 @@
+{
+ "n": 27,
+ "claude_judge_vs_field": -0.294,
+ "gpt_judge_vs_field": 0.049,
+ "converged_judge_vs_field": -0.15,
+ "converged_judge_ci": [
+  -0.478,
+  0.254
+ ],
+ "judge_judge_agreement": 0.698,
+ "converged_judge_vs_citations": 0.553
+}
