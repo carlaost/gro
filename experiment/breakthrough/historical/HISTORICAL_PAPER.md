@@ -25,7 +25,7 @@ Every pairwise overlap, across both corpora:
 
 ![Overlap map](figures/overlap_figure.png)
 
-*(A) On the recent corpus (v5), the two LLM judge panels agree at ρ=0.89, and each metric tracks its own-model panel moderately (0.49–0.54) but the two metrics agree only 0.16. (B) On the historical corpus, the two model metrics and the citation-based field-disruption signal are mutually near-disjoint. (C) The exact Spearman matrix; "—" marks pairs not co-measurable, because the recent corpus has no mature citations — the reason a historical corpus was needed.)*
+*Left — correlation network (edge width strictly ∝ |ρ|, blue = positive, red = negative). The two LLM judge panels sit on a thick edge (ρ=0.89); each metric links to its own-model panel moderately (0.49–0.54) and cross-model a bit less (0.41); the two model metrics link only thinly to each other (0.16); and both link to field disruption on thin red (negative) edges (−0.17, −0.27). Right — the exact Spearman matrix. "—" marks pairs not co-measurable: the LLM panels were run on the recent corpus (no mature citations) and field disruption on the historical corpus, so panel↔field was never measured on shared papers — which is why the two validations use different paper sets and are never cross-substituted.*
 
 **Breakthrough (metric vs mature disruption, n=27, full text, dual-model):**
 
