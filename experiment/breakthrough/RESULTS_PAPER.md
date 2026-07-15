@@ -8,15 +8,15 @@ We asked whether a metric computed over GRO's structured sidecars can rank recen
 
 Three results, in order of importance:
 
-1. **We are far from the ceiling, and the ceiling is measurable.** A single expert judge predicts the panel at **ρ ≈ 0.97** (leave-one-judge-out) — that is the best any predictor could do. Our best metric reaches **ρ ≈ 0.57** on held-out papers. So the metric captures **~59% of the achievable rank signal**; ~40 points of correlation are lost between *reading the paper* and *the GRO feature vector*. **We have not hit a ceiling** — and the residual gap is *structured* (specific paper genres the features cannot see), not noise, so a better data shape can genuinely close it.
+1. **We are far from the ceiling, and the ceiling is measurable.** A single expert judge predicts the same-family panel at **ρ ≈ 0.97** (leave-one-judge-out); two *different* model families (Claude, GPT-5.5) agree at **ρ ≈ 0.89**. Our best metric reaches ρ ≈ 0.58 against the same-family panel but only **ρ ≈ 0.34 against the independent model** (§3, §9). So even against the more honest cross-model target the metric captures well under half the achievable signal. **We have not hit a ceiling** — the gap is structured, not noise.
 
-2. **The simplest metric wins; complexity overfits.** The best metric is a **single feature** — the compiler's mean assessed contribution-novelty (`contrib_wmean`), ρ ≈ 0.57 held-out with *no* train→test gap. Every richer formula the tournament produced climbed the training score and failed to transfer (winner: 0.77 train → 0.53 test). The shipped composite manages only ρ ≈ 0.30.
+2. **The simplest metric wins; complexity overfits.** The best metric is a **single feature** — the compiler's assessed contribution-novelty, adopted as `max(peak, cwmean)` (§5) — held-out ρ ≈ 0.58 vs the Claude panel with *no* train→test gap. Every richer formula the tournament produced climbed the training score and failed to transfer (winner: 0.77 train → 0.53 test). The shipped composite manages only ρ ≈ 0.30.
 
-3. **The generalizing signal is the compiler's reading of the paper — not the "GRO-native" machinery.** The prior-art anchor and delta-ledger shapes we invested most in did not transfer. This is either a real finding (contribution-typing is what matters) or a warning that our LLM metric and our LLM panel share a bias — distinguishable only on a second corpus. We also tested adding **genre** (fetched deterministically from OpenAlex): it did not improve held-out ranking and is excluded from the metric.
+3. **The generalizing signal is the compiler's reading of the paper — and it is partly shared-model bias.** The one feature that transfers, `contrib_wmean`/`max(peak,cwmean)`, is the ARA compiler's (Claude's) typing of the paper's contributions. We tested the bias worry directly by re-judging all 66 papers with a **different model family (GPT-5.5)**. Two findings: (a) the *ground truth is robust* — the GPT and Claude panels agree at **ρ ≈ 0.90**, so breakthrough ranking is largely model-independent, not a Claude artifact; but (b) the *metric's headline number is inflated* — it agrees with the same-family Claude panel at ρ ≈ 0.53–0.58 (held-out) but only **ρ ≈ 0.34 against the independent GPT panel** (the gap is not single-judge noise — controlled). So roughly a third of the apparent skill was Claude-agreeing-with-Claude; the metric's true transferable performance is **~0.34, not 0.57**. We also tested **genre** (deterministic from OpenAlex): no held-out improvement; excluded.
 
 4. **A second metric is conceptually there — but the shared measurement it needs isn't.** Prior-art *overlap* would read with opposite sign for two constructs: low overlap = **breakthrough/novelty** (distance from prior art), high = **convergence/consolidation** (pulling a field together). Tempting — but when we actually built overlap two ways (per-agent LLM, and deterministic OpenAlex concept-cosine) they came out **uncorrelated (ρ 0.02) and both invalid** as a breakthrough signal (concept-cosine even inverts, mistaking generic reports for novel work). So the duality is a clean hypothesis on an **underdetermined measurement** — real overlap, validated to track prior-art distance, is a prerequisite for either metric.
 
-The honest deliverable: a **one-feature triage metric** (`contrib_wmean`) at 0.57, a **measured ceiling** at 0.97, and the finding that no structural feature we tried — genre, overlap (LLM *or* deterministic), delta — beats plain contribution depth on this corpus. The next move is validation on a second domain and a genuinely *validated* overlap measure, not a richer formula.
+The honest deliverable: a **one-feature triage metric** — `max(peak, cwmean)`, a count-independent read of the compiler's contribution-typing — that is real but weak (~0.58 same-family, **~0.34 cross-model**); a **measured same-family ceiling** of 0.97 and **cross-model panel agreement** of 0.89; and the finding that no structural feature we tried (genre, overlap, delta) adds transferable signal. The next move is a second-domain corpus and a *validated* overlap measure, not a richer formula.
 
 ---
 
@@ -34,7 +34,9 @@ Every metric below is deterministic arithmetic over per-paper GRO sidecars. What
 | feature | provenance | definition |
 |---|---|---|
 | `contribution` | [PAPER→LLM] | composite `0.6·peak + 0.4·wmean` over the paper's typed contributions |
-| `contrib_wmean` | [PAPER→LLM] | **confidence-weighted _mean_ novelty weight across a paper's contributions.** Each contribution is typed by the compiler from a closed taxonomy (`new_paradigm` 1.0 … `replication` 0.1); wmean is a *mean*, so it cannot be inflated by padding a paper with shallow contributions. **This is the winning metric.** |
+| `contrib_wmean` | [PAPER→LLM] | confidence-weighted *mean* novelty weight across a paper's contributions (types from a closed taxonomy `new_paradigm` 1.0 … `replication` 0.1). Un-paddable, but *dilutes* a lone landmark — see `contrib_max_peak_cwmean`. |
+| `contrib_peak_wconf` | [PAPER→LLM] | the single strongest `novelty_weight × confidence` contribution. |
+| **`contrib_max_peak_cwmean`** | [PAPER→LLM] | **`max(peak, cwmean)` — the ADOPTED metric.** Better-of standout-or-depth; count-independent (one landmark scores the same with or without minor companions). See §5. |
 | `contrib_peak` | [PAPER→LLM] | the single strongest `weight × confidence` contribution ("does it have ≥1 landmark result?") |
 | `n_contribs` | [PAPER→LLM] | raw count of contributions (breadth; gameable) |
 | `n_puffery` | [PAPER→LLM] | contributions voided by the anti-puffery lock (claimed but not tied to a real claim) |
@@ -89,19 +91,25 @@ Read the train-vs-test columns: **plain depth has no gap (0.55→0.57); every el
 
 ## 5. The adopted metric
 
-**Use `contrib_wmean`** (the compiler's confidence-weighted mean assessed contribution-novelty): **ρ ≈ 0.57 vs grounded experts on held-out papers, with no overfitting.** Even across persona (trialist / neuroscientist / metascientist ≈ 0.5–0.57). It ranks real discoveries on top and floors every annual report and burden re-estimate. A usable **triage prior**, not an oracle. (A rank correlation on n=26 has a wide CI, so plain depth does not *significantly* beat the elaborate metrics — but that is the argument: if machinery can't beat one feature on unseen data despite fitting train harder, it isn't justified.)
+**Use `max(peak, cwmean)`** over the paper's typed contributions — where `peak` = the single strongest `novelty_weight × confidence` contribution and `cwmean` = the confidence-weighted mean. Held-out **ρ ≈ 0.58 vs the grounded Claude panel** (statistically tied with plain `cwmean` at 0.57).
+
+**Why the `max`, not the mean (a fix, per the count-independence principle).** A confidence-weighted *mean* has a dilution flaw: a paper with one landmark contribution plus ten minor ones scores *lower* than the same landmark alone — which is wrong, since one genuine breakthrough is a breakthrough regardless of how many small results accompany it. Taking `max(peak, cwmean)` removes the count-dependence: the score is the *better of* "has one standout contribution" or "is deep on average," so `{one big}` and `{one big + ten small}` score identically. Pure `peak` alone is too noisy (one over-confidently-typed contribution spikes it → held-out 0.45); `cwmean` provides a floor. The `max` blend keeps the non-dilution property without the noise. It ranks real discoveries on top and floors every annual report and burden re-estimate. A usable **triage prior**, not an oracle.
+
+*(Caveat: on n=26 held-out the CI is wide, so `max(peak,cwmean)` does not *significantly* beat `cwmean` or the overfit tournament formulas — the case for it is the non-dilution property plus no overfitting, not a measured edge.)*
 
 ## 6. How far from the experts — the ceiling (the headline)
 
-The right yardstick is not zero, it is **how well the experts predict each other.** Leave-one-judge-out — one persona predicting the mean of the other two — gives the best score any predictor could achieve given panel noise:
+The right yardstick is not zero, it is **how well expert readers predict each other.** Two yardsticks matter — within the same model family, and across families (the latter is the more honest bar for a metric built from one model's reading):
 
 | | ρ |
 |---|---|
-| **Ceiling** (single judge → panel) | **0.97** |
-| Our best metric (`contrib_wmean`, held-out) | **0.57** |
+| **Same-family ceiling** (one Claude persona → Claude panel, leave-one-out) | **0.97** |
+| **Cross-model agreement** (Claude panel ↔ GPT-5.5 panel) | **0.89** |
+| Our best metric vs Claude panel (held-out) | 0.58 |
+| **Our best metric vs GPT-5.5 (held-out, the honest number)** | **0.34** |
 | Shipped composite | 0.30 |
 
-**We are at ~59% of the achievable ceiling — not near it.** The ~0.40 gap is the information lost between reading the paper and the GRO feature vector. And it is **structured**, not noise — the biggest metric-vs-expert disagreements cluster on genres the features cannot distinguish:
+**Against the cross-model bar the metric captures well under half the signal — not near the ceiling.** Two readers of *different* model families still agree at 0.89, so the target is real; the metric just doesn't reach it. The gap is **structured**, not noise — the biggest metric-vs-expert disagreements cluster on genres the features cannot distinguish:
 
 - `sal26` (plasma-tau biomarker): experts 61, metric floors it — a real advance the compiler under-typed.
 - `kes25` (diagnosis review): experts 31, metric ranks it *last* — reviews the field values.
@@ -145,13 +153,27 @@ All 16 contestants independently reported the substrate is missing signals the i
 2. **A `downstream_assessment` / stance edge** (4 proposals) — *highest ceiling, slowest.* Per-citer: does later work *confirm/extend* vs *contest/supersede/fail-to-replicate*? The substrate has citation *counts* (dead) and the compiler's *untested* reading, but nothing for **how the field reacted** — the materialized "cross-object contribution graph" (observation O31), and the only path to measuring *realized* impact and to breaking the shared-LLM-bias worry (§9).
 3. **A standalone `anchor_resolution_confidence ∈ [0,1]`** (14 proposals) — *marginal.* Splits resolution-success from the buggy density reward in `anchor`; the winner had to repurpose `anchor_n` for lack of it.
 
-## 9. The caveat that outranks the extensions
+## 9. Shared-model bias — tested with a second model family (and partly confirmed)
 
-Our signal (`contrib_wmean`, an LLM's reading) and our target (an LLM panel — inter-judge ρ ≈ 0.96, implausibly high for independent humans) **may share a model bias.** The 0.57 might be two LLMs agreeing with themselves rather than a transferable notion of breakthrough. We cannot tell on this data. Before building any extension, the cheap decisive test is: **run `contrib_wmean` against a second, non-AD corpus, ideally with a few human ratings.** If 0.57 holds, the metric is real and the genre/stance extensions are worth building; if it collapses, we have been measuring an echo.
+The metric's signal (`max(peak,cwmean)`) is the ARA compiler's reading, and the compiler is Claude; the expert panel was also Claude (Opus, three personas, inter-persona ρ ≈ 0.96). So the 0.57 could be two Claudes agreeing with themselves. We tested it directly by **re-judging all 66 papers with GPT-5.5** (`codex exec`, same SOTA-grounded metascientist protocol; `run_codex_panel.py`).
+
+| comparison | ρ (all-66) | ρ (held-out) |
+|---|---|---|
+| **Claude panel vs GPT-5.5 panel** (cross-model agreement) | **0.89** | — |
+| metric vs Claude panel (3-persona mean) | 0.54 | **0.58** |
+| metric vs Claude single metascientist | 0.52 | 0.53 |
+| **metric vs GPT-5.5** (independent model) | 0.41 | **0.34** |
+
+Two conclusions, and we control the obvious confound (GPT is a single judge, the Claude mean averages three): a single Claude persona still reaches 0.53 held-out, and a single Claude judge tracks the 3-mean at ρ 0.99 — so the metric's 0.53→0.34 drop across model families is a **real model effect, not single-judge noise.**
+
+1. **The ground truth is largely real, not a Claude artifact.** A different model family reproduces the breakthrough ranking at **ρ ≈ 0.89–0.90**. The panel is not measuring something Claude-specific; breakthrough-ness is a mostly model-independent construct. This is the reassuring half.
+2. **But the metric's headline is inflated by shared bias.** It agrees with same-family Claude at ~0.53–0.58 yet only **~0.34 against the independent GPT panel.** About a third of the apparent skill was Claude-agreeing-with-Claude. The metric's honest, transferable performance is **~0.34 held-out** — real (well above zero, against a different model) but materially weaker than the AD-Claude number advertised.
+
+So the metric survives the bias test — but diminished. It is a genuine, transferable-but-weak triage signal (~0.34 cross-model), not the ~0.57 the same-family setup suggested. The remaining validation — a second *corpus* (non-AD) and, when available, human ratings — would tell us whether even the 0.34 holds across domains.
 
 ## 10. Where this leaves the program
 
-The assessment paper said "no metric measures breakthroughs, and we can't compute one on the current shape." This sharpens it: **the shipped composite is weak (0.30); the best available metric is a single contribution-depth feature (0.57 held-out); the achievable ceiling is 0.97; and the ~0.40 gap is fine-grained judgment that no cheap structural feature we tried (genre, overlap, delta) captures.** Enriching the metric with GRO's prior-art/delta machinery overfits and is not recommended. Two things are worth more than a richer formula: (1) validate `contrib_wmean` on a second domain against human raters — to learn whether the 0.57 is real signal or shared LLM bias; (2) with the now-standardized `overlap` definition, build and validate the **convergence** metric (§7b) — the distinct second construct this work surfaced.
+The assessment paper said "no metric measures breakthroughs, and we can't compute one on the current shape." This sharpens it: **the shipped composite is weak (0.30); the best available metric is a single contribution-depth feature, `max(peak,cwmean)`, at ρ ≈ 0.58 against a same-family panel but only ≈ 0.34 against an independent model; the same-family ceiling is 0.97 and cross-model panel agreement is 0.89; and no cheap structural feature we tried (genre, overlap, delta) adds transferable signal.** Enriching the metric with GRO's prior-art/delta machinery overfits and is not recommended. The honest state: a *real but weak* transferable triage signal (~0.34 cross-model). What is worth more than a richer formula: (1) a **second corpus** (non-AD — e.g. a parallel neurodegeneration field such as ALS/FTD) and eventually **human ratings**, to learn whether even the 0.34 holds across domains; (2) a **validated `overlap`** measure (§7b/§8) before either the breakthrough-novelty or the convergence metric can be trusted.
 
 ---
 
