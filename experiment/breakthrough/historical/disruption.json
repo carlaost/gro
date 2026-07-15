@@ -1,0 +1,642 @@
+{
+ "https://openalex.org/W2093650784": {
+  "mDI": -0.4545,
+  "n_citers": 308,
+  "i_consolidating": 224,
+  "j_disrupting": 84,
+  "cited_total": 3280,
+  "title": "Staging of Alzheimer disease-associated neurofibrillary pathology using paraffin sections and immunocytochemistry",
+  "year": 2006
+ },
+ "https://openalex.org/W2098548022": {
+  "mDI": -0.6692,
+  "n_citers": 266,
+  "i_consolidating": 222,
+  "j_disrupting": 44,
+  "cited_total": 826,
+  "title": "Amyloid-\u03b2 overproduction causes abnormal mitochondrial dynamics via differential modulation of mitochondrial fission/fusion proteins",
+  "year": 2008
+ },
+ "https://openalex.org/W2074427084": {
+  "mDI": -0.8216,
+  "n_citers": 269,
+  "i_consolidating": 245,
+  "j_disrupting": 24,
+  "cited_total": 645,
+  "title": "<sup>18</sup>F\u2010flutemetamol amyloid imaging in Alzheimer disease and mild cognitive impairment: A phase 2 trial",
+  "year": 2010
+ },
+ "https://openalex.org/W2135496343": {
+  "mDI": -0.8879,
+  "n_citers": 214,
+  "i_consolidating": 202,
+  "j_disrupting": 12,
+  "cited_total": 520,
+  "title": "Alzheimer and frontotemporal pathology in subsets of primary progressive aphasia",
+  "year": 2008
+ },
+ "https://openalex.org/W2018986622": {
+  "mDI": 0.1159,
+  "n_citers": 138,
+  "i_consolidating": 61,
+  "j_disrupting": 77,
+  "cited_total": 423,
+  "title": "A Genomic Pathway Approach to a Complex Disease: Axon Guidance and Parkinson Disease",
+  "year": 2007
+ },
+ "https://openalex.org/W2020497815": {
+  "mDI": -0.9018,
+  "n_citers": 163,
+  "i_consolidating": 155,
+  "j_disrupting": 8,
+  "cited_total": 376,
+  "title": "Temporal Profile of Amyloid-\u03b2 (A\u03b2) Oligomerization in an in Vivo Model of Alzheimer Disease",
+  "year": 2005
+ },
+ "https://openalex.org/W1999061258": {
+  "mDI": -0.7975,
+  "n_citers": 79,
+  "i_consolidating": 71,
+  "j_disrupting": 8,
+  "cited_total": 336,
+  "title": "Amyloid \u03b2-Protein Is Degraded by Cellular Angiotensin-converting Enzyme (ACE) and Elevated by an ACE Inhibitor",
+  "year": 2005
+ },
+ "https://openalex.org/W2095674336": {
+  "mDI": -0.7812,
+  "n_citers": 64,
+  "i_consolidating": 57,
+  "j_disrupting": 7,
+  "cited_total": 304,
+  "title": "Structural Changes of Region 1-16 of the Alzheimer Disease Amyloid \u03b2-Peptide upon Zinc Binding and in Vitro Aging",
+  "year": 2005
+ },
+ "https://openalex.org/W2139700140": {
+  "mDI": -0.6716,
+  "n_citers": 67,
+  "i_consolidating": 56,
+  "j_disrupting": 11,
+  "cited_total": 282,
+  "title": "The Rate of Cognitive Decline in Parkinson Disease",
+  "year": 2004
+ },
+ "https://openalex.org/W2098757266": {
+  "mDI": -0.4681,
+  "n_citers": 94,
+  "i_consolidating": 69,
+  "j_disrupting": 25,
+  "cited_total": 264,
+  "title": "Alzheimer-Like Changes in Rat Models of Spontaneous Diabetes",
+  "year": 2007
+ },
+ "https://openalex.org/W2079481706": {
+  "mDI": -0.9101,
+  "n_citers": 89,
+  "i_consolidating": 85,
+  "j_disrupting": 4,
+  "cited_total": 248,
+  "title": "Phosphorylation of Synucleins by Members of the Polo-like Kinase Family",
+  "year": 2009
+ },
+ "https://openalex.org/W1986400971": {
+  "mDI": -0.6,
+  "n_citers": 80,
+  "i_consolidating": 64,
+  "j_disrupting": 16,
+  "cited_total": 232,
+  "title": "CSF biomarkers predict a more malignant outcome in Alzheimer disease",
+  "year": 2010
+ },
+ "https://openalex.org/W2005740454": {
+  "mDI": -0.4805,
+  "n_citers": 77,
+  "i_consolidating": 57,
+  "j_disrupting": 20,
+  "cited_total": 219,
+  "title": "Phosphorylation Regulates Tau Interactions with Src Homology 3 Domains of Phosphatidylinositol 3-Kinase, Phospholipase C\u03b31, Grb2, and Src Family Kinases",
+  "year": 2008
+ },
+ "https://openalex.org/W2149723353": {
+  "mDI": -0.5844,
+  "n_citers": 77,
+  "i_consolidating": 61,
+  "j_disrupting": 16,
+  "cited_total": 208,
+  "title": "Clinical Aspects of Melatonin Intervention in Alzheimers Disease Progression",
+  "year": 2010
+ },
+ "https://openalex.org/W2114185596": {
+  "mDI": -0.7727,
+  "n_citers": 44,
+  "i_consolidating": 39,
+  "j_disrupting": 5,
+  "cited_total": 197,
+  "title": "The \u201cJaws\u201d of the Tau-Microtubule Interaction",
+  "year": 2007
+ },
+ "https://openalex.org/W2038083781": {
+  "mDI": -0.0196,
+  "n_citers": 51,
+  "i_consolidating": 26,
+  "j_disrupting": 25,
+  "cited_total": 189,
+  "title": "Thrombin and Prothrombin Are Expressed by Neurons and Glial Cells and Accumulate in Neurofibrillary Tangles in Alzheimer Disease Brain",
+  "year": 2006
+ },
+ "https://openalex.org/W2037160815": {
+  "mDI": -0.5802,
+  "n_citers": 81,
+  "i_consolidating": 64,
+  "j_disrupting": 17,
+  "cited_total": 179,
+  "title": "Three Histidine Residues of Amyloid-\u03b2 Peptide Control the Redox Activity of Copper and Iron",
+  "year": 2007
+ },
+ "https://openalex.org/W2151915265": {
+  "mDI": -0.759,
+  "n_citers": 83,
+  "i_consolidating": 73,
+  "j_disrupting": 10,
+  "cited_total": 170,
+  "title": "Amnestic Mild Cognitive Impairment: Structural MR Imaging Findings Predictive of Conversion to Alzheimer Disease",
+  "year": 2008
+ },
+ "https://openalex.org/W2153828345": {
+  "mDI": -0.6087,
+  "n_citers": 46,
+  "i_consolidating": 37,
+  "j_disrupting": 9,
+  "cited_total": 161,
+  "title": "Measuring Cerebral Atrophy and White Matter Hyperintensity Burden to Predict the Rate of Cognitive Decline in Alzheimer Disease",
+  "year": 2008
+ },
+ "https://openalex.org/W1982748988": {
+  "mDI": -0.6164,
+  "n_citers": 73,
+  "i_consolidating": 59,
+  "j_disrupting": 14,
+  "cited_total": 154,
+  "title": "Distinct Mechanistic Roles of Calpain and Caspase Activation in Neurodegeneration as Revealed in Mice Overexpressing Their Specific Inhibitors",
+  "year": 2005
+ },
+ "https://openalex.org/W2151966408": {
+  "mDI": -0.8022,
+  "n_citers": 91,
+  "i_consolidating": 82,
+  "j_disrupting": 9,
+  "cited_total": 147,
+  "title": "The Association Between Genetic Variants in SORL1 and Alzheimer Disease in an Urban, Multiethnic, Community-Based Cohort",
+  "year": 2007
+ },
+ "https://openalex.org/W2167099782": {
+  "mDI": -0.7568,
+  "n_citers": 74,
+  "i_consolidating": 65,
+  "j_disrupting": 9,
+  "cited_total": 139,
+  "title": "Neuroprotective Secreted Amyloid Precursor Protein Acts by Disrupting Amyloid Precursor Protein Dimers",
+  "year": 2009
+ },
+ "https://openalex.org/W2057431165": {
+  "mDI": -0.7778,
+  "n_citers": 36,
+  "i_consolidating": 32,
+  "j_disrupting": 4,
+  "cited_total": 131,
+  "title": "Body mass index in older persons is associated with Alzheimer disease pathology",
+  "year": 2006
+ },
+ "https://openalex.org/W2104999604": {
+  "mDI": -0.6667,
+  "n_citers": 66,
+  "i_consolidating": 55,
+  "j_disrupting": 11,
+  "cited_total": 125,
+  "title": "Lipid lowering agents are associated with a slower cognitive decline in Alzheimer's disease",
+  "year": 2005
+ },
+ "https://openalex.org/W2043604922": {
+  "mDI": -0.625,
+  "n_citers": 32,
+  "i_consolidating": 26,
+  "j_disrupting": 6,
+  "cited_total": 120,
+  "title": "The Creatine Kinase/Creatine Connection to Alzheimer\u2032s Disease: CK Inactivation, APP\u2010CK Complexes and Focal Creatine Deposits",
+  "year": 2006
+ },
+ "https://openalex.org/W2063509852": {
+  "mDI": -0.7,
+  "n_citers": 40,
+  "i_consolidating": 34,
+  "j_disrupting": 6,
+  "cited_total": 116,
+  "title": "Education, cognitive function, and severity of neuropathology in Alzheimer disease",
+  "year": 2007
+ },
+ "https://openalex.org/W1855589073": {
+  "mDI": -0.44,
+  "n_citers": 25,
+  "i_consolidating": 18,
+  "j_disrupting": 7,
+  "cited_total": 112,
+  "title": "Omega-3 fatty acid ethyl-eicosapentaenoate, but not soybean oil, attenuates memory impairment induced by central IL-1\u03b2 administration",
+  "year": 2004
+ },
+ "https://openalex.org/W1997942372": {
+  "mDI": -0.5625,
+  "n_citers": 64,
+  "i_consolidating": 50,
+  "j_disrupting": 14,
+  "cited_total": 107,
+  "title": "Association of a Functional Polymorphism in the Cholesteryl Ester Transfer Protein (&lt;emph type=\"ital\"&gt;CETP&lt;/emph&gt;) Gene With Memory Decline and Incidence of Dementia",
+  "year": 2010
+ },
+ "https://openalex.org/W2419528380": {
+  "mDI": null,
+  "n_citers": 0,
+  "note": "no refs"
+ },
+ "https://openalex.org/W2129208383": {
+  "mDI": -0.6429,
+  "n_citers": 28,
+  "i_consolidating": 23,
+  "j_disrupting": 5,
+  "cited_total": 99,
+  "title": "Driving and Dementia of the Alzheimer Type: Beliefs and Cessation Strategies Among Stakeholders",
+  "year": 2005
+ },
+ "https://openalex.org/W2013435225": {
+  "mDI": -0.6765,
+  "n_citers": 68,
+  "i_consolidating": 57,
+  "j_disrupting": 11,
+  "cited_total": 94,
+  "title": "In vivo mapping of amyloid toxicity in Alzheimer disease",
+  "year": 2009
+ },
+ "https://openalex.org/W2102200779": {
+  "mDI": -0.1364,
+  "n_citers": 44,
+  "i_consolidating": 25,
+  "j_disrupting": 19,
+  "cited_total": 90,
+  "title": "Development of a Non Invasive NGF-Based Therapy for Alzheimers Disease",
+  "year": 2009
+ },
+ "https://openalex.org/W1970353438": {
+  "mDI": -0.5172,
+  "n_citers": 29,
+  "i_consolidating": 22,
+  "j_disrupting": 7,
+  "cited_total": 86,
+  "title": "Hippocampal Volumes, Proton Magnetic Resonance Spectroscopy Metabolites, and Cerebrovascular Disease in Mild Cognitive Impairment Subtypes",
+  "year": 2008
+ },
+ "https://openalex.org/W2169490359": {
+  "mDI": -0.6,
+  "n_citers": 45,
+  "i_consolidating": 36,
+  "j_disrupting": 9,
+  "cited_total": 83,
+  "title": "Plasma \u03b2-Amyloid and Cognitive Decline",
+  "year": 2010
+ },
+ "https://openalex.org/W2129636426": {
+  "mDI": -0.617,
+  "n_citers": 47,
+  "i_consolidating": 38,
+  "j_disrupting": 9,
+  "cited_total": 80,
+  "title": "Novel Role of RanBP9 in BACE1 Processing of Amyloid Precursor Protein and Amyloid \u03b2 Peptide Generation",
+  "year": 2009
+ },
+ "https://openalex.org/W1530753532": {
+  "mDI": 0.75,
+  "n_citers": 16,
+  "i_consolidating": 2,
+  "j_disrupting": 14,
+  "cited_total": 77,
+  "title": "The amyloid beta ion channel hypothesis of Alzheimer's disease.",
+  "year": 2007
+ },
+ "https://openalex.org/W2053338655": {
+  "mDI": -0.68,
+  "n_citers": 25,
+  "i_consolidating": 21,
+  "j_disrupting": 4,
+  "cited_total": 74,
+  "title": "ADCS Prevention Instrument Project: Overview and Initial Results",
+  "year": 2006
+ },
+ "https://openalex.org/W2054077463": {
+  "mDI": -0.8462,
+  "n_citers": 26,
+  "i_consolidating": 24,
+  "j_disrupting": 2,
+  "cited_total": 70,
+  "title": "Differential Immune Cell Chemotaxis Responses to Acute Psychological Stress in Alzheimer Caregivers Compared to Non-caregiver Controls",
+  "year": 2004
+ },
+ "https://openalex.org/W2118548839": {
+  "mDI": -0.5,
+  "n_citers": 16,
+  "i_consolidating": 12,
+  "j_disrupting": 4,
+  "cited_total": 68,
+  "title": "Improved mitochondrial function in brain aging and Alzheimer disease - the new mechanism of action of the old metabolic enhancer piracetam",
+  "year": 2010
+ },
+ "https://openalex.org/W2063363383": {
+  "mDI": -0.7333,
+  "n_citers": 30,
+  "i_consolidating": 26,
+  "j_disrupting": 4,
+  "cited_total": 66,
+  "title": "3D Mapping of Mini-mental State Examination Performance in Clinical and Preclinical Alzheimer Disease",
+  "year": 2006
+ },
+ "https://openalex.org/W1495830360": {
+  "mDI": -0.28,
+  "n_citers": 25,
+  "i_consolidating": 16,
+  "j_disrupting": 9,
+  "cited_total": 63,
+  "title": "Transgenic Mouse Models of Alzheimer\u2019s Disease: Behavioral Testing and Considerations",
+  "year": 2009
+ },
+ "https://openalex.org/W2162906229": {
+  "mDI": -0.9333,
+  "n_citers": 30,
+  "i_consolidating": 29,
+  "j_disrupting": 1,
+  "cited_total": 61,
+  "title": "Association of Distinct Variants in SORL1 With Cerebrovascular and Neurodegenerative Changes Related to Alzheimer Disease",
+  "year": 2008
+ },
+ "https://openalex.org/W2035416600": {
+  "mDI": -0.6129,
+  "n_citers": 31,
+  "i_consolidating": 25,
+  "j_disrupting": 6,
+  "cited_total": 58,
+  "title": "Population Variation in Glial Fibrillary Acidic Protein Levels in Brain Ageing: Relationship to Alzheimer-Type Pathology and Dementia",
+  "year": 2009
+ },
+ "https://openalex.org/W2088617390": {
+  "mDI": -0.0476,
+  "n_citers": 21,
+  "i_consolidating": 11,
+  "j_disrupting": 10,
+  "cited_total": 56,
+  "title": "The Natural History of Alzheimer Disease",
+  "year": 2004
+ },
+ "https://openalex.org/W2145632240": {
+  "mDI": 0.375,
+  "n_citers": 32,
+  "i_consolidating": 10,
+  "j_disrupting": 22,
+  "cited_total": 54,
+  "title": "Genotator: A disease-agnostic tool for genetic annotation of disease",
+  "year": 2010
+ },
+ "https://openalex.org/W1986475591": {
+  "mDI": -0.5714,
+  "n_citers": 14,
+  "i_consolidating": 11,
+  "j_disrupting": 3,
+  "cited_total": 52,
+  "title": "Atypical Protein Kinase C in Neurodegenerative Disease I",
+  "year": 2006
+ },
+ "https://openalex.org/W2103161598": {
+  "mDI": -0.5,
+  "n_citers": 24,
+  "i_consolidating": 18,
+  "j_disrupting": 6,
+  "cited_total": 50,
+  "title": "Weekly Vaccination with Copaxone (Glatiramer Acetate) as a Potential Therapy for Dry Age-Related Macular Degeneration",
+  "year": 2008
+ },
+ "https://openalex.org/W2131388554": {
+  "mDI": -0.3,
+  "n_citers": 20,
+  "i_consolidating": 13,
+  "j_disrupting": 7,
+  "cited_total": 48,
+  "title": "Testosterone modifies the effect of <i>APOE</i> genotype on hippocampal volume in middle-aged men",
+  "year": 2010
+ },
+ "https://openalex.org/W2018071099": {
+  "mDI": -0.0667,
+  "n_citers": 45,
+  "i_consolidating": 24,
+  "j_disrupting": 21,
+  "cited_total": 46,
+  "title": "Serum lipoprotein pattern variations in dementia and ischemic stroke",
+  "year": 2009
+ },
+ "https://openalex.org/W2049884888": {
+  "mDI": -0.7647,
+  "n_citers": 34,
+  "i_consolidating": 30,
+  "j_disrupting": 4,
+  "cited_total": 44,
+  "title": "Safety and Tolerability of the Rivastigmine Patch",
+  "year": 2009
+ },
+ "https://openalex.org/W2050937684": {
+  "mDI": -0.625,
+  "n_citers": 16,
+  "i_consolidating": 13,
+  "j_disrupting": 3,
+  "cited_total": 42,
+  "title": "Behavioural and psychological symptoms are not related to white matter hyperintensities and medial temporal lobe atrophy in Alzheimer's disease",
+  "year": 2007
+ },
+ "https://openalex.org/W2003308281": {
+  "mDI": -0.1579,
+  "n_citers": 19,
+  "i_consolidating": 11,
+  "j_disrupting": 8,
+  "cited_total": 40,
+  "title": "Worldwide distribution of <i>PSEN1</i> Met146Leu mutation",
+  "year": 2010
+ },
+ "https://openalex.org/W2024953136": {
+  "mDI": 0.3333,
+  "n_citers": 12,
+  "i_consolidating": 4,
+  "j_disrupting": 8,
+  "cited_total": 39,
+  "title": "Increased CD44 Gene Expression in Lymphocytes Derived from Alzheimer Disease Patients",
+  "year": 2010
+ },
+ "https://openalex.org/W2038672689": {
+  "mDI": -1.0,
+  "n_citers": 18,
+  "i_consolidating": 18,
+  "j_disrupting": 0,
+  "cited_total": 37,
+  "title": "Examination of Lipid-bound Conformation of Apolipoprotein E4 by Pyrene Excimer Fluorescence",
+  "year": 2005
+ },
+ "https://openalex.org/W2094613784": {
+  "mDI": -0.2,
+  "n_citers": 15,
+  "i_consolidating": 9,
+  "j_disrupting": 6,
+  "cited_total": 35,
+  "title": "EEG Mapping and Low-Resolution Brain Electromagnetic Tomography (LORETA) in Diagnosis and Therapy of Psychiatric Disorders: Evidence for a Key-Lock Principle",
+  "year": 2005
+ },
+ "https://openalex.org/W2028902657": {
+  "mDI": -0.8182,
+  "n_citers": 11,
+  "i_consolidating": 10,
+  "j_disrupting": 1,
+  "cited_total": 33,
+  "title": "Genetically Altering A\u03b2 Distribution from the Brain to the Vasculature Ameliorates Tau Pathology",
+  "year": 2008
+ },
+ "https://openalex.org/W2078675004": {
+  "mDI": -0.3333,
+  "n_citers": 9,
+  "i_consolidating": 6,
+  "j_disrupting": 3,
+  "cited_total": 32,
+  "title": "Brain ischemia and ischemic blood&amp;ndash;brain barrier as etiological factors in sporadic Alzheimer&amp;rsquo;s disease",
+  "year": 2008
+ },
+ "https://openalex.org/W2184767677": {
+  "mDI": 1.0,
+  "n_citers": 8,
+  "i_consolidating": 0,
+  "j_disrupting": 8,
+  "cited_total": 30,
+  "title": "Allicin can reduce neuronal death and ameliorate the spatial memory impairment in Alzheimers disease models",
+  "year": 2010
+ },
+ "https://openalex.org/W2049299089": {
+  "mDI": -0.6842,
+  "n_citers": 19,
+  "i_consolidating": 16,
+  "j_disrupting": 3,
+  "cited_total": 29,
+  "title": "Inhibition of Tau Polymerization with a Cyanine Dye in Two Distinct Model Systems",
+  "year": 2009
+ },
+ "https://openalex.org/W2050629539": {
+  "mDI": -0.1667,
+  "n_citers": 12,
+  "i_consolidating": 7,
+  "j_disrupting": 5,
+  "cited_total": 28,
+  "title": "Evaluation of Cerebrospinal Fluid Tau/Beta-Amyloid(42) Ratio as Diagnostic Markers for Alzheimer Disease",
+  "year": 2009
+ },
+ "https://openalex.org/W2005742064": {
+  "mDI": -1.0,
+  "n_citers": 11,
+  "i_consolidating": 11,
+  "j_disrupting": 0,
+  "cited_total": 26,
+  "title": "Rate of Cognitive Change Measured by Neuropsychologic Test Performance in 3 Distinct Dementia Syndromes",
+  "year": 2007
+ },
+ "https://openalex.org/W1993703204": {
+  "mDI": -0.1429,
+  "n_citers": 7,
+  "i_consolidating": 4,
+  "j_disrupting": 3,
+  "cited_total": 25,
+  "title": "Ectopic Expression of Musashi-1 in Alzheimer Disease and Pick Disease",
+  "year": 2005
+ },
+ "https://openalex.org/W2000443527": {
+  "mDI": -1.0,
+  "n_citers": 6,
+  "i_consolidating": 6,
+  "j_disrupting": 0,
+  "cited_total": 24,
+  "title": "Validity and Reliability of the Persian Language Version of the Neuropsychiatry Unit Cognitive Assessment Tool",
+  "year": 2010
+ },
+ "https://openalex.org/W2003711757": {
+  "mDI": -0.5,
+  "n_citers": 8,
+  "i_consolidating": 6,
+  "j_disrupting": 2,
+  "cited_total": 22,
+  "title": "Predicting Cognitive Decline in Alzheimer Disease",
+  "year": 2004
+ },
+ "https://openalex.org/W2153344477": {
+  "mDI": 0.1429,
+  "n_citers": 7,
+  "i_consolidating": 3,
+  "j_disrupting": 4,
+  "cited_total": 21,
+  "title": "Problem Behavior of Dementia Patients Predicts Low-Grade Hypercoagulability in Spousal Caregivers",
+  "year": 2010
+ },
+ "https://openalex.org/W2065111467": {
+  "mDI": 0.2727,
+  "n_citers": 11,
+  "i_consolidating": 4,
+  "j_disrupting": 7,
+  "cited_total": 20,
+  "title": "Dual Action of Memantine in Alzheimer Disease: A Hypothesis",
+  "year": 2009
+ },
+ "https://openalex.org/W2094888653": {
+  "mDI": -0.7143,
+  "n_citers": 14,
+  "i_consolidating": 12,
+  "j_disrupting": 2,
+  "cited_total": 18,
+  "title": "TASTPM Mice Expressing Amyloid Precursor Protein and Presenilin-1 Mutant Transgenes Are Sensitive to \u03b3-Secretase Modulation and Amyloid-\u03b2&lt;sub&gt;42&lt;/sub&gt; Lowering by GSM-10h",
+  "year": 2010
+ },
+ "https://openalex.org/W1992355246": {
+  "mDI": -1.0,
+  "n_citers": 5,
+  "i_consolidating": 5,
+  "j_disrupting": 0,
+  "cited_total": 17,
+  "title": "Coenzyme Q Induces Tau Aggregation, Tau Filaments, and Hirano Bodies",
+  "year": 2008
+ },
+ "https://openalex.org/W1980462673": {
+  "mDI": 0.5,
+  "n_citers": 4,
+  "i_consolidating": 1,
+  "j_disrupting": 3,
+  "cited_total": 16,
+  "title": "Analysis of counted behaviors in a single-subject design: modeling of hearing-aid intervention in hearing-impaired patients with Alzheimer's disease An\u00e1lisis del conteo de conductas en un dise\u00f1o unipersonal: Modelo de intervenci\u00f3n con auxiliar auditivo en pacientes hipoac\u00fasicos con enfermedad de Alzheimer",
+  "year": 2005
+ },
+ "https://openalex.org/W2007178963": {
+  "mDI": null,
+  "n_citers": 0,
+  "note": "no refs"
+ },
+ "https://openalex.org/W1986545022": {
+  "mDI": -0.8182,
+  "n_citers": 11,
+  "i_consolidating": 10,
+  "j_disrupting": 1,
+  "cited_total": 14,
+  "title": "Longitudinal Medication Usage in Alzheimer Disease Patients",
+  "year": 2010
+ },
+ "https://openalex.org/W2306633300": {
+  "mDI": -0.4,
+  "n_citers": 10,
+  "i_consolidating": 7,
+  "j_disrupting": 3,
+  "cited_total": 13,
+  "title": "S\u00edntomas psicol\u00f3gicos y conductuales como factores de progresi\u00f3n a demencia tipo Alzheimer en el deterioro cognitivo leve",
+  "year": 2010
+ }
+}

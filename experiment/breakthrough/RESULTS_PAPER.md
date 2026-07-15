@@ -6,7 +6,9 @@
 
 We asked whether a metric computed over GRO's structured sidecars can rank recent papers by breakthrough-ness the way domain experts do. We GRO-compiled **66 recent (2025–2026) Alzheimer's papers**, rated each with a blind, prior-art-grounded **3-persona expert panel** (0–100), and searched for the best metric — including via a 16→4→2→1 design tournament — under a strict **held-out train/test split**.
 
-Three results, in order of importance:
+**Headline (§10):** the strongest test removes the LLM from the ground truth — 72 historical (2004–2010) papers, metric computed at publication time, validated against what the field *actually did* (mature citation disruption over 15–20 years). The metric shows **no reliable predictive power** (ρ near zero, sign-unstable). Against a same-family LLM panel the same metric scored ρ ≈ 0.58; against reality, nothing. Everything below explains how we got there and why.
+
+Findings, in order of importance:
 
 1. **We are far from the ceiling, and the ceiling is measurable.** A single expert judge predicts the same-family panel at **ρ ≈ 0.97** (leave-one-judge-out); two *different* model families (Claude, GPT-5.5) agree at **ρ ≈ 0.89**. Our best metric reaches ρ ≈ 0.58 against the same-family panel but only **ρ ≈ 0.34 against the independent model** (§3, §9). So even against the more honest cross-model target the metric captures well under half the achievable signal. **We have not hit a ceiling** — the gap is structured, not noise.
 
@@ -16,7 +18,7 @@ Three results, in order of importance:
 
 4. **A second metric is conceptually there — but the shared measurement it needs isn't.** Prior-art *overlap* would read with opposite sign for two constructs: low overlap = **breakthrough/novelty** (distance from prior art), high = **convergence/consolidation** (pulling a field together). Tempting — but when we actually built overlap two ways (per-agent LLM, and deterministic OpenAlex concept-cosine) they came out **uncorrelated (ρ 0.02) and both invalid** as a breakthrough signal (concept-cosine even inverts, mistaking generic reports for novel work). So the duality is a clean hypothesis on an **underdetermined measurement** — real overlap, validated to track prior-art distance, is a prerequisite for either metric.
 
-The honest deliverable: a **one-feature triage metric** — `max(peak, cwmean)`, a count-independent read of the compiler's contribution-typing — that is real but weak (~0.58 same-family, **~0.34 cross-model**); a **measured same-family ceiling** of 0.97 and **cross-model panel agreement** of 0.89; and the finding that no structural feature we tried (genre, overlap, delta) adds transferable signal. The next move is a second-domain corpus and a *validated* overlap measure, not a richer formula.
+**The decisive test (§10):** we removed the LLM from the ground truth entirely — 72 historical (2004–2010) AD papers, metric computed at publication time, validated against *mature field disruption* over the following 15–20 years. The metric shows **no reliable predictive power** (ρ near zero, sign-unstable). Against a same-family LLM panel it scored ~0.58; against reality, nothing. The honest deliverable is therefore a **triage prior that flags LLM-perceived contribution depth** — not a validated breakthrough forecaster — plus a clear diagnosis of why (shared-method bias, §9) and what would be needed to do better (full-text multi-domain historical training, §11).
 
 ---
 
@@ -185,9 +187,28 @@ The advantage **flips sides**: each model's metric leans toward its own panel (t
 
 So the metric survives the bias test — but diminished. Its honest transferable performance is **~0.34–0.43** (cross-model / consensus), not the ~0.58 the same-family setup suggested. Two takeaways carry forward: **(a)** report cross-model or consensus numbers, never same-family; **(b)** a consensus-of-model-families metric is the cheapest available debiasing. The deeper fix — a ground truth with no LLM at all — is the historical/longitudinal test (§10): does the publication-time metric predict what the field *actually did next*.
 
-## 10. Where this leaves the program
+## 10. The decisive test — does the metric predict what the field actually did? (No.)
 
-The assessment paper said "no metric measures breakthroughs, and we can't compute one on the current shape." This sharpens it: **the shipped composite is weak (0.30); the best available metric is a single contribution-depth feature, `max(peak,cwmean)`, at ρ ≈ 0.58 against a same-family panel but only ≈ 0.34 against an independent model; the same-family ceiling is 0.97 and cross-model panel agreement is 0.89; and no cheap structural feature we tried (genre, overlap, delta) adds transferable signal.** Enriching the metric with GRO's prior-art/delta machinery overfits and is not recommended. The honest state: a *real but weak* transferable triage signal (~0.34 cross-model). What is worth more than a richer formula: (1) a **second corpus** (non-AD — e.g. a parallel neurodegeneration field such as ALS/FTD) and eventually **human ratings**, to learn whether even the 0.34 holds across domains; (2) a **validated `overlap`** measure (§7b/§8) before either the breakthrough-novelty or the convergence metric can be trusted.
+Every number so far is the metric agreeing with an *LLM's opinion*. The strongest possible test removes the LLM from the ground truth entirely: take **historical** papers, compute the metric from the paper text *at publication time* (no hindsight), and check whether it predicts which papers actually **reshaped the field** — measured by mature disruption on the now-complete citation graph.
+
+**Setup (`research/metrics/v6-historical/`):** 72 Alzheimer's papers published **2004–2010**, sampled *stratified across impact* (citations 13–3,280; from ordinary papers to landmarks like Braak staging), tight AD relevance. Predictor: `max(peak,cwmean)` typed by Claude from title+abstract, told explicitly to use no hindsight. Ground truth: a Funk–Owen-Smith **disruption index (mDI)** over each paper's ≤5-year citer set from OpenAlex — high = later work built on the paper while dropping its predecessors (a step-change); low = consolidating. No LLM touches the ground truth.
+
+**Result: the publication-time metric does not predict mature disruption.** Spearman ρ hovers around zero and is *not sign-stable* across citer-reliability thresholds — −0.13 (n=62, citers≥10), +0.23 (n=37, ≥30), +0.16 (n=23, ≥50); top-metric-quartile papers were if anything slightly *less* disruptive than the bottom (mean mDI −0.52 vs −0.39). It predicts total citations no better (ρ ≈ −0.06). There is **no robust signal in either direction.**
+
+This is the most important result in the paper. Against a real-world, LLM-free ground truth — what the field actually did over 15–20 years — the metric that scored ρ ≈ 0.58 against a same-family LLM panel shows **no reliable forecasting power**. That is exactly what the shared-method-bias analysis (§9) predicted: much of the panel agreement was two LLMs sharing a prior about what *sounds* important, not a signal for what *becomes* important.
+
+**Honest caveats (this is a weak test of a possibly-real effect, not proof of zero):** (a) abstract-only typing compressed the metric's variance badly (23 unique values across 62 papers, a pile-up at 0.70) — low predictor variance attenuates any correlation; a full-text compile would sharpen it. (b) mDI over a capped citer set is a noisy disruption proxy, especially for low-citer papers (hence the sign flip as the threshold rises). (c) n=62, single domain, single vintage. Still: the strongest test available returned no support for the metric, and no amount of caveat converts a null into a forecast.
+
+## 11. Where this leaves the program
+
+The assessment paper said "no metric measures breakthroughs, and we can't compute one on the current shape." This sharpens it, and the arc runs downhill honestly:
+- Against a **same-family LLM panel** the best metric (`max(peak,cwmean)`) looks decent: ρ ≈ 0.58 held-out (§5–6).
+- Against an **independent model** it drops to ρ ≈ 0.34, and building the metric with GPT flips the bias — so ~⅓ was LLM shared-method variance, not signal (§9).
+- Against **real-world outcomes** (historical papers vs mature field disruption, no LLM in the ground truth) it shows **no reliable predictive power at all** (§10).
+
+The through-line: each time we removed an LLM from the loop, the metric got weaker, and when we removed it entirely the signal vanished. The shipped composite is weak (0.30); no structural feature we tried (genre, overlap, delta) adds transferable signal; and the one feature that does travel — the compiler's contribution-typing — measures *how novel a paper sounds to an LLM reading it*, which is not the same as *whether it reshaped the field*. That gap is the real finding.
+
+What would actually move this: (1) a **full-text** historical compile (abstract-only typing crippled the §10 test) across **multiple domains and vintages**, with the disruption ground truth as the target to *train against*, not just correlate; (2) **human breakthrough ratings** where obtainable; (3) a **validated `overlap`** measure (§7b/§8). Absent those, the honest product is a *triage prior that flags LLM-perceived contribution depth* — useful for sorting a reading pile, not for forecasting breakthroughs.
 
 ---
 

@@ -1,0 +1,506 @@
+{
+ "https://openalex.org/W2093650784": {
+  "id": "https://openalex.org/W2093650784",
+  "metric": 0.15,
+  "peak": 0.1275,
+  "cwmean": 0.15,
+  "n": 1
+ },
+ "https://openalex.org/W2098548022": {
+  "id": "https://openalex.org/W2098548022",
+  "metric": 0.6999999999999998,
+  "peak": 0.574,
+  "cwmean": 0.6999999999999998,
+  "n": 3
+ },
+ "https://openalex.org/W2074427084": {
+  "id": "https://openalex.org/W2074427084",
+  "metric": 0.574,
+  "peak": 0.574,
+  "cwmean": 0.5464467005076142,
+  "n": 3
+ },
+ "https://openalex.org/W2135496343": {
+  "id": "https://openalex.org/W2135496343",
+  "metric": 0.6733333333333333,
+  "peak": 0.42,
+  "cwmean": 0.6733333333333333,
+  "n": 3
+ },
+ "https://openalex.org/W2018986622": {
+  "id": "https://openalex.org/W2018986622",
+  "metric": 0.7447154471544716,
+  "peak": 0.476,
+  "cwmean": 0.7447154471544716,
+  "n": 2
+ },
+ "https://openalex.org/W2020497815": {
+  "id": "https://openalex.org/W2020497815",
+  "metric": 0.6999999999999998,
+  "peak": 0.581,
+  "cwmean": 0.6999999999999998,
+  "n": 3
+ },
+ "https://openalex.org/W1999061258": {
+  "id": "https://openalex.org/W1999061258",
+  "metric": 0.7000000000000001,
+  "peak": 0.504,
+  "cwmean": 0.7000000000000001,
+  "n": 3
+ },
+ "https://openalex.org/W2095674336": {
+  "id": "https://openalex.org/W2095674336",
+  "metric": 0.7,
+  "peak": 0.595,
+  "cwmean": 0.7,
+  "n": 2
+ },
+ "https://openalex.org/W2139700140": {
+  "id": "https://openalex.org/W2139700140",
+  "metric": 0.7,
+  "peak": 0.574,
+  "cwmean": 0.7,
+  "n": 1
+ },
+ "https://openalex.org/W2098757266": {
+  "id": "https://openalex.org/W2098757266",
+  "metric": 0.6999999999999998,
+  "peak": 0.574,
+  "cwmean": 0.6999999999999998,
+  "n": 2
+ },
+ "https://openalex.org/W2079481706": {
+  "id": "https://openalex.org/W2079481706",
+  "metric": 0.7,
+  "peak": 0.595,
+  "cwmean": 0.7,
+  "n": 2
+ },
+ "https://openalex.org/W1986400971": {
+  "id": "https://openalex.org/W1986400971",
+  "metric": 0.7000000000000001,
+  "peak": 0.48999999999999994,
+  "cwmean": 0.7000000000000001,
+  "n": 2
+ },
+ "https://openalex.org/W2005740454": {
+  "id": "https://openalex.org/W2005740454",
+  "metric": 0.7,
+  "peak": 0.595,
+  "cwmean": 0.7,
+  "n": 3
+ },
+ "https://openalex.org/W2149723353": {
+  "id": "https://openalex.org/W2149723353",
+  "metric": 0.35,
+  "peak": 0.2975,
+  "cwmean": 0.35,
+  "n": 2
+ },
+ "https://openalex.org/W2114185596": {
+  "id": "https://openalex.org/W2114185596",
+  "metric": 0.7000000000000001,
+  "peak": 0.5459999999999999,
+  "cwmean": 0.7000000000000001,
+  "n": 2
+ },
+ "https://openalex.org/W2038083781": {
+  "id": "https://openalex.org/W2038083781",
+  "metric": 0.6999999999999998,
+  "peak": 0.5459999999999999,
+  "cwmean": 0.6999999999999998,
+  "n": 3
+ },
+ "https://openalex.org/W2037160815": {
+  "id": "https://openalex.org/W2037160815",
+  "metric": 0.7000000000000001,
+  "peak": 0.574,
+  "cwmean": 0.7000000000000001,
+  "n": 2
+ },
+ "https://openalex.org/W2151915265": {
+  "id": "https://openalex.org/W2151915265",
+  "metric": 0.48999999999999994,
+  "peak": 0.48999999999999994,
+  "cwmean": 0.4579999999999999,
+  "n": 2
+ },
+ "https://openalex.org/W2153828345": {
+  "id": "https://openalex.org/W2153828345",
+  "metric": 0.7,
+  "peak": 0.476,
+  "cwmean": 0.7,
+  "n": 1
+ },
+ "https://openalex.org/W1982748988": {
+  "id": "https://openalex.org/W1982748988",
+  "metric": 0.7522292993630574,
+  "peak": 0.656,
+  "cwmean": 0.7522292993630574,
+  "n": 2
+ },
+ "https://openalex.org/W2151966408": {
+  "id": "https://openalex.org/W2151966408",
+  "metric": 0.2875,
+  "peak": 0.27999999999999997,
+  "cwmean": 0.2875,
+  "n": 2
+ },
+ "https://openalex.org/W2167099782": {
+  "id": "https://openalex.org/W2167099782",
+  "metric": 0.7158730158730158,
+  "peak": 0.574,
+  "cwmean": 0.7158730158730158,
+  "n": 4
+ },
+ "https://openalex.org/W2057431165": {
+  "id": "https://openalex.org/W2057431165",
+  "metric": 0.6999999999999998,
+  "peak": 0.5459999999999999,
+  "cwmean": 0.6999999999999998,
+  "n": 1
+ },
+ "https://openalex.org/W2104999604": {
+  "id": "https://openalex.org/W2104999604",
+  "metric": 0.6999999999999998,
+  "peak": 0.5459999999999999,
+  "cwmean": 0.6999999999999998,
+  "n": 1
+ },
+ "https://openalex.org/W2043604922": {
+  "id": "https://openalex.org/W2043604922",
+  "metric": 0.4529411764705882,
+  "peak": 0.252,
+  "cwmean": 0.4529411764705882,
+  "n": 2
+ },
+ "https://openalex.org/W2063509852": {
+  "id": "https://openalex.org/W2063509852",
+  "metric": 0.7,
+  "peak": 0.574,
+  "cwmean": 0.7,
+  "n": 1
+ },
+ "https://openalex.org/W1855589073": {
+  "id": "https://openalex.org/W1855589073",
+  "metric": 0.7,
+  "peak": 0.5459999999999999,
+  "cwmean": 0.7,
+  "n": 2
+ },
+ "https://openalex.org/W1997942372": {
+  "id": "https://openalex.org/W1997942372",
+  "metric": 0.7,
+  "peak": 0.595,
+  "cwmean": 0.7,
+  "n": 1
+ },
+ "https://openalex.org/W2419528380": {
+  "id": "https://openalex.org/W2419528380",
+  "metric": 0.35,
+  "peak": 0.287,
+  "cwmean": 0.35,
+  "n": 1
+ },
+ "https://openalex.org/W2129208383": {
+  "id": "https://openalex.org/W2129208383",
+  "metric": 0.7,
+  "peak": 0.48999999999999994,
+  "cwmean": 0.7,
+  "n": 2
+ },
+ "https://openalex.org/W2013435225": {
+  "id": "https://openalex.org/W2013435225",
+  "metric": 0.504,
+  "peak": 0.504,
+  "cwmean": 0.5035714285714286,
+  "n": 2
+ },
+ "https://openalex.org/W2102200779": {
+  "id": "https://openalex.org/W2102200779",
+  "metric": 0.756,
+  "peak": 0.5599999999999999,
+  "cwmean": 0.756,
+  "n": 2
+ },
+ "https://openalex.org/W1970353438": {
+  "id": "https://openalex.org/W1970353438",
+  "metric": 0.5206521739130435,
+  "peak": 0.434,
+  "cwmean": 0.5206521739130435,
+  "n": 2
+ },
+ "https://openalex.org/W2169490359": {
+  "id": "https://openalex.org/W2169490359",
+  "metric": 0.7,
+  "peak": 0.48999999999999994,
+  "cwmean": 0.7,
+  "n": 1
+ },
+ "https://openalex.org/W2129636426": {
+  "id": "https://openalex.org/W2129636426",
+  "metric": 0.7000000000000001,
+  "peak": 0.63,
+  "cwmean": 0.7000000000000001,
+  "n": 3
+ },
+ "https://openalex.org/W1530753532": {
+  "id": "https://openalex.org/W1530753532",
+  "metric": 0.35,
+  "peak": 0.21,
+  "cwmean": 0.35,
+  "n": 1
+ },
+ "https://openalex.org/W2053338655": {
+  "id": "https://openalex.org/W2053338655",
+  "metric": 0.7647058823529411,
+  "peak": 0.44000000000000006,
+  "cwmean": 0.7647058823529411,
+  "n": 2
+ },
+ "https://openalex.org/W2054077463": {
+  "id": "https://openalex.org/W2054077463",
+  "metric": 0.7,
+  "peak": 0.42,
+  "cwmean": 0.7,
+  "n": 1
+ },
+ "https://openalex.org/W2118548839": {
+  "id": "https://openalex.org/W2118548839",
+  "metric": 0.532608695652174,
+  "peak": 0.42,
+  "cwmean": 0.532608695652174,
+  "n": 2
+ },
+ "https://openalex.org/W2063363383": {
+  "id": "https://openalex.org/W2063363383",
+  "metric": 0.7000000000000001,
+  "peak": 0.504,
+  "cwmean": 0.7000000000000001,
+  "n": 1
+ },
+ "https://openalex.org/W1495830360": {
+  "id": "https://openalex.org/W1495830360",
+  "metric": 0.35000000000000003,
+  "peak": 0.252,
+  "cwmean": 0.35000000000000003,
+  "n": 1
+ },
+ "https://openalex.org/W2162906229": {
+  "id": "https://openalex.org/W2162906229",
+  "metric": 0.7,
+  "peak": 0.42,
+  "cwmean": 0.7,
+  "n": 2
+ },
+ "https://openalex.org/W2035416600": {
+  "id": "https://openalex.org/W2035416600",
+  "metric": 0.6999999999999998,
+  "peak": 0.476,
+  "cwmean": 0.6999999999999998,
+  "n": 3
+ },
+ "https://openalex.org/W2088617390": {
+  "id": "https://openalex.org/W2088617390",
+  "metric": 0.7,
+  "peak": 0.476,
+  "cwmean": 0.7,
+  "n": 2
+ },
+ "https://openalex.org/W2145632240": {
+  "id": "https://openalex.org/W2145632240",
+  "metric": 0.7999999999999999,
+  "peak": 0.576,
+  "cwmean": 0.7999999999999999,
+  "n": 1
+ },
+ "https://openalex.org/W1986475591": {
+  "id": "https://openalex.org/W1986475591",
+  "metric": 0.6999999999999998,
+  "peak": 0.574,
+  "cwmean": 0.6999999999999998,
+  "n": 2
+ },
+ "https://openalex.org/W2103161598": {
+  "id": "https://openalex.org/W2103161598",
+  "metric": 0.6,
+  "peak": 0.4,
+  "cwmean": 0.6,
+  "n": 2
+ },
+ "https://openalex.org/W2131388554": {
+  "id": "https://openalex.org/W2131388554",
+  "metric": 0.7,
+  "peak": 0.574,
+  "cwmean": 0.7,
+  "n": 1
+ },
+ "https://openalex.org/W2018071099": {
+  "id": "https://openalex.org/W2018071099",
+  "metric": 0.7,
+  "peak": 0.476,
+  "cwmean": 0.7,
+  "n": 1
+ },
+ "https://openalex.org/W2049884888": {
+  "id": "https://openalex.org/W2049884888",
+  "metric": 0.7,
+  "peak": 0.42,
+  "cwmean": 0.7,
+  "n": 1
+ },
+ "https://openalex.org/W2050937684": {
+  "id": "https://openalex.org/W2050937684",
+  "metric": 0.7,
+  "peak": 0.434,
+  "cwmean": 0.7,
+  "n": 1
+ },
+ "https://openalex.org/W2003308281": {
+  "id": "https://openalex.org/W2003308281",
+  "metric": 0.7000000000000001,
+  "peak": 0.574,
+  "cwmean": 0.7000000000000001,
+  "n": 2
+ },
+ "https://openalex.org/W2024953136": {
+  "id": "https://openalex.org/W2024953136",
+  "metric": 0.63,
+  "peak": 0.63,
+  "cwmean": 0.4047619047619047,
+  "n": 3
+ },
+ "https://openalex.org/W2038672689": {
+  "id": "https://openalex.org/W2038672689",
+  "metric": 0.7368421052631579,
+  "peak": 0.42,
+  "cwmean": 0.7368421052631579,
+  "n": 2
+ },
+ "https://openalex.org/W2094613784": {
+  "id": "https://openalex.org/W2094613784",
+  "metric": 0.6168789808917198,
+  "peak": 0.496,
+  "cwmean": 0.6168789808917198,
+  "n": 3
+ },
+ "https://openalex.org/W2028902657": {
+  "id": "https://openalex.org/W2028902657",
+  "metric": 0.7000000000000001,
+  "peak": 0.5459999999999999,
+  "cwmean": 0.7000000000000001,
+  "n": 2
+ },
+ "https://openalex.org/W2078675004": {
+  "id": "https://openalex.org/W2078675004",
+  "metric": 0.4529411764705882,
+  "peak": 0.252,
+  "cwmean": 0.4529411764705882,
+  "n": 2
+ },
+ "https://openalex.org/W2184767677": {
+  "id": "https://openalex.org/W2184767677",
+  "metric": 0.7,
+  "peak": 0.434,
+  "cwmean": 0.7,
+  "n": 2
+ },
+ "https://openalex.org/W2049299089": {
+  "id": "https://openalex.org/W2049299089",
+  "metric": 0.7000000000000001,
+  "peak": 0.504,
+  "cwmean": 0.7000000000000001,
+  "n": 2
+ },
+ "https://openalex.org/W2050629539": {
+  "id": "https://openalex.org/W2050629539",
+  "metric": 0.28584070796460176,
+  "peak": 0.24499999999999997,
+  "cwmean": 0.28584070796460176,
+  "n": 2
+ },
+ "https://openalex.org/W2005742064": {
+  "id": "https://openalex.org/W2005742064",
+  "metric": 0.7,
+  "peak": 0.434,
+  "cwmean": 0.7,
+  "n": 1
+ },
+ "https://openalex.org/W1993703204": {
+  "id": "https://openalex.org/W1993703204",
+  "metric": 0.7,
+  "peak": 0.574,
+  "cwmean": 0.7,
+  "n": 1
+ },
+ "https://openalex.org/W2000443527": {
+  "id": "https://openalex.org/W2000443527",
+  "metric": 0.35,
+  "peak": 0.35,
+  "cwmean": 0.3272727272727273,
+  "n": 2
+ },
+ "https://openalex.org/W2003711757": {
+  "id": "https://openalex.org/W2003711757",
+  "metric": 0.7,
+  "peak": 0.434,
+  "cwmean": 0.7,
+  "n": 1
+ },
+ "https://openalex.org/W2153344477": {
+  "id": "https://openalex.org/W2153344477",
+  "metric": 0.7,
+  "peak": 0.42,
+  "cwmean": 0.7,
+  "n": 1
+ },
+ "https://openalex.org/W2065111467": {
+  "id": "https://openalex.org/W2065111467",
+  "metric": 0.5599999999999999,
+  "peak": 0.42,
+  "cwmean": 0.5599999999999999,
+  "n": 2
+ },
+ "https://openalex.org/W2094888653": {
+  "id": "https://openalex.org/W2094888653",
+  "metric": 0.7,
+  "peak": 0.5249999999999999,
+  "cwmean": 0.7,
+  "n": 3
+ },
+ "https://openalex.org/W1992355246": {
+  "id": "https://openalex.org/W1992355246",
+  "metric": 0.6999999999999997,
+  "peak": 0.574,
+  "cwmean": 0.6999999999999997,
+  "n": 3
+ },
+ "https://openalex.org/W1980462673": {
+  "id": "https://openalex.org/W1980462673",
+  "metric": 0.7578947368421052,
+  "peak": 0.44000000000000006,
+  "cwmean": 0.7578947368421052,
+  "n": 2
+ },
+ "https://openalex.org/W2007178963": {
+  "id": "https://openalex.org/W2007178963",
+  "metric": 0.35000000000000003,
+  "peak": 0.252,
+  "cwmean": 0.35000000000000003,
+  "n": 1
+ },
+ "https://openalex.org/W1986545022": {
+  "id": "https://openalex.org/W1986545022",
+  "metric": 0.6999999999999998,
+  "peak": 0.5459999999999999,
+  "cwmean": 0.6999999999999998,
+  "n": 2
+ },
+ "https://openalex.org/W2306633300": {
+  "id": "https://openalex.org/W2306633300",
+  "metric": 0.7,
+  "peak": 0.42,
+  "cwmean": 0.7,
+  "n": 1
+ }
+}
