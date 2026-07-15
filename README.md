@@ -32,7 +32,7 @@ The tiers come from a three-class analysis of *why* each desirable metric was bl
 - **anchor-dependent** — the fact points outside the record; guarantee resolvable external IDs → a reliable join.
 - **irreducibly semantic** — no format change makes it computable → a calibrated judge, forever.
 
-The full normative spec, including the honest-limitations section, is [`SPEC.md`](SPEC.md).
+The full normative spec, including the honest-limitations section, is [`SPEC.md`](SPEC.md). For the **field-by-field data shape as actually emitted** — every sidecar with types and example values — see [`DATA_SHAPE.md`](DATA_SHAPE.md) (the concrete reference; `SPEC.md` is the normative target, `SPEC.md §7a` records emitted-vs-specified).
 
 ## Reasoning summary (how we got here)
 
@@ -50,7 +50,8 @@ The program runs **metrics → substrate**: the metrics are the entry point, GRO
 gro/
   README.md              # you are here
   METRICS.md             # the ideal metrics — thesis, TOP-10, where existing efforts fall short
-  SPEC.md                # the normative GRO specification (the intended data shape)
+  SPEC.md                # the normative GRO specification (the intended data shape / full L1-L8 target)
+  DATA_SHAPE.md          # CANONICAL data-shape reference — every emitted sidecar, fields + example values (OpenAPI-style), tiers, and what's emitted vs specified
   metrics/               # the incentive-design program (the metrics + code + experiments)
     README.md
     directions.md · candidates.md · merged.md · data-shapes.md
