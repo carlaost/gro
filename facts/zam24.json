@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "slug": "zam24-what-is-autonoetic-consciousness",
+    "title": "What is autonoetic consciousness? Examining what underlies subjective experience in memory and future thinking",
+    "authors": ["Andreea Zaman", "Roni Setton", "Caroline Catmur", "Charlotte Russell"],
+    "year": 2024,
+    "venue": "Cognition 253:105934",
+    "doi": "10.1016/j.cognition.2024.105934",
+    "domain": "Cognitive psychology — autonoetic consciousness, episodic memory, mental time travel, psychometrics",
+    "keywords": ["autonoetic consciousness", "mental time travel", "re-experiencing", "remember/know", "episodic memory", "future thinking", "factor analysis", "mental imagery"],
+    "grounding": "full-text",
+    "overview": "Two studies (N=342) using factor analysis of subjective ratings to identify the latent markers of autonoetic consciousness across autobiographical memory, future simulation, and lab-encoded episodic memory. Re-experiencing and mental time travel emerge as core markers for memory; Remember/Know pools into a single strength factor; MTT drops out for future imagining; vivid first-person imagery underpins re-experiencing.",
+    "abstract": "Across two studies (N=342) with young healthy participants, exploratory and confirmatory factor analysis of subjective phenomenological ratings identified re-experiencing (and pre-experiencing for the future) plus mental time travel as core markers of autonoetic consciousness in memory. Remember and Know responses pooled into a single factor consistent with memory strength rather than distinct states of consciousness. Mental time travel did not load for imagining the future. The autonoetic factor structure predicted the richness of autobiographical narratives but not recall of a lab-encoded video, and vivid first-person visual imagery was associated with autonoetic re-experiencing."
+  },
+  "genre": {"paper_type": "cognitive_psychometric_factor_analysis_study",
+    "expected_slots": ["claims", "quantities", "experiments", "entities"],
+    "present_slots": ["claims", "quantities", "experiments", "entities"], "absent_declared": []},
+  "claims": [
+    {"key": "c1", "claim_type": "definition", "polarity": "positive", "population_scope": "cohort",
+     "statement": "Re-experiencing and mental time travel are the core markers of autonoetic consciousness in memory.",
+     "concept_keys": ["autonoetic", "mtt", "reexperiencing"], "depends_on_keys": []},
+    {"key": "c2", "claim_type": "measurement", "polarity": "negative", "population_scope": "cohort",
+     "statement": "The Remember/Know paradigm indexes memory strength, not qualitatively distinct states of consciousness (R and K pool into one factor).",
+     "concept_keys": ["rk_paradigm", "autonoetic"], "depends_on_keys": []},
+    {"key": "c3", "claim_type": "association", "polarity": "negative", "population_scope": "cohort",
+     "statement": "Mental time travel is not a core component of imagining future events (unlike memory).",
+     "concept_keys": ["mtt", "scene_construction"], "depends_on_keys": ["c1"]},
+    {"key": "c4", "claim_type": "association", "polarity": "positive", "population_scope": "cohort",
+     "statement": "Vivid, first-person visual imagery is associated with autonoetic re-experiencing of autobiographical memories.",
+     "concept_keys": ["reexperiencing", "autonoetic"], "depends_on_keys": ["c1"]},
+    {"key": "c5", "claim_type": "association", "polarity": "positive", "population_scope": "cohort",
+     "statement": "The autonoetic factor structure predicts richness of autobiographical narratives (remote: F(3,199)=4.4, p=.005) but not recall of a lab-encoded video.",
+     "concept_keys": ["autonoetic", "ai"], "depends_on_keys": ["c1"]}
+  ],
+  "quantities": [
+    {"key": "q_var_remote", "value": 21.3, "unit": "percent_variance", "role": "result", "source_ref": "p14", "claim_keys": ["c1"], "quote": "loaded onto the top factor, which explained 21.3% variability"},
+    {"key": "q_var_recent", "value": 25.9, "unit": "percent_variance", "role": "result", "source_ref": "p14", "claim_keys": ["c1"], "quote": "for recent memories ... top factor explained 25.9% variability"},
+    {"key": "q_var_rk", "value": 10.3, "unit": "percent_variance", "role": "result", "source_ref": "p14", "claim_keys": ["c2"], "quote": "The third factor, R/K ... explained 10.3% variability"},
+    {"key": "q_pred_F", "value": 4.4, "unit": "F_stat", "role": "result", "source_ref": "p17", "claim_keys": ["c5"], "quote": "significantly predicted scores of Episodic Richness ... in remote memory F(3, 199) = 4.4, p = .005"},
+    {"key": "q_pred_p", "value": 0.005, "unit": "p_value", "role": "result", "source_ref": "p17", "claim_keys": ["c5"], "quote": "in remote memory F(3, 199) = 4.4, p = .005"},
+    {"key": "q_irr", "value": 0.99, "unit": "icc", "role": "result", "source_ref": "p10", "claim_keys": [], "quote": "excellent agreement between markers (r = .99, p< .001)"},
+    {"key": "q_n_total", "value": 342, "unit": "participants", "role": "input", "source_ref": "p2 Abstract", "claim_keys": ["c1"], "quote": "Across two studies (N = 342) we asked young, healthy participants"},
+    {"key": "q_n_s1", "value": 202, "unit": "participants", "role": "input", "source_ref": "p9", "claim_keys": ["c5"], "quote": "Two hundred and two participants (142 females) aged between 18-35"},
+    {"key": "q_n_s2", "value": 123, "unit": "participants", "role": "input", "source_ref": "p22", "claim_keys": [], "quote": "resulting in a final sample of 123 participants (84 females)"},
+    {"key": "q_video_min", "value": 8, "unit": "minutes", "role": "input", "source_ref": "p22", "claim_keys": [], "quote": "an 8-minute video of a day out in London"}
+  ],
+  "entities": [
+    {"key": "autonoetic", "term": "Autonoetic consciousness", "kind": "concept"},
+    {"key": "mtt", "term": "Mental time travel", "kind": "concept"},
+    {"key": "reexperiencing", "term": "Re-experiencing / pre-experiencing", "kind": "concept"},
+    {"key": "rk_paradigm", "term": "Remember/Know paradigm", "kind": "method"},
+    {"key": "scene_construction", "term": "Scene construction (vs self-projection)", "kind": "concept"},
+    {"key": "ai", "term": "Autobiographical Interview (episodic richness scoring)", "kind": "measure"},
+    {"key": "efa", "term": "Exploratory / confirmatory factor analysis", "kind": "method"}
+  ],
+  "contributions": [
+    {"author_framed_type": "autonoetic_measurement_framework", "assessed_type": "new_method", "confidence": 0.7,
+     "typing_rationale": "Develops a data-driven framework identifying latent markers of autonoetic consciousness from subjective ratings across memory and future thinking.",
+     "realized_in": ["c1"]},
+    {"author_framed_type": "imagery_autonoesis_link", "assessed_type": "new_finding", "confidence": 0.65,
+     "typing_rationale": "Empirically ties specific mental-imagery features (vividness, first-person perspective) to autonoetic consciousness.",
+     "realized_in": ["c4"]},
+    {"author_framed_type": "mtt_future_dissociation", "assessed_type": "new_finding", "confidence": 0.6,
+     "typing_rationale": "Provides evidence dissociating mental time travel from future simulation, favoring scene-construction over self-projection accounts for the future.",
+     "realized_in": ["c3"]},
+    {"author_framed_type": "remember_know_critique", "assessed_type": "synthesis", "confidence": 0.6,
+     "typing_rationale": "Challenges the Remember/Know paradigm as a proxy for qualitative subjective experience, reframing it as a strength index.",
+     "realized_in": ["c2"]}
+  ],
+  "external_baselines": [],
+  "deltas": [],
+  "refs": [
+    {"key": "r_tulving85", "raw": "Tulving 1985 — Memory and consciousness (Can Psychol)", "external_id": "10.1037/h0080017"},
+    {"key": "r_levine02", "raw": "Levine, Svoboda, Hay, Winocur & Moscovitch 2002 — The Autobiographical Interview (Psychol Aging)", "external_id": "10.1037/0882-7974.17.4.677"},
+    {"key": "r_hassabis07", "raw": "Hassabis & Maguire 2007 — Deconstructing episodic memory with construction (Trends Cogn Sci)", "external_id": "10.1016/j.tics.2007.05.001"},
+    {"key": "r_wixted10", "raw": "Wixted & Mickes 2010 — A continuous dual-process model of remember/know judgments (Psychol Rev)", "external_id": "10.1037/a0020874"},
+    {"key": "r_irish08", "raw": "Irish, Lawlor, O'Mara & Coen 2008 — Behavioural markers of autonoetic consciousness (Behav Neurol)", "external_id": "10.1155/2008/848746"},
+    {"key": "r_umanath20", "raw": "Umanath & Coane 2020 — Face validity of remembering and knowing (Perspect Psychol Sci)", "external_id": "10.1177/1745691620917672"}
+  ],
+  "sota": {
+    "provenance": "undermind_resolved", "used_undermind": true,
+    "neighborhood": [
+      {"ref": "r_tulving85", "overlap": 0.45, "contemporaneous_uncited": false},
+      {"ref": "r_umanath20", "overlap": 0.4, "contemporaneous_uncited": false},
+      {"ref": "r_irish08", "overlap": 0.4, "contemporaneous_uncited": false},
+      {"ref": "r_wixted10", "overlap": 0.35, "contemporaneous_uncited": false}
+    ],
+    "resolver_notes": "Undermind semantic search (year_max=2024) placed this among the remember/know + autonoetic-marker literature: Tulving 1985 (the construct operationalized), Irish 2008 (behavioural autonoetic-marker method), Wixted & Mickes 2010 (continuous dual-process R/K as strength — supports the strength reinterpretation), and Umanath & Coane 2020 (R/K face validity). Framework-level overlap; the data-driven factor structure of autonoetic markers is the novel contribution."
+  }
+}

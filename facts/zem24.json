@@ -1,0 +1,71 @@
+{
+  "meta": {
+    "slug": "zem24-aphantasia-hyperphantasia-imagery-extremes",
+    "title": "Aphantasia and hyperphantasia: exploring imagery vividness extremes",
+    "authors": ["Adam Zeman"],
+    "year": 2024,
+    "venue": "Trends in Cognitive Sciences 28(6)",
+    "doi": "10.1016/j.tics.2024.02.007",
+    "domain": "Cognitive neuroscience — mental imagery vividness extremes (review)",
+    "keywords": ["aphantasia", "hyperphantasia", "visual imagery", "VVIQ", "autobiographical memory", "face recognition", "frontoparietal-visual connectivity"],
+    "grounding": "full-text",
+    "overview": "Narrative review of aphantasia (absent/markedly reduced voluntary imagery) and hyperphantasia (perception-like vivid imagery) as the extremes of imagery vividness — prevalence, familial aggregation, associations with memory/face-recognition/autism, preserved visual dreaming, and candidate neural substrates in frontoparietal-visual connectivity.",
+    "abstract": "The vividness of imagery varies between individuals. The existence of people with markedly reduced or absent wakeful imagery was neglected until the coinage of 'aphantasia'; 'hyperphantasia' denotes imagery rivalling perception. Around 1% and 3% of the population experience extreme aphantasia and hyperphantasia. Aphantasia runs in families, often affects several sense modalities, and is variably associated with reduced autobiographical memory, face-recognition difficulty, and autism, while visual dreaming is often preserved. Altered connectivity between frontoparietal and visual networks may provide the neural substrate for imagery extremes."
+  },
+  "genre": {"paper_type": "review_narrative",
+    "expected_slots": ["claims", "quantities", "entities"],
+    "present_slots": ["claims", "quantities", "entities"], "absent_declared": ["controlled_experiment", "dataset"]},
+  "claims": [
+    {"key": "c1", "claim_type": "existence", "polarity": "positive", "population_scope": "multi_cohort",
+     "statement": "Aphantasia (~1%) and hyperphantasia (~3%) exist as extremes of imagery vividness in the general population.",
+     "concept_keys": ["aphantasia", "hyperphantasia"], "depends_on_keys": []},
+    {"key": "c2", "claim_type": "association", "polarity": "positive", "population_scope": "cohort",
+     "statement": "Aphantasia is variably associated with reduced autobiographical memory.",
+     "concept_keys": ["aphantasia", "autobiographical_memory"], "depends_on_keys": ["c1"]},
+    {"key": "c3", "claim_type": "association", "polarity": "positive", "population_scope": "cohort",
+     "statement": "Aphantasia is associated with increased likelihood of face-recognition difficulty.",
+     "concept_keys": ["aphantasia", "face_recognition"], "depends_on_keys": ["c1"]},
+    {"key": "c4", "claim_type": "association", "polarity": "positive", "population_scope": "multi_cohort",
+     "statement": "Aphantasia aggregates in families (elevated sibling recurrence).",
+     "concept_keys": ["aphantasia"], "depends_on_keys": ["c1"]},
+    {"key": "c5", "claim_type": "theory", "polarity": "positive", "population_scope": "not_applicable",
+     "statement": "Altered connectivity between frontoparietal and visual networks provides the neural substrate for imagery extremes.",
+     "concept_keys": ["frontoparietal_network", "aphantasia"], "depends_on_keys": []}
+  ],
+  "quantities": [
+    {"key": "q_aph_prev", "value": 1, "unit": "percent", "role": "result", "source_ref": "Abstract", "claim_keys": ["c1"], "quote": "Around 1% and 3% of the population experience extreme aphantasia and hyperphantasia, respectively."},
+    {"key": "q_hyp_prev", "value": 3, "unit": "percent", "role": "result", "source_ref": "Abstract", "claim_keys": ["c1"], "quote": "Around 1% and 3% of the population experience extreme aphantasia and hyperphantasia, respectively."},
+    {"key": "q_sibling", "value": 9.6, "unit": "recurrence_risk_ratio", "role": "result", "source_ref": "body", "claim_keys": ["c4"], "quote": "A sibling recurrence risk of 9.6 in aphantasia, indicating a roughly 10-fold increase in the likelihood of aphantasia in siblings versus the general population"}
+  ],
+  "entities": [
+    {"key": "aphantasia", "term": "Aphantasia", "kind": "concept"},
+    {"key": "hyperphantasia", "term": "Hyperphantasia", "kind": "concept"},
+    {"key": "autobiographical_memory", "term": "Autobiographical memory", "kind": "concept"},
+    {"key": "face_recognition", "term": "Face recognition / prosopagnosia", "kind": "concept"},
+    {"key": "frontoparietal_network", "term": "Frontoparietal-visual network connectivity", "kind": "concept"},
+    {"key": "vviq", "term": "VVIQ (Vividness of Visual Imagery Questionnaire)", "kind": "measure"}
+  ],
+  "contributions": [
+    {"author_framed_type": "review_of_imagery_extremes", "assessed_type": "synthesis", "confidence": 0.85,
+     "typing_rationale": "Explicitly a Trends in Cognitive Sciences review synthesizing behavioural, physiological, and neural evidence on aphantasia and hyperphantasia into a unified account of imagery vividness extremes.",
+     "realized_in": ["c1", "c2", "c3", "c4", "c5"]}
+  ],
+  "external_baselines": [],
+  "deltas": [],
+  "refs": [
+    {"key": "r_galton1880", "raw": "Galton 1880 — Statistics of mental imagery (Mind)", "external_id": "10.1093/mind/os-V.19.301"},
+    {"key": "r_zeman15", "raw": "Zeman, Dewar & Della Sala 2015 — Lives without imagery (Cortex)", "external_id": "10.1016/j.cortex.2015.05.019"},
+    {"key": "r_zeman20", "raw": "Zeman et al. 2020 — Phantasia: lifelong visual imagery vividness extremes (Cortex)", "external_id": ""},
+    {"key": "r_mil21", "raw": "Milton et al. 2021 — Behavioral and neural signatures of imagery vividness extremes (Cereb Cortex Commun)", "external_id": ""},
+    {"key": "r_kay22", "raw": "Kay, Keogh, Andrillon & Pearson 2022 — Pupillary light response as a physiological index of aphantasia (eLife)", "external_id": "10.7554/eLife.72484"}
+  ],
+  "sota": {
+    "provenance": "undermind_resolved", "used_undermind": true,
+    "neighborhood": [
+      {"ref": "r_zeman20", "overlap": 0.45, "contemporaneous_uncited": false},
+      {"ref": "r_mil21", "overlap": 0.4, "contemporaneous_uncited": false},
+      {"ref": "r_kay22", "overlap": 0.3, "contemporaneous_uncited": false}
+    ],
+    "resolver_notes": "Undermind semantic search (year_max=2024) placed this review directly downstream of the author's own prior work: Zeman 2020 (Phantasia) is the closest prior review, Milton 2021 supplies the behavioural/neural signatures, and Kay 2022 the physiological index it summarizes. A 2024 7T-fMRI study (Liu 2024) is a contemporaneous empirical neighbour. As a synthesis of a maturing field, finding-level overlap with its priors is high."
+  }
+}

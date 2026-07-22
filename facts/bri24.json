@@ -1,0 +1,79 @@
+{
+  "meta": {
+    "slug": "bri24-episodic-memory-without-autonoetic-consciousness",
+    "title": "Episodic memory without autonoetic consciousness",
+    "authors": ["Felipe De Brigard"],
+    "year": 2024,
+    "venue": "Philosophical Transactions of the Royal Society B 379:20230410",
+    "doi": "10.1098/rstb.2023.0410",
+    "domain": "Philosophy of mind / philosophy of memory — autonoetic consciousness and episodic memory",
+    "keywords": ["autonoetic consciousness", "episodic memory", "phenomenology", "mental time travel", "aphantasia", "SDAM", "philosophy of memory", "functional characterization"],
+    "grounding": "full-text",
+    "overview": "A theoretical/philosophical argument that autonoetic consciousness is neither a valid construct nor necessary for episodic memory. Marshalls clinical dissociations (aphantasia, SDAM, cases J.V./M.L./R.B.) and factor-analytic evidence to argue phenomenology is a contingent feature of retrieval, and proposes a 'topology of memory' model plus a return to a functional/computational characterization of episodic memory.",
+    "abstract": "This opinion piece argues that the construct of autonoetic consciousness lacks validity and is not necessary for episodic memory. Drawing on factor-analytic results (Remember/Know responses do not load with re-experiencing), clinical dissociations (aphantasia, SDAM, and cases who recollect without a sense of ownership), and developmental/comparative considerations, it proposes that the phenomenology typically associated with episodic memory is a contingent property of the retrieval process, determined by the 'topology' of a memory, and advocates returning to a functional/computational characterization of episodic memory."
+  },
+  "genre": {"paper_type": "philosophy_of_mind_theoretical",
+    "expected_slots": ["claims", "arguments"],
+    "present_slots": ["claims", "quantities"],
+    "absent_declared": ["controlled_experiment", "dataset"]},
+  "claims": [
+    {"key": "c1", "claim_type": "theory", "polarity": "negative", "population_scope": "not_applicable",
+     "statement": "The construct of autonoetic consciousness lacks validity.",
+     "concept_keys": ["autonoetic", "phenomenology"], "depends_on_keys": []},
+    {"key": "c2", "claim_type": "existence", "polarity": "negative", "population_scope": "sample",
+     "statement": "Autonoetic consciousness is not necessary for episodic memory (patients recollect specific events without a sense of ownership/re-experiencing).",
+     "concept_keys": ["autonoetic", "episodic_memory"], "depends_on_keys": ["c1"]},
+    {"key": "c3", "claim_type": "theory", "polarity": "positive", "population_scope": "not_applicable",
+     "statement": "The phenomenology associated with episodic memory is a contingent, not necessary, property — determined by the 'topology' of the memory.",
+     "concept_keys": ["phenomenology", "topology", "episodic_memory"], "depends_on_keys": ["c2"]},
+    {"key": "c4", "claim_type": "generalization", "polarity": "positive", "population_scope": "not_applicable",
+     "statement": "Episodic memory should return to a functional/computational characterization, enabling developmental, comparative (non-human) and artificial-agent work.",
+     "concept_keys": ["episodic_memory"], "depends_on_keys": ["c3"]}
+  ],
+  "quantities": [
+    {"key": "q_dev_age", "value": 4, "unit": "years", "role": "result", "source_ref": "p5 (cited)", "claim_keys": ["c2"], "quote": "children younger than 4 years of age do not yet have such a system (citing Tulving)"},
+    {"key": "q_infant_months", "value": 6, "unit": "months", "role": "result", "source_ref": "p5 (cited)", "claim_keys": ["c2"], "quote": "preverbal children, as early as six months old, can remember ... information"},
+    {"key": "q_tulving_cites", "value": 500, "unit": "citations", "role": "input", "source_ref": "p1 (cited)", "claim_keys": [], "quote": "Tulving's 1983 ... had been cited more than 500 times by 1985"}
+  ],
+  "entities": [
+    {"key": "autonoetic", "term": "Autonoetic consciousness ('self-knowing')", "kind": "concept"},
+    {"key": "noetic", "term": "Noetic / anoetic consciousness", "kind": "concept"},
+    {"key": "episodic_memory", "term": "Episodic memory (functional/computational sense)", "kind": "concept"},
+    {"key": "phenomenology", "term": "Phenomenology / 'feel' of remembering", "kind": "concept"},
+    {"key": "topology", "term": "Topology of a memory (threshold of subjectivity)", "kind": "concept"},
+    {"key": "mtt", "term": "Mental time travel", "kind": "concept"},
+    {"key": "aphantasia", "term": "Aphantasia (cited dissociation)", "kind": "concept"},
+    {"key": "sdam", "term": "SDAM (cited dissociation)", "kind": "concept"}
+  ],
+  "contributions": [
+    {"author_framed_type": "intentional_objects_vs_contents_distinction", "assessed_type": "synthesis", "confidence": 0.7,
+     "typing_rationale": "Introduces intentional-objects-vs-contents and conceptual-vs-non-conceptual-contents distinctions to explain when memory phenomenology arises.",
+     "realized_in": ["c3"]},
+    {"author_framed_type": "topology_of_memory_model", "assessed_type": "new_paradigm", "confidence": 0.65,
+     "typing_rationale": "Proposes a topology-of-memory model in which conscious 'flavour' depends on content strength crossing a threshold of subjectivity.",
+     "realized_in": ["c3"]},
+    {"author_framed_type": "functional_reframing_of_episodic_memory", "assessed_type": "refutation", "confidence": 0.6,
+     "typing_rationale": "Synthesizes Tulving's 40-year trajectory and clinical dissociations into an argument for a functional/computational account of episodic memory.",
+     "realized_in": ["c1", "c4"]}
+  ],
+  "external_baselines": [],
+  "deltas": [],
+  "refs": [
+    {"key": "r_tulving85", "raw": "Tulving 1985 — Memory and consciousness (Can Psychol)", "external_id": "10.1037/h0080017"},
+    {"key": "r_tulving83", "raw": "Tulving 1983 — Elements of episodic memory (OUP)", "external_id": ""},
+    {"key": "r_klein13", "raw": "Klein 2013 — Episodic recollection attributable to retrieval operations (Front Behav Neurosci)", "external_id": "10.3389/fnbeh.2013.00003"},
+    {"key": "r_zaman24", "raw": "Zaman, Setton, Catmur & Russell 2024 — What is autonoetic consciousness? (PsyArXiv/Cognition)", "external_id": "10.31234/osf.io/qp6hj"},
+    {"key": "r_umanath20", "raw": "Umanath & Coane 2020 — Face validity of remembering and knowing (Perspect Psychol Sci)", "external_id": "10.1177/1745691620917672"},
+    {"key": "r_carruthers18", "raw": "Carruthers 2018 — Episodic memory isn't essentially autonoetic (Behavioral and Brain Sciences commentary)", "external_id": ""}
+  ],
+  "sota": {
+    "provenance": "undermind_resolved", "used_undermind": true,
+    "neighborhood": [
+      {"ref": "r_carruthers18", "overlap": 0.5, "contemporaneous_uncited": false},
+      {"ref": "r_klein13", "overlap": 0.45, "contemporaneous_uncited": false},
+      {"ref": "r_zaman24", "overlap": 0.4, "contemporaneous_uncited": false},
+      {"ref": "r_tulving85", "overlap": 0.35, "contemporaneous_uncited": false}
+    ],
+    "resolver_notes": "Undermind semantic search (year_max=2024) surfaced Carruthers 2018 ('Episodic memory isn't essentially autonoetic') as the closest finding-level prior (nearly the same thesis) and Klein 2013 (recollection as a retrieval operation). Zaman et al. 2024 supplies contemporaneous empirical support (R/K as strength); Tulving 1985 is the position refuted. Moderate-to-high overlap on the bare thesis — the novelty is the topology-of-memory model and functional reframing, not the claim that autonoesis is dispensable."
+  }
+}

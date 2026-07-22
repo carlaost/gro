@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "slug": "wat17-aphantasia-and-sdam-scientific-personal-perspectives",
+    "title": "(A)phantasia and Severely Deficient Autobiographical Memory: Scientific and Personal Perspectives",
+    "authors": ["Nicholas Wynn Watkins"],
+    "year": 2018,
+    "venue": "Cortex 105:41-52",
+    "doi": "10.1016/j.cortex.2017.10.010",
+    "domain": "Cognitive neuroscience / first-person phenomenology — aphantasia and severely deficient autobiographical memory",
+    "keywords": ["aphantasia", "SDAM", "autonoetic consciousness", "episodic vs semantic memory", "first-person report", "mental imagery", "history of science"],
+    "grounding": "full-text",
+    "overview": "Hybrid single-case first-person report and scientific review by an author who was one of the three original SDAM subjects of Palombo et al. (2015) and is also aphantasic. Combines lived-experience testimony with a review of imagery in the history of science and a heuristic model relating aphantasia and SDAM.",
+    "abstract": "A combined scientific-and-personal-perspective article on living with both aphantasia (absence of voluntary visual imagery) and Severely Deficient Autobiographical Memory (SDAM). The author, a subject in the original SDAM study, argues the two conditions are related but distinct, that SDAM reflects a specific deficit in episodic re-experiencing rather than recognition, and that lacking imagery need not be an educational or career disadvantage, illustrated with the history of imagery in physics and mathematics."
+  },
+  "genre": {"paper_type": "first_person_perspective_plus_scientific_review",
+    "expected_slots": ["claims", "quantities", "experiential_report"],
+    "present_slots": ["claims", "quantities", "experiential_report"],
+    "absent_declared": ["controlled_experiment", "dataset"]},
+  "claims": [
+    {"key": "c1", "claim_type": "existence", "polarity": "positive", "population_scope": "multi_cohort",
+     "statement": "A significant minority of people lack voluntary mental imagery (aphantasia), and some otherwise-healthy people have severely deficient autobiographical memory (SDAM).",
+     "concept_keys": ["aphantasia", "sdam"], "depends_on_keys": []},
+    {"key": "c2", "claim_type": "comparison", "polarity": "positive", "population_scope": "sample",
+     "statement": "Aphantasia and SDAM are related but distinct: some aphantasic people have no autobiographical-memory deficit.",
+     "concept_keys": ["aphantasia", "sdam"], "depends_on_keys": ["c1"]},
+    {"key": "c3", "claim_type": "association", "polarity": "positive", "population_scope": "sample",
+     "statement": "Aphantasia is associated (first-person) with a compensatory reliance on verbal and abstract over visual/concrete thought.",
+     "concept_keys": ["aphantasia"], "depends_on_keys": []},
+    {"key": "c4", "claim_type": "measurement", "polarity": "positive", "population_scope": "sample",
+     "statement": "SDAM reflects a specific deficit in episodic re-experiencing, not in factual recognition, evidenced by the absence of a ~500 ms recognition-related ERP present in controls.",
+     "concept_keys": ["sdam", "episodic_semantic"], "depends_on_keys": ["c1"]},
+    {"key": "c5", "claim_type": "generalization", "polarity": "negative", "population_scope": "sample",
+     "statement": "Aphantasia is not necessarily an educational or career disadvantage.",
+     "concept_keys": ["aphantasia"], "depends_on_keys": []},
+    {"key": "c6", "claim_type": "association", "polarity": "positive", "population_scope": "sample",
+     "statement": "Dreaming and voluntary imagery likely depend on partly different neural circuits (brainstem-driven vs fronto-parietal executive).",
+     "concept_keys": ["aphantasia"], "depends_on_keys": []}
+  ],
+  "quantities": [
+    {"key": "q_prevalence", "value": 2, "unit": "percent", "role": "result", "source_ref": "p10", "claim_keys": ["c1"], "quote": "as many as 2% of the population may be aphantasic"},
+    {"key": "q_survey_n", "value": 2500, "unit": "people", "role": "input", "source_ref": "p10", "claim_keys": ["c1"], "quote": "His surveys of a total of 2500 people are the source for his widely quoted ... provisional estimate"},
+    {"key": "q_exeter_responses", "value": 10000, "unit": "responses", "role": "input", "source_ref": "p13", "claim_keys": ["c1"], "quote": "more than 10 000 responses the Exeter team have now received"},
+    {"key": "q_hippo_reduction", "value": 10, "unit": "percent", "role": "result", "source_ref": "p13", "claim_keys": ["c4"], "quote": "All of us had a reduction of about 10% in the right hand hippocampal volume"},
+    {"key": "q_galton_n", "value": 100, "unit": "men_of_science", "role": "input", "source_ref": "p5", "claim_keys": ["c5"], "quote": "Galton extended these first approaches to a larger sample of 100 'men of science'"},
+    {"key": "q_galton_noimagery", "value": 6, "unit": "respondents", "role": "result", "source_ref": "p5", "claim_keys": ["c5"], "quote": "up to six of his respondents seem to have reported themselves to be truly without experiences of visual imagery"}
+  ],
+  "entities": [
+    {"key": "aphantasia", "term": "Aphantasia (voluntary vs. complete)", "kind": "concept"},
+    {"key": "sdam", "term": "Severely Deficient Autobiographical Memory (SDAM)", "kind": "concept"},
+    {"key": "episodic_semantic", "term": "Episodic vs. semantic memory / personal semantics", "kind": "concept"},
+    {"key": "autonoetic", "term": "Autonoetic consciousness / mental time travel", "kind": "concept"},
+    {"key": "vviq", "term": "Marks Vividness of Visual Imagery (VVI) score", "kind": "measure"},
+    {"key": "ai", "term": "Autobiographical Interview (investigators' questionnaire)", "kind": "measure"},
+    {"key": "rey", "term": "Rey complex figure test", "kind": "measure"}
+  ],
+  "contributions": [
+    {"author_framed_type": "first_person_testimony_aphantasia_plus_sdam", "assessed_type": "new_finding", "confidence": 0.8,
+     "typing_rationale": "Detailed lived-experience account by an original SDAM study subject who is also aphantasic — a rare combined first-person report describing awareness limited to direct sensory input, 'unheard' words, and 'invisible imagery'.",
+     "realized_in": ["c3", "c1"]},
+    {"author_framed_type": "heuristic_relationship_model", "assessed_type": "synthesis", "confidence": 0.5,
+     "typing_rationale": "Proposes a nested heuristic (voluntary aphantasia superset of total aphantasia superset of SDAM) as a hypothesis about how the conditions relate; explicitly provisional pending cases of SDAM with intact voluntary imagery.",
+     "realized_in": ["c2"]},
+    {"author_framed_type": "history_of_imagery_in_science", "assessed_type": "synthesis", "confidence": 0.6,
+     "typing_rationale": "Synthesizes historical evidence (Galton onward; Einstein, Dirac, Mandelbrot, Bourbaki) on the role of imagery and its absence in scientific and mathematical thought.",
+     "realized_in": ["c5"]}
+  ],
+  "external_baselines": [
+    {"key": "xq_devamnesia_hippo", "value": 40, "unit": "percent", "verification": "source_verified",
+     "description": "Bilateral hippocampal volume reduction typical of developmental amnesics (paper cites ~30-50%; midpoint 40%), Vargha-Khadem et al. 1997.", "external_id": "10.1126/science.277.5324.376"}
+  ],
+  "deltas": [
+    {"claimed": "q_hippo_reduction", "baseline": "xq_devamnesia_hippo",
+     "note": "SDAM shows ~10% RIGHT-hippocampal reduction vs ~30-50% BILATERAL reduction in developmental amnesia. Negative delta (structural deviation far milder), consistent with SDAM's intact recognition and semantic memory — SDAM is a subtle variant, not a lesion amnesia."}
+  ],
+  "refs": [
+    {"key": "r_zeman15", "raw": "Zeman, Dewar & Della Sala 2015 — Lives without imagery: congenital aphantasia (Cortex)", "external_id": "10.1016/j.cortex.2015.05.019"},
+    {"key": "r_palombo15", "raw": "Palombo, Alain, Soderlund, Khuu & Levine 2015 — SDAM: a new mnemonic syndrome (Neuropsychologia)", "external_id": "10.1016/j.neuropsychologia.2015.04.012"},
+    {"key": "r_galton80", "raw": "Galton 1880 — Statistics of Mental Imagery (Mind)", "external_id": "10.1093/mind/os-V.19.301"},
+    {"key": "r_tulving02", "raw": "Tulving 2002 — Episodic memory: from mind to brain (Annu Rev Psychol)", "external_id": "10.1146/annurev.psych.53.100901.135114"},
+    {"key": "r_sacks10", "raw": "Sacks 2010 — The Mind's Eye (Knopf)", "external_id": ""},
+    {"key": "r_brons18", "raw": "Brons 2018 — What is it like to remember something? SDAM, aphantasia, and the role of imagery in memory", "external_id": ""}
+  ],
+  "sota": {
+    "provenance": "undermind_resolved", "used_undermind": true,
+    "neighborhood": [
+      {"ref": "r_palombo15", "overlap": 0.45, "contemporaneous_uncited": false},
+      {"ref": "r_brons18", "overlap": 0.35, "contemporaneous_uncited": true},
+      {"ref": "r_zeman15", "overlap": 0.3, "contemporaneous_uncited": false},
+      {"ref": "r_tulving02", "overlap": 0.2, "contemporaneous_uncited": false}
+    ],
+    "resolver_notes": "Undermind semantic search (year_max=2018) surfaced Palombo et al. 2015 (the SDAM syndrome the author is a subject of) as the primary prior, Zeman 2015 (aphantasia) as the imagery-side prior, and Brons 2018 as a contemporaneous near-neighbor also linking SDAM/aphantasia/imagery in memory (likely uncited). As a hybrid first-person + review, finding-level overlap is moderate and the combined-condition testimony has no close precedent."
+  }
+}

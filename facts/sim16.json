@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "slug": "sim16-mental-imagery-in-bipolar-disorder-minds-eye",
+    "title": "An investigation of mental imagery in bipolar disorder: Exploring \"the mind's eye\"",
+    "authors": ["Martina Di Simplicio", "Fritz Renner", "Simon E Blackwell", "Heather Mitchell", "Hannah J Stratford", "Peter Watson", "Nick Myers", "Anna C Nobre", "Alex Lau-Zhu", "Emily A Holmes"],
+    "year": 2016,
+    "venue": "Bipolar Disorders 18:669-683",
+    "doi": "10.1111/bdi.12453",
+    "domain": "Clinical psychology / psychiatry — mental imagery in bipolar disorder and mood instability",
+    "keywords": ["bipolar disorder", "mental imagery", "emotional amplifier", "prospective imagery", "flash-forwards", "mood instability", "affective lability", "transdiagnostic"],
+    "grounding": "full-text",
+    "overview": "Cross-sectional case-control study (N=131) giving people with bipolar disorder, unipolar depression, anxiety disorders, and non-clinical controls a battery of subjective imagery, emotional-imagery, and cognitive imagery tasks. Bipolar disorder is marked by heightened impact of intrusive prospective (emotional) imagery, but basic cognitive imagery stages are intact and the emotional-imagery abnormality is transdiagnostic (tracks affective lability rather than diagnosis).",
+    "abstract": "People with bipolar disorder (BD) reported greater impact of intrusive prospective mental imagery in daily life than non-clinical controls, while showing no clear abnormalities in the basic cognitive stages of imagery (generation, inspection, manipulation) and even superior visual short-term memory. When matched for depression and anxiety, these emotional-imagery abnormalities were not specific to BD, suggesting emotional mental imagery is a transdiagnostic marker of affective lability rather than a BD-specific deficit."
+  },
+  "genre": {"paper_type": "clinical_cognitive_experimental_case_control",
+    "expected_slots": ["claims", "quantities", "experiments", "entities"],
+    "present_slots": ["claims", "quantities", "experiments", "entities"], "absent_declared": []},
+  "claims": [
+    {"key": "c1", "claim_type": "comparison", "polarity": "positive", "population_scope": "cohort", "population_n": 131,
+     "statement": "Bipolar disorder is associated with greater daily-life impact of intrusive prospective mental imagery than non-clinical controls (IFES 29.87 vs 17.42, p<0.001).",
+     "concept_keys": ["bipolar", "prospective_imagery", "emotional_amplifier"], "depends_on_keys": []},
+    {"key": "c2", "claim_type": "comparison", "polarity": "null", "population_scope": "cohort",
+     "statement": "Basic cognitive stages of mental imagery (generation, inspection, manipulation) are largely intact in bipolar disorder.",
+     "concept_keys": ["bipolar", "imagery"], "depends_on_keys": []},
+    {"key": "c3", "claim_type": "comparison", "polarity": "null", "population_scope": "cohort",
+     "statement": "Emotional-imagery abnormalities are not specific to bipolar disorder when matched for depression and anxiety — a transdiagnostic marker.",
+     "concept_keys": ["bipolar", "emotional_amplifier"], "depends_on_keys": ["c1"]},
+    {"key": "c4", "claim_type": "comparison", "polarity": "positive", "population_scope": "cohort",
+     "statement": "People with bipolar disorder show superior visual short-term memory recall vs controls (0.65 vs 0.53, p=0.04).",
+     "concept_keys": ["bipolar", "stm"], "depends_on_keys": []},
+    {"key": "c5", "claim_type": "association", "polarity": "positive", "population_scope": "cohort",
+     "statement": "Across all groups, higher affective lability is associated with greater impact of emotional prospective imagery (beta=0.293, p=.001).",
+     "concept_keys": ["mood_instability", "prospective_imagery", "als"], "depends_on_keys": ["c3"]}
+  ],
+  "quantities": [
+    {"key": "q_ifes_bd", "value": 29.87, "unit": "IFES_score", "comparator": "vs_control", "role": "result", "source_ref": "p8 Table 3", "claim_keys": ["c1"], "quote": "IFES Total Score ... Bipolar disorder Mean (SD) (n=54) ... 29.87 (15.82)"},
+    {"key": "q_ifes_ctrl", "value": 17.42, "unit": "IFES_score", "role": "result", "source_ref": "p8 Table 3", "claim_keys": ["c1"], "quote": "Non-clinical controls Mean (SD) (n=24) ... 17.42 (9.31); P<0.001"},
+    {"key": "q_stm_bd", "value": 0.65, "unit": "recall_rate", "comparator": "vs_control", "role": "result", "source_ref": "p7 Table 2", "claim_keys": ["c4"], "quote": "STM Recall Rate ... Bipolar disorder Mean (SD) (n=54) ... 0.65 (0.21)"},
+    {"key": "q_stm_ctrl", "value": 0.53, "unit": "recall_rate", "role": "result", "source_ref": "p7 Table 2", "claim_keys": ["c4"], "quote": "Non-clinical controls Mean (SD) (n=24) ... 0.53 (0.19)"},
+    {"key": "q_stm_p", "value": 0.04, "unit": "p_value", "role": "result", "source_ref": "p7 Table 2", "claim_keys": ["c4"], "quote": "P=0.04"},
+    {"key": "q_beta_als", "value": 0.293, "unit": "beta", "role": "result", "source_ref": "p11 sec 3.5.2", "claim_keys": ["c5"], "quote": "higher affective lability scores ... were associated with greater impact of emotional prospective imagery scores on the IFES [beta=0.293, t(119)=3.43, P=.001]"},
+    {"key": "q_beta_p", "value": 0.001, "unit": "p_value", "role": "result", "source_ref": "p11 sec 3.5.2", "claim_keys": ["c5"], "quote": "P=.001"},
+    {"key": "q_n_bd", "value": 54, "unit": "participants", "role": "input", "source_ref": "p1 Methods", "claim_keys": ["c1"], "quote": "54 subjects in the BD group (depressed/euthymic; n=27 in each subgroup)"},
+    {"key": "q_n_total", "value": 131, "unit": "participants", "role": "input", "source_ref": "p3", "claim_keys": ["c1"], "quote": "N=131 participants across four groups (BD 54, unipolar depression 26, anxiety 25, controls 27)"}
+  ],
+  "entities": [
+    {"key": "bipolar", "term": "Bipolar disorder (depressed/euthymic)", "kind": "concept"},
+    {"key": "imagery", "term": "Mental imagery (cognitive stages: generation/inspection/manipulation)", "kind": "concept"},
+    {"key": "emotional_amplifier", "term": "Emotional mental imagery as 'emotional amplifier'", "kind": "concept"},
+    {"key": "prospective_imagery", "term": "Intrusive prospective imagery / flash-forwards", "kind": "concept"},
+    {"key": "mood_instability", "term": "Mood instability / affective lability", "kind": "concept"},
+    {"key": "ifes", "term": "IFES (Impact of Future Events Scale)", "kind": "measure"},
+    {"key": "suis", "term": "SUIS (Spontaneous Use of Imagery Scale)", "kind": "measure"},
+    {"key": "als", "term": "ALS (Affective Lability Scale)", "kind": "measure"},
+    {"key": "stm", "term": "Visual short-term memory task", "kind": "method"}
+  ],
+  "contributions": [
+    {"author_framed_type": "comprehensive_imagery_assessment_in_BD", "assessed_type": "new_finding", "confidence": 0.75,
+     "typing_rationale": "First comprehensive evaluation combining cognitive and emotional/subjective imagery domains in bipolar disorder within one sample.",
+     "realized_in": ["c1", "c2"]},
+    {"author_framed_type": "intact_basic_imagery_processes", "assessed_type": "new_finding", "confidence": 0.7,
+     "typing_rationale": "Shows basic (non-emotional) imagery processes are preserved in BD, supporting the feasibility of imagery-based therapies.",
+     "realized_in": ["c2", "c4"]},
+    {"author_framed_type": "transdiagnostic_emotional_imagery_marker", "assessed_type": "synthesis", "confidence": 0.65,
+     "typing_rationale": "Frames emotional mental imagery as a transdiagnostic marker of affective lability rather than a BD-specific abnormality, consistent with the 'emotional amplifier' hypothesis.",
+     "realized_in": ["c3", "c5"]}
+  ],
+  "external_baselines": [],
+  "deltas": [],
+  "refs": [
+    {"key": "r_pearson15", "raw": "Pearson, Naselaris, Holmes & Kosslyn 2015 — Mental imagery: functional mechanisms and clinical applications (Trends Cogn Sci)", "external_id": "10.1016/j.tics.2015.08.003"},
+    {"key": "r_holmes08", "raw": "Holmes, Geddes, Colom & Goodwin 2008 — Mental imagery as an emotional amplifier: application to bipolar disorder (Behav Res Ther)", "external_id": "10.1016/j.brat.2008.09.005"},
+    {"key": "r_holmes11", "raw": "Holmes, Deeprose, Fairburn et al. 2011 — Mood stability vs instability in bipolar disorder: role for emotional mental imagery (Behav Res Ther)", "external_id": "10.1016/j.brat.2011.06.008"},
+    {"key": "r_pearson13", "raw": "Pearson, Deeprose, Wallace-Hadrill et al. 2013 — Assessing mental imagery in clinical psychology (Clin Psychol Rev)", "external_id": "10.1016/j.cpr.2013.01.001"},
+    {"key": "r_ivins14", "raw": "Ivins, Di Simplicio, Close et al. 2014 — Mental imagery in bipolar vs unipolar depression at times of positive mood (J Affect Disord)", "external_id": "10.1016/j.jad.2013.10.033"},
+    {"key": "r_gregory10", "raw": "Gregory, Brewin, Mansell & Donaldson 2010 — Intrusive memories and images in bipolar disorder (Behav Res Ther)", "external_id": "10.1016/j.brat.2010.04.005"}
+  ],
+  "sota": {
+    "provenance": "undermind_resolved", "used_undermind": true,
+    "neighborhood": [
+      {"ref": "r_holmes11", "overlap": 0.5, "contemporaneous_uncited": false},
+      {"ref": "r_holmes08", "overlap": 0.45, "contemporaneous_uncited": false},
+      {"ref": "r_ivins14", "overlap": 0.4, "contemporaneous_uncited": false},
+      {"ref": "r_gregory10", "overlap": 0.35, "contemporaneous_uncited": false}
+    ],
+    "resolver_notes": "Undermind semantic search (year_max=2016) confirmed a dense, well-cited prior neighborhood largely from the same Holmes group: Holmes 2011 (emotional imagery and mood instability), Holmes 2008 (imagery as emotional amplifier — the founding hypothesis), Ivins 2014 (imagery in bipolar vs unipolar), and Gregory 2010 (intrusive imagery in bipolar). This paper is the comprehensive extension of that program, so finding-level overlap is high (moderate novelty relative to a mature line)."
+  }
+}

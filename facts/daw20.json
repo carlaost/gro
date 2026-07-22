@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "slug": "daw20-cognitive-profile-multisensory-imagery-aphantasia",
+    "title": "A cognitive profile of multi-sensory imagery, memory and dreaming in aphantasia",
+    "authors": ["Alexei J. Dawes", "Rebecca Keogh", "Thomas Andrillon", "Joel Pearson"],
+    "year": 2020,
+    "venue": "Scientific Reports 10:10022",
+    "doi": "10.1038/s41598-020-65705-7",
+    "domain": "Cognitive neuroscience — mental imagery, individual differences, aphantasia",
+    "keywords": ["aphantasia", "mental imagery", "VVIQ", "multisensory imagery", "autobiographical memory", "dreaming", "individual differences"],
+    "grounding": "full-text",
+    "overview": "Large-sample (N=667) questionnaire study profiling self-identified aphantasics against two control cohorts across visual and non-visual imagery, autobiographical memory, dreaming, and spatial ability. Aphantasia is shown to be frequently multi-sensory (not purely visual), associated with weaker episodic memory and reduced/less vivid dreaming, while spatial imagery and navigation are preserved.",
+    "abstract": "Aphantasia is the inability to voluntarily generate visual mental imagery. In the largest cognitive profiling to date (N=667), self-reported aphantasics showed markedly reduced visual imagery vividness (VVIQ), reduced imagery across non-visual sensory modalities, lower vividness of episodic autobiographical memory, and fewer/less vivid dreams, while spatial imagery and navigation were preserved. Most report a lifelong (congenital) rather than acquired condition."
+  },
+  "genre": {"paper_type": "cognitive_individual_differences_survey_study",
+    "expected_slots": ["claims", "quantities", "entities"],
+    "present_slots": ["claims", "quantities", "entities"], "absent_declared": []},
+  "claims": [
+    {"key": "c1", "claim_type": "comparison", "polarity": "negative", "population_scope": "multi_cohort",
+     "statement": "Aphantasic individuals report far lower visual imagery vividness than controls (VVIQ 17.94 vs 58.12; r=0.87).",
+     "concept_keys": ["aphantasia", "vviq"], "depends_on_keys": []},
+    {"key": "c2", "claim_type": "association", "polarity": "positive", "population_scope": "cohort",
+     "statement": "Aphantasia is associated with reduced imagery across non-visual sensory modalities (auditory, tactile, etc.).",
+     "concept_keys": ["multisensory_imagery", "qmi"], "depends_on_keys": ["c1"]},
+    {"key": "c3", "claim_type": "comparison", "polarity": "negative", "population_scope": "cohort",
+     "statement": "Aphantasics report lower ability to vividly remember specific life events (episodic autobiographical memory).",
+     "concept_keys": ["episodic_memory", "sam"], "depends_on_keys": ["c1"]},
+    {"key": "c4", "claim_type": "comparison", "polarity": "negative", "population_scope": "cohort",
+     "statement": "Aphantasic individuals experience fewer and less sensorily vivid dreams than controls.",
+     "concept_keys": ["aphantasia"], "depends_on_keys": ["c1"]},
+    {"key": "c5", "claim_type": "comparison", "polarity": "null", "population_scope": "cohort",
+     "statement": "Spatial imagery and spatial navigation ability are preserved in aphantasia.",
+     "concept_keys": ["spatial_imagery", "sam"], "depends_on_keys": []},
+    {"key": "c6", "claim_type": "existence", "polarity": "negative", "population_scope": "cohort",
+     "statement": "Aphantasia in this sample is predominantly congenital, not attributable to acquired neurological damage or mental illness.",
+     "concept_keys": ["aphantasia", "pcl5"], "depends_on_keys": []}
+  ],
+  "quantities": [
+    {"key": "q_vviq_aph", "value": 17.94, "unit": "VVIQ_score", "role": "result", "source_ref": "p4 Results", "claim_keys": ["c1"], "quote": "aphantasic participants rated their visual imagery ability on the VVIQ as being significantly lower (17.94 +/- 0.223)"},
+    {"key": "q_vviq_ctrl", "value": 58.12, "unit": "VVIQ_score", "role": "result", "source_ref": "p4 Results", "claim_keys": ["c1"], "quote": "compared to control group 1 (58.12 +/- 0.888)"},
+    {"key": "q_r_visual", "value": 0.87, "unit": "effect_size_r", "role": "result", "source_ref": "p4 Results", "claim_keys": ["c1"], "quote": "r = 0.87, BF10 = 1.41e12"},
+    {"key": "q_multisensory_absence", "value": 26.22, "unit": "percent", "role": "result", "source_ref": "p4 Results", "claim_keys": ["c2"], "quote": "only 26.22% of aphantasic participants reported a complete lack of multi-sensory imagery altogether"},
+    {"key": "q_r_memory", "value": 0.81, "unit": "effect_size_r", "role": "result", "source_ref": "p6 Results", "claim_keys": ["c3"], "quote": "reported almost no ability to generate visual sensory details ... r = 0.81"},
+    {"key": "q_spatial_p", "value": 0.1, "unit": "p_value", "role": "result", "source_ref": "p7 Results", "claim_keys": ["c5"], "quote": "SAM; Mann-Whitney U = 24,720, p = 0.1, r = 0.08"},
+    {"key": "q_spatial_r", "value": 0.08, "unit": "effect_size_r", "role": "result", "source_ref": "p7 Results", "claim_keys": ["c5"], "quote": "SAM; Mann-Whitney U = 24,720, p = 0.1, r = 0.08"},
+    {"key": "q_pcl5_p", "value": 0.776, "unit": "p_value", "role": "result", "source_ref": "p6 Results", "claim_keys": ["c6"], "quote": "aphantasia group scoring comparatively to control group 1 on the PCL-5 overall ... p = 0.776"},
+    {"key": "q_acquired", "value": 3, "unit": "percent", "role": "result", "source_ref": "p8 Discussion", "claim_keys": ["c6"], "quote": "3% reported acquired loss"},
+    {"key": "q_n_total", "value": 667, "unit": "participants", "role": "input", "source_ref": "p2 Participants", "claim_keys": ["c1"], "quote": "n=267, n=203 and n=197, respectively"},
+    {"key": "q_vviq_cutoff", "value": 32, "unit": "VVIQ_score", "role": "input", "source_ref": "p2", "claim_keys": ["c1"], "quote": "Weak visual imagery ability is typically defined by a total score of 32 or less on the VVIQ"},
+    {"key": "q_age", "value": 33.97, "unit": "years", "role": "input", "source_ref": "p2", "claim_keys": [], "quote": "mean age = 33.97 years, SD = 12.44"}
+  ],
+  "entities": [
+    {"key": "aphantasia", "term": "Aphantasia (absence of voluntary visual imagery)", "kind": "concept"},
+    {"key": "multisensory_imagery", "term": "Multi-sensory mental imagery", "kind": "concept"},
+    {"key": "episodic_memory", "term": "Episodic autobiographical memory", "kind": "concept"},
+    {"key": "spatial_imagery", "term": "Spatial imagery / navigation", "kind": "concept"},
+    {"key": "vviq", "term": "VVIQ (Vividness of Visual Imagery Questionnaire)", "kind": "measure"},
+    {"key": "qmi", "term": "QMI (Questionnaire upon Mental Imagery)", "kind": "measure"},
+    {"key": "sam", "term": "SAM (Survey of Autobiographical Memory)", "kind": "measure"},
+    {"key": "pcl5", "term": "PCL-5 (PTSD Checklist for DSM-5)", "kind": "measure"}
+  ],
+  "contributions": [
+    {"author_framed_type": "multisensory_nature_of_aphantasia", "assessed_type": "new_finding", "confidence": 0.8,
+     "typing_rationale": "First large-sample demonstration that aphantasia frequently extends beyond vision to other sensory modalities, reframing it as a broadly multi-sensory imagery deficit rather than a purely visual one.",
+     "realized_in": ["c2"]},
+    {"author_framed_type": "impoverished_dreaming", "assessed_type": "new_finding", "confidence": 0.7,
+     "typing_rationale": "Empirical finding that aphantasics dream less frequently and with reduced sensory/affective content.",
+     "realized_in": ["c4"]},
+    {"author_framed_type": "imagery_memory_link", "assessed_type": "synthesis", "confidence": 0.6,
+     "typing_rationale": "Integrates the aphantasia memory deficit with a constructive-episodic-memory / future-simulation account, using imagery as the shared substrate.",
+     "realized_in": ["c3"]},
+    {"author_framed_type": "preserved_spatial_ability", "assessed_type": "replication", "confidence": 0.7,
+     "typing_rationale": "Confirms, in a large cohort, prior small-sample observations that spatial imagery and navigation are spared in aphantasia.",
+     "realized_in": ["c5"]}
+  ],
+  "external_baselines": [
+    {"key": "xq_prior_n", "value": 15, "unit": "participants", "verification": "self_reported",
+     "description": "Typical sample size of prior aphantasia studies (paper reports N=10-20).", "external_id": "NEEDS_FETCH"},
+    {"key": "xq_prior_d", "value": 2.0, "unit": "effect_size_d", "verification": "self_reported",
+     "description": "Approximate effect sizes for group differences in prior small-sample studies (paper reports d=1.0-3.0).", "external_id": "NEEDS_FETCH"}
+  ],
+  "deltas": [
+    {"claimed": "q_n_total", "baseline": "xq_prior_n",
+     "note": "Methodological scale advance: N=667 vs a typical prior N of ~10-20, enabling well-powered estimation of the aphantasia cognitive profile. Absolute/relative deltas are on sample size (power), not on an effect estimate."}
+  ],
+  "refs": [
+    {"key": "r_zeman15", "raw": "Zeman, Dewar & Della Sala 2015 — Lives without imagery: congenital aphantasia (Cortex)", "external_id": "10.1016/j.cortex.2015.05.019"},
+    {"key": "r_keogh18", "raw": "Keogh & Pearson 2018 — The blind mind: no sensory visual imagery in aphantasia (Cortex)", "external_id": "10.1016/j.cortex.2017.10.012"},
+    {"key": "r_marks73", "raw": "Marks 1973 — Visual imagery differences (VVIQ) (Br J Psychol)", "external_id": "10.1111/j.2044-8295.1973.tb01322.x"},
+    {"key": "r_palombo13", "raw": "Palombo, Williams, Abdi & Levine 2013 — Survey of Autobiographical Memory (SAM) (Cortex)", "external_id": "10.1016/j.cortex.2013.06.005"},
+    {"key": "r_blaj06", "raw": "Blajenkova, Kozhevnikov & Motes 2006 — Object-Spatial Imagery Questionnaire (Appl Cogn Psychol)", "external_id": "10.1002/acp.1182"},
+    {"key": "r_bai19", "raw": "Bainbridge, Pounder, Eardley & Baker 2021 — Quantifying aphantasia through drawing: object vs spatial memory (Cortex)", "external_id": "10.1016/j.cortex.2020.11.014"}
+  ],
+  "sota": {
+    "provenance": "undermind_resolved", "used_undermind": true,
+    "neighborhood": [
+      {"ref": "r_bai19", "overlap": 0.4, "contemporaneous_uncited": false},
+      {"ref": "r_keogh18", "overlap": 0.35, "contemporaneous_uncited": false},
+      {"ref": "r_zeman15", "overlap": 0.3, "contemporaneous_uncited": false}
+    ],
+    "resolver_notes": "Undermind semantic search (year_max=2020) on the multisensory-imagery/memory/dreaming profile returned Bainbridge 2019/21 (object-vs-spatial memory in aphantasia) as the closest finding-level prior, plus Keogh & Pearson 2017/18 (objective absence of imagery) and Zeman 2015 (naming aphantasia) as framework priors. No contemporaneous uncited near-neighbor covered the full multisensory+memory+dreaming profile at N=667; moderate neighborhood."
+  }
+}
