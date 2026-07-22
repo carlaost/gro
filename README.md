@@ -110,6 +110,18 @@ python3 scripts/compile_gro.py path/to/ara --validate # validate + report only
 python3 scripts/compile_gro.py path/to/ara --force    # re-scaffold material layers even if present
 ```
 
+## Spec implemented
+
+This plugin conforms to a single GRO output contract, **`gro.material`** (canonical source of
+truth lives in the private `dasmodel` repo; a pinned copy is vendored in `spec/`). It does
+**not** implement the separate `gro.metric` spec — no novelty typing, deltas, external
+baselines, or SOTA anchor. `spec/IMPLEMENTS` declares `gro.material`; `spec/SPEC_VERSION`
+pins the version; `spec/material.gro.openapi.yaml` is the field-by-field contract with example
+values.
+
+> Sibling tool: the retrospective/batch **[paper2gro](https://github.com/carlaost/paper2gro)**
+> compiler implements both `gro.material` and `gro.metric` (full-text facts → GRO artifact).
+
 ## Relationship to research-manager
 
 They **compose**; GRO Compiler does not replace research-manager. research-manager owns
@@ -133,6 +145,10 @@ scripts/
 skills/gro-compiler/
   SKILL.md
   references/gro-layers.md
+spec/
+  material.gro.openapi.yaml  # vendored, pinned copy of the gro.material output contract
+  IMPLEMENTS                 # declares: gro.material
+  SPEC_VERSION               # pinned spec version(s)
 ```
 
 ## License
