@@ -1,0 +1,18 @@
+{
+  "name": "gro-compiler",
+  "owner": { "name": "carlaost", "email": "ostmanncarla@gmail.com", "url": "https://github.com/carlaost" },
+  "metadata": {
+    "description": "A single-plugin marketplace for the GRO Compiler — a live, per-turn GRO material compiler for Claude Code.",
+    "version": "0.2.0"
+  },
+  "plugins": [
+    {
+      "name": "gro-compiler",
+      "source": "./",
+      "description": "Per-turn (live) GRO material compiler: keeps a project's ARA extended with the GRO material layer (temporal, refs, quantities, entities, claims_typed, genre, author-stated contributions) compiled at the end of every agent turn. Pure material compilation — no metrics, no judgments. The GRO analog of the ARA research-manager.",
+      "version": "0.2.0",
+      "category": "research",
+      "keywords": ["gro", "ara", "research", "compiler", "live-capture", "material-compilation"]
+    }
+  ]
+}

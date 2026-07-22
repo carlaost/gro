@@ -1,0 +1,12 @@
+{
+  "name": "gro-compiler",
+  "version": "0.2.0",
+  "description": "Per-turn (live) GRO material compiler. At the end of every agent turn, keeps a project's GRO artifact compiled: an ARA extended with the GRO material layer (temporal, refs, quantities, entities, claims_typed, genre, author-stated contributions). Pure material compilation — it structures what is present in the research; it makes no judgments and builds no metrics (no novelty typing, comparison to prior work, or significance scoring — that is a separate concern). The GRO analog of the ARA research-manager.",
+  "author": { "name": "carlaost", "email": "ostmanncarla@gmail.com" },
+  "homepage": "https://github.com/carlaost/gro-compiler",
+  "repository": "https://github.com/carlaost/gro-compiler",
+  "license": "MIT",
+  "keywords": ["gro", "ara", "research", "compiler", "material-compilation", "per-turn", "live-capture"],
+  "skills": ["./skills/gro-compiler"],
+  "hooks": "./hooks/hooks.json"
+}
