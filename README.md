@@ -15,7 +15,7 @@ Two design commitments run through everything here:
 
 ## The intended data shape
 
-Today's structured research records (e.g. the ARA format this work critiques) store most load-bearing facts as prose an LLM must re-extract — a number hand-retyped in four places instead of one typed value, citations as author-year strings instead of resolvable IDs, honest absence indistinguishable from lazy omission. **The record doesn't lack the knowledge; it lacks the *shape*.**
+Efforts toward structured scientific output exist, but nearly all of them keep the load-bearing facts in prose an LLM must re-extract — a number hand-retyped in four places instead of one typed value, citations as author-year strings instead of resolvable IDs, honest absence indistinguishable from lazy omission. Structure as a wrapper, not a shape. **The record doesn't lack the knowledge; it lacks the *shape*.** (And the adversary is the paper and the citation economy built on it — not these parallel efforts.)
 
 GRO gives it a shape. One canonical typed record per load-bearing fact, addressed by ID; prose binds back to it. The signals a record affords come in **two classes**, kept physically separate so no self-certified number is ever dressed as a checked one:
 
@@ -88,20 +88,20 @@ gro/
     affordance-gap.md    #   the three-class blocked-signal taxonomy (the bridge indicators -> format)
     tournament-designs.md #  the 12 format gaps' winning finalist designs (raw)
     tail-synthesis-log.md #  review verdicts + the adversarial critique the final resolved
-  ara/                   # the ARA research-record that came out of this work
+  ara/                   # the structured research-record testbed used by the experiments
     README.md
     PAPER.md  logic/  trace/  staging/
   experiment/            # empirical tests
     README.md
     gro-experiment-paper.pdf   # test 1 write-up: computability (5pp)
     gro_metrics.py · results.json · results.md
-    extensions/<slug>/         # GRO typed sidecars generated per ARA (12 ARAs)
+    extensions/<slug>/         # GRO typed sidecars generated per record (12 records)
     breakthrough/              # test 2: DISCRIMINATION — breakthrough signals vs LLM panels & real-world disruption
       RESULTS_PAPER.pdf        #   full write-up (the 0.58 -> 0.34 -> ~0 arc, shared-method bias, historical null)
       corpus/ · historical/    #   66 recent + 72 historical (2004-2010) AD papers, scores, reproducible scripts
 ```
 
-**Empirical status:** two experiments exist. [`experiment/`](experiment/) confirmed typing the record makes prose-blocked signals *computable* as structural joins (12 ARAs, deterministic class). [`experiment/breakthrough/`](experiment/breakthrough/) then ran the harder test — do they *discriminate*? — with the largely negative result described above. The sharpening move (full-text, multi-domain historical corpus) is blocked partly by paywall access for older papers.
+**Empirical status:** two experiments exist. [`experiment/`](experiment/) confirmed typing the record makes prose-blocked signals *computable* as structural joins (12 records, deterministic class). [`experiment/breakthrough/`](experiment/breakthrough/) then ran the harder test — do they *discriminate*? — with the largely negative result described above. The sharpening move (full-text, multi-domain historical corpus) is blocked partly by paywall access for older papers.
 
 ## Using as a submodule of `dasmodel`
 
@@ -112,4 +112,4 @@ git submodule update --init --recursive
 
 ## Provenance & positioning
 
-This is part of an incentive-design research program (the "reward what citations punish" thesis), separate from — and in deliberate critique of — the adopted [ARA](https://arxiv.org/abs/2604.24658) substrate it was stress-tested on. GRO is the substrate-design output of that critique, not an ARA re-implementation. Design tournament run IDs: `wf_f0bc615b-a88` (+ tail `wf_c4cbff37-887`). Full method and honest limitations in [`SPEC.md`](SPEC.md) §7 and [`methods/`](methods/).
+This is part of an incentive-design research program (the "reward what citations punish" thesis). The target of the critique is the paper–citation complex, not any parallel structured-output effort; GRO is the substrate-design output of the signals program. Design tournament run IDs: `wf_f0bc615b-a88` (+ tail `wf_c4cbff37-887`). Full method and honest limitations in [`SPEC.md`](SPEC.md) §7 and [`methods/`](methods/).
