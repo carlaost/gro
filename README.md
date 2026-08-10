@@ -1,8 +1,8 @@
 # GRO — the Grounded Research Object
 
-*A neutral substrate for scientific output: each record affords a portfolio of verifiable signals, and each funder or institution composes those signals into its own reward function, aligned with its own incentives. This repo holds the specification plus the research program — experiments, tournaments, and negative findings — that produced it.*
+*A neutral substrate for scientific output: each record affords a portfolio of verifiable signals, and each funder or institution composes those signals into its own reward function, aligned with its own incentives. This repo holds the working spec plus the research program — experiments, tournaments, and negative findings — that produced it. Everything here is in-progress design exploration: the data shape is still in discovery, and every specific below is hypothesis, not standard.*
 
-This repository is the outcome of a program asking a blunt question: **citations reward citable work and are blind to negative results, replications, refutations, and reuse — can a machine-readable research record afford signals that let funders reward what citations cannot?** Chasing that question far enough produced a specification for the record itself. That spec is GRO.
+This repository is the outcome of a program asking a blunt question: **citations reward citable work and are blind to negative results, replications, refutations, and reuse — can a machine-readable research record afford signals that let funders reward what citations cannot?** Chasing that question far enough produced a draft specification for the record itself. That draft is GRO.
 
 Two design commitments run through everything here:
 
@@ -26,7 +26,7 @@ GRO gives it a shape. One canonical typed record per load-bearing fact, addresse
 
 What the record deliberately does **not** carry: verdicts. Novelty, significance, entailment quality, assumption realism — these are irreducibly semantic, and a record that emitted them would be certifying its own importance. They live in the consumer's reward function, fed by the two signal classes above.
 
-> **Note on the spec.** [`SPEC.md`](SPEC.md) still describes a third, "reproducible-judged" tier as part of the record. Current thinking — hardened by the discrimination experiment below — relocates that tier out of the substrate and into the reward-function layer. The spec's §7/§7a limitations already point this direction; the normative text will be revised to match.
+> **Status.** Work in progress. The documents in this repo are snapshots of an evolving design; where they disagree, this README is current thinking. Nothing specific — field names, classes, shapes — is final until it survives empirical validation.
 
 These roll up into a **signal portfolio per record** that never collapses to a single number: a consumer can gate on the deterministic floor, read anchored signals as risk, compose the portfolio into whatever reward function matches their incentives — and audit any signal back to its source and its class.
 
@@ -36,7 +36,7 @@ The two classes come from an analysis of *why* each desirable signal was blocked
 - **anchor-dependent** — the fact points outside the record; guarantee resolvable external IDs → a reliable join.
 - **irreducibly semantic** — no format change makes it computable → outside the substrate; the consumer's judgment, fed pinned inputs.
 
-The full normative spec, including the honest-limitations section, is [`SPEC.md`](SPEC.md). For the **field-by-field data shape as actually emitted** — every sidecar with types and example values — see [`DATA_SHAPE.md`](DATA_SHAPE.md) (the concrete reference; `SPEC.md` is the normative target, `SPEC.md §7a` records emitted-vs-specified).
+The working spec, including the honest-limitations section, is [`SPEC.md`](SPEC.md). For the **field-by-field data shape as actually emitted** — every sidecar with types and example values — see [`DATA_SHAPE.md`](DATA_SHAPE.md) (the concrete reference; `SPEC.md` is the design target, `SPEC.md §7a` records emitted-vs-specified).
 
 ## Negative findings so far (scope stated plainly)
 
@@ -73,7 +73,7 @@ The program runs **signals → substrate**: the indicator work is the entry poin
 gro/
   README.md              # you are here
   METRICS.md             # the ideal indicators — thesis, TOP-10, where existing efforts fall short
-  SPEC.md                # the normative GRO specification (the intended data shape / full L1-L8 target)
+  SPEC.md                # the working GRO specification (the intended data shape / full L1-L8 target)
   DATA_SHAPE.md          # CANONICAL data-shape reference — every emitted sidecar, fields + example values (OpenAPI-style), classes, and what's emitted vs specified
   metrics/               # the incentive-design program (the indicators + code + experiments)
     README.md
