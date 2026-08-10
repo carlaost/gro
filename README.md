@@ -116,13 +116,6 @@ gro/
 
 **Empirical status:** two experiments exist — both on backfilled corpora (the only kind that exists yet), which bounds what they can show. [`experiment/`](experiment/) confirmed typing the record makes prose-blocked signals *computable* as structural joins (12 records, deterministic class). [`experiment/breakthrough/`](experiment/breakthrough/) then ran the harder test — do they *discriminate*? — with the largely negative result described above. The sharpening move (full-text, multi-domain historical corpus) is blocked partly by paywall access for older papers.
 
-## Using as a submodule of `dasmodel`
-
-```bash
-git submodule add git@github.com:carlaost/gro.git gro
-git submodule update --init --recursive
-```
-
 ## Provenance & positioning
 
 This is part of an incentive-design research program (the "reward what citations punish" thesis). The target of the critique is the paper–citation complex, not any parallel structured-output effort; GRO is the substrate-design output of the signals program. Design tournament run IDs: `wf_f0bc615b-a88` (+ tail `wf_c4cbff37-887`). Full method and honest limitations in [`SPEC.md`](SPEC.md) §7 and [`methods/`](methods/).
