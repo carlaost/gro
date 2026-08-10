@@ -17,7 +17,9 @@ Two design commitments run through everything here:
 
 Efforts toward structured scientific output exist, but nearly all of them keep the load-bearing facts in prose an LLM must re-extract — a number hand-retyped in four places instead of one typed value, citations as author-year strings instead of resolvable IDs, honest absence indistinguishable from lazy omission. Structure as a wrapper, not a shape. **The record doesn't lack the knowledge; it lacks the *shape*.** (And the adversary is the paper and the citation economy built on it — not these parallel efforts.)
 
-GRO gives it a shape. One canonical typed record per load-bearing fact, addressed by ID; prose binds back to it. The signals a record affords come in **two classes**, kept physically separate so no self-certified number is ever dressed as a checked one:
+GRO gives it a shape — and it is primarily a format for **new work**: a shape scientific output is *born into*, capturing at production time what the paper structurally discards — negative results, abandoned trails, typed quantities, the reasoning between them. One canonical typed record per load-bearing fact, addressed by ID; prose binds back to it.
+
+Backfilling existing literature into GRO is a supporting move, not the point. We do it — and will keep doing it for now — because it is the only way to prove anything on the record that exists today. But a backfilled record is permanently lossy and biased: the source material was produced to fit the paper's shape, and no amount of re-extraction recovers what that shape never let authors put down. The signals a record affords come in **two classes**, kept physically separate so no self-certified number is ever dressed as a checked one:
 
 | Signal class | What it holds | How far it can be trusted |
 |---|---|---|
@@ -30,7 +32,7 @@ What the record deliberately does **not** carry: verdicts. Novelty, significance
 
 These roll up into a **signal portfolio per record** that never collapses to a single number: a consumer can gate on the deterministic floor, read anchored signals as risk, compose the portfolio into whatever reward function matches their incentives — and audit any signal back to its source and its class.
 
-The two classes come from an analysis of *why* each desirable signal was blocked in existing records:
+The two classes come from auditing *why* each desirable signal was blocked. The audit necessarily ran on existing, backfilled records — that is what exists today — but what it specifies is the shape for work born in GRO:
 
 - **format-recoverable** — the fact is there as prose; emit it typed → a deterministic join.
 - **anchor-dependent** — the fact points outside the record; guarantee resolvable external IDs → a reliable join.
@@ -101,7 +103,7 @@ gro/
       corpus/ · historical/    #   66 recent + 72 historical (2004-2010) AD papers, scores, reproducible scripts
 ```
 
-**Empirical status:** two experiments exist. [`experiment/`](experiment/) confirmed typing the record makes prose-blocked signals *computable* as structural joins (12 records, deterministic class). [`experiment/breakthrough/`](experiment/breakthrough/) then ran the harder test — do they *discriminate*? — with the largely negative result described above. The sharpening move (full-text, multi-domain historical corpus) is blocked partly by paywall access for older papers.
+**Empirical status:** two experiments exist — both on backfilled corpora (the only kind that exists yet), which bounds what they can show. [`experiment/`](experiment/) confirmed typing the record makes prose-blocked signals *computable* as structural joins (12 records, deterministic class). [`experiment/breakthrough/`](experiment/breakthrough/) then ran the harder test — do they *discriminate*? — with the largely negative result described above. The sharpening move (full-text, multi-domain historical corpus) is blocked partly by paywall access for older papers.
 
 ## Using as a submodule of `dasmodel`
 
