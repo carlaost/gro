@@ -38,6 +38,17 @@ The two classes come from auditing *why* each desirable signal was blocked. The 
 - **anchor-dependent** — the fact points outside the record; guarantee resolvable external IDs → a reliable join.
 - **irreducibly semantic** — no format change makes it computable → outside the substrate; the consumer's judgment, fed pinned inputs.
 
+### Design principles
+
+The ways of working the shape must enable: **collaborative** (an open contribution graph — fork, merge, extend, no closed author group), **iterative** (publish as you go; every contribution counts, including "just" an idea or "just" a dataset), **fast** (publish at the speed of discovery, not of a defensible narrative), **comprehensive** (capture everything, including failure paths and dead ends — agents scale with context even where humans can't read it all). And the properties of the record that make them possible:
+
+- **Composable.** Records build on each other by direct reference and import; links are typed so they stay interpretable. Each record is like a code package — it extends every importing project while remaining a standalone contribution.
+- **Referential.** Science builds on prior science and the record must reflect it: every pointer resolves — IDs, registrations, accessions — never author-year strings.
+- **Standardized.** Typed links only work if records share schemas — a claim is always statement + falsification + proof; data always carries units and provenance. Kept light enough not to reintroduce the authoring burden.
+- **Signal-bearing.** Rewards need signals, and a signal is only trustworthy with its class on the label. The shape exists so that *visible → signal-bearing → rewarded* can be real — with what any signal is worth decided downstream, per reward function.
+
+All four are working hypotheses, same status as everything else here.
+
 The working spec, including the honest-limitations section, is [`SPEC.md`](SPEC.md). For the **field-by-field data shape as actually emitted** — every sidecar with types and example values — see [`DATA_SHAPE.md`](DATA_SHAPE.md) (the concrete reference; `SPEC.md` is the design target, `SPEC.md §7a` records emitted-vs-specified).
 
 ## Negative findings so far (scope stated plainly)
