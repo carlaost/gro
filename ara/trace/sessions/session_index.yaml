@@ -23,7 +23,7 @@ sessions:
   - id: "2026-09-20_001"
     date: "2026-09-20"
     summary: "Return after two months. Decided GRO = pure schema, measuring funder-side (N55); repo = mother with spec/ + experiments/ + one trace, compilers separate, dasmodel parked (N56); executed the reorg (contract 0.1.1 moved here, July fused docs frozen, README rewritten, compilers re-vendored, paper2gro flagged). Artifact-explainability test (N57). O30 -> C17. Stop-hook dogfooding abandoned (N58)."
-    turn_count: 1
-    events_count: 5
+    turn_count: 4
+    events_count: 9
     claims_touched: [C17]
-    open_threads: 6
+    open_threads: 8

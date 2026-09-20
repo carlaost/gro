@@ -964,3 +964,76 @@ tree:
     lesson: "Hook wiring is a user action, not an agent action; decide plugin install vs project hook vs manual invocation explicitly (open in WORKING-NOTES)."
     also_depends_on: [N56]
     status: resolved
+
+  - id: N59
+    type: decision
+    support_level: explicit
+    source_refs: ["user directive 2026-09-20: 'shuffle paper2gro and gro compiler into compiler subdir in here'"]
+    provenance: user
+    timestamp: "2026-09-20"
+    title: "Compilers live inside the gro repo (compilers/gro-compiler, compilers/paper2gro), histories preserved"
+    choice: >
+      Folded both compiler repos into carlaost/gro via git subtree; root .claude-plugin/marketplace.json
+      (name gro) points at compilers/gro-compiler; spec copies refreshed from spec/ by sync.sh; old
+      repos archived with MOVED pointers; dasmodel site relinked and redeployed; plugin 0.3.1
+      published (duplicate hooks entry removed) and installed at user scope.
+    alternatives:
+      - "Keep three repos with cross-repo vendoring - rejected: scattered, drift-prone, canonical copy unclear"
+    evidence: ["commits e7c4bc3, bfb7b0d, 49da573, 35954a7 in carlaost/gro", "WORKING-NOTES.md Decisions"]
+    also_depends_on: [N56]
+    status: resolved
+
+  - id: N60
+    type: decision
+    support_level: explicit
+    source_refs: ["user 2026-09-20: 'signal gets compiled into judgment. everything is a signal. some signals are richer, others are thin. i stand by that sentence'"]
+    provenance: user
+    timestamp: "2026-09-20"
+    title: "Vocabulary: a record carries signals; judgment is what a funder compiles from them downstream"
+    choice: >
+      "Signal" stays as the word for what a record carries (rich or thin). What GRO never carries is
+      the judgment compiled from signals. Words dropped from GRO's description: rigor tiers,
+      credibility, eval. The agent's earlier ban on "signal" in CLAUDE.md was reverted (fce9197).
+    alternatives:
+      - "Avoid 'signal' entirely to keep distance from the July framing - rejected by Carla"
+    evidence: ["CLAUDE.md", "dasmodel site copy (kept)"]
+    also_depends_on: [N55]
+    status: resolved
+
+  - id: N61
+    type: question
+    support_level: explicit
+    source_refs: ["user 2026-09-20: 'start thinking about realtime publish and what that means for versioning of claims, record dating on the schema side, and ux on the researcher side to encourage (much later! we don't even have anywhere to publish yet)'"]
+    provenance: user
+    timestamp: "2026-09-20"
+    title: "What does realtime (continuous) publishing require of the schema and of the researcher?"
+    description: >
+      Three sub-questions, explicitly deferred: (a) versioning of claims whose statement/status/
+      dependencies change over a project's life, and how a reader pins a version; (b) record dating
+      on the schema side, per fact (first written, last changed), beyond temporal.yaml's single
+      pub_date + compile timestamp; (c) researcher-side UX that makes publishing-as-you-go the path
+      of least resistance. Nothing to do yet; no venue to publish to exists.
+    also_depends_on: [N55, N56]
+    status: open
+
+  - id: N62
+    type: decision
+    support_level: explicit
+    source_refs: ["user 2026-09-20: 'this is hella noisy in my terminal can we make this some bg thing ... i'd rather have a subagent do this stuff'"]
+    provenance: user-revised
+    timestamp: "2026-09-20"
+    title: "End-of-turn recording runs in a detached background process, not in the researcher's thread"
+    choice: >
+      gro-compiler 0.4.0: the Stop hook spawns a headless `claude -p` recorder (hooks/record-turn.sh)
+      that reads the just-ended turn from the session transcript and runs research-manager then
+      gro-compiler against <ARA>/; the hook exits at once so the turn ends silently. Serialized per
+      ARA by a lock; recursion blocked by GRO_RECORDER_CHILD. If the headless run cannot
+      authenticate, the turn excerpt is kept in .recorder/pending/ and the next Stop records inline
+      (draining pending) with a one-line notice; background resumes once login is back.
+      GRO_RECORDER_MODE=inline restores the foreground behaviour.
+    alternatives:
+      - "Keep inline blocking recording - rejected: noisy, and it delays the researcher's turn"
+      - "Main agent spawns a background subagent at each Stop - rejected: still costs a foreground step per turn"
+    evidence: ["compilers/gro-compiler/hooks/gro-compiler-stop.sh", "compilers/gro-compiler/hooks/record-turn.sh"]
+    also_depends_on: [N59]
+    status: resolved

@@ -99,6 +99,25 @@ Clone anywhere and point Claude Code at it, or wire the hook directly in your pr
   ```
 - **Disable without uninstalling** — drop an empty file at `hooks/.disabled`.
 
+## Background by default (0.4.0)
+
+The Stop hook does not block the user's turn. It detaches a headless `claude -p` recorder
+(`hooks/record-turn.sh`) that extracts the turn that just ended from the session transcript,
+runs research-manager and then gro-compiler against `<ARA>/`, and appends one line per run to
+`<ARA>/.recorder.log`. The user sees nothing in the terminal; the record catches up within a
+minute or two. Recorders on the same ARA are serialized with a lock. The nested session sets
+`GRO_RECORDER_CHILD=1`, which makes its own Stop hook a no-op, so recording never recurses.
+
+- **Fallback.** If the headless recorder cannot authenticate (`claude -p` needs a login the
+  child process can reach), it keeps the turn excerpt in `<ARA>/.recorder/pending/` and the next
+  Stop falls back to inline recording, which also drains `pending/`, and shows a one-line notice.
+  Once `claude auth status` reports a login again, the hook returns to background mode by itself.
+- `GRO_RECORDER_MODE=inline` restores the old behaviour: the hook asks the main agent to run
+  both skills itself, in the foreground.
+- `GRO_RECORDER_MODEL=<model>` picks the model for the background recorder (default: your
+  default model).
+- Add `<ARA>/.recorder/` and `<ARA>/.recorder.log` to your `.gitignore`.
+
 ## How it works
 
 1. **`hooks/gro-compiler-stop.sh`** — the `Stop` hook. Loop-guarded via `stop_hook_active`;

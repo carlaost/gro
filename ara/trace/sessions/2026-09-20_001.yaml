@@ -2,8 +2,8 @@ session:
   id: "2026-09-20_001"
   date: "2026-09-20"
   started: "2026-09-19T20:00"
-  last_turn: "2026-09-20T12:00"
-  turn_count: 1
+  last_turn: "2026-09-20T14:40"
+  turn_count: 4
   summary: >
     Covers the 2026-09-19/20 session in the public gro repo (recorder not wired there; batched as
     one epilogue). Carla, returning after two months, had the agent reconstruct GRO from the
@@ -45,6 +45,30 @@ events_logged:
     routing: crystallized
     provenance: ai-suggested
     summary: "O30 -> C17: credibility is not a property of the schema (artifact commitment via N55)."
+  - turn: 2
+    type: decision
+    id: "N59"
+    routing: direct
+    provenance: user
+    summary: "Compilers folded into the gro repo under compilers/; plugin 0.3.1 published and installed; site relinked."
+  - turn: 2
+    type: decision
+    id: "N60"
+    routing: direct
+    provenance: user
+    summary: "'Signal' is the right word; judgment is compiled from signals downstream. CLAUDE.md corrected."
+  - turn: 3
+    type: question
+    id: "N61"
+    routing: direct
+    provenance: user
+    summary: "Deferred question: what realtime publishing requires (claim versioning, per-fact dating, researcher UX)."
+  - turn: 4
+    type: decision
+    id: "N62"
+    routing: direct
+    provenance: user-revised
+    summary: "Recorder moves to a detached background process (gro-compiler 0.4.0) with inline fallback on auth failure."
 
 ai_actions:
   - turn: 1
@@ -59,6 +83,14 @@ ai_actions:
     action: "Created gitignored WORKING-NOTES.md (Open / Decisions / Log) as the cross-session scratch; verified gro-compiler writes material only."
     provenance: ai-executed
     files_changed: ["WORKING-NOTES.md", ".gitignore"]
+  - turn: 2
+    action: "git subtree add gro-compiler + paper2gro; root marketplace; sync.sh retargeted; gro-compiler 0.3.1 (hooks key removed) pushed; marketplace gro added + plugin installed (user scope); dasmodel site links updated and deployed; gro-compiler's unpushed WORKING-NOTES ported into this repo's notes; 5 schema learnings recorded."
+    provenance: ai-executed
+    files_changed: ["compilers/**", ".claude-plugin/marketplace.json", "spec/sync.sh", "README.md", "spec/README.md", "CLAUDE.md", "~/code/dasmodel/www/src/pages/index.astro"]
+  - turn: 4
+    action: "Wrote hooks/record-turn.sh (transcript excerpt + headless claude -p), rewrote the Stop hook (background default, inline mode, auth fallback, pending retention, auto-recovery), README section, plugin 0.4.0. Tested: hook returns in 20 ms, guards hold, excerpt extraction works; headless auth fails from this shell (OAuth not reachable by child), fallback verified."
+    provenance: ai-executed
+    files_changed: ["compilers/gro-compiler/hooks/gro-compiler-stop.sh", "compilers/gro-compiler/hooks/record-turn.sh", "compilers/gro-compiler/README.md", "compilers/gro-compiler/.claude-plugin/plugin.json", ".claude-plugin/marketplace.json"]
 
 claims_touched:
   - id: C17
@@ -84,11 +116,13 @@ key_context:
     excerpt: "Carla on org: 'this should be the mother, the compilers are the compilers. dasmodel is parked ... spec section of repo gets the cleaned version with the 7 files we have and the 3 other sections as wip, not active yet.'"
 
 open_threads:
+  - "Background recorder auth: headless claude -p could not use the OAuth login from a child process in this session; Carla to test `claude -p ok` in her own terminal. Until it works the hook records inline with a notice."
+  - "N61 realtime publishing: keep in view when touching temporal.yaml or claims_typed; no action now."
   - "paper2gro still emits the former metric half into gro/ (novelty typing in contributions.yaml, external_quantities, delta_ledger, sota_anchor); must be dropped or moved out of gro/ and gro.metric removed from its IMPLEMENTS (PLAN step 3)."
   - "Dogfooding mechanism for this repo undecided: plugin install vs project hook vs manual end-of-turn invocation (N58)."
   - "Is the 7-file material contract complete? Three candidate layers listed in spec/README as not active: citation locations, printed accession ids, experiments/problem as typed layers."
   - "C16 CONFLICT (N47) still awaits Carla's adjudication; untouched this session."
-  - "Repo changes of 2026-09-20 are uncommitted; Carla to review."
+  - "Plugin now fires in every project with (or without) an ara/; decide whether it should seed a record in non-research repos (WORKING-NOTES Open)."
   - "Stale staged observations surfaced for triage: O27, O28, O29, O31 (idle since July)."
 
 ai_suggestions_pending:

@@ -220,3 +220,17 @@ entries:
       - "Considered and rejected touching C16's CONFLICT: nothing this turn bears on extractive fidelity."
       - "Near-miss: Carla's 'good catch' on the paper2gro overlay is affirmation of a finding about a compiler, not a research claim; logged as open_thread, not an observation."
       - "Stage 4: only the PAPER.md manifest count changed (stale at 15, now 17). No claim statuses touched."
+  - turn: "2026-09-20_001#2"
+    notes:
+      - "First run under the installed plugin's Stop hook. The triggering turn itself was a confirmation (empty), but two user decisions from earlier turns this session predated the hook and were unrecorded; appended them as N59/N60 rather than lose them. Same batching precedent as #1."
+      - "N60 routed as decision, not staged: first-person, emphatic ('i stand by that sentence'), and it reversed an agent rule."
+      - "No logic/ change: no claim touched; nothing for gro-compiler to compile this turn."
+  - turn: "2026-09-20_001#3"
+    notes:
+      - "User posed a deferred research direction (realtime publishing) -> question node N61, direct, provenance user. Nothing staged: no interpretive claim was made, only sub-questions."
+      - "No logic/ change; gro-compiler skipped."
+  - turn: "2026-09-20_001#4"
+    notes:
+      - "N62 as user-revised: user asked for background recording ('bg thing', 'subagent'); the mechanism (hook-spawned headless claude -p, fallback, pending) is the agent's design. Direct to trace as a settled how."
+      - "Recorded inline because the background recorder cannot authenticate from this session; that limitation itself is an open thread, not a claim."
+      - "No logic/ change; gro-compiler skipped."
