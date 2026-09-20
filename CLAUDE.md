@@ -37,6 +37,7 @@ gro-compiler skill from `compilers/gro-compiler/skills/gro-compiler/SKILL.md` wi
 - `compilers/` gro-compiler (the Claude Code plugin; root `.claude-plugin/marketplace.json` points at it) and paper2gro.
 - `experiments/` our method: metrics work, runs, and `history/` (the frozen July draft; unedited).
 - `ara/` this project's own research record and material layer.
+- `publish/` the minimal publisher: `publish.sh` snapshots a project's ara/ to https://dasmodel.co/records/<project>/ with a server receipt; QUICKSTART.md is the two-person setup.
 
 Do not edit anything under `experiments/history/` or the results in `experiments/runs/`.
 Commit only when Carla asks.
