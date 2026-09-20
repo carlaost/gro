@@ -241,3 +241,30 @@ entries:
       - "Closed the auth open_thread by rewording it (open_threads is the live list, not append-only history); the original wording survives in N62's choice text and the turn-4 ai_action."
       - "Hedged the result: this was a manual launch of the hook, not an unattended Stop; kept that distinction as the residual thread rather than declaring the mechanism proven."
       - "Nothing staged, no logic/ change: infrastructure test, no interpretive research claim. gro-compiler expected to skip."
+  - turn: "2026-09-20_001#6"
+    notes:
+      - "N64 as user-revised decision: Carla asked to preempt the failure for other users ('how do we preempt that?'); the SessionStart probe is the agent's mechanism. Direct to trace, not staged."
+      - "N65 as experiment (ai-executed): this recorder run (110847Z) was triggered by an ordinary turn end; the excerpt shows no manual hook launch. Resolves N63's residual. Hedged what is not observable from here (terminal quiet or not)."
+      - "Turn excerpt truncated the background-test output (3822 chars omitted) and the probe-writing Bash heredoc; N64's choice text was grounded in hooks/auth-probe.sh on disk and the WORKING-NOTES Log line instead."
+      - "Nothing staged, no logic/ change: tooling turn, no interpretive research claim. gro-compiler expected to skip."
+
+  - turn: "2026-09-20_001#7"
+    notes:
+      - "N66 as decision with status open, provenance user: the direction ('shouldn't we just import that?') is Carla's first-person proposal; the agent verified and wrote the work plan but nothing was executed. Chose decision over question because it names a concrete choice with an alternative, not an inquiry."
+      - "Nothing staged: the only interpretive content (ARA compiler invents process layers a paper lacks) is already C16's substance; cited C16 in also_depends_on instead of duplicating."
+      - "Reworded the paper2gro open_thread to point at N66 (live list, not history). No logic/ change; gro-compiler expected to skip."
+
+  - turn: "2026-09-20_001#8"
+    notes:
+      - "N67 as a new decision node (user, resolved) rather than flipping N66's status: trace is append-only; N66 stays 'open' as the proposal and N67 records its adoption plus the ordering constraint. The adoption is first-person ('ok update todos for that so we do this before...')."
+      - "Provenance user, not user-revised: the gate is Carla's; the five steps are a reordering of the plan already in N66, not new agent design."
+      - "Nothing staged: no interpretive claim. Considered whether 'compiler-generated layers are reconstruction' warrants an observation; it is C16's substance and already cited. No logic/ change; gro-compiler expected to skip."
+      - "Turn excerpt was truncated after the Bash heredoc; N67's choice text was grounded in the rewritten WORKING-NOTES item on disk."
+
+  - turn: "2026-09-20_001#9"
+    notes:
+      - "N68 as a new question node with parent: N61 (resumes the realtime-publishing branch, not a continuation of N67); trace is append-only so N61 stays as the deferred form and N68 records its elevation to a major to-do plus the sharpened sub-questions. Provenance user: all four questions and both versioning options are Carla's words."
+      - "Chose question over decision: Carla laid out options (versioned vs immutable+supersede) without picking; 'note that in the todos' is a filing instruction, not a design choice."
+      - "Staged O32 (constraint, user): 'a date is trustworthy only if a publish target stamps on receipt' is an interpretive design constraint on the schema, not a journey fact. Not crystallized: no closure signal; nothing depends on it yet and there is no venue."
+      - "Considered folding the compiler implication (never edit a published row under the immutable model) into O32 rather than its own observation: kept it inside O32 and N68, since it is conditional on the unmade versioning choice."
+      - "Turn excerpt was truncated after the Bash heredoc; N68's text grounded in the rewritten WORKING-NOTES item on disk. Reworded the N61 open_thread to point at N68 (live list). No logic/ change; gro-compiler expected to skip or touch only temporal-adjacent nothing."

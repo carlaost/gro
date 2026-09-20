@@ -1059,3 +1059,126 @@ tree:
       observed: an unattended Stop (not a manual launch) doing the same.
     also_depends_on: [N62]
     status: resolved
+
+  - id: N64
+    type: decision
+    support_level: explicit
+    source_refs: ["user 2026-09-20: 'but now, this might happen to someone who uses this as well no? how do we preempt that?'"]
+    provenance: user-revised
+    timestamp: "2026-09-20T13:08"
+    title: "Preempt the headless-login failure for other plugin users with a SessionStart auth probe (gro-compiler 0.4.1)"
+    choice: >
+      Carla asked that the turn-4 failure (background recorder cannot authenticate because no login
+      is reachable by a headless child) be preempted for anyone installing the plugin, not just
+      fixed for her. Agent's mechanism: a SessionStart hook (hooks/auth-probe.sh) runs
+      `claude auth status` once per session (about 0.2 s) and, when no login is reachable, emits a
+      one-line systemMessage naming the fix (`claude auth login`, then `claude -p ok`). Informational
+      only, never blocks; skipped for recorder children, in inline mode, or when hooks are disabled.
+      README gains a 'Headless login' install check. The Stop-hook inline + pending fallback from
+      N62 stays as the safety net. Shipped as 0.4.1 (commit 2d35d3c), marketplace updated, plugin
+      updated 0.4.0 -> 0.4.1 in user scope.
+    alternatives:
+      - "Rely on the inline fallback alone - rejected: the user only learns about the problem after a turn has already been recorded inline with a notice"
+      - "Probe at every Stop - rejected: one check per session is enough and keeps the hook cheap"
+    evidence: ["compilers/gro-compiler/hooks/auth-probe.sh", "compilers/gro-compiler/hooks/hooks.json (SessionStart, Stop)", "commit 2d35d3c", "WORKING-NOTES.md Log 2026-09-20 (0.4.1)"]
+    also_depends_on: [N62, N63]
+    status: resolved
+
+  - id: N65
+    type: experiment
+    support_level: explicit
+    source_refs: ["ara/.recorder.log: '2026-09-20T11:08:47Z [recorder 20260920T110847Z] start (transcript=74bfdda6-..., excerpt=turn-20260920T110847Z.md)'", "ara/.recorder/turn-20260920T110847Z.md (no hook launch among the turn's tool calls)"]
+    provenance: ai-executed
+    timestamp: "2026-09-20T13:08"
+    title: "First unattended Stop recorded by the background recorder"
+    hypothesis: >
+      N63's residual: a normal turn ending (not a manual hook launch) should trigger the detached
+      recorder and it should authenticate and write the record on its own.
+    evidence: ["ara/.recorder.log", "ara/.recorder/turn-20260920T110847Z.md", "trace/sessions/2026-09-20_001.yaml#turn6"]
+    result: >
+      The turn that shipped 0.4.1 ended on an ordinary git command; its excerpt contains no manual
+      hook launch. The recorder started 49 s after the previous recorder finished (11:07:58Z ->
+      11:08:47Z), authenticated, and wrote this turn-6 record headless. No pending/ directory was
+      created. Whether Carla's terminal stayed quiet (her stated purpose for the turn: 'testing rn
+      if i see the noise again') is not observable from here.
+    also_depends_on: [N63, N64]
+    status: resolved
+
+  - id: N66
+    type: decision
+    support_level: explicit
+    source_refs: ["user 2026-09-20: 'but ara does have a back compiler no? shouldn't we just import that?'", "WORKING-NOTES.md Open item 'Retire paper2gro's own extractor; use the ARA compiler as the backfill front end (proposed 2026-09-20)'"]
+    provenance: user
+    timestamp: "2026-09-20T14:04"
+    title: "Proposed: retire paper2gro's own extractor and use the ARA compiler as the backfill front end"
+    choice: >
+      Carla's suggestion, agent agrees after checking the source: the ARA `compiler` skill
+      (ara-commons 1.2.0, MIT, same upstream as the vendored research-manager) already turns a PDF
+      into a full ARA (logic/, evidence/, trace/). The existing material step (gro-compiler) then
+      turns that ARA into gro/. Result: one transformation for prospective and retrospective
+      records; proof_refs resolve to real E## evidence entries; paper2gro's bespoke extraction
+      prompt, facts schema and metric half all go away, which also closes PLAN step 3. Planned
+      work: vendor `compiler` pinned like research-manager (vendor/compiler/UPSTREAM.yaml); reduce
+      paper2gro to a driver (PDF -> compiler -> compile_gro.py) plus a `grounding:` stamp; keep
+      facts/ as history. Caveat carried from C16: the ARA compiler invents process layers a paper
+      does not have (trace, dead ends); gro/ does not read those, but the underlying ARA will
+      contain them, tagged as compiler-generated. Recorded as an open item, not executed.
+    alternatives:
+      - "Keep paper2gro's own PDF extractor and only strip its metric half (PLAN step 3 as originally scoped) - superseded by this proposal if adopted"
+    evidence: ["WORKING-NOTES.md Open (2026-09-20)", "~/.claude/skills/compiler/SKILL.md (ara-commons 1.2.0)", "compilers/gro-compiler/vendor/research-manager/UPSTREAM.yaml"]
+    also_depends_on: [N56, N59, C16]
+    status: open
+
+  - id: N67
+    type: decision
+    support_level: explicit
+    source_refs: ["user 2026-09-20: 'ok update todos for that so we do this before we start using this on backprocessing again, alongside the other stuff'", "WORKING-NOTES.md Open item 'BEFORE ANY BACKPROCESSING RESUMES: rebuild the retrospective path on the ARA compiler (decided 2026-09-20)'"]
+    provenance: user
+    timestamp: "2026-09-20T14:07"
+    title: "Adopted as a gate: rebuild the retrospective path on the ARA compiler before any backprocessing resumes"
+    choice: >
+      Carla adopted the N66 proposal and made it a precondition: no new papers are backfilled
+      until paper2gro's own extractor is retired and the path is PDF -> ARA `compiler` skill
+      (ara-commons 1.2.0) -> full ARA -> gro-compiler material step -> gro/. The WORKING-NOTES
+      item was rewritten from a proposal into an ordered plan with five steps: (1) vendor the
+      `compiler` skill pinned like research-manager, checking upstream for the newest tag;
+      (2) reduce paper2gro to a driver (PDF -> compiler -> compile_gro.py) that stamps PAPER.md
+      with `grounding: full-text` or abstract-only, deleting extraction_prompt.md, schema.json and
+      the metric half of gro_compile.py, keeping facts/ as history, removing gro.metric from
+      IMPLEMENTS (closes PLAN step 3); (3) tag compiler-generated process layers in a backfilled
+      ARA as reconstruction, per C16; (4) re-run on 2 or 3 corpus papers and diff gro/ against the
+      July emitter's output, recording differences in SCHEMA-LEARNINGS; (5) only then resume
+      backprocessing, full text only where available, grounding tag always set. Ordering is the
+      decision; none of the steps was executed this turn.
+    alternatives:
+      - "Resume backprocessing with the current paper2gro and rebuild the path in parallel - rejected by the gate ('before we start using this on backprocessing again')"
+    evidence: ["WORKING-NOTES.md Open (2026-09-20, rewritten this turn)"]
+    also_depends_on: [N66, C16]
+    status: resolved
+
+  - id: N68
+    type: question
+    support_level: explicit
+    source_refs: ["user 2026-09-20: 'A major to-do for the schema itself is to think about versionability and concurrent publishing. The goal would be for researchers to just publish as they create artifacts.'", "user 2026-09-20: 'do claims and such become versionable, or do you just publish a new one when it's changed? Your reason for why is something that gets attached to the old claim'", "user 2026-09-20: 'That'll have implications for the live compiler, of course.'", "WORKING-NOTES.md Open item 'MAJOR SCHEMA TO-DO: versionability and concurrent publishing (Carla, 2026-09-20)'"]
+    provenance: user
+    timestamp: "2026-09-20T14:10"
+    parent: N61
+    title: "Versionability and concurrent publishing: how does a record change after it is published?"
+    description: >
+      Carla elevated the deferred N61 question to a major schema to-do and sharpened it into four
+      open questions, in her order. (1) Versioning model: either claims (and quantities, entities,
+      contributions) are versionable objects whose id carries a history, or each is immutable and a
+      change means publishing a successor, with the reason for the change attached to the OLD entry
+      (superseded-by plus why). (2) Timestamps: a record is files written in a repo, so any date in
+      it can be adjusted by the author; a trustworthy date needs a place to publish to that stamps
+      on receipt, so "there needs to be a place to publish to" is part of the schema question, not
+      only infrastructure. temporal.yaml today has one pub_date and one compile timestamp, neither
+      per fact. (3) Concurrency: several people or agents adding to one record at once; what merges,
+      what conflicts, what the id scheme must guarantee. (4) Implications for the live compiler:
+      under the immutable model gro-compiler must never edit a published row, only append a
+      successor and annotate the old one; under the versioned model it must bump versions and keep
+      history. Today it edits rows in place. Goal stated: researchers publish as they create
+      artifacts, not once after months as with papers; not everything is published all the time.
+      Not scheduled; nowhere to publish yet. Recorded as a WORKING-NOTES Open item this turn.
+    also_depends_on: [N61, N55]
+    status: open

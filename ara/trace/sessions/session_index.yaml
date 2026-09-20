@@ -22,8 +22,8 @@ sessions:
     open_threads: 3
   - id: "2026-09-20_001"
     date: "2026-09-20"
-    summary: "Return after two months. Decided GRO = pure schema, measuring funder-side (N55); repo = mother with spec/ + experiments/ + one trace, compilers separate, dasmodel parked (N56); executed the reorg (contract 0.1.1 moved here, July fused docs frozen, README rewritten, compilers re-vendored, paper2gro flagged). Artifact-explainability test (N57). O30 -> C17. Stop-hook dogfooding abandoned (N58). Turn 5: 0.4.0 background recorder ran headless end to end after terminal login (N63); auth thread closed."
-    turn_count: 5
-    events_count: 10
+    summary: "Return after two months. Decided GRO = pure schema, measuring funder-side (N55); repo = mother with spec/ + experiments/ + one trace, compilers separate, dasmodel parked (N56); executed the reorg (contract 0.1.1 moved here, July fused docs frozen, README rewritten, compilers re-vendored, paper2gro flagged). Artifact-explainability test (N57). O30 -> C17. Stop-hook dogfooding abandoned (N58). Turn 5: 0.4.0 background recorder ran headless end to end after terminal login (N63); auth thread closed. Turn 6: SessionStart auth probe to preempt the login failure for other users, 0.4.1 (N64); first unattended Stop recorded headless (N65). Turn 7: proposal to use the ARA compiler as paper2gro's backfill front end (N66, open). Turn 8: adopted as a gate before any backprocessing, five-step plan (N67). Turn 9: versionability + concurrent publishing raised as a major schema to-do (N68, open; O32 staged)."
+    turn_count: 9
+    events_count: 16
     claims_touched: [C17]
     open_threads: 8

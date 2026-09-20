@@ -749,3 +749,22 @@ observations:
     promoted_to: null
     crystallized_via: null
     stale: true  # idle since 2026-07; surfaced for triage 2026-09-20
+
+  - id: O32
+    timestamp: "2026-09-20T14:10"
+    provenance: user
+    content: >
+      A date inside a GRO record cannot be trusted on its own: the record is files in a repo and the
+      author can set any timestamp. A date becomes meaningful only when a publishing target stamps
+      the artifact on receipt. Corollary for the material contract: temporal.yaml's pub_date and
+      compile timestamp describe the record, not its facts; per-fact dating (first published, last
+      changed, superseded when) is missing, and whichever versioning model is chosen (versioned ids
+      vs immutable entries with a superseded-by + reason on the old one) fixes what gro-compiler is
+      allowed to do to an already-published row.
+    context: "Carla raised versionability and concurrent publishing as a major schema to-do (N68); the timestamp point is her own reasoning ('it's just files we write in a repo, then you can adjust the timestamps. There needs to be a place to publish to'). No design chosen."
+    potential_type: constraint
+    bound_to: [N68, N61]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
