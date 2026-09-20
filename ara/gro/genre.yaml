@@ -1,0 +1,36 @@
+# GRO material layer, compiled by gro-compiler. Pure material compilation; no metrics/judgments. genre.yaml — paper type + which expected sections are present/absent (material, not a quality judgment).
+# paper_type from PAPER.md front matter (venue: "ARA — compiled project artifact (not a single published paper)"). present_slots are what exists on disk under the ARA root at compile time; absent_declared are expected ARA layers that are not on disk, with the material's own declaration about them where one exists.
+paper_type: "compiled project artifact / ARA research record — integrates a protocol paper (Liu et al., 2026), a system implementation (oshima API), a domain case study (Otte et al., 2025) and two essays into one artifact; not a single published paper"
+expected_slots:
+  - manifest_paper_md
+  - problem_statement
+  - claims
+  - concepts
+  - experiments
+  - related_work
+  - solution_architecture
+  - solution_constraints
+  - solution_heuristics
+  - exploration_trace
+  - session_records
+  - staging_observations
+  - physical_layer_src
+  - evidence_layer
+  - gro_material_layer
+present_slots:
+  - manifest_paper_md
+  - problem_statement
+  - claims
+  - concepts
+  - experiments
+  - related_work
+  - solution_architecture
+  - solution_constraints
+  - solution_heuristics
+  - exploration_trace
+  - session_records
+  - staging_observations
+  - gro_material_layer
+absent_declared:
+  - "physical_layer_src — indexed in PAPER.md Layer Index (src/environment.md, src/artifacts.md, src/execution/app/) but no src/ directory is present; ara/README.md declares it omitted (\"the physical src/ layer are omitted; they are corpus inputs, not outcomes of this work\")"
+  - "evidence_layer — indexed in PAPER.md Layer Index (evidence/README.md, 14 tables + 19 figures) but no evidence/ directory is present; ara/README.md declares the figure binaries under evidence/figures/ omitted"

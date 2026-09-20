@@ -1,5 +1,8 @@
 # experiment/ — empirical tests of the GRO idea
 
+> *Emitter note (added 2026-09-20): these results were computed over records produced by the July 2026 emitter (10 sidecars: the 7 material files plus external_quantities, delta_ledger, sota_anchor, and novelty typing inside contributions.yaml). That emitter predates the current 7-file schema in `spec/`. Numbers are unchanged; read them against `experiments/history/DATA_SHAPE-2026-07.md`.*
+
+
 Three connected experiments over the same corpus of compiled ARAs, each with a short paper. Together they move from "can we type the record" → "does the typed record validate against the world" → "how do the three ways of judging an ARA compare."
 
 ## 1. Deterministic-tier computability (`gro_metrics.py`, `results.json`, `gro-experiment-paper.*`)

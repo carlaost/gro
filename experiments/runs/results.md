@@ -1,5 +1,8 @@
 # GRO Deterministic-Tier Metrics — Results
 
+> *Emitter note (added 2026-09-20): these results were computed over records produced by the July 2026 emitter (10 sidecars: the 7 material files plus external_quantities, delta_ledger, sota_anchor, and novelty typing inside contributions.yaml). That emitter predates the current 7-file schema in `spec/`. Numbers are unchanged; read them against `experiments/history/DATA_SHAPE-2026-07.md`.*
+
+
 Pure structural joins over `gro/{quantities,claims_typed,refs,entities,genre}.yaml` for 12 GRO-extended ARAs. No LLM calls, no network calls. Spec: `research/metrics/v3/tournament/IDEAL_FORMAT_SPEC.md #4`.
 
 ARAs processed: 12/12. Failures: 0.

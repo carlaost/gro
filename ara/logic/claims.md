@@ -235,3 +235,23 @@ Numbers are copied exactly from source; each load-bearing number carries a `**So
   the artifact-trust axis. It does NOT close RC1/RC2 — external validity remains open by construction.
 - **Dependencies**: —
 - **Tags**: metrics, compiler-critique, methodology, v3-design
+
+## C17: Credibility is not a property of a research record's schema; a record can carry facts and anchors, never its own merit
+- **Statement**: A publishing schema can make the facts in a piece of research addressable
+  (each load-bearing number, claim, entity, reference, section and stated contribution written once,
+  with an id and a verbatim anchor). It cannot carry whether the work is credible, novel, rigorous or
+  important: every such judgment rests on inputs outside the record (calibration corpora, external
+  ground truth, a judge) whose trust the record can relocate but not eliminate. Any format that claims
+  to "compute its own credibility" is therefore over-claiming; the honest division is schema (what is
+  present) on the publishing side and measuring on the funder / curator / validator side.
+- **Sources**: [no load-bearing numbers in Statement]
+- **Status**: testing
+- **Provenance**: ai-suggested
+- **Falsification criteria**: A schema-only signal, computed over a single record with no external
+  join and no judge, is shown to separate good from bad science on a labelled contrast set.
+- **Proof**: [staging O30 (the trust-relocation critique); experiments/metrics/findings.md (a record
+  read alone reads fidelity, not quality); experiments/runs/breakthrough/RESULTS_PAPER.md (record-derived
+  breakthrough signal tracks attention, not impact); decision N55]
+- **Dependencies**: [C16]
+- **Tags**: schema, credibility, boundary, gro
+- **Last revised**: 2026-09-20 (2026-09-20_001#1)

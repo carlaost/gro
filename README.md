@@ -1,121 +1,84 @@
 # GRO — the Grounded Research Object
 
-*A neutral substrate for scientific output: each record affords a portfolio of verifiable signals, and each funder or institution composes those signals into its own reward function, aligned with its own incentives. This repo holds the working spec plus the research program — experiments, tournaments, and negative findings — that produced it. Everything here is in-progress design exploration: the data shape is still in discovery, and every specific below is hypothesis, not standard.*
+*A schema for publishing scientific work so that what is in it is addressable: every load-bearing
+fact written once, given an id, anchored to the text it came from. This repository is the
+canonical home of the schema. It also holds the experiments we run to test whether the schema is
+useful, which are our method and not part of what anyone publishes in.*
 
-This repository is the outcome of a program asking a blunt question: **citations reward citable work and are blind to negative results, replications, refutations, and reuse — can a machine-readable research record afford signals that let funders reward what citations cannot?** Chasing that question far enough produced a draft specification for the record itself. That draft is GRO.
+## What a GRO record is, right now
 
-Two design commitments run through everything here:
+A GRO record is a directory: the readable prose of the work plus a small set of typed files.
+The contract is [`spec/material.gro.openapi.yaml`](spec/material.gro.openapi.yaml), version 0.1.1.
+In prose:
 
-1. **The substrate is neutral.** GRO does not rank, score, or decide. A record affords signals; what any signal is *worth* is set downstream, by whoever is allocating — a funder, an institution, a program — through a reward function they compose from the portfolio according to their own priorities. Different consumers weighting the same record differently, sometimes contradictorily, is the point: plural reward functions over a shared substrate mean no canonical scalar and no single target to game.
-2. **Semantic verdicts are not signals.** Whether work is novel, significant, or promising is not a property of the record and is deliberately **outside the substrate**. It belongs to the judgment layer of a consumer's reward function; the format's only job there is to feed that judgment cleaner, pinned inputs. This boundary is not a stance — it is the lesson of our own negative findings (below).
+| File | What it records |
+|---|---|
+| `PAPER.md` front matter | title, authors, year, venue, DOI, and whether the record was compiled from full text, abstract only, or metadata only |
+| `gro/temporal.yaml` | publication date, DOI, compile timestamp |
+| `gro/refs.yaml` | one row per reference as cited; an external id only if printed in the source |
+| `gro/quantities.yaml` | one row per load-bearing number, with the verbatim quote it came from and the claims it belongs to |
+| `gro/entities.yaml` | one row per term, method, measure, dataset, gene, organism or population the claims name |
+| `gro/claims_typed.yaml` | one row per claim, structural form only: type, polarity, logical form, population scope, links to quantities, entities and proofs. No status or quality field |
+| `gro/genre.yaml` | paper type; the sections that type expects; which are present; which are declared absent |
+| `gro/contributions.yaml` | what the authors say they contribute, each linked to the claims that realize it. No novelty typing |
 
-**Start here:** [`paper/gro-paper.pdf`](paper/gro-paper.pdf) — a 5-page digest of the whole thing (problem → signals → negative result → affordance gap → GRO → limitations → next steps). The rest of the repo is the long-form backing.
+Any slot not yet read from the source is `pending_extraction`. Nothing in a record is fetched,
+resolved or judged. Three further layers that record things present in the research are named
+as candidates in [`spec/README.md`](spec/README.md); no compiler implements them yet.
 
----
+## What GRO is not
 
-## The intended data shape
+GRO does not measure anything. Whether work is credible, novel, rigorous or important is decided
+by funders, curators and validators, on their side, with their own methods, reading the record.
+The schema's job is to make the facts they need addressable, so those readings can be specific
+and checkable. It is a format people publish in, and that is all it is.
 
-Efforts toward structured scientific output exist, but nearly all of them keep the load-bearing facts in prose an LLM must re-extract — a number hand-retyped in four places instead of one typed value, citations as author-year strings instead of resolvable IDs, honest absence indistinguishable from lazy omission. Structure as a wrapper, not a shape. **The record doesn't lack the knowledge; it lacks the *shape*.** (And the adversary is the paper and the citation economy built on it — not these parallel efforts.)
+## The experiments in this repository
 
-GRO gives it a shape — and it is primarily a format for **new work**: a shape scientific output is *born into*, capturing at production time what the paper structurally discards — negative results, abandoned trails, typed quantities, the reasoning between them. One canonical typed record per load-bearing fact, addressed by ID; prose binds back to it.
+Under [`experiments/`](experiments/) we try to measure scientific work over compiled records.
+We do this for one reason: to test whether the schema is useful the way funders need it to be,
+maximally readable for the specific signals they care about. When an experiment shows a fact is
+buried in prose, retyped in four places, or indistinguishable from an omission, that is a finding
+about the shape, and the shape changes. The measurements themselves are not published, shipped
+or maintained.
 
-Backfilling existing literature into GRO is a supporting move, not the point. We do it — and will keep doing it for now — because it is the only way to prove anything on the record that exists today. But a backfilled record is permanently lossy and biased: the source material was produced to fit the paper's shape, and no amount of re-extraction recovers what that shape never let authors put down. The signals a record affords come in **two classes**, kept physically separate so no self-certified number is ever dressed as a checked one:
+Two findings so far set the boundary. Typing the record turns prose-blocked checks into plain
+joins. And a record read alone tells you how well it was compiled, not how good the science is;
+any reading of quality needs something outside the record. Both are written up under
+`experiments/`, with the emitter version each ran on.
 
-| Signal class | What it holds | How far it can be trusted |
-|---|---|---|
-| **Deterministic** | typed quantities, claim logical form, typed cross-layer graph, genre manifest | exact, reproducible — a structural join anyone can re-run |
-| **Anchored** | references, registrations, accessions, datasets | as reliable as the pinned resolver it joins against; failures quarantined, not faked |
+## Compilers
 
-What the record deliberately does **not** carry: verdicts. Novelty, significance, entailment quality, assumption realism — these are irreducibly semantic, and a record that emitted them would be certifying its own importance. They live in the consumer's reward function, fed by the two signal classes above.
+Records are produced by compilers that live in their own repositories and vendor a pinned copy
+of the contract from here:
 
-> **Status.** Work in progress. The documents in this repo are snapshots of an evolving design; where they disagree, this README is current thinking. Nothing specific — field names, classes, shapes — is final until it survives empirical validation.
+- `carlaost/gro-compiler`: a Claude Code plugin that keeps a research project's record compiled
+  live, at the end of every turn, from the project's ARA (Agent-Native Research Artifact).
+- `carlaost/paper2gro`: a retrospective compiler from a paper's full text.
 
-These roll up into a **signal portfolio per record** that never collapses to a single number: a consumer can gate on the deterministic floor, read anchored signals as risk, compose the portfolio into whatever reward function matches their incentives — and audit any signal back to its source and its class.
-
-The two classes come from auditing *why* each desirable signal was blocked. The audit necessarily ran on existing, backfilled records — that is what exists today — but what it specifies is the shape for work born in GRO:
-
-- **format-recoverable** — the fact is there as prose; emit it typed → a deterministic join.
-- **anchor-dependent** — the fact points outside the record; guarantee resolvable external IDs → a reliable join.
-- **irreducibly semantic** — no format change makes it computable → outside the substrate; the consumer's judgment, fed pinned inputs.
-
-### Design principles
-
-The ways of working the shape must enable: **collaborative** (an open contribution graph — fork, merge, extend, no closed author group), **iterative** (publish as you go; every contribution counts, including "just" an idea or "just" a dataset), **fast** (publish at the speed of discovery, not of a defensible narrative), **comprehensive** (capture everything, including failure paths and dead ends — agents scale with context even where humans can't read it all). And the properties of the record that make them possible:
-
-- **Composable.** Records build on each other by direct reference and import; links are typed so they stay interpretable. Each record is like a code package — it extends every importing project while remaining a standalone contribution.
-- **Referential.** Science builds on prior science and the record must reflect it: every pointer resolves — IDs, registrations, accessions — never author-year strings.
-- **Standardized.** Typed links only work if records share schemas — a claim is always statement + falsification + proof; data always carries units and provenance. Kept light enough not to reintroduce the authoring burden.
-- **Signal-bearing.** Rewards need signals, and a signal is only trustworthy with its class on the label. The shape exists so that *visible → signal-bearing → rewarded* can be real — with what any signal is worth decided downstream, per reward function.
-
-All four are working hypotheses, same status as everything else here.
-
-The working spec, including the honest-limitations section, is [`SPEC.md`](SPEC.md). For the **field-by-field data shape as actually emitted** — every sidecar with types and example values — see [`DATA_SHAPE.md`](DATA_SHAPE.md) (the concrete reference; `SPEC.md` is the design target, `SPEC.md §7a` records emitted-vs-specified).
-
-## Negative findings so far (scope stated plainly)
-
-One application of the substrate has gone beyond scoping into discovery work: **breakthrough signals** — could signals derived from the record identify work that later proves field-changing? The answer so far is no, and the details matter:
-
-- **A single record's structure, read in isolation, didn't afford quality judgment.** In the structure we tested, signals computed over one record on its own told you whether the record was *faithful* — well-compiled bad science and well-compiled good science were indistinguishable. Signal appeared where the record joined something beyond itself: claims anchored to external ground truth. Two implications, both live: judgment will probably usually need landscape context — where a contribution sits among its neighbors — and the schema has since been extended to better afford reading *scientific practice* from the record itself: the presence or absence of negative results and abandoned paths, datasets used and created, methods invoked and reused. Whether practice-level signals discriminate is untested — a hypothesis, not a claim. (See [`metrics/findings.md`](metrics/findings.md).)
-- **LLM-judged "breakthrough-ness" tracks perception, not impact.** In a discrimination test (66 recent + 72 historical Alzheimer's papers — [`experiment/breakthrough/`](experiment/breakthrough/)), the one signal carrying any weight agreed with a same-model LLM panel at ρ≈0.58, an independent model family at ≈0.34 (≈⅓ shared-method bias), and real-world 15–20-year citation-disruption at **≈0**. It flags LLM-perceived contribution depth, not field impact. ([`experiment/breakthrough/RESULTS_PAPER.pdf`](experiment/breakthrough/RESULTS_PAPER.pdf))
-
-These two results are why the substrate/reward-function boundary sits where it does: the record can verifiably carry facts and anchors; it cannot verifiably carry importance. Everything else in the signal space — including the directions below — remains at scoping or design stage, stated as such.
-
-## Signal families being explored
-
-What we are looking at affording with GRO, each a different consumer priority over the same substrate:
-
-- **Information gain** — where is a research neighborhood dense, sparse, or redundant; where does a new record add the most that isn't already there.
-- **Translational ripeness** — where work sits in the lab-to-world transition: already translational, at the edge, still upstream, past the window.
-- **Field formation potential** — method seeds and convergence clusters: new methods trigger fields, and clusters form years before recognition.
-
-None of these is validated. Each is listed as a design target for the reward-function layer, not a capability claim.
-
-## Reasoning summary (how we got here)
-
-1. **Papers and citations are a Goodharted proxy** for scientific quality — they reward citable work and can't see negative results, replications, reuse, or refutations.
-2. **A signals testbed** drafted 64 candidate contribution indicators over a structured corpus (~140 Alzheimer's papers, ~60 compiled) and ran them through blind adversarial tournaments.
-3. **The negative result:** in the structure tested, signals over a single record in isolation read its fidelity, not the quality of its science — signal needed joins beyond the record. (See [`metrics/findings.md`](metrics/findings.md); the ideal indicators are in [`METRICS.md`](METRICS.md).)
-4. **The affordance gap:** auditing every blocked signal against the shape that blocked it produced the three-class taxonomy above — most blocks were format problems, not feasibility problems. (See [`methods/affordance-gap.md`](methods/affordance-gap.md).)
-5. **The design tournament:** each of twelve affordance gaps was run through a four-proposer → judge → refine tournament; the winning designs were merged and put through an adversarial red-team pass that forced every over-claim down to a stated limitation. The output is GRO. (See [`methods/`](methods/).)
+GRO is primarily a format for new work: a shape research is born into, capturing at production
+time what a paper discards. Backfilling existing literature is a supporting move, and a
+backfilled record is permanently lossy, because the source was written to fit the paper's shape.
 
 ## Repository layout
 
-The program runs **signals → substrate**: the indicator work is the entry point, GRO is the substrate it demanded.
-
 ```
 gro/
-  README.md              # you are here
-  METRICS.md             # the ideal indicators — thesis, TOP-10, where existing efforts fall short
-  SPEC.md                # the working GRO specification (the intended data shape / full L1-L8 target)
-  DATA_SHAPE.md          # CANONICAL data-shape reference — every emitted sidecar, fields + example values (OpenAPI-style), classes, and what's emitted vs specified
-  metrics/               # the incentive-design program (the indicators + code + experiments)
-    README.md
-    directions.md · candidates.md · merged.md · data-shapes.md
-    findings.md          #   the negative result that reframed the program
-    novelty-comparison.md · verifier-comparison.md · library-metrics.md
-    analysis/            #   comparison-v2-v3, validator-reliability, compiler-model, plan, loop-log
-    code/                #   claim_graph.py (flagship), compute_metrics_v3.py, + experiment modules
-    tournaments/         #   the two indicator tournaments — winners + judgements (round1 per-artifact, round2 per-metric)
-  methods/               # how the SUBSTRATE was derived from the indicator work
-    README.md
-    affordance-gap.md    #   the three-class blocked-signal taxonomy (the bridge indicators -> format)
-    tournament-designs.md #  the 12 format gaps' winning finalist designs (raw)
-    tail-synthesis-log.md #  review verdicts + the adversarial critique the final resolved
-  ara/                   # the structured research-record testbed used by the experiments
-    README.md
-    PAPER.md  logic/  trace/  staging/
-  experiment/            # empirical tests
-    README.md
-    gro-experiment-paper.pdf   # test 1 write-up: computability (5pp)
-    gro_metrics.py · results.json · results.md
-    extensions/<slug>/         # GRO typed sidecars generated per record (12 records)
-    breakthrough/              # test 2: DISCRIMINATION — breakthrough signals vs LLM panels & real-world disruption
-      RESULTS_PAPER.pdf        #   full write-up (the 0.58 -> 0.34 -> ~0 arc, shared-method bias, historical null)
-      corpus/ · historical/    #   66 recent + 72 historical (2004-2010) AD papers, scores, reproducible scripts
+  README.md          # you are here
+  spec/              # the schema: the contract, its prose page, the sync script
+  experiments/       # our method: measurement experiments over compiled records, and history
+  ara/               # this project's own research record (process trace)
 ```
 
-**Empirical status:** two experiments exist — both on backfilled corpora (the only kind that exists yet), which bounds what they can show. [`experiment/`](experiment/) confirmed typing the record makes prose-blocked signals *computable* as structural joins (12 records, deterministic class). [`experiment/breakthrough/`](experiment/breakthrough/) then ran the harder test — do they *discriminate*? — with the largely negative result described above. The sharpening move (full-text, multi-domain historical corpus) is blocked partly by paywall access for older papers.
+## How the shape was arrived at
 
-## Provenance & positioning
-
-This is part of an incentive-design research program (the "reward what citations punish" thesis). The target of the critique is the paper–citation complex, not any parallel structured-output effort; GRO is the substrate-design output of the signals program. Design tournament run IDs: `wf_f0bc615b-a88` (+ tail `wf_c4cbff37-887`). Full method and honest limitations in [`SPEC.md`](SPEC.md) §7 and [`methods/`](methods/).
+Papers and citations are a Goodharted proxy for scientific quality. We asked what one would
+want to measure instead, drafted 64 candidate indicators, and ran them through blind design
+tournaments over a corpus of compiled Alzheimer's papers. The result was negative in a useful
+way: indicators over a record's own structure read its fidelity, not its science, and most of
+what blocked a good indicator was the shape of the record, not feasibility. Auditing every
+blocked indicator against the shape that blocked it produced twelve format gaps; a design
+tournament over those gaps produced the July 2026 draft. That draft fused the shape with
+measuring machinery. The fusion was a mistake, and the current schema is what remains once
+everything judged, fetched or resolved is taken out. The full history, unedited, is under
+[`experiments/history/`](experiments/history/).

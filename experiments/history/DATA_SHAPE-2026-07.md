@@ -1,6 +1,11 @@
+> **SUPERSEDED (2026-07-15 snapshot).** Field-by-field reference for the July 2026 emitter
+> (10 sidecars, three of them measuring-side, with "rigor tiers" per file). The current
+> schema is the 7-file contract in [`../../spec/`](../../spec/). Kept for reading the
+> experiments in `../runs/`, which ran on this emitter.
+
 # GRO data shape — the canonical, current reference
 
-*The single source of truth for a GRO record's structure: every emitted sidecar, its rigor tier, id space, provenance, fields, and a real example value (OpenAPI-style). Normative target: [`SPEC.md`](SPEC.md). What is emitted vs still specified-only: [`SPEC.md §7a`](SPEC.md). Live instances: `experiment/**/gro/` and the parent corpus's `ara-library/*/gro/`.*
+*The single source of truth for a GRO record's structure: every emitted sidecar, its rigor tier, id space, provenance, fields, and a real example value (OpenAPI-style). Normative target: [`SPEC.md`](SPEC-2026-07.md). What is emitted vs still specified-only: [`SPEC.md §7a`](SPEC-2026-07.md). Live instances: `experiment/**/gro/` and the parent corpus's `ara-library/*/gro/`.*
 
 ---
 
@@ -256,7 +261,7 @@ note: "pub_date seeds the corpus temporal spine"
 
 ## Learnings that constrain how this shape is used
 
-From the v5 breakthrough paper and the v6 longitudinal validation ([`experiment/breakthrough/`](experiment/breakthrough/)):
+From the v5 breakthrough paper and the v6 longitudinal validation ([`experiment/breakthrough/`](../runs/breakthrough/)):
 
 - **Only `contributions.yaml` typing carries any breakthrough signal** at publication time; the `[PRIOR-ART]` `sota_anchor` overlap, the `delta_ledger`, and `genre` added **no transferable signal**.
 - That signal is **shared-model bias, largely**: contribution-depth agreed with a same-model LLM panel at ρ≈0.58 but an independent model at only ≈0.34, and the two models' own metrics agree only ρ≈0.17 — so there is **no stable model-independent "contribution depth."**

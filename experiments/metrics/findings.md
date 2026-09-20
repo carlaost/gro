@@ -1,5 +1,8 @@
 # V3 good-science metrics — convergent findings after 3 adversarial cycles
 
+> *Emitter note (added 2026-09-20): these results were computed over records produced by the July 2026 emitter (10 sidecars: the 7 material files plus external_quantities, delta_ledger, sota_anchor, and novelty typing inside contributions.yaml). That emitter predates the current 7-file schema in `spec/`. Numbers are unchanged; read them against `experiments/history/DATA_SHAPE-2026-07.md`.*
+
+
 *Autonomous critique→improve loop, 2026-07-05/06. Three independent Fable metascientist critiques
 (`critiques/cycle{1,2,3}.md`), each acted on. This is the honest bottom line. Full trail in `loop-log.md`.*
 

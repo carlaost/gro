@@ -1,0 +1,43 @@
+# GRO material layer, compiled by gro-compiler. Pure material compilation; no metrics/judgments. contributions.yaml — the contributions the authors state, each linked via realized_in to the real C## that realize it. No novelty typing / assessment (that is a metric, not compiled here).
+# statement = the authors' wording (PAPER.md abstract, logic/problem.md Key Insight, ara/README.md). author_framed_type = how the text itself frames the piece. realized_in = the claims that carry it, wired from the claims' own Tags / Interpretation / source tags; stated_in = where the statement is made.
+contributions:
+- id: CT01
+  statement: "The ARA protocol (Liu et al., 2026) supplies the representation: a four-layer agent-executable package (logic, code+specs, exploration graph, evidence) with cross-layer forensic bindings, plus skills for live capture, compilation, and review"
+  author_framed_type: "representation (protocol) with supporting skills"
+  stated_in: "PAPER.md abstract"
+  realized_in: [C09, C08]
+- id: CT02
+  statement: "its evaluations show large gains in agent understanding and reproduction"
+  author_framed_type: "empirical evaluation of the representation"
+  stated_in: "PAPER.md abstract"
+  realized_in: [C01, C02, C03, C06, C07]
+- id: CT03
+  statement: "and quantify the information and failure-cost taxes of narrative papers"
+  author_framed_type: "quantification of the Engineering Tax and the Storytelling Tax"
+  stated_in: "PAPER.md abstract; logic/concepts.md (Storytelling Tax / Engineering Tax)"
+  realized_in: [C04, C05]
+- id: CT04
+  statement: "The oshima API supplies a working implementation that ingests paper PDFs into structured claims, typed evidence, first-order logic, and cross-paper themes"
+  author_framed_type: "working system implementation"
+  stated_in: "PAPER.md abstract"
+  realized_in: [C10, C11, C12]
+- id: CT05
+  statement: "The multi-omics embedding (Otte et al., 2025) supplies a domain case in which geometry stands in for biology and a synthetic point can decode into candidate pathways or 'alien proteins.'"
+  author_framed_type: "domain case study"
+  stated_in: "PAPER.md abstract"
+  realized_in: [C13, C14, C15]
+- id: CT06
+  statement: "Two essays by the project lead frame the problem (the paper as a bottleneck; citations as a broken proxy) and the synthesizing thesis: even an AI-first record needs a human-readable decoding layer to drive human-led science"
+  author_framed_type: "problem framing and synthesizing thesis"
+  stated_in: "PAPER.md abstract; logic/problem.md O4, G3, A4"
+  realized_in: [C17, C15]
+- id: CT07
+  statement: "Treat the evolving knowledge object — not the paper — as primary (\"Knowledge over Narrative\"), and represent it as a structured, machine-executable artifact with explicit cross-layer links (reasoning ↔ code/specs ↔ exploration history ↔ evidence). Capture the process (including failures) as it happens, validate it with machine-checkable credentials, and — crucially — keep a human-readable layer on top of the AI-first record so the machine representation decodes back into hypotheses, designs, datasets, and protocols a scientist can act on"
+  author_framed_type: "Key Insight"
+  stated_in: "logic/problem.md Key Insight (Enables: ARA understanding/reproduction; live capture; oshima; multi-omics decoding)"
+  realized_in: [C01, C03, C06, C09, C10, C13, C15]
+- id: CT08
+  statement: "This is the Agent-Native Research Artifact (ARA) that documents the research program that produced GRO — the self-describing record of the work, not a testbed input. It is included here because the program critiques the ARA format from the inside"
+  author_framed_type: "self-describing research record; critique of the ARA format from the inside"
+  stated_in: "ara/README.md"
+  realized_in: [C16, C17]

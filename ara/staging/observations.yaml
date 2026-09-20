@@ -629,7 +629,7 @@ observations:
     promoted: false
     promoted_to: null
     crystallized_via: null
-    stale: false
+    stale: true  # idle since 2026-07; surfaced for triage 2026-09-20
 
   - id: O28
     timestamp: "2026-07-06"
@@ -656,7 +656,7 @@ observations:
     promoted: false
     promoted_to: null
     crystallized_via: null
-    stale: false
+    stale: true  # idle since 2026-07; surfaced for triage 2026-09-20
 
   - id: O29
     timestamp: "2026-07-06"
@@ -692,7 +692,7 @@ observations:
     promoted: false
     promoted_to: null
     crystallized_via: null
-    stale: false
+    stale: true  # idle since 2026-07; surfaced for triage 2026-09-20
 
   - id: O30
     timestamp: "2026-07-07"
@@ -716,9 +716,9 @@ observations:
     context: "User asked for a final review of the GRO spec 'as Fable'; review delivered in-chat, then folded into the Astera (What-I-don't-know) and SPRU (RQ2/RQ4, WP2) proposals as work-to-improve."
     potential_type: claim
     bound_to: [N51, N53]
-    promoted: false
-    promoted_to: null
-    crystallized_via: null
+    promoted: true
+    promoted_to: "logic/claims.md:C17"
+    crystallized_via: artifact-commitment  # N55 cites O30 as evidence; Carla's 2026-09-20 first-person "schema =/= credibility" also affirms its conclusion
     stale: false
 
   - id: O31
@@ -748,4 +748,4 @@ observations:
     promoted: false
     promoted_to: null
     crystallized_via: null
-    stale: false
+    stale: true  # idle since 2026-07; surfaced for triage 2026-09-20

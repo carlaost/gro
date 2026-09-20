@@ -1,0 +1,275 @@
+# GRO material layer, compiled by gro-compiler. Pure material compilation; no metrics/judgments. entities.yaml — EN- terms/concepts/methods/measures/datasets named in the material.
+# One id per concept, reused across claims. `term` is the canonical wording from logic/claims.md or logic/concepts.md. xref is not_specified unless an ontology id is literally present in the material (none is).
+entities:
+# --- the representation and its evaluation (C01-C09) ---
+- id: EN-concept-agent-native-research-artifact
+  term: "Agent-Native Research Artifact (ARA)"
+  kind: concept
+  xref: not_specified
+- id: EN-concept-pdf-repo-baseline
+  term: "PDF+repo (baseline presentation of a work)"
+  kind: concept
+  xref: not_specified
+- id: EN-population-coding-agent
+  term: "coding agent"
+  kind: population
+  xref: not_specified
+- id: EN-measure-qa-accuracy
+  term: "question-answering accuracy"
+  kind: measure
+  xref: not_specified
+- id: EN-concept-category-c-failure-questions
+  term: "Category C (questions about failures/dead ends)"
+  kind: concept
+  xref: not_specified
+- id: EN-measure-difficulty-weighted-reproduction-success
+  term: "difficulty-weighted reproduction success"
+  kind: measure
+  xref: not_specified
+- id: EN-concept-reproduction-critical-requirement
+  term: "reproduction-critical requirements"
+  kind: concept
+  xref: not_specified
+- id: EN-concept-missing-hyperparameters
+  term: "missing hyperparameters (gap type)"
+  kind: concept
+  xref: not_specified
+- id: EN-concept-below-reference-run
+  term: "below-reference (failed) runs"
+  kind: concept
+  xref: not_specified
+- id: EN-measure-exploration-cost-share
+  term: "share of total exploration cost (dollar cost / tokens) in failed runs"
+  kind: measure
+  xref: not_specified
+- id: EN-measure-failed-to-success-token-ratio
+  term: "median failed-to-success token ratio"
+  kind: measure
+  xref: not_specified
+- id: EN-concept-preserved-failure-trace
+  term: "preserved failure trace"
+  kind: concept
+  xref: not_specified
+- id: EN-concept-paper-only-agent
+  term: "paper-only agent"
+  kind: concept
+  xref: not_specified
+- id: EN-measure-time-to-first-useful-extension-move
+  term: "time to first useful extension move"
+  kind: measure
+  xref: not_specified
+- id: EN-dataset-rust-codecontests
+  term: "rust_codecontests (RE-Bench extension task)"
+  kind: dataset
+  xref: not_specified
+- id: EN-dataset-triton
+  term: "triton (RE-Bench extension task)"
+  kind: dataset
+  xref: not_specified
+- id: EN-dataset-restricted-mlm
+  term: "restricted_mlm (RE-Bench extension task)"
+  kind: dataset
+  xref: not_specified
+- id: EN-tool-claude-sonnet-4-5
+  term: "Sonnet 4.5 (base model)"
+  kind: tool
+  xref: not_specified
+- id: EN-concept-sufficiency-capability-relative
+  term: "Sufficiency (capability-relative)"
+  kind: concept
+  xref: not_specified
+- id: EN-tool-l2-rigor-auditor
+  term: "L2 Rigor Auditor (ARA Seal Level 2)"
+  kind: tool
+  xref: not_specified
+- id: EN-method-mutation-benchmark
+  term: "mutation benchmark (controlled flaw injection)"
+  kind: method
+  xref: not_specified
+- id: EN-concept-orphan-experiment
+  term: "orphan experiment"
+  kind: concept
+  xref: not_specified
+- id: EN-measure-injection-detection-rate
+  term: "detection rate per injection type"
+  kind: measure
+  xref: not_specified
+- id: EN-concept-agent-native-dimensions
+  term: "five agent-native dimensions"
+  kind: concept
+  xref: not_specified
+- id: EN-concept-cross-layer-forensic-bindings
+  term: "Cross-layer forensic bindings"
+  kind: concept
+  xref: not_specified
+- id: EN-tool-pdf
+  term: "PDF"
+  kind: tool
+  xref: not_specified
+- id: EN-tool-github
+  term: "GitHub"
+  kind: tool
+  xref: not_specified
+- id: EN-tool-experiment-tracker
+  term: "experiment trackers"
+  kind: tool
+  xref: not_specified
+# --- the oshima implementation (C10-C12) ---
+- id: EN-tool-oshima-api
+  term: "oshima API (paper-ingestion implementation, src/execution/app/)"
+  kind: tool
+  xref: not_specified
+- id: EN-concept-structured-claim
+  term: "structured claim (with confidence and centrality)"
+  kind: concept
+  xref: not_specified
+- id: EN-concept-typed-evidence
+  term: "typed evidence (support / contradict / contextual)"
+  kind: concept
+  xref: not_specified
+- id: EN-method-schema-constrained-llm-extraction
+  term: "schema-constrained LLM extraction"
+  kind: method
+  xref: not_specified
+- id: EN-method-section-aware-chunking
+  term: "section-aware chunking"
+  kind: method
+  xref: not_specified
+- id: EN-concept-first-order-logic-representation
+  term: "first-order-logic representation (fol_json)"
+  kind: concept
+  xref: not_specified
+- id: EN-tool-sumo-ontology
+  term: "SUMO (ontology)"
+  kind: tool
+  xref: not_specified
+- id: EN-tool-wordnet
+  term: "WordNet"
+  kind: tool
+  xref: not_specified
+- id: EN-method-logical-deduplication
+  term: "logical deduplication"
+  kind: method
+  xref: not_specified
+- id: EN-concept-library
+  term: "library (collection of papers)"
+  kind: concept
+  xref: not_specified
+- id: EN-concept-cross-paper-theme
+  term: "cross-paper themes (full and incremental synthesis modes)"
+  kind: concept
+  xref: not_specified
+# --- the multi-omics domain case (C13-C15) ---
+- id: EN-method-word2vec-two-tower-network
+  term: "Word2Vec-style two-tower (target/context) network"
+  kind: method
+  xref: not_specified
+- id: EN-dataset-metacyc
+  term: "MetaCyc pathway sequences"
+  kind: dataset
+  xref: not_specified
+- id: EN-concept-multi-omics-shared-embedding
+  term: "Multi-omics shared embedding (128-dimensional node vectors)"
+  kind: concept
+  xref: not_specified
+- id: EN-concept-omics-modality
+  term: "omics modality"
+  kind: concept
+  xref: not_specified
+- id: EN-concept-pyrimidine-nucleotide-biosynthesis
+  term: "pyrimidine nucleotide biosynthesis (example cluster)"
+  kind: concept
+  xref: not_specified
+- id: EN-measure-embedding-dot-product
+  term: "dot product between embeddings"
+  kind: measure
+  xref: not_specified
+- id: EN-concept-related-unrelated-node-pairs
+  term: "related nodes vs unrelated nodes"
+  kind: concept
+  xref: not_specified
+- id: EN-method-nearest-neighbor-lookup
+  term: "nearest neighbors in the embedding space"
+  kind: method
+  xref: not_specified
+- id: EN-concept-udp-alpha-d-galactose
+  term: "UDP-alpha-D-galactose"
+  kind: concept
+  xref: not_specified
+- id: EN-gene-pgm1
+  term: "phosphoglucomutase-1 (PGM1)"
+  kind: gene
+  xref: not_specified
+# --- the compiler critique and the schema boundary (C16-C17) ---
+- id: EN-concept-ara-metric
+  term: "ARA metric (a metric computed over an ARA record)"
+  kind: concept
+  xref: not_specified
+- id: EN-concept-extractive-layer
+  term: "extractive layer (claims, numbers, evidence tables)"
+  kind: concept
+  xref: not_specified
+- id: EN-concept-homogenization-layer
+  term: "homogenization layer (presence-proxy fields filled from a fixed template)"
+  kind: concept
+  xref: not_specified
+- id: EN-concept-fabrication-layer
+  term: "fabrication layer (schema-demanded content the source lacks)"
+  kind: concept
+  xref: not_specified
+- id: EN-dataset-wave-1-2-corpus
+  term: "wave-1/2 corpus"
+  kind: dataset
+  xref: not_specified
+- id: EN-dataset-che26
+  term: "che26 (meta-analysis ARA record in the corpus)"
+  kind: dataset
+  xref: not_specified
+- id: EN-dataset-woj25
+  term: "woj25 (ARA record in the corpus)"
+  kind: dataset
+  xref: not_specified
+- id: EN-measure-refutes-count
+  term: "refutes (related-work type count)"
+  kind: measure
+  xref: not_specified
+- id: EN-measure-dead-end-density
+  term: "dead_end_density"
+  kind: measure
+  xref: not_specified
+- id: EN-measure-negative-result-metric
+  term: "negative-result metric"
+  kind: measure
+  xref: not_specified
+- id: EN-measure-auc
+  term: "AUC"
+  kind: measure
+  xref: not_specified
+- id: EN-concept-compiler-fidelity
+  term: "compiler-fidelity"
+  kind: concept
+  xref: not_specified
+- id: EN-concept-metric-validity
+  term: "metric-validity"
+  kind: concept
+  xref: not_specified
+- id: EN-concept-publishing-schema
+  term: "publishing schema (a research record's schema)"
+  kind: concept
+  xref: not_specified
+- id: EN-concept-credibility
+  term: "credibility (of a piece of research)"
+  kind: concept
+  xref: not_specified
+- id: EN-concept-verbatim-anchor
+  term: "verbatim anchor (id + quote for a fact in the record)"
+  kind: concept
+  xref: not_specified
+- id: EN-concept-external-ground-truth
+  term: "external ground truth (calibration corpora, a judge)"
+  kind: concept
+  xref: not_specified
+- id: EN-population-funder-curator-validator
+  term: "funder / curator / validator (the measuring side)"
+  kind: population
+  xref: not_specified

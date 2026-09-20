@@ -1,5 +1,8 @@
 # Does a publication-time breakthrough metric predict what the field actually did?
 
+> *Emitter note (added 2026-09-20): these results were computed over records produced by the July 2026 emitter (10 sidecars: the 7 material files plus external_quantities, delta_ledger, sota_anchor, and novelty typing inside contributions.yaml). That emitter predates the current 7-file schema in `spec/`. Numbers are unchanged; read them against `experiments/history/DATA_SHAPE-2026-07.md`.*
+
+
 ## A longitudinal validation against downstream citations
 
 *Written 2026-07-15. Follow-on to* **"Measuring breakthrough-ness on new papers — how far a GRO metric gets, and the ceiling above it"** *(the v5 breakthrough paper, `research/metrics/v5-breakthrough/RESULTS_PAPER.md`), which built and adversarially tournament-tuned a breakthrough metric over the GRO substrate and validated it only against an LLM expert panel. v5's own §9–§10 named the decisive open test: replace the LLM ground truth with the real world. This is that test.*

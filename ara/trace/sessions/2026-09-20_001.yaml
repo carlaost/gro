@@ -1,0 +1,95 @@
+session:
+  id: "2026-09-20_001"
+  date: "2026-09-20"
+  started: "2026-09-19T20:00"
+  last_turn: "2026-09-20T12:00"
+  turn_count: 1
+  summary: >
+    Covers the 2026-09-19/20 session in the public gro repo (recorder not wired there; batched as
+    one epilogue). Carla, returning after two months, had the agent reconstruct GRO from the
+    artifacts (N57), then ruled: GRO is the pure schema people publish in; measuring is funder-side
+    and not part of the project (N55); the repo is the mother, spec/ + experiments/ + one trace,
+    compilers separate, dasmodel parked (N56). Executed: canonical material contract 0.1.1 moved
+    here, July fused SPEC/DATA_SHAPE frozen as history, README rewritten around the 7-file schema,
+    write-ups stamped with their emitter, compilers re-vendored, paper2gro flagged to stop writing
+    judgments into records. O30 crystallized as C17. Stop-hook dogfooding attempt abandoned (N58).
+
+events_logged:
+  - turn: 1
+    type: experiment
+    id: "N57"
+    routing: direct
+    provenance: ai-executed
+    summary: "Artifact-explainability test: shape recoverable from SPEC.md; history from ara/trace; self-compiled record adds nothing."
+  - turn: 1
+    type: decision
+    id: "N55"
+    routing: direct
+    provenance: user
+    summary: "GRO = pure schema; measuring is funder-side, not part of project; experiments kept only as method."
+  - turn: 1
+    type: decision
+    id: "N56"
+    routing: direct
+    provenance: user
+    summary: "Repo org: gro repo is mother (spec/ + experiments/ + ara/), compilers separate, dasmodel parked."
+  - turn: 1
+    type: dead_end
+    id: "N58"
+    routing: direct
+    provenance: ai-suggested
+    summary: "Project Stop hook for dogfooding abandoned (classifier denial + no-repo-change rule)."
+  - turn: 1
+    type: claim
+    id: "C17"
+    routing: crystallized
+    provenance: ai-suggested
+    summary: "O30 -> C17: credibility is not a property of the schema (artifact commitment via N55)."
+
+ai_actions:
+  - turn: 1
+    action: "Reorganised repo: git mv metrics/ experiment/ methods/ paper/ self-compiled/ METRICS.md SPEC.md DATA_SHAPE.md under experiments/ (runs/, history/); created spec/ with the 0.1.1 contract, README, sync.sh; rewrote README.md; wrote experiments/README.md; fixed moved links; added freeze banners and emitter stamps."
+    provenance: ai-executed
+    files_changed: ["README.md", "spec/material.gro.openapi.yaml", "spec/README.md", "spec/sync.sh", "experiments/README.md", "experiments/history/SPEC-2026-07.md", "experiments/history/DATA_SHAPE-2026-07.md", "experiments/history/metric.gro.openapi.yaml", "experiments/runs/*PAPER*.md", "experiments/metrics/findings.md"]
+  - turn: 1
+    action: "Compilers: re-vendored material 0.1.1 into gro-compiler and paper2gro, stamped SPEC_VERSION, updated gro-compiler README (canonical = gro repo), added TODO banner to paper2gro README (stop writing judgments into gro/); dasmodel gro-spec README now points here."
+    provenance: ai-executed
+    files_changed: ["~/code/gro-compiler/spec/*", "~/code/gro-compiler/README.md", "~/code/paper2gro/spec/*", "~/code/paper2gro/README.md", "~/code/dasmodel/research/gro-spec/README.md"]
+  - turn: 1
+    action: "Created gitignored WORKING-NOTES.md (Open / Decisions / Log) as the cross-session scratch; verified gro-compiler writes material only."
+    provenance: ai-executed
+    files_changed: ["WORKING-NOTES.md", ".gitignore"]
+
+claims_touched:
+  - id: C17
+    action: crystallized
+    turn: 1
+
+logic_revisions:
+  - turn: 1
+    entry: PAPER.md layer index
+    field: claims count
+    before: "15 falsifiable claims (C01–C15), grounded by source"
+    after: "17 falsifiable claims (C01–C17), grounded by source"
+    signal: dependency-change
+    provenance: ai-suggested
+    note: "manifest was stale (C16 existed unlisted); C17 added this turn"
+
+key_context:
+  - turn: 1
+    excerpt: "Carla: 'record that computes its own credibility is a bs claim, we need to get rid of that: schema =/= credibility/merit/anything eval - this is super important and that got super mangled in this work previously.'"
+  - turn: 1
+    excerpt: "Carla: 'evals are not part of what we do here!! we only experiment with measuring scientific work to see if the schema is useful in the sense we want it to be useful for funders: maximally readable for specific signals they care about. eval lives on the funder/curator/validator side and is NOT part of this AT ALL, it is a mere method and experiment to us.'"
+  - turn: 1
+    excerpt: "Carla on org: 'this should be the mother, the compilers are the compilers. dasmodel is parked ... spec section of repo gets the cleaned version with the 7 files we have and the 3 other sections as wip, not active yet.'"
+
+open_threads:
+  - "paper2gro still emits the former metric half into gro/ (novelty typing in contributions.yaml, external_quantities, delta_ledger, sota_anchor); must be dropped or moved out of gro/ and gro.metric removed from its IMPLEMENTS (PLAN step 3)."
+  - "Dogfooding mechanism for this repo undecided: plugin install vs project hook vs manual end-of-turn invocation (N58)."
+  - "Is the 7-file material contract complete? Three candidate layers listed in spec/README as not active: citation locations, printed accession ids, experiments/problem as typed layers."
+  - "C16 CONFLICT (N47) still awaits Carla's adjudication; untouched this session."
+  - "Repo changes of 2026-09-20 are uncommitted; Carla to review."
+  - "Stale staged observations surfaced for triage: O27, O28, O29, O31 (idle since July)."
+
+ai_suggestions_pending:
+  - "C17 is ai-suggested (from O30). Carla's 2026-09-20 statements affirm its conclusion in substance; an explicit 'yes, C17 as written' would upgrade provenance to user-revised."

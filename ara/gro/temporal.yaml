@@ -1,0 +1,8 @@
+# GRO material layer, compiled by gro-compiler. Pure material compilation; no metrics/judgments. temporal.yaml — dates present in the material (deterministic).
+pub_date: '2026-01-01'
+doi: 'n/a — sources: arXiv:2604.24658v3 (ARA); doi:10.69997/sct.136974 / LAPSE:2025.0524
+  (multi-omics)'
+fetch_timestamp: '2026-09-20T09:30:04+00:00'
+note: Dates present in the material. pub_date from PAPER.md year; fetch_timestamp
+  is compile time. No precedence/cutoff windows are set here — those are metric concerns,
+  out of scope for material compilation.

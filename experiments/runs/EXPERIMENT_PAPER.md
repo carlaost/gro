@@ -1,5 +1,8 @@
 # Does typed extension make prose-blocked metrics deterministically computable? A deterministic-tier GRO experiment over 12 compiled ARAs
 
+> *Emitter note (added 2026-09-20): these results were computed over records produced by the July 2026 emitter (10 sidecars: the 7 material files plus external_quantities, delta_ledger, sota_anchor, and novelty typing inside contributions.yaml). That emitter predates the current 7-file schema in `spec/`. Numbers are unchanged; read them against `experiments/history/DATA_SHAPE-2026-07.md`.*
+
+
 ## Abstract
 
 We took 12 already-compiled Agent-Native Research Artifacts (ARAs), generated Grounded Research Object (GRO) deterministic-tier extensions for each — five typed YAML sidecars (`quantities`, `claims_typed`, `refs`, `entities`, `genre`) — and computed the eight deterministic-tier (Tier A) metrics from the GRO spec over the extended shape. The narrow question: *does typing the record turn metrics that were not deterministically computable on the raw prose into pure structural joins, and what do the numbers show across the corpus?* The answer is yes on computability — all eight metrics ran as LLM-free, network-free lookups over the sidecars, and one (`broken_ref_integrity`) caught a real structural defect a prose corpus cannot express. But the result is deliberately narrow: this is the deterministic tier only; the anchored tier (real DOI/registry resolution) and the judged tier (novelty, entailment quality) were not run; the extensions were themselves LLM-generated, which sets a fidelity ceiling; and none of this tests whether the metrics discriminate good science from bad. We report the real per-metric corpus numbers and are explicit about what they do and do not establish.

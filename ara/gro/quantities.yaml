@@ -1,0 +1,259 @@
+# GRO material layer, compiled by gro-compiler. Pure material compilation; no metrics/judgments. quantities.yaml — one Q## per load-bearing number, each with a verbatim `quote` copied from the source line (grounding).
+# Quotes are the physical line of logic/claims.md that contains the number, copied verbatim (leading indentation stripped). Several Q## can share one quote when one line carries several numbers.
+quantities:
+- id: Q01
+  value: 93.7
+  unit: percent
+  comparator: exact
+  role: result
+  source_ref: logic/claims.md#C01
+  quote: "question-answering accuracy on that work (93.7% vs 72.4%, +21.3% over 450 paired outcomes)."
+  claim_refs: [C01]
+- id: Q02
+  value: 72.4
+  unit: percent
+  comparator: exact
+  role: result
+  source_ref: logic/claims.md#C01
+  quote: "question-answering accuracy on that work (93.7% vs 72.4%, +21.3% over 450 paired outcomes)."
+  claim_refs: [C01]
+- id: Q03
+  value: 21.3
+  unit: percentage points (ARA minus PDF+repo)
+  comparator: exact
+  role: result
+  source_ref: logic/claims.md#C01
+  quote: "question-answering accuracy on that work (93.7% vs 72.4%, +21.3% over 450 paired outcomes)."
+  claim_refs: [C01]
+- id: Q04
+  value: 450
+  unit: paired outcomes
+  comparator: exact
+  role: input
+  source_ref: logic/claims.md#C01
+  quote: "question-answering accuracy on that work (93.7% vs 72.4%, +21.3% over 450 paired outcomes)."
+  claim_refs: [C01]
+- id: Q05
+  value: 65.7
+  unit: percentage points (ARA minus baseline, Category C)
+  comparator: exact
+  role: result
+  source_ref: logic/claims.md#C02
+  quote: "(Category C), where ARA wins by +65.7%."
+  claim_refs: [C02]
+- id: Q06
+  value: 64.4
+  unit: percent (difficulty-weighted reproduction success)
+  comparator: exact
+  role: result
+  source_ref: logic/claims.md#C03
+  quote: "- **Statement**: ARA raises difficulty-weighted reproduction success (64.4% vs 57.4%), with the gap"
+  claim_refs: [C03]
+- id: Q07
+  value: 57.4
+  unit: percent (difficulty-weighted reproduction success)
+  comparator: exact
+  role: result
+  source_ref: logic/claims.md#C03
+  quote: "- **Statement**: ARA raises difficulty-weighted reproduction success (64.4% vs 57.4%), with the gap"
+  claim_refs: [C03]
+- id: Q08
+  value: 45.4
+  unit: percent (of reproduction-critical requirements fully specified)
+  comparator: exact
+  role: result
+  source_ref: logic/claims.md#C04
+  quote: "- **Statement**: Only 45.4% of reproduction-critical requirements are fully specified in published"
+  claim_refs: [C04]
+- id: Q09
+  value: 26.2
+  unit: percent (share of gaps that are missing hyperparameters)
+  comparator: exact
+  role: result
+  source_ref: logic/claims.md#C04
+  quote: "artifacts, with missing hyperparameters the largest single gap type at 26.2%."
+  claim_refs: [C04]
+- id: Q10
+  value: 90.2
+  unit: percent (of total dollar cost)
+  comparator: exact
+  role: result
+  source_ref: logic/claims.md#C05
+  quote: "- **Statement**: Below-reference (failed) runs account for 90.2% of total dollar cost (and 59.2% of"
+  claim_refs: [C05]
+- id: Q11
+  value: 59.2
+  unit: percent (of tokens)
+  comparator: exact
+  role: result
+  source_ref: logic/claims.md#C05
+  quote: "- **Statement**: Below-reference (failed) runs account for 90.2% of total dollar cost (and 59.2% of"
+  claim_refs: [C05]
+- id: Q12
+  value: 113
+  unit: ratio (median failed-to-success tokens, x)
+  comparator: exact
+  role: result
+  source_ref: logic/claims.md#C05
+  quote: "tokens), and the median failed-to-success token ratio is 113×."
+  claim_refs: [C05]
+- id: Q13
+  value: 9
+  unit: minutes (rust_codecontests, ARA agent first commit)
+  comparator: approx
+  role: result
+  source_ref: logic/claims.md#C06
+  quote: "t≈9 min vs t≈395 min; triton: score 0.47 at t≈11 min vs first score at t≈37 min)."
+  claim_refs: [C06]
+- id: Q14
+  value: 395
+  unit: minutes (rust_codecontests, paper-only agent first commit)
+  comparator: approx
+  role: result
+  source_ref: logic/claims.md#C06
+  quote: "t≈9 min vs t≈395 min; triton: score 0.47 at t≈11 min vs first score at t≈37 min)."
+  claim_refs: [C06]
+- id: Q15
+  value: 0.47
+  unit: task score (triton, ARA agent)
+  comparator: exact
+  role: result
+  source_ref: logic/claims.md#C06
+  quote: "t≈9 min vs t≈395 min; triton: score 0.47 at t≈11 min vs first score at t≈37 min)."
+  claim_refs: [C06]
+- id: Q16
+  value: 11
+  unit: minutes (triton, ARA agent time of score 0.47)
+  comparator: approx
+  role: result
+  source_ref: logic/claims.md#C06
+  quote: "t≈9 min vs t≈395 min; triton: score 0.47 at t≈11 min vs first score at t≈37 min)."
+  claim_refs: [C06]
+- id: Q17
+  value: 37
+  unit: minutes (triton, paper-only agent first score)
+  comparator: approx
+  role: result
+  source_ref: logic/claims.md#C06
+  quote: "t≈9 min vs t≈395 min; triton: score 0.47 at t≈11 min vs first score at t≈37 min)."
+  claim_refs: [C06]
+- id: Q18
+  value: 0.27
+  unit: task score (triton, ARA agent, Sonnet 4.5)
+  comparator: exact
+  role: result
+  source_ref: logic/claims.md#C07
+  quote: "4.5 the result inverts: ARA 0.27 vs paper 0.64 on triton; ARA 0.73 vs paper 1.03 on restricted_mlm)."
+  claim_refs: [C07]
+- id: Q19
+  value: 0.64
+  unit: task score (triton, paper-only agent, Sonnet 4.5)
+  comparator: exact
+  role: result
+  source_ref: logic/claims.md#C07
+  quote: "4.5 the result inverts: ARA 0.27 vs paper 0.64 on triton; ARA 0.73 vs paper 1.03 on restricted_mlm)."
+  claim_refs: [C07]
+- id: Q20
+  value: 0.73
+  unit: task score (restricted_mlm, ARA agent, Sonnet 4.5)
+  comparator: exact
+  role: result
+  source_ref: logic/claims.md#C07
+  quote: "4.5 the result inverts: ARA 0.27 vs paper 0.64 on triton; ARA 0.73 vs paper 1.03 on restricted_mlm)."
+  claim_refs: [C07]
+- id: Q21
+  value: 1.03
+  unit: task score (restricted_mlm, paper-only agent, Sonnet 4.5)
+  comparator: exact
+  role: result
+  source_ref: logic/claims.md#C07
+  quote: "4.5 the result inverts: ARA 0.27 vs paper 0.64 on triton; ARA 0.73 vs paper 1.03 on restricted_mlm)."
+  claim_refs: [C07]
+- id: Q22
+  value: 100
+  unit: percent detection (fabricated / rebutted-leak / over-claim injections)
+  comparator: exact
+  role: result
+  source_ref: logic/claims.md#C08
+  quote: "(100% fabricated / rebutted-leak / over-claim; 91% missing-falsification) but only 22% of orphan"
+  claim_refs: [C08]
+- id: Q23
+  value: 91
+  unit: percent detection (missing-falsification injections)
+  comparator: exact
+  role: result
+  source_ref: logic/claims.md#C08
+  quote: "(100% fabricated / rebutted-leak / over-claim; 91% missing-falsification) but only 22% of orphan"
+  claim_refs: [C08]
+- id: Q24
+  value: 22
+  unit: percent detection (orphan-experiment injections)
+  comparator: exact
+  role: result
+  source_ref: logic/claims.md#C08
+  quote: "(100% fabricated / rebutted-leak / over-claim; 91% missing-falsification) but only 22% of orphan"
+  claim_refs: [C08]
+- id: Q25
+  value: 82.6
+  unit: percent detection (overall)
+  comparator: exact
+  role: result
+  source_ref: logic/claims.md#C08
+  quote: "experiments, for 82.6% overall."
+  claim_refs: [C08]
+- id: Q26
+  value: 5
+  unit: agent-native dimensions (evaluated)
+  comparator: exact
+  role: input
+  source_ref: logic/claims.md#C09
+  quote: "- **Statement**: Across five agent-native dimensions (incl. cross-layer bindings), PDF, GitHub, and"
+  claim_refs: [C09]
+- id: Q27
+  value: 5
+  unit: agent-native dimensions (covered by ARA)
+  comparator: exact
+  role: result
+  source_ref: logic/claims.md#C09
+  quote: "experiment trackers are each partial or absent, while ARA covers all five."
+  claim_refs: [C09]
+- id: Q28
+  value: 2
+  unit: agent-native dimensions (covered by any existing tool)
+  comparator: le
+  role: result
+  source_ref: logic/claims.md#C09
+  quote: "## C09: ARA covers all five agent-native dimensions; existing tools cover at most two"
+  claim_refs: [C09]
+- id: Q29
+  value: 128
+  unit: embedding dimensions
+  comparator: exact
+  role: input
+  source_ref: logic/claims.md#C13
+  quote: "128-dimensional shared space in which different omics modalities are intermixed (not segregated)"
+  claim_refs: [C13]
+- id: Q30
+  value: 0
+  unit: refutes-type related-work entries (corpus-wide, wave-1/2)
+  comparator: exact
+  role: result
+  source_ref: logic/claims.md#C16
+  quote: "paper. Concretely on the wave-1/2 corpus: `refutes = 0` corpus-wide (corrective score runs on"
+  claim_refs: [C16]
+- id: Q31
+  value: 0.25
+  unit: dead_end_density (che26 record)
+  comparator: exact
+  role: result
+  source_ref: logic/claims.md#C16
+  quote: "baseline-relabeling), che26 `dead_end_density = 0.25` comes entirely from fabricated nodes N11/N12"
+  claim_refs: [C16]
+- id: Q32
+  value: 0.514
+  unit: AUC (woj25 C04)
+  comparator: exact
+  role: result
+  source_ref: logic/claims.md#C16
+  quote: "(\"p-tau181 would remain competitive\"), and woj25 C04 (a real null, AUC 0.514) is filed `status:"
+  claim_refs: [C16]

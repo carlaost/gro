@@ -1,5 +1,8 @@
 # Three Ways to Judge an Agent-Native Research Artifact
 
+> *Emitter note (added 2026-09-20): these results were computed over records produced by the July 2026 emitter (10 sidecars: the 7 material files plus external_quantities, delta_ledger, sota_anchor, and novelty typing inside contributions.yaml). That emitter predates the current 7-file schema in `spec/`. Numbers are unchanged; read them against `experiments/history/DATA_SHAPE-2026-07.md`.*
+
+
 ### A metascience comparison of GRO ideal metrics, an ARA-inferred metric design (v3), and a semantic verifier (Seal Level 2) over 12 compiled ARAs
 
 ---

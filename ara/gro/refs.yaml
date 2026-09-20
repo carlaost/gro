@@ -1,0 +1,302 @@
+# GRO material layer, compiled by gro-compiler. Pure material compilation; no metrics/judgments. refs.yaml — the reference spine (references present in the material). Compile one R## per source cited.
+# raw = the reference as written in the material. external_id only where a DOI/arXiv id is literally printed; resolvable records whether such a printed id exists (a material fact; nothing was fetched). cited_in = where in the material the reference appears.
+refs:
+# --- the four primary sources (PAPER.md front matter, problem.md framing) ---
+- id: R01
+  raw: "Jiachen Liu et al. (ARA protocol, 2026) — arXiv:2604.24658v3 (ARA)"
+  external_id: "arXiv:2604.24658v3"
+  resolvable: true
+  cited_in: "PAPER.md (authors, doi); logic/claims.md [ara-paper] C01-C09"
+- id: R02
+  raw: "Lennart B. Otte, Christer Hogstrand, Adil Mardinoglu, Miao Guo (multi-omics, 2025) — doi:10.69997/sct.136974 / LAPSE:2025.0524"
+  external_id: "10.69997/sct.136974"
+  resolvable: true
+  cited_in: "PAPER.md (authors, doi); logic/claims.md [multi-omics] C13-C15"
+- id: R03
+  raw: "Ostmann, \"Papers Block Scientific Progress\" (2026-04-15), research/sources/substack/papers-block-scientific-progress.md"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/problem.md O4; logic/related_work.md (Author's own essays)"
+- id: R04
+  raw: "Ostmann & Otte, \"Alien Proteins\" (2026)"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/problem.md A4; logic/concepts.md (Synthetic-node decoding); logic/related_work.md (Author's own essays)"
+- id: R05
+  raw: "oshima API source code (src/execution/app/; repo /Users/carlaostmann/code/oshima/api) — extract.py, extract_paper.py, ingest_pdf.py, papers.py, complete_pipeline_processor.py, logic_mapper.py, theme_service.py, library_papers.py"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/claims.md [oshima] C10-C12 Sources; PAPER.md Source materials"
+# --- typed related work RW01-RW10 (logic/related_work.md) ---
+- id: R06
+  raw: "Starace et al., 2025 — PaperBench (arXiv (PaperBench))"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md#RW01"
+- id: R07
+  raw: "Wijk et al., 2025 — RE-Bench / METR MALT (METR RE-Bench)"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md#RW02"
+- id: R08
+  raw: "Wilkinson et al., 2016 — FAIR principles (10.1038/sdata.2016.18)"
+  external_id: "10.1038/sdata.2016.18"
+  resolvable: true
+  cited_in: "logic/related_work.md#RW03"
+- id: R09
+  raw: "Mikolov et al., 2013 — Word2Vec (NeurIPS 2013, Distributed representations of words and phrases)"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md#RW04"
+- id: R10
+  raw: "Caspi / Altman et al., 2014 — MetaCyc (10.1093/nar/gkt1103, Nucleic Acids Research 42(D1):D459–D471)"
+  external_id: "10.1093/nar/gkt1103"
+  resolvable: true
+  cited_in: "logic/related_work.md#RW05"
+- id: R11
+  raw: "Raman & Chandra, 2009 — Flux Balance Analysis (10.1093/bib/bbp011, Briefings in Bioinformatics 10(4):435–449)"
+  external_id: "10.1093/bib/bbp011"
+  resolvable: true
+  cited_in: "logic/related_work.md#RW06"
+- id: R12
+  raw: "ECFP (Rogers & Hahn 2010 / Morgan)"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md#RW07"
+- id: R13
+  raw: "MACCS Keys (Durant et al. 2002, 10.1021/ci010132r)"
+  external_id: "10.1021/ci010132r"
+  resolvable: true
+  cited_in: "logic/related_work.md#RW07"
+- id: R14
+  raw: "SMILES Transformer (Honda et al. 2019, arXiv:1911.04738)"
+  external_id: "arXiv:1911.04738"
+  resolvable: true
+  cited_in: "logic/related_work.md#RW07"
+- id: R15
+  raw: "OpenAI 2025 (AGENTS.md)"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md#RW08"
+- id: R16
+  raw: "Anthropic 2025a (Agent Skills)"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md#RW08"
+- id: R17
+  raw: "Anthropic 2025b (Claude Code SDK)"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md#RW08"
+- id: R18
+  raw: "Zaharia et al. 2018 (MLflow)"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md#RW09"
+- id: R19
+  raw: "Biewald 2020 (W&B)"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md#RW09"
+- id: R20
+  raw: "Li et al. 2026 (\"What papers don't tell you\")"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md#RW10"
+- id: R21
+  raw: "Baumgärtner & Gurevych 2026 — SciCoQA 2026"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md#RW10"
+- id: R22
+  raw: "Kon 2025 — EXP-Bench"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md#RW10"
+# --- briefer citation footprint (logic/related_work.md) ---
+- id: R23
+  raw: "Nanopublications (Groth 2010)"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md (Structured-science precursors)"
+- id: R24
+  raw: "RO-Crate (Soiland-Reyes 2022)"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md (Structured-science precursors)"
+- id: R25
+  raw: "ORKG (Jaradeh 2019)"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md (Structured-science precursors)"
+- id: R26
+  raw: "Whole Tale (Brinckman 2019)"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md (Structured-science precursors)"
+- id: R27
+  raw: "Discovery Engine (Baulin 2025)"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md (Structured-science precursors)"
+- id: R28
+  raw: "PROV-O (Lebo 2013)"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md (Structured-science precursors)"
+- id: R29
+  raw: "Medawar 1963"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md (Reproducibility / tacit knowledge / publication bias)"
+- id: R30
+  raw: "Kuhn 1962"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md (Reproducibility / tacit knowledge / publication bias)"
+- id: R31
+  raw: "Polanyi 1966"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md (Reproducibility / tacit knowledge / publication bias); logic/concepts.md (Engineering Tax)"
+- id: R32
+  raw: "Franco 2014"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md (Reproducibility / tacit knowledge / publication bias)"
+- id: R33
+  raw: "Rosenthal 1979"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md (Reproducibility / tacit knowledge / publication bias)"
+- id: R34
+  raw: "Baker 2016"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md (Reproducibility / tacit knowledge / publication bias)"
+- id: R35
+  raw: "Stodden 2016"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md (Reproducibility / tacit knowledge / publication bias)"
+- id: R36
+  raw: "Pineau 2021"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md (Reproducibility / tacit knowledge / publication bias)"
+- id: R37
+  raw: "Snakemake (Köster 2012)"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md (Workflow engines / notebooks)"
+- id: R38
+  raw: "Nextflow (Di Tommaso 2017)"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md (Workflow engines / notebooks)"
+- id: R39
+  raw: "CWL (Crusoe 2022)"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md (Workflow engines / notebooks)"
+- id: R40
+  raw: "Literate Programming (Knuth 1984)"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md (Workflow engines / notebooks)"
+- id: R41
+  raw: "Rule et al. 2018"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md (Workflow engines / notebooks)"
+- id: R42
+  raw: "Zhu 2025"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md (Failure traces / autonomous research agents)"
+- id: R43
+  raw: "Zhang 2025"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md (Failure traces / autonomous research agents)"
+- id: R44
+  raw: "Yang 2024"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md (Failure traces / autonomous research agents)"
+- id: R45
+  raw: "Lu 2024 (AI Scientist)"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md (Failure traces / autonomous research agents)"
+- id: R46
+  raw: "Boiko 2023"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md (Failure traces / autonomous research agents)"
+- id: R47
+  raw: "Schmidgall 2025"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md (Failure traces / autonomous research agents)"
+- id: R48
+  raw: "Baek 2025"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md (Failure traces / autonomous research agents)"
+- id: R49
+  raw: "Zheng et al. 2023 (LLM-as-judge pathologies)"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md (LLM-as-judge pathologies)"
+- id: R50
+  raw: "Lopez-Ibáñez et al. 2021 (BMC Bioinformatics 22(1):320)"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md (Multi-omics integration & pathway prediction)"
+- id: R51
+  raw: "Liao/Ozcan et al. 2023 (Open moa, Bioinformatics 39(11))"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md (Multi-omics integration & pathway prediction)"
+- id: R52
+  raw: "Singh/van der Hooft et al. 2022"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md (Multi-omics integration & pathway prediction)"
+- id: R53
+  raw: "Subramanian/Verma et al. 2020"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md (Multi-omics integration & pathway prediction)"
+- id: R54
+  raw: "Muller/Shiryan/Borenstein 2024 (Nature Comm.)"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md (Multi-omics integration & pathway prediction)"
+- id: R55
+  raw: "Hussain/Mohsin et al. 2022"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/related_work.md (Multi-omics integration & pathway prediction)"
+# --- internal project documents cited as Sources / Proof by C16 and C17 ---
+- id: R56
+  raw: "research/metrics/v2/critiques-round2.md (RC3/RC4/RC5; lines 39, 51, 63)"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/claims.md#C16 Sources, Proof"
+- id: R57
+  raw: "metrics-critique.md §2-§4"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/claims.md#C16 Proof"
+- id: R58
+  raw: "experiments/metrics/findings.md (a record read alone reads fidelity, not quality)"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/claims.md#C17 Proof"
+- id: R59
+  raw: "experiments/runs/breakthrough/RESULTS_PAPER.md (record-derived breakthrough signal tracks attention, not impact)"
+  external_id: not_specified
+  resolvable: false
+  cited_in: "logic/claims.md#C17 Proof"

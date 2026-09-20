@@ -1,0 +1,160 @@
+# HISTORICAL COPY (from dasmodel/research/gro-spec, 2026-07-22). NOT a GRO contract.
+# This described measuring-side outputs (novelty typing, deltas, external baselines, SOTA
+# neighbourhood) that were once emitted next to the record. Measuring is not part of GRO;
+# nothing in this file is published in a record. Kept only as a starting point for future
+# measurement experiments over GRO records. Note its ContributionsTyped "overlay" wrote
+# judgments INTO gro/contributions.yaml -- that coupling is exactly what is now forbidden.
+openapi: 3.1.0
+info:
+  title: GRO Metric Layer — output contract
+  version: 0.1.0
+  x-spec-id: gro.metric
+  status: not-converged
+  description: >
+    The METRIC layer of a GRO artifact: the comparative / judged machinery the
+    breakthrough & significance metrics consume. This is SEPARATE from the material spec
+    (gro.material) and is NOT YET CONVERGED — treat it as a moving target.
+
+    It contains JUDGMENTS and derived comparisons, not raw material: contribution novelty
+    typing, off-paper external baselines, claimed-vs-baseline deltas, and the SOTA precedence
+    neighborhood. A compiler declares whether it implements this spec:
+      - the retrospective paper2gro compiler implements gro.metric (in addition to gro.material)
+      - the live per-turn gro-compiler plugin does NOT implement gro.metric (material only)
+
+    Honest gap markers are first-class and never fabricated:
+      NEEDS_FETCH    a required off-paper value has not been fetched
+      NEEDS_RESOLVER a precedence neighborhood requires a citation-graph resolver pass
+    An unresolved SOTA anchor is expected to be PENALIZED by the significance metric, not
+    treated as first-in-field — so leaving it honest is correct output.
+
+components:
+  schemas:
+
+    ContributionsTyped:
+      description: >
+        The metric-layer typing OVERLAY on gro/contributions.yaml. Adds a novelty judgment to
+        each CT## whose id/statement/realized_in come from the material spec's
+        ContributionsMaterial. assessed_type is the closed taxonomy the significance metric reads.
+      x-file: gro/contributions.yaml
+      x-overlays: gro.material#/components/schemas/ContributionsMaterial
+      type: object
+      properties:
+        contributions:
+          type: array
+          items:
+            type: object
+            required: [id, realized_in, compiler_assessed_type]
+            properties:
+              id: { type: string, pattern: "^CT[0-9]{2,}$" }
+              realized_in: { type: array, minItems: 1, items: { type: string } }
+              author_framed_type: { type: string }
+              compiler_assessed_type:
+                type: object
+                required: [primary]
+                properties:
+                  primary:
+                    type: string
+                    enum: [new_paradigm, new_method, new_finding, refutation, synthesis, incremental_improvement, replication]
+                    description: "CLOSED taxonomy the significance metric reads"
+                  confidence: { type: number, minimum: 0, maximum: 1 }
+              typing_rationale: { type: string }
+              typing_divergence: { type: string, enum: [none, adjacent, conflicting, divergent] }
+              adjudication: { type: string, enum: [not_triggered, triggered] }
+      example:
+        contributions:
+          - id: CT01
+            author_framed_type: new_resilient_neuronal_population
+            compiler_assessed_type: { primary: new_finding, confidence: 0.8 }
+            typing_rationale: "novel empirical finding about which neurons resist degeneration; not a new method"
+            typing_divergence: none
+            adjudication: not_triggered
+            realized_in: [C01, C02]
+
+    ExternalQuantitiesLayer:
+      description: Off-paper prior-work numbers used as delta baselines. Require an external fetch.
+      x-file: gro/external_quantities.yaml
+      type: object
+      properties:
+        external_quantities:
+          type: array
+          items:
+            type: object
+            required: [id]
+            properties:
+              id: { type: string, pattern: "^XQ[0-9]{2,}$" }
+              value: { type: [number, string], description: "numeric, or NEEDS_FETCH" }
+              unit: { type: string }
+              description: { type: string }
+              source_anchor:
+                type: object
+                properties:
+                  external_id: { type: string }
+                  fetch_timestamp: { type: string, format: date-time }
+              baseline_verification: { type: string, enum: [source_verified, self_reported] }
+      example:
+        external_quantities:
+          - id: XQ04
+            value: 0.33
+            unit: percent
+            description: "Ex5 proportion in the SEA-AD DLPFC prefrontal reference"
+            source_anchor: { external_id: "10.1038/s41593-024-01774-5", fetch_timestamp: "2026-07-22T14:00:00+00:00" }
+            baseline_verification: source_verified
+
+    DeltaLedgerLayer:
+      description: Claimed-vs-baseline comparative deltas. Arithmetic is deterministic once a Q<->XQ pair is declared.
+      x-file: gro/delta_ledger.yaml
+      type: object
+      properties:
+        deltas:
+          type: array
+          items:
+            type: object
+            required: [id, delta_status]
+            properties:
+              id: { type: string, pattern: "^D[0-9]{2,}$" }
+              delta_status: { type: string, enum: [quantified, qualitative_only, claimed_unresolved, not_claimed] }
+              description: { type: string }
+              claimed_value: { type: string, description: "a Q## (this paper)" }
+              baseline_value: { type: [string, "null"], description: "an XQ## (prior work); null -> claimed_unresolved" }
+              absolute_delta: { type: [number, "null"], description: "delta.abs.v1 = claimed - baseline (auto)" }
+              relative_delta: { type: [number, "null"], description: "delta.rel.v1 = abs / baseline (auto)" }
+              baseline_verification: { type: string, enum: [source_verified, self_reported] }
+      example:
+        deltas:
+          - id: D02
+            delta_status: quantified
+            description: "Ex5 spatial enrichment in BA17 vs prefrontal reference"
+            claimed_value: Q16
+            baseline_value: XQ04
+            absolute_delta: 34.09
+            relative_delta: 103.303
+            baseline_verification: source_verified
+
+    SotaAnchorLayer:
+      description: Precedence neighborhood — resolver-produced, not compiler-authored. NEEDS_RESOLVER until a real pass runs.
+      x-file: gro/sota_anchor.yaml
+      type: object
+      properties:
+        precedence_date: { type: [string, integer] }
+        cutoff_date: { type: [string, integer] }
+        provenance: { type: string, enum: [compiler_estimated, openalex_resolved], description: "compiler_estimated == NEEDS_RESOLVER" }
+        neighborhood:
+          type: array
+          items:
+            type: object
+            properties:
+              ref: { type: string }
+              overlap: { type: number }
+              contemporaneous_uncited: { type: boolean }
+        overlap_jaccard_second_resolver: { type: [number, "null"] }
+        used_openalex: { type: boolean }
+        resolver_notes: { type: string }
+      example:
+        precedence_date: 2026
+        cutoff_date: 2026
+        provenance: openalex_resolved
+        neighborhood:
+          - { ref: R01, overlap: 0.35, contemporaneous_uncited: false }
+        overlap_jaccard_second_resolver: 0.22
+        used_openalex: true
+        resolver_notes: "live OpenAlex check found no closer prior/contemporaneous work on the specific finding"

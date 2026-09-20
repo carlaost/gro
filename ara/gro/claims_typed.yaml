@@ -1,0 +1,173 @@
+# GRO material layer, compiled by gro-compiler. Pure material compilation; no metrics/judgments. claims_typed.yaml — one row per real claim; structural form compiled from the claim text (not an evaluation).
+# claim_type / polarity / population_scope use the enums of spec/material.gro.openapi.yaml (ClaimsTypedLayer). population_n is an integer only where the claim's Statement states a sample size. proof_refs are the E## under the claim's Proof; claims whose Proof cites documents rather than E## (C16, C17) have [] here and the documents appear in refs.yaml (R56-R59).
+claims:
+- id: C01
+  claim_type: comparison
+  polarity: positive
+  logical_form: "∀ w ∈ evaluated works: QA_accuracy(coding agent | ARA(w)) > QA_accuracy(coding agent | PDF+repo(w)); overall 93.7% vs 72.4% (+21.3%) over n=450 paired outcomes"
+  population_n: 450
+  population_scope: sample
+  quantity_refs: [Q01, Q02, Q03, Q04]
+  concept_refs: [EN-concept-agent-native-research-artifact, EN-concept-pdf-repo-baseline, EN-population-coding-agent, EN-measure-qa-accuracy]
+  proof_refs: [E01]
+  depends_on: []
+- id: C02
+  claim_type: comparison
+  polarity: positive
+  logical_form: "Δ_C := QA_accuracy(ARA) − QA_accuracy(baseline) on Category C (failure/dead-end questions) = +65.7% ∧ Δ_C > Δ_A ∧ Δ_C > Δ_B"
+  population_n: not_specified
+  population_scope: sample
+  quantity_refs: [Q05]
+  concept_refs: [EN-concept-agent-native-research-artifact, EN-measure-qa-accuracy, EN-concept-category-c-failure-questions]
+  proof_refs: [E01]
+  depends_on: [C01]
+- id: C03
+  claim_type: comparison
+  polarity: positive
+  logical_form: "WSR(ARA) = 64.4% > WSR(PDF+repo) = 57.4%, WSR = difficulty-weighted reproduction success; ∧ gap(easy) < gap(medium) < gap(hard)"
+  population_n: not_specified
+  population_scope: sample
+  quantity_refs: [Q06, Q07]
+  concept_refs: [EN-concept-agent-native-research-artifact, EN-concept-pdf-repo-baseline, EN-measure-difficulty-weighted-reproduction-success]
+  proof_refs: [E02]
+  depends_on: [C04]
+- id: C04
+  claim_type: measurement
+  polarity: positive
+  logical_form: "P(fully_specified | r ∈ reproduction-critical requirements of published artifacts) = 45.4% ∧ argmax over gap types = missing_hyperparameters, share = 26.2%"
+  population_n: not_specified
+  population_scope: sample
+  quantity_refs: [Q08, Q09]
+  concept_refs: [EN-concept-reproduction-critical-requirement, EN-concept-missing-hyperparameters]
+  proof_refs: [E03]
+  depends_on: []
+- id: C05
+  claim_type: measurement
+  polarity: positive
+  logical_form: "cost_share_$(below-reference runs) = 90.2% ∧ token_share(below-reference runs) = 59.2% ∧ median(tokens_failed / tokens_success) = 113"
+  population_n: not_specified
+  population_scope: sample
+  quantity_refs: [Q10, Q11, Q12]
+  concept_refs: [EN-concept-below-reference-run, EN-measure-exploration-cost-share, EN-measure-failed-to-success-token-ratio]
+  proof_refs: [E03]
+  depends_on: []
+- id: C06
+  claim_type: comparison
+  polarity: positive
+  logical_form: "∀ task ∈ extension tasks: t_first_useful_move(agent + preserved failure trace) < t_first_useful_move(paper-only agent); instances: rust_codecontests 9 min vs 395 min; triton score 0.47 at 11 min vs first score at 37 min"
+  population_n: not_specified
+  population_scope: sample
+  quantity_refs: [Q13, Q14, Q15, Q16, Q17]
+  concept_refs: [EN-concept-preserved-failure-trace, EN-concept-paper-only-agent, EN-measure-time-to-first-useful-extension-move, EN-dataset-rust-codecontests, EN-dataset-triton]
+  proof_refs: [E04]
+  depends_on: [C05]
+- id: C07
+  claim_type: association
+  polarity: positive
+  logical_form: "benefit(preserved trace, agent) = f(capability(trace) − capability(agent)); ∃ agent (Sonnet 4.5), task: score(ARA) < score(paper-only) — triton 0.27 < 0.64, restricted_mlm 0.73 < 1.03"
+  population_n: not_specified
+  population_scope: sample
+  quantity_refs: [Q18, Q19, Q20, Q21]
+  concept_refs: [EN-concept-preserved-failure-trace, EN-concept-paper-only-agent, EN-concept-sufficiency-capability-relative, EN-tool-claude-sonnet-4-5, EN-dataset-triton, EN-dataset-restricted-mlm]
+  proof_refs: [E04]
+  depends_on: [C06]
+- id: C08
+  claim_type: measurement
+  polarity: positive
+  logical_form: "detect(fabricated) = detect(rebutted-leak) = detect(over-claim) = 100% ∧ detect(missing-falsification) = 91% ∧ detect(orphan experiment) = 22% ∧ detect(overall) = 82.6%, for the L2 Rigor Auditor on a mutation benchmark"
+  population_n: not_specified
+  population_scope: sample
+  quantity_refs: [Q22, Q23, Q24, Q25]
+  concept_refs: [EN-tool-l2-rigor-auditor, EN-method-mutation-benchmark, EN-concept-orphan-experiment, EN-measure-injection-detection-rate]
+  proof_refs: [E05]
+  depends_on: []
+- id: C09
+  claim_type: comparison
+  polarity: positive
+  logical_form: "|dims_covered(ARA)| = 5 = |agent-native dimensions| ∧ ∀ t ∈ {PDF, GitHub, experiment trackers}: ∀ d: coverage(t, d) ∈ {partial, absent} for some d, and |dims_covered(t)| ≤ 2"
+  population_n: not_specified
+  population_scope: sample
+  quantity_refs: [Q26, Q27, Q28]
+  concept_refs: [EN-concept-agent-native-research-artifact, EN-concept-agent-native-dimensions, EN-concept-cross-layer-forensic-bindings, EN-tool-pdf, EN-tool-github, EN-tool-experiment-tracker]
+  proof_refs: [E06]
+  depends_on: []
+- id: C10
+  claim_type: existence
+  polarity: positive
+  logical_form: "∃ pipeline ∈ oshima: ingest(paper PDF) → {Claim(confidence, centrality)} ∪ {Evidence(relation ∈ {support, contradict, contextual})}, via schema-constrained LLM extraction over section-aware chunks"
+  population_n: not_specified
+  population_scope: single_case
+  quantity_refs: []
+  concept_refs: [EN-tool-oshima-api, EN-concept-structured-claim, EN-concept-typed-evidence, EN-method-schema-constrained-llm-extraction, EN-method-section-aware-chunking]
+  proof_refs: [E07]
+  depends_on: []
+- id: C11
+  claim_type: existence
+  polarity: positive
+  logical_form: "∀ s ∈ extracted statements: NL2FOL(s) = typed FOL AST (SUMO + WordNet), stored as fol_json; enables logical deduplication ∧ machine reasoning"
+  population_n: not_specified
+  population_scope: single_case
+  quantity_refs: []
+  concept_refs: [EN-tool-oshima-api, EN-concept-first-order-logic-representation, EN-tool-sumo-ontology, EN-tool-wordnet, EN-method-logical-deduplication]
+  proof_refs: [E08]
+  depends_on: [C10]
+- id: C12
+  claim_type: existence
+  polarity: positive
+  logical_form: "∀ library L: themes(L) = synthesize(⋃_{p ∈ L} claims(p)), modes ∈ {full, incremental}"
+  population_n: not_specified
+  population_scope: single_case
+  quantity_refs: []
+  concept_refs: [EN-tool-oshima-api, EN-concept-library, EN-concept-cross-paper-theme, EN-concept-structured-claim]
+  proof_refs: [E09]
+  depends_on: [C10]
+- id: C13
+  claim_type: existence
+  polarity: positive
+  logical_form: "train(two-tower target/context network, MetaCyc pathway sequences) → E ⊂ ℝ^128 : ¬segregated(omics modalities in E) ∧ ∃ clusters K ⊂ E: ∀ k ∈ K, members(k) share functional characteristics (e.g. pyrimidine nucleotide biosynthesis)"
+  population_n: not_specified
+  population_scope: single_case
+  quantity_refs: [Q29]
+  concept_refs: [EN-method-word2vec-two-tower-network, EN-dataset-metacyc, EN-concept-multi-omics-shared-embedding, EN-concept-omics-modality, EN-concept-pyrimidine-nucleotide-biosynthesis]
+  proof_refs: [E10]
+  depends_on: []
+- id: C14
+  claim_type: measurement
+  polarity: positive
+  logical_form: "dist(⟨e_i, e_j⟩ over all embedding pairs) = mixture(D_related: broad, lower peak; D_unrelated: sharp, narrow peak)"
+  population_n: not_specified
+  population_scope: single_case
+  quantity_refs: []
+  concept_refs: [EN-concept-multi-omics-shared-embedding, EN-measure-embedding-dot-product, EN-concept-related-unrelated-node-pairs]
+  proof_refs: [E11]
+  depends_on: [C13]
+- id: C15
+  claim_type: association
+  polarity: positive
+  logical_form: "∀ node x: NN_E(x) ∈ documented_metabolic_relations_MetaCyc(x); instance: NN_E(UDP-alpha-D-galactose) encodes phosphoglucomutase-1 (PGM1)"
+  population_n: not_specified
+  population_scope: single_case
+  quantity_refs: []
+  concept_refs: [EN-concept-multi-omics-shared-embedding, EN-method-nearest-neighbor-lookup, EN-dataset-metacyc, EN-concept-udp-alpha-d-galactose, EN-gene-pgm1]
+  proof_refs: [E11]
+  depends_on: [C13]
+- id: C16
+  claim_type: theory
+  polarity: negative
+  logical_form: "∀ metric m over an ARA record of paper p: m(ARA(p)) = m(p) ⟺ m reads an extractive layer; m on a homogenization layer measures field-population, not rigor(p) (even under a perfect compiler); m on a fabrication layer measures the compiler's writing, not p. Instances (wave-1/2 corpus): refutes = 0 corpus-wide; che26 dead_end_density = 0.25 from fabricated nodes N11/N12; woj25 C04 (AUC 0.514, a real null) filed status: supported. Corollary: compiler-fidelity ⊥ metric-validity; validity requires an external yardstick"
+  population_n: not_specified
+  population_scope: claimed_universal
+  quantity_refs: [Q30, Q31, Q32]
+  concept_refs: [EN-concept-agent-native-research-artifact, EN-concept-ara-metric, EN-concept-extractive-layer, EN-concept-homogenization-layer, EN-concept-fabrication-layer, EN-dataset-wave-1-2-corpus, EN-dataset-che26, EN-dataset-woj25, EN-measure-refutes-count, EN-measure-dead-end-density, EN-measure-negative-result-metric, EN-measure-auc, EN-concept-compiler-fidelity, EN-concept-metric-validity]
+  proof_refs: []
+  depends_on: []
+- id: C17
+  claim_type: theory
+  polarity: negative
+  logical_form: "∀ publishing schema S, record r ∈ S: S can make facts(r) addressable (∀ fact: id + verbatim anchor) ∧ ¬∃ f: credibility(r) = f(r alone) — every judgment of credible/novel/rigorous/important requires inputs outside r (calibration corpora, external ground truth, a judge); hence schema = what is present (publishing side), measuring = funder/curator/validator side"
+  population_n: not_specified
+  population_scope: claimed_universal
+  quantity_refs: []
+  concept_refs: [EN-concept-publishing-schema, EN-concept-credibility, EN-concept-verbatim-anchor, EN-concept-external-ground-truth, EN-population-funder-curator-validator]
+  proof_refs: []
+  depends_on: [C16]

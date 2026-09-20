@@ -1,6 +1,6 @@
 # The metrics — reward what citations punish
 
-*The incentive-design program that motivates GRO. Metrics are the entry point: they are the lever (nothing changes until what counts changes) and the diagnostic (trying to compute good metrics reveals what the record must be). GRO is the substrate this inquiry demanded — see [`SPEC.md`](SPEC.md).*
+*The incentive-design program that motivates GRO. Metrics are the entry point: they are the lever (nothing changes until what counts changes) and the diagnostic (trying to compute good metrics reveals what the record must be). GRO is the substrate this inquiry demanded — see [`SPEC.md`](history/SPEC-2026-07.md).*
 
 The full program lives in [`metrics/`](metrics/); the design tournaments that produced it are in [`metrics/tournaments/`](metrics/tournaments/). This page is the landing point.
 
@@ -26,11 +26,11 @@ Running 64 candidate indicators over a structured corpus produced the headline f
 
 > **metrics computed over a record's own structure measure the fidelity of the record, not the quality of the science.**
 
-A well-compiled record of bad science and of good science were indistinguishable; zero of six paper-level rankers survived; genuine signal appeared only at the claim level, anchored to external ground truth. Full write-up: [`metrics/findings.md`](metrics/findings.md). This is what forced the substrate question — see [`methods/affordance-gap.md`](methods/affordance-gap.md).
+A well-compiled record of bad science and of good science were indistinguishable; zero of six paper-level rankers survived; genuine signal appeared only at the claim level, anchored to external ground truth. Full write-up: [`metrics/findings.md`](metrics/findings.md). This is what forced the substrate question — see [`methods/affordance-gap.md`](history/methods/affordance-gap.md).
 
 ## The ideal metrics (TOP 10)
 
-The highest-signal survivors of the tournaments, tagged by the rigor tier each can honestly reach — **[det]** deterministic join · **[anc]** reliable given an external resolver · **[jud]** calibrated judge, forever. (Ledger: [`metrics/candidates.md`](metrics/candidates.md); rigor-class catalogue: [`SPEC.md`](SPEC.md) §4.)
+The highest-signal survivors of the tournaments, tagged by the rigor tier each can honestly reach — **[det]** deterministic join · **[anc]** reliable given an external resolver · **[jud]** calibrated judge, forever. (Ledger: [`metrics/candidates.md`](metrics/candidates.md); rigor-class catalogue: [`SPEC.md`](history/SPEC-2026-07.md) §4.)
 
 | # | Metric | Reaches | What it rewards that citations can't |
 |---|---|---|---|
@@ -63,14 +63,14 @@ The gap is a **substrate** gap first — most of the ideal set can't be computed
 
 ## First discrimination result (2026-07 — the experiment below has now been run)
 
-The open test was run on one axis — **breakthrough-ness** — over 66 recent + 72 historical (2004–2010) Alzheimer's papers ([`experiment/breakthrough/`](experiment/breakthrough/)). It is the program's first contact with external ground truth, and the result is sobering and reported in full:
+The open test was run on one axis — **breakthrough-ness** — over 66 recent + 72 historical (2004–2010) Alzheimer's papers ([`experiment/breakthrough/`](runs/breakthrough/)). It is the program's first contact with external ground truth, and the result is sobering and reported in full:
 
 - The one signal that carries is the **L8 contribution-typing** (metric #2's substrate), aggregated as `max(peak, cwmean)`. The prior-art `overlap`/`sota_anchor` axis (metric #2's novelty half), the delta ledger, and genre added **no transferable signal**.
 - Its measured skill **collapses as the LLM is removed from the ground truth**: ρ≈**0.58** vs a same-model LLM expert panel (held-out) → ρ≈**0.34** vs an *independent* model family (≈⅓ was shared-method bias — the lean flips when the metric is built by the other model, Steiger p=0.003) → ρ≈**0** vs a *real-world, LLM-free* ground truth (mature citation-disruption of the historical papers over 15–20 years; 95% CI [−0.38, +0.14]).
 - So the metric flags **LLM-perceived contribution depth**, which is *not shown to be* field-reshaping impact. This is the §"negative result" one level up: structure-derived metrics measure the record's fidelity, and here even an externally-anchored novelty attempt, when its ground truth is finally the real world, does not discriminate.
 - **Caveat (honest):** the historical test used abstract-only typing (full text is paywalled for that vintage — an access wall that is itself a finding), which compresses the predictor's variance and makes this a *weak* test — a null on a weak test, not proof of zero. A full-text, multi-domain historical corpus is the sharpening move.
 
-Full write-up: [`experiment/breakthrough/RESULTS_PAPER.pdf`](experiment/breakthrough/RESULTS_PAPER.pdf). SPEC §7a records the same status against the shape.
+Full write-up: [`experiment/breakthrough/RESULTS_PAPER.pdf`](runs/breakthrough/RESULTS_PAPER.pdf). SPEC §7a records the same status against the shape.
 
 ## Steps forward
 

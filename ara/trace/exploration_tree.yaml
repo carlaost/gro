@@ -884,3 +884,83 @@ tree:
     evidence: ["research/sources/substack/layer-cake-substrate-DRAFT.md", "research/sources/substack/metrics-entry-point-DRAFT.md"]
     also_depends_on: [N51, N53]
     status: open
+
+  - id: N55
+    type: decision
+    support_level: explicit
+    source_refs: ["user directives 2026-09-19/20 in the gro repo session", "WORKING-NOTES.md Decisions"]
+    provenance: user
+    timestamp: "2026-09-20"
+    title: "GRO is the pure schema people publish in; measuring is funder-side and not part of this project"
+    choice: >
+      Drop "a record that computes its own credibility" and every fusion of the record's shape with
+      measuring machinery (rigor tiers, metrics catalogue, judge protocols, credibility dossier). GRO
+      records only what is present in a piece of research: numbers, claims by structural form,
+      entities, references, sections present/absent, author-stated contributions, dates. Whether any
+      of it is credible, novel, rigorous or important is decided by funders, curators and validators
+      on their side with their own methods. The metrics/breakthrough experiments in the repo are kept
+      ONLY as the project's method for testing whether the schema is useful to funders (maximally
+      readable for the signals they care about); they are never published in, shipped, or maintained
+      as a contract. Already-run experiments are left untouched; only current thinking changes.
+    alternatives:
+      - "Keep the July 2026 fused spec (shape + three rigor tiers + metrics catalogue) - rejected: schema and evaluation got mangled, the 'computes its own credibility' claim is not something a schema can do"
+      - "Keep a separate but maintained 'metric' contract beside the schema (the dasmodel gro.metric overlay) - rejected: still treats measuring as part of what GRO ships; its overlay wrote judgments into gro/contributions.yaml"
+    evidence: ["O30", "WORKING-NOTES.md (Decisions 2026-09-20)", "spec/README.md", "experiments/README.md"]
+    also_depends_on: [N51]
+    status: resolved
+
+  - id: N56
+    type: decision
+    support_level: explicit
+    source_refs: ["user directives 2026-09-20", "WORKING-NOTES.md PLAN item"]
+    provenance: user
+    timestamp: "2026-09-20"
+    title: "Repo organisation: carlaost/gro is the mother (spec/ + experiments/ + one trace); compilers separate; dasmodel parked"
+    choice: >
+      This repo holds the schema (spec/: material contract 0.1.1 ported from dasmodel with no field
+      changes, prose page, sync.sh) and the measurement experiments (experiments/: metrics/, runs/,
+      METRICS.md, history/ with the frozen July SPEC + DATA_SHAPE + tournament methods + the retired
+      metric contract copy). ara/ is the single trace place for everything done toward the spec.
+      Compilers (gro-compiler, paper2gro) stay in their own repos and vendor the contract from here.
+      dasmodel is parked; its gro-spec README points here.
+    alternatives:
+      - "Git branches per concern - rejected: the concerns are parallel, not versions of one thing"
+      - "Evaluation in its own repo - rejected: experiments are the method by which the spec is made, and experiments are not a product"
+      - "Keep dasmodel canonical - rejected: private, parked, and two diverged versions had already appeared"
+    evidence: ["spec/material.gro.openapi.yaml (0.1.1, x-canonical)", "spec/sync.sh", "README.md", "gro-compiler spec/SPEC_VERSION", "paper2gro README TODO banner"]
+    also_depends_on: [N55]
+    status: resolved
+
+  - id: N57
+    type: experiment
+    support_level: explicit
+    source_refs: ["WORKING-NOTES.md Log 2026-09-19"]
+    provenance: ai-executed
+    timestamp: "2026-09-19"
+    title: "Artifact-explainability test: can an agent reconstruct GRO's shape and history from the artifacts alone?"
+    result: >
+      Agent read only SPEC.md, the self-compiled record of the spec, one paper record's material
+      files, and ara/trace + ara/logic (no README, DATA_SHAPE, METRICS, methods, papers). Shape: fully
+      recoverable from SPEC.md alone. History (metrics -> tournaments -> GRO): recoverable from the
+      trace because the trace is dense. The self-compiled GRO record of the spec added nothing beyond
+      the spec itself. The agent's first verdict wrongly said the tournament inputs were absent from
+      the repo; they were in methods/, excluded only by the experiment's own rule.
+    evidence: ["WORKING-NOTES.md Log"]
+    also_depends_on: [N51]
+    status: resolved
+
+  - id: N58
+    type: dead_end
+    support_level: explicit
+    source_refs: ["session 2026-09-19/20"]
+    provenance: ai-suggested
+    timestamp: "2026-09-19"
+    title: "Project-local Stop hook for dogfooding (research-manager + gro-compiler) abandoned this session"
+    hypothesis: "A combined Stop hook in .claude/settings.json would make every session in the gro repo record its own trace automatically."
+    failure_mode: >
+      The auto-mode classifier refused to let the agent write the hooks entry into settings (twice,
+      shell and Write tool); Carla then ruled no repo changes that session and had the hook file
+      removed. Dogfooding was done by manual end-of-turn invocation instead.
+    lesson: "Hook wiring is a user action, not an agent action; decide plugin install vs project hook vs manual invocation explicitly (open in WORKING-NOTES)."
+    also_depends_on: [N56]
+    status: resolved

@@ -1,5 +1,8 @@
 # Measuring breakthrough-ness on new papers — how far a GRO metric gets, and the ceiling above it
 
+> *Emitter note (added 2026-09-20): these results were computed over records produced by the July 2026 emitter (10 sidecars: the 7 material files plus external_quantities, delta_ledger, sota_anchor, and novelty typing inside contributions.yaml). That emitter predates the current 7-file schema in `spec/`. Numbers are unchanged; read them against `experiments/history/DATA_SHAPE-2026-07.md`.*
+
+
 *Written 2026-07-09 (v2, supersedes the 2026-07-08 draft). Companion to `breakthrough-metric.md` ("Do we have a scientific-breakthrough metric? — assessment + design"), which argued no metric in the program measures breakthroughs, decomposed "breakthrough" into three signals (disruption / significance / realized uptake), and named three blockers.*
 
 ## Abstract

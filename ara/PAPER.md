@@ -34,6 +34,8 @@ claims_summary:
   - "C13: A Word2Vec-style shared embedding co-locates omics modalities into meaningful clusters"
   - "C14: Pairwise embedding dot-products are bimodal, separating related from unrelated nodes"
   - "C15: Embedding proximity recovers known cross-omics biochemical relationships"
+  - "C16: The compiler critique — metrics measure the paper only on extractive layers; homogenization and fabrication layers are invalid as paper signals"
+  - "C17: Credibility is not a property of a research record's schema; a record can carry facts and anchors, never its own merit"
 abstract: "This artifact is the compiled research object for the desciencemodel project on agent-native scientific knowledge representation: how scientific knowledge should be represented, published, and reused when AI agents — not only humans — read, reason over, and extend it. It integrates four sources into one ARA. The ARA protocol (Liu et al., 2026) supplies the representation: a four-layer agent-executable package (logic, code+specs, exploration graph, evidence) with cross-layer forensic bindings, plus skills for live capture, compilation, and review; its evaluations show large gains in agent understanding and reproduction and quantify the information and failure-cost taxes of narrative papers. The oshima API supplies a working implementation that ingests paper PDFs into structured claims, typed evidence, first-order logic, and cross-paper themes. The multi-omics embedding (Otte et al., 2025) supplies a domain case in which geometry stands in for biology and a synthetic point can decode into candidate pathways or 'alien proteins.' Two essays by the project lead frame the problem (the paper as a bottleneck; citations as a broken proxy) and the synthesizing thesis: even an AI-first record needs a human-readable decoding layer to drive human-led science."
 ---
 
@@ -57,7 +59,7 @@ This file is itself an instance of the architecture it documents (see `logic/sol
 | File | Description |
 |------|-------------|
 | [problem.md](logic/problem.md) | Observations → gaps → key insight (across all four sources + essays) |
-| [claims.md](logic/claims.md) | 15 falsifiable claims (C01–C15), grounded by source |
+| [claims.md](logic/claims.md) | 17 falsifiable claims (C01–C17), grounded by source |
 | [concepts.md](logic/concepts.md) | 16 technical concepts spanning the protocol, the system, and the domain |
 | [experiments.md](logic/experiments.md) | 11 verification plans (E01–E11) |
 | [related_work.md](logic/related_work.md) | Typed dependency graph (RW01–RW10) + full citation footprint |
