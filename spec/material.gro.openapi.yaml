@@ -1,17 +1,23 @@
 openapi: 3.1.0
 info:
   title: GRO Material Layer — output contract
-  version: 0.1.0
+  version: 0.1.1
   x-spec-id: gro.material
+  x-canonical: "carlaost/gro -> spec/material.gro.openapi.yaml (moved here 2026-09-20 from dasmodel/research/gro-spec; no field changes in 0.1.1)"
   description: >
     The MATERIAL layer of a GRO artifact: a structured record of what is actually present in
     a piece of research. Pure material compilation — NO metrics and NO judgments (no novelty
-    typing, no comparison to prior work, no significance/breakthrough scoring). Those live in
-    the SEPARATE metric spec (gro.metric); this spec never references them.
+    typing, no comparison to prior work, no significance/breakthrough scoring). There is no
+    companion "metric" contract any more; measuring is out of scope for GRO.
 
-    This is the OUTPUT contract both GRO compilers conform to for the material layer:
-      - the live per-turn gro-compiler plugin implements THIS spec (only)
-      - the retrospective paper2gro compiler implements this spec AND gro.metric
+    This is the ONLY GRO contract. GRO is the schema scientific work is published in.
+    Measuring what is in a record (novelty, significance, rigor) is done by funders, curators
+    and validators on their side and is not part of GRO. Compilers that emit GRO records
+    conform to this contract and must not write anything judged, fetched or resolved into
+    the record's files.
+      - the live per-turn gro-compiler plugin implements this spec
+      - the retrospective paper2gro compiler implements this spec (its former metric half is
+        being removed; see that repo)
     Each layer below maps to one file in <artifact>/gro/ (plus PAPER.md front-matter).
 
     `pending_extraction` is a valid value for any not-yet-compiled slot — a "not yet read
@@ -184,8 +190,8 @@ components:
     ContributionsMaterial:
       description: >
         The contributions the AUTHORS state, each linked to the real claims that realize it.
-        MATERIAL ONLY — no assessed_type/confidence/typing (that is the metric spec's
-        ContributionsTyped, layered onto the SAME file by compilers that implement gro.metric).
+        MATERIAL ONLY — no assessed_type/confidence/typing. Nothing judged is ever written
+        into this file by any compiler.
       x-file: gro/contributions.yaml
       type: object
       properties:
