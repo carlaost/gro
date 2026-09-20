@@ -234,3 +234,10 @@ entries:
       - "N62 as user-revised: user asked for background recording ('bg thing', 'subagent'); the mechanism (hook-spawned headless claude -p, fallback, pending) is the agent's design. Direct to trace as a settled how."
       - "Recorded inline because the background recorder cannot authenticate from this session; that limitation itself is an open thread, not a claim."
       - "No logic/ change; gro-compiler skipped."
+  - turn: "2026-09-20_001#5"
+    notes:
+      - "First turn actually written by the detached 0.4.0 recorder (not inline). The turn excerpt was truncated after the agent's first Bash call, so the result was reconstructed from what is observable on disk: .recorder.log start line, absence of .recorder/pending/, and this process itself running headless."
+      - "N63 routed as EXPERIMENT (hypothesis: turn-4 auth failure was a missing login, not a hook limitation; result: recorder ran), provenance ai-executed. Carla's paste is the enabling input, not a decision, so no user-provenance node."
+      - "Closed the auth open_thread by rewording it (open_threads is the live list, not append-only history); the original wording survives in N62's choice text and the turn-4 ai_action."
+      - "Hedged the result: this was a manual launch of the hook, not an unattended Stop; kept that distinction as the residual thread rather than declaring the mechanism proven."
+      - "Nothing staged, no logic/ change: infrastructure test, no interpretive research claim. gro-compiler expected to skip."

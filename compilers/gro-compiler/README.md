@@ -90,6 +90,20 @@ Clone anywhere and point Claude Code at it, or wire the hook directly in your pr
 }
 ```
 
+### Headless login (needed for background recording)
+
+The background recorder is a headless `claude -p` process. It needs a login that child processes
+can use. Check once after installing:
+
+```
+claude -p "reply with ok"
+```
+
+If that prints an authentication error, run `claude auth login` and try again. A `SessionStart`
+hook (`hooks/auth-probe.sh`) repeats this check at the start of every session and shows a
+one-line notice with the fix if the login is missing. Until it is fixed, turns are recorded
+inline with a notice; nothing is lost.
+
 ## Configure
 
 - **`GRO_ARA_ROOT`** — the ARA root both skills target. Default `ara`. Set to `research/ara`

@@ -1037,3 +1037,25 @@ tree:
     evidence: ["compilers/gro-compiler/hooks/gro-compiler-stop.sh", "compilers/gro-compiler/hooks/record-turn.sh"]
     also_depends_on: [N59]
     status: resolved
+
+  - id: N63
+    type: experiment
+    support_level: explicit
+    source_refs: ["user 2026-09-20 pasted terminal: 'claude auth login ... Login successful.' then 'claude -p \"reply with ok\"' -> 'ok'", "ara/.recorder.log: '2026-09-20T11:05:55Z [recorder 20260920T110555Z] start (transcript=74bfdda6-..., excerpt=turn-20260920T110555Z.md)'"]
+    provenance: ai-executed
+    timestamp: "2026-09-20T13:05"
+    title: "End-to-end test of the detached background recorder (gro-compiler 0.4.0) after terminal login"
+    hypothesis: >
+      The turn-4 auth failure (N62 fallback path) was a missing login in Carla's shell, not a
+      limitation of headless `claude -p` spawned from a hook. Once `claude auth login` succeeds
+      in her terminal, the Stop hook's background recorder should authenticate and record on its own.
+    evidence: ["ara/.recorder.log", "ara/.recorder/turn-20260920T110555Z.md", "trace/sessions/2026-09-20_001.yaml#turn5"]
+    result: >
+      Carla ran `claude auth login` (success) and `claude -p "reply with ok"` (returned ok) in her
+      own terminal. The agent re-verified auth from the session and launched the 0.4.0 hook against
+      the live transcript. The headless recorder started (recorder log 11:05:55Z), acquired the lock,
+      read the turn excerpt and wrote this session record's turn 5 without inline fallback: the
+      pending/ directory was never created. Closes the auth open thread from turn 4. Not yet
+      observed: an unattended Stop (not a manual launch) doing the same.
+    also_depends_on: [N62]
+    status: resolved
