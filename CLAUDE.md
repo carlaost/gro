@@ -26,12 +26,13 @@ Both are gitignored. If either is missing, create it from the description here.
 
 This repo records its own work as a research record in `ara/`. At the end of a turn with
 research-significant activity, run the `research-manager` skill (ara root is `ara/`), then the
-gro-compiler skill from `~/code/gro-compiler/skills/gro-compiler/SKILL.md` with `<ARA>=ara`
+gro-compiler skill from `compilers/gro-compiler/skills/gro-compiler/SKILL.md` with `<ARA>=ara`
 (material only, writes `ara/gro/`). Skip both on empty turns.
 
 ## Layout
 
 - `spec/` the schema: the contract (`material.gro.openapi.yaml`), its prose page, `sync.sh`.
+- `compilers/` gro-compiler (the Claude Code plugin; root `.claude-plugin/marketplace.json` points at it) and paper2gro.
 - `experiments/` our method: metrics work, runs, and `history/` (the frozen July draft; unedited).
 - `ara/` this project's own research record and material layer.
 

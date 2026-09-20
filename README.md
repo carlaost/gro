@@ -49,12 +49,14 @@ any reading of quality needs something outside the record. Both are written up u
 
 ## Compilers
 
-Records are produced by compilers that live in their own repositories and vendor a pinned copy
-of the contract from here:
+Records are produced by the compilers under [`compilers/`](compilers/):
 
-- `carlaost/gro-compiler`: a Claude Code plugin that keeps a research project's record compiled
-  live, at the end of every turn, from the project's ARA (Agent-Native Research Artifact).
-- `carlaost/paper2gro`: a retrospective compiler from a paper's full text.
+- [`compilers/gro-compiler/`](compilers/gro-compiler/): a Claude Code plugin that keeps a research
+  project's record compiled live, at the end of every turn, from the project's ARA (Agent-Native
+  Research Artifact). Install with `/plugin marketplace add carlaost/gro` then
+  `/plugin install gro-compiler@gro`.
+- [`compilers/paper2gro/`](compilers/paper2gro/): a retrospective compiler from a paper's full text.
+  It still writes its former measuring half into records; removing that is open work.
 
 GRO is primarily a format for new work: a shape research is born into, capturing at production
 time what a paper discards. Backfilling existing literature is a supporting move, and a
@@ -66,6 +68,7 @@ backfilled record is permanently lossy, because the source was written to fit th
 gro/
   README.md          # you are here
   spec/              # the schema: the contract, its prose page, the sync script
+  compilers/         # gro-compiler (live plugin) and paper2gro (retrospective)
   experiments/       # our method: measurement experiments over compiled records, and history
   ara/               # this project's own research record (process trace)
 ```

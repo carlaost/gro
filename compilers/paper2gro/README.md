@@ -1,3 +1,11 @@
+> **TODO (2026-09-20, from the GRO spec repo): stop writing judgments into the record.**
+> GRO is the schema people publish in; measuring is not part of it. This compiler still emits
+> the former "metric" half (novelty typing inside `gro/contributions.yaml`, `external_quantities`,
+> `delta_ledger`, `sota_anchor`). Those must either be dropped or written outside `gro/`, and the
+> `gro.metric` line removed from `spec/IMPLEMENTS`. The canonical contract is `../../spec/material.gro.openapi.yaml`
+> (0.1.1, a copy is kept in `spec/` here); the old metric contract is kept only as history under
+> `../../experiments/history/`.
+
 # gro-compiler — paper → GRO artifact, from full-text facts
 
 A reusable tool that compiles a **GRO-extended artifact** (an ARA `PAPER.md` plus the

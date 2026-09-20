@@ -1,5 +1,8 @@
 # GRO Compiler
 
+*Part of the [GRO repository](../../README.md). GRO is a schema for publishing scientific work;
+this is the live compiler that writes it. Lives at `compilers/gro-compiler/`.*
+
 A **Claude Code plugin** that keeps a research project's **GRO artifact** compiled **live** —
 at the end of *every* agent turn. It bundles the ARA `research-manager` skill (vendored, pinned)
 and adds the GRO half: each turn, research-manager records the research *process* into the
@@ -59,8 +62,8 @@ repo or installer.
 In Claude Code:
 
 ```
-/plugin marketplace add carlaost/gro-compiler
-/plugin install gro-compiler@gro-compiler
+/plugin marketplace add carlaost/gro
+/plugin install gro-compiler@gro
 ```
 
 That registers the `Stop` hook and both skills (`gro-compiler:research-manager` and
@@ -80,7 +83,7 @@ Clone anywhere and point Claude Code at it, or wire the hook directly in your pr
   "hooks": {
     "Stop": [
       { "matcher": "", "hooks": [
-        { "type": "command", "command": "/absolute/path/to/gro-compiler/hooks/gro-compiler-stop.sh" }
+        { "type": "command", "command": "/absolute/path/to/gro/compilers/gro-compiler/hooks/gro-compiler-stop.sh" }
       ] }
     ]
   }
@@ -124,8 +127,9 @@ python3 scripts/compile_gro.py path/to/ara --force    # re-scaffold material lay
 ## Spec implemented
 
 This plugin conforms to the GRO contract, **`gro.material`**. The canonical source of truth is
-the public `carlaost/gro` repository, `spec/material.gro.openapi.yaml`; a pinned copy is
-vendored in `spec/` here. That is the only GRO contract: measuring (novelty typing, deltas,
+`spec/material.gro.openapi.yaml` at the root of this repository (two levels up); a copy is kept
+in `spec/` here because a plugin is copied out of the repo when installed (`../../spec/sync.sh`
+refreshes it). That is the only GRO contract: measuring (novelty typing, deltas,
 external baselines, SOTA anchors) is not part of GRO and this plugin never emits it.
 `spec/IMPLEMENTS` declares `gro.material`; `spec/SPEC_VERSION` pins the version;
 `spec/material.gro.openapi.yaml` is the field-by-field contract with example values.

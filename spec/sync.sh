@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# sync.sh — copy the canonical GRO contract into the compiler repos and stamp their version.
+# sync.sh — copy the canonical GRO contract into the compilers under compilers/ and stamp their version.
+# The compilers keep a copy because a plugin is copied out of the repo when installed.
 #
 # Source of truth: this directory (gro/spec/). There is exactly one contract, gro.material.
 # Each target repo has spec/IMPLEMENTS listing the x-spec-ids it implements. Only gro.material
@@ -14,8 +15,8 @@ CANON="$(pwd)"
 FILE="material.gro.openapi.yaml"
 
 DEFAULT_TARGETS=(
-  "$HOME/code/gro-compiler"
-  "$HOME/code/paper2gro"
+  "$CANON/../compilers/gro-compiler"
+  "$CANON/../compilers/paper2gro"
 )
 targets=("$@")
 if [ ${#targets[@]} -eq 0 ]; then targets=("${DEFAULT_TARGETS[@]}"); fi
@@ -44,4 +45,4 @@ for repo in "${targets[@]}"; do
     fi
   done < "$impl"
 done
-echo "done. Commit + push each repo to publish."
+echo "done."

@@ -58,16 +58,16 @@ must be fetched, resolved or judged, it is not.
 
 ## Versioning and implementers
 
-The contract carries `info.version`. This repository is the canonical location; compilers vendor
-a pinned copy and declare which version they implement. Today:
+The contract carries `info.version`. This directory is the canonical location; the compilers
+under `../compilers/` keep a copy (a plugin is copied out of the repo when installed) and declare
+which version they implement. Today:
 
-| Compiler | Repo | Implements |
+| Compiler | Location | Implements |
 |---|---|---|
-| live per-turn plugin for Claude Code | `carlaost/gro-compiler` | material 0.1.1 |
-| retrospective full-text compiler | `carlaost/paper2gro` | material 0.1.1 (its former measuring half is being removed) |
+| live per-turn plugin for Claude Code | `compilers/gro-compiler/` | material 0.1.1 |
+| retrospective full-text compiler | `compilers/paper2gro/` | material 0.1.1 (its former measuring half is being removed) |
 
-`sync.sh` in this directory copies the contract into the compiler repos and stamps their
-`spec/SPEC_VERSION`.
+`sync.sh` in this directory refreshes those copies and stamps each compiler's `spec/SPEC_VERSION`.
 
 ## Where this came from
 
