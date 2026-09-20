@@ -1,0 +1,211 @@
+openapi: 3.1.0
+info:
+  title: GRO Material Layer — output contract
+  version: 0.1.0
+  x-spec-id: gro.material
+  description: >
+    The MATERIAL layer of a GRO artifact: a structured record of what is actually present in
+    a piece of research. Pure material compilation — NO metrics and NO judgments (no novelty
+    typing, no comparison to prior work, no significance/breakthrough scoring). Those live in
+    the SEPARATE metric spec (gro.metric); this spec never references them.
+
+    This is the OUTPUT contract both GRO compilers conform to for the material layer:
+      - the live per-turn gro-compiler plugin implements THIS spec (only)
+      - the retrospective paper2gro compiler implements this spec AND gro.metric
+    Each layer below maps to one file in <artifact>/gro/ (plus PAPER.md front-matter).
+
+    `pending_extraction` is a valid value for any not-yet-compiled slot — a "not yet read
+    from the source" marker, never a deferred judgment. Nothing here is ever fabricated.
+
+# Every schema carries example values. Validators load components.schemas by x-file.
+components:
+  schemas:
+
+    PaperManifest:
+      description: PAPER.md YAML front-matter — bibliographic material present in the source.
+      x-file: PAPER.md
+      type: object
+      required: [title, year]
+      properties:
+        title: { type: string }
+        authors: { type: array, items: { type: string } }
+        year: { type: integer }
+        venue: { type: string }
+        doi: { type: [string, "null"] }
+        domain: { type: string }
+        keywords: { type: array, items: { type: string } }
+        grounding: { type: string, enum: [full-text, metadata-only, abstract-only] }
+      example:
+        title: "A resilient L4 IT excitatory neuron population in Alzheimer's disease"
+        authors: ["Doe, J.", "Roe, R."]
+        year: 2026
+        venue: "Nature Communications"
+        doi: "10.1038/s41467-026-68920-4"
+        domain: "single-cell neuroscience"
+        keywords: ["Alzheimer", "snRNA-seq", "neuronal resilience"]
+        grounding: full-text
+
+    TemporalLayer:
+      description: Dates present in the material. No precedence/cutoff windows (those frame a metric).
+      x-file: gro/temporal.yaml
+      type: object
+      required: [pub_date, fetch_timestamp]
+      properties:
+        pub_date: { type: string, description: "YYYY-MM-DD from the paper year, or pending_extraction" }
+        doi: { type: [string, "null"] }
+        fetch_timestamp: { type: string, format: date-time, description: "compile time (UTC)" }
+        note: { type: string }
+      example:
+        pub_date: "2026-01-01"
+        doi: "10.1038/s41467-026-68920-4"
+        fetch_timestamp: "2026-07-22T14:00:00+00:00"
+        note: "dates present in the material"
+
+    RefsLayer:
+      description: The reference spine — references present in the material.
+      x-file: gro/refs.yaml
+      type: object
+      properties:
+        refs:
+          type: array
+          items:
+            type: object
+            required: [id, raw]
+            properties:
+              id: { type: string, pattern: "^R[0-9]{2,}$" }
+              raw: { type: string, description: "the reference string as cited" }
+              external_id: { type: string, description: "DOI/arXiv/dataset id if present in the material, else not_specified" }
+              resolvable: { type: boolean, description: "whether external_id resolves — a material fact, not a fetch" }
+      example:
+        refs:
+          - { id: R01, raw: "Mathys et al. 2023, Cell", external_id: "10.1016/j.cell.2023.08.039", resolvable: true }
+          - { id: R02, raw: "internal tournament design doc", external_id: not_specified, resolvable: false }
+
+    QuantitiesLayer:
+      description: Load-bearing numbers, each transcribed verbatim from the source (grounding).
+      x-file: gro/quantities.yaml
+      type: object
+      properties:
+        quantities:
+          type: array
+          items:
+            type: object
+            required: [id, value, quote, claim_refs]
+            properties:
+              id: { type: string, pattern: "^Q[0-9]{2,}$" }
+              value: { type: [number, string] }
+              unit: { type: string }
+              comparator: { type: string, enum: [exact, approx, ge, le, gt, lt, range] }
+              ci_low: {}
+              ci_high: {}
+              role: { type: string, enum: [input, result], description: "a value set vs. a value a run produced" }
+              source_ref: { type: string }
+              quote: { type: string, description: "REQUIRED verbatim line containing the number" }
+              claim_refs: { type: array, items: { type: string } }
+      example:
+        quantities:
+          - id: Q01
+            value: 34.42
+            unit: percent
+            comparator: approx
+            role: result
+            source_ref: "logic/claims.md#C01"
+            quote: "Ex5 comprised 34.42% of excitatory cells in the BA17 reference"
+            claim_refs: [C01]
+
+    EntitiesLayer:
+      description: The entity spine — terms/concepts/methods/measures/datasets named in the material.
+      x-file: gro/entities.yaml
+      type: object
+      properties:
+        entities:
+          type: array
+          items:
+            type: object
+            required: [id, term]
+            properties:
+              id: { type: string, pattern: "^EN-[a-z]+-[a-z0-9-]+$" }
+              term: { type: string }
+              kind: { type: string, enum: [method, concept, measure, dataset, tool, organism, gene, quantity, population] }
+              xref: { type: string }
+      example:
+        entities:
+          - { id: EN-gene-kcnip4, term: "KCNIP4", kind: gene, xref: not_specified }
+          - { id: EN-method-snrnaseq, term: "single-nucleus RNA-seq", kind: method, xref: not_specified }
+
+    ClaimsTypedLayer:
+      description: Claims by their STRUCTURAL FORM (never their merit). No status/quality/novelty field.
+      x-file: gro/claims_typed.yaml
+      type: object
+      properties:
+        claims:
+          type: array
+          items:
+            type: object
+            required: [id]
+            properties:
+              id: { type: string, pattern: "^C[0-9]{2,}$", description: "a real logic/claims.md id" }
+              claim_type: { type: string, enum: [existence, association, comparison, causal, generalization, measurement, definition, theory, prediction, mechanism] }
+              polarity: { type: string, enum: [positive, negative] }
+              logical_form: { type: string, description: "a formal restatement of what the claim asserts" }
+              population_n: { description: "int or not_specified" }
+              population_scope: { type: string, enum: [claimed_universal, sample, cohort, multi_cohort, single_case, not_applicable] }
+              quantity_refs: { type: array, items: { type: string } }
+              concept_refs: { type: array, items: { type: string } }
+              proof_refs: { type: array, items: { type: string } }
+              depends_on: { type: array, items: { type: string } }
+      example:
+        claims:
+          - id: C01
+            claim_type: existence
+            polarity: positive
+            logical_form: "∃ subtype Ex5 ⊂ L4_IT : proportion(Ex5 | AD_pathology) increases"
+            population_scope: sample
+            quantity_refs: [Q01]
+            concept_refs: [EN-gene-kcnip4]
+            proof_refs: []
+            depends_on: []
+
+    GenreLayer:
+      description: Genre contract — which expected sections are present vs absent. Not a quality judgment.
+      x-file: gro/genre.yaml
+      type: object
+      properties:
+        paper_type: { type: string }
+        expected_slots: { type: array, items: { type: string } }
+        present_slots: { type: array, items: { type: string } }
+        absent_declared: { type: array, items: { type: string } }
+      example:
+        paper_type: "empirical results paper"
+        expected_slots: [problem_statement, methods, statistical_results, honest_limitations, empirical_dataset]
+        present_slots: [problem_statement, methods, statistical_results, empirical_dataset]
+        absent_declared: [honest_limitations]
+
+    ContributionsMaterial:
+      description: >
+        The contributions the AUTHORS state, each linked to the real claims that realize it.
+        MATERIAL ONLY — no assessed_type/confidence/typing (that is the metric spec's
+        ContributionsTyped, layered onto the SAME file by compilers that implement gro.metric).
+      x-file: gro/contributions.yaml
+      type: object
+      properties:
+        contributions:
+          type: array
+          items:
+            type: object
+            required: [id, realized_in]
+            properties:
+              id: { type: string, pattern: "^CT[0-9]{2,}$" }
+              statement: { type: string, description: "the contribution as the authors state it" }
+              author_framed_type: { type: string, description: "how the authors frame it (still material — from the text)" }
+              realized_in:
+                type: array
+                minItems: 1
+                items: { type: string }
+                description: "the real C## that realize this contribution (referential integrity; non-empty)"
+      example:
+        contributions:
+          - id: CT01
+            statement: "identification of a resilient L4 IT (Ex5) neuronal population"
+            author_framed_type: new_resilient_neuronal_population
+            realized_in: [C01, C02]

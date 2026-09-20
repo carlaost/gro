@@ -1,0 +1,150 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GRO facts (gro-compiler input)",
+  "description": "Structured facts extracted from a paper's full text (e.g. Undermind read_pdfs) that gro_compile.py turns into a GRO-extended artifact. Keys use human 'key' handles; the compiler assigns the canonical IDs (C##, Q##, EN-*, CT##, XQ##, D##, R##) and wires all cross-references.",
+  "type": "object",
+  "required": ["meta", "claims"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["slug", "title", "authors", "year"],
+      "properties": {
+        "slug": {"type": "string", "description": "<firstauthoryear>-<title-slug>; becomes the artifact directory name"},
+        "title": {"type": "string"},
+        "authors": {"type": "array", "items": {"type": "string"}},
+        "year": {"type": "integer"},
+        "venue": {"type": "string"},
+        "doi": {"type": "string"},
+        "domain": {"type": "string"},
+        "keywords": {"type": "array", "items": {"type": "string"}},
+        "grounding": {"type": "string", "enum": ["full-text", "metadata-only", "abstract-only"]},
+        "overview": {"type": "string"},
+        "abstract": {"type": "string"}
+      }
+    },
+    "genre": {
+      "type": "object",
+      "properties": {
+        "paper_type": {"type": "string"},
+        "expected_slots": {"type": "array", "items": {"type": "string"}},
+        "present_slots": {"type": "array", "items": {"type": "string"}},
+        "absent_declared": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["key", "claim_type", "statement"],
+        "properties": {
+          "key": {"type": "string", "description": "local handle, e.g. c1"},
+          "claim_type": {"type": "string", "enum": ["existence", "association", "comparison", "causal", "generalization", "measurement", "definition", "theory"]},
+          "polarity": {"type": "string", "enum": ["positive", "negative", "null"]},
+          "statement": {"type": "string"},
+          "logical_form": {"type": "string", "description": "optional compact formal form; defaults to statement"},
+          "population_n": {"description": "int or 'not_specified'"},
+          "population_scope": {"type": "string", "enum": ["sample", "cohort", "multi_cohort", "not_applicable"]},
+          "concept_keys": {"type": "array", "items": {"type": "string"}, "description": "entity keys"},
+          "depends_on_keys": {"type": "array", "items": {"type": "string"}, "description": "other claim keys"}
+        }
+      }
+    },
+    "quantities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["key", "value", "role"],
+        "properties": {
+          "key": {"type": "string"},
+          "value": {"type": ["number", "string"]},
+          "unit": {"type": "string"},
+          "comparator": {"type": "string"},
+          "ci_low": {}, "ci_high": {},
+          "role": {"type": "string", "enum": ["result", "input"]},
+          "source_ref": {"type": "string"},
+          "quote": {"type": "string", "description": "verbatim; the evidence anchor"},
+          "claim_keys": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["key", "term"],
+        "properties": {
+          "key": {"type": "string"},
+          "term": {"type": "string"},
+          "kind": {"type": "string", "enum": ["concept", "measure", "method", "population"]},
+          "xref": {"type": "string"}
+        }
+      }
+    },
+    "contributions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["assessed_type", "realized_in"],
+        "properties": {
+          "author_framed_type": {"type": "string"},
+          "assessed_type": {"type": "string", "enum": ["new_paradigm", "new_method", "new_finding", "refutation", "synthesis", "incremental_improvement", "replication"], "description": "CLOSED taxonomy the significance metric reads"},
+          "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+          "typing_rationale": {"type": "string"},
+          "typing_divergence": {"type": "string", "enum": ["none", "adjacent", "divergent"]},
+          "realized_in": {"type": "array", "items": {"type": "string"}, "description": "claim keys; MUST be non-empty (anti-puffery lock)"}
+        }
+      }
+    },
+    "external_baselines": {
+      "type": "array",
+      "description": "off-paper prior-work numbers the paper explicitly compares against; empty -> external_quantities marked NEEDS_FETCH",
+      "items": {
+        "type": "object",
+        "required": ["key", "value"],
+        "properties": {
+          "key": {"type": "string"},
+          "value": {"type": ["number", "string"]},
+          "unit": {"type": "string"},
+          "description": {"type": "string"},
+          "external_id": {"type": "string", "description": "DOI of the source, or NEEDS_FETCH"},
+          "verification": {"type": "string", "enum": ["source_verified", "self_reported"]}
+        }
+      }
+    },
+    "deltas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["claimed"],
+        "properties": {
+          "claimed": {"type": "string", "description": "a quantity key (result)"},
+          "baseline": {"type": ["string", "null"], "description": "an external_baseline key; null -> claimed_unresolved"},
+          "note": {"type": "string"}
+        }
+      }
+    },
+    "refs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["key", "raw"],
+        "properties": {
+          "key": {"type": "string"},
+          "raw": {"type": "string"},
+          "external_id": {"type": "string", "description": "DOI; empty -> resolvable:false"}
+        }
+      }
+    },
+    "sota": {
+      "type": "object",
+      "description": "leave empty for NEEDS_RESOLVER (Tier-C citation-graph pass); populate only after a real resolver run",
+      "properties": {
+        "precedence_date": {"type": "string"},
+        "provenance": {"type": "string", "enum": ["compiler_estimated", "openalex_resolved"]},
+        "neighborhood": {"type": "array"},
+        "used_openalex": {"type": "boolean"},
+        "resolver_notes": {"type": "string"}
+      }
+    }
+  }
+}

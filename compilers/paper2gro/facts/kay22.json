@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "slug": "kay22-pupillary-light-response-aphantasia-imagery",
+    "title": "The pupillary light response as a physiological index of aphantasia, sensory and phenomenological imagery strength",
+    "authors": ["Lachlan Kay", "Rebecca Keogh", "Thomas Andrillon", "Joel Pearson"],
+    "year": 2022,
+    "venue": "eLife 11:e72484",
+    "doi": "10.7554/eLife.72484",
+    "domain": "Cognitive neuroscience / psychophysics — objective (pupillometric) measurement of mental imagery and aphantasia",
+    "keywords": ["aphantasia", "mental imagery", "pupillary light response", "pupillometry", "binocular rivalry", "imagery strength", "physiological validation"],
+    "grounding": "full-text",
+    "overview": "Uses the pupillary light response as an objective physiological index of visual imagery: imagining bright vs dark stimuli modulates pupil size in proportion to imagery strength (validated against binocular-rivalry priming), and individuals with aphantasia show no imagery-driven pupil response despite intact perceptual pupil responses and load-driven dilation — the first physiological validation of aphantasia.",
+    "abstract": "The pupillary light response indexes visual mental imagery: in the general population, imagining bright versus dark objects modulates pupil size, and the magnitude correlates with objective (binocular-rivalry) imagery strength and trial-by-trial vividness. Individuals with aphantasia show no significant imagery-driven pupillary light response, while their perceptual pupil response and cognitive-load-driven dilation are intact, providing the first physiological validation of aphantasia."
+  },
+  "genre": {"paper_type": "psychophysics_experiment",
+    "expected_slots": ["claims", "quantities", "experiments", "entities"],
+    "present_slots": ["claims", "quantities", "experiments", "entities"], "absent_declared": []},
+  "claims": [
+    {"key": "c1", "claim_type": "measurement", "polarity": "positive", "population_scope": "cohort",
+     "statement": "The imagery pupillary light response tracks objective sensory imagery strength (correlates with binocular-rivalry priming).",
+     "concept_keys": ["plr", "imagery", "binocular_rivalry"], "depends_on_keys": []},
+    {"key": "c2", "claim_type": "association", "polarity": "positive", "population_scope": "cohort",
+     "statement": "Trial-by-trial phenomenological vividness of visual imagery is tracked by the imagery pupillary light response.",
+     "concept_keys": ["plr", "imagery"], "depends_on_keys": ["c1"]},
+    {"key": "c3", "claim_type": "comparison", "polarity": "null", "population_scope": "cohort",
+     "statement": "Individuals with aphantasia show no significant imagery pupillary light response (evidence for the null).",
+     "concept_keys": ["aphantasia", "plr"], "depends_on_keys": ["c1"]},
+    {"key": "c4", "claim_type": "comparison", "polarity": "positive", "population_scope": "cohort",
+     "statement": "Aphantasic individuals retain perceptual pupil light responses and load-driven pupil dilation (set-size effect).",
+     "concept_keys": ["aphantasia", "cognitive_load"], "depends_on_keys": ["c3"]},
+    {"key": "c5", "claim_type": "existence", "polarity": "positive", "population_scope": "cohort",
+     "statement": "The pupillary light response provides the first physiological validation of aphantasia.",
+     "concept_keys": ["aphantasia", "plr"], "depends_on_keys": ["c3"]}
+  ],
+  "quantities": [
+    {"key": "q_img_F", "value": 67.42, "unit": "F_stat", "role": "result", "source_ref": "Results", "claim_keys": ["c1"], "quote": "significant main effect of imagery luminance F(1, 41) = 67.42, p < 0.0001"},
+    {"key": "q_corr_rp", "value": 0.62, "unit": "correlation_r", "role": "result", "source_ref": "Results", "claim_keys": ["c1"], "quote": "correlated positively with imagery strength (rp(41) = 0.62, p = <0.0001)"},
+    {"key": "q_corr_rs", "value": 0.46, "unit": "correlation_rs", "role": "result", "source_ref": "Results", "claim_keys": ["c1"], "quote": "significant positive correlation (rs(41) = 0.46, p = 0.002) [Set-Size-Four vs binocular rivalry]"},
+    {"key": "q_aph_F", "value": 0.193, "unit": "F_stat", "role": "result", "source_ref": "Results", "claim_keys": ["c3"], "quote": "no significant effect of luminance on pupil size during imagery F(1, 17) = 0.193, p = 0.67"},
+    {"key": "q_aph_bf", "value": 3.18, "unit": "bayes_factor_BF01", "role": "result", "source_ref": "Results", "claim_keys": ["c3"], "quote": "evidence for the null effect (BF01 = 3.180)"},
+    {"key": "q_aph_setsize_F", "value": 6.185, "unit": "F_stat", "role": "result", "source_ref": "Results", "claim_keys": ["c4"], "quote": "significant main effect of set size during imagery F(1, 17) = 6.185, p = 0.02"},
+    {"key": "q_n_gen", "value": 42, "unit": "participants", "role": "input", "source_ref": "Methods", "claim_keys": ["c1"], "quote": "general population (N=42)"},
+    {"key": "q_n_aph", "value": 18, "unit": "participants", "role": "input", "source_ref": "Methods", "claim_keys": ["c3"], "quote": "aphantasia group (N=18)"}
+  ],
+  "entities": [
+    {"key": "plr", "term": "Pupillary light response (imagery-driven)", "kind": "measure"},
+    {"key": "aphantasia", "term": "Aphantasia", "kind": "concept"},
+    {"key": "imagery", "term": "Visual mental imagery strength", "kind": "concept"},
+    {"key": "binocular_rivalry", "term": "Binocular rivalry priming paradigm", "kind": "method"},
+    {"key": "cognitive_load", "term": "Cognitive load (set size)", "kind": "concept"},
+    {"key": "vviq", "term": "VVIQ (Vividness of Visual Imagery Questionnaire)", "kind": "measure"}
+  ],
+  "contributions": [
+    {"author_framed_type": "pupillometric_imagery_index", "assessed_type": "new_method", "confidence": 0.8,
+     "typing_rationale": "Establishes the imagery pupillary light response as an objective, involuntary physiological index of imagery strength, validated against binocular-rivalry priming — a measurement advance over self-report.",
+     "realized_in": ["c1", "c2"]},
+    {"author_framed_type": "physiological_validation_of_aphantasia", "assessed_type": "new_finding", "confidence": 0.8,
+     "typing_rationale": "First physiological demonstration that aphantasics lack the imagery-driven pupil response while retaining perceptual and load responses, providing objective validation of the condition.",
+     "realized_in": ["c3", "c5"]}
+  ],
+  "external_baselines": [],
+  "deltas": [],
+  "refs": [
+    {"key": "r_laeng14", "raw": "Laeng & Sulutvedt 2014 — The eye pupil adjusts to imaginary light (Psychol Sci)", "external_id": "10.1177/0956797613503556"},
+    {"key": "r_pearson08", "raw": "Pearson, Clifford & Tong 2008 — Functional impact of mental imagery on conscious perception (Curr Biol)", "external_id": "10.1016/j.cub.2008.05.048"},
+    {"key": "r_keogh18", "raw": "Keogh & Pearson 2018 — The blind mind: no sensory visual imagery in aphantasia (Cortex)", "external_id": "10.1016/j.cortex.2017.10.012"},
+    {"key": "r_zeman15", "raw": "Zeman, Dewar & Della Sala 2015 — Lives without imagery (Cortex)", "external_id": "10.1016/j.cortex.2015.05.019"}
+  ],
+  "sota": {
+    "provenance": "undermind_resolved", "used_undermind": true,
+    "neighborhood": [
+      {"ref": "r_laeng14", "overlap": 0.5, "contemporaneous_uncited": false},
+      {"ref": "r_keogh18", "overlap": 0.35, "contemporaneous_uncited": false},
+      {"ref": "r_pearson08", "overlap": 0.3, "contemporaneous_uncited": false}
+    ],
+    "resolver_notes": "Undermind semantic search (year_max=2022) identified Laeng & Sulutvedt 2014 (pupil adjusts to imagined light) as the direct methodological parent, extended here to imagery strength and aphantasia; Keogh & Pearson 2018 (objective absence of imagery) and Pearson 2008 (rivalry/imagery method) are the aphantasia-measurement priors. The physiological validation of aphantasia has no close precedent — moderate neighborhood, method-level overlap."
+  }
+}

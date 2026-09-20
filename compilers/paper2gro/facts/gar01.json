@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "slug": "gar01-episodic-memory-autonoetic-consciousness-first-person",
+    "title": "Episodic memory and autonoetic consciousness: a first-person approach",
+    "authors": ["John M. Gardiner"],
+    "year": 2001,
+    "venue": "Philosophical Transactions of the Royal Society B 356:1351-1361",
+    "doi": "10.1098/rstb.2001.0955",
+    "domain": "Cognitive psychology — episodic memory, autonoetic consciousness, remember/know",
+    "keywords": ["autonoetic consciousness", "noetic consciousness", "episodic memory", "remember/know", "recollective experience", "levels of processing", "Asperger's syndrome"],
+    "grounding": "full-text",
+    "overview": "A first-person (experiential) approach identifying episodic memory with autonoetic consciousness via the remember/know procedure: 'remember' indexes self-recollective re-experiencing (autonoetic), 'know' indexes familiarity (noetic). Reviews evidence that R/K reflect states of awareness rather than confidence, are dissociated by independent variables (e.g. levels of processing), and that Asperger's adults show a selective autonoetic (remember) deficit.",
+    "abstract": "This article takes a first-person approach to episodic memory, identifying it with autonoetic consciousness — the self-knowing awareness that gives rise to recollective experience ('remembering') as distinct from the noetic awareness underlying 'knowing'. Using the remember/know procedure, it argues these reflect distinct states of conscious awareness rather than degrees of confidence, shows they are functionally dissociable (e.g. levels of processing selectively affect remembering), and reviews evidence that adults with Asperger's syndrome are selectively impaired in remembering but not knowing."
+  },
+  "genre": {"paper_type": "theoretical_review_with_experiments",
+    "expected_slots": ["claims", "quantities", "entities"],
+    "present_slots": ["claims", "quantities", "entities"], "absent_declared": ["dataset"]},
+  "claims": [
+    {"key": "c1", "claim_type": "definition", "polarity": "positive", "population_scope": "not_applicable",
+     "statement": "Episodic memory is identified with autonoetic consciousness — self-recollective re-experiencing ('remembering').",
+     "concept_keys": ["episodic_memory", "autonoetic", "remember_know"], "depends_on_keys": []},
+    {"key": "c2", "claim_type": "comparison", "polarity": "positive", "population_scope": "not_applicable",
+     "statement": "Autonoetic 'remembering' is distinct from noetic 'knowing' (familiarity).",
+     "concept_keys": ["autonoetic", "noetic", "remember_know"], "depends_on_keys": ["c1"]},
+    {"key": "c3", "claim_type": "comparison", "polarity": "negative", "population_scope": "cohort",
+     "statement": "Remember/know responses do not correspond to degrees of confidence (against a signal-detection interpretation).",
+     "concept_keys": ["remember_know"], "depends_on_keys": ["c2"]},
+    {"key": "c4", "claim_type": "comparison", "polarity": "positive", "population_scope": "cohort",
+     "statement": "Levels of processing selectively affect 'remember' responses (functional dissociation of remember vs know).",
+     "concept_keys": ["remember_know"], "depends_on_keys": ["c2"]},
+    {"key": "c5", "claim_type": "comparison", "polarity": "positive", "population_scope": "cohort",
+     "statement": "Adults with Asperger's syndrome show a selective deficit in remembering (autonoetic) but not knowing (noetic).",
+     "concept_keys": ["autonoetic", "aspergers"], "depends_on_keys": ["c2"]}
+  ],
+  "quantities": [
+    {"key": "q_rem_sem", "value": 0.72, "unit": "proportion", "role": "result", "source_ref": "Table 1 p1353", "claim_keys": ["c4"], "quote": "level of processing: semantic — proportion of correct recognition (remember) 0.72"},
+    {"key": "q_rem_gra", "value": 0.15, "unit": "proportion", "role": "result", "source_ref": "Table 1 p1353", "claim_keys": ["c4"], "quote": "level of processing: graphemic — proportion of correct recognition (remember) 0.15"},
+    {"key": "q_asp_rem", "value": 0.51, "unit": "proportion", "role": "result", "source_ref": "Table 5 p1358", "claim_keys": ["c5"], "quote": "Asperger group (n=10) proportion of remember responses for true targets 0.51"},
+    {"key": "q_ctrl_rem", "value": 0.72, "unit": "proportion", "role": "result", "source_ref": "Table 5 p1358", "claim_keys": ["c5"], "quote": "Matched control group (n=10) proportion of remember responses for true targets 0.72"},
+    {"key": "q_n_asp", "value": 10, "unit": "participants", "role": "input", "source_ref": "Table 5 p1358", "claim_keys": ["c5"], "quote": "Asperger group (n=10) ... Matched control group (n=10)"}
+  ],
+  "entities": [
+    {"key": "episodic_memory", "term": "Episodic memory", "kind": "concept"},
+    {"key": "autonoetic", "term": "Autonoetic consciousness", "kind": "concept"},
+    {"key": "noetic", "term": "Noetic consciousness", "kind": "concept"},
+    {"key": "remember_know", "term": "Remember/Know procedure", "kind": "method"},
+    {"key": "aspergers", "term": "Asperger's syndrome (memory profile)", "kind": "population"}
+  ],
+  "contributions": [
+    {"author_framed_type": "first_person_autonoetic_framework", "assessed_type": "synthesis", "confidence": 0.75,
+     "typing_rationale": "Synthesizes the remember/know evidence into a first-person theoretical framework identifying episodic memory with autonoetic consciousness, distinguished from noetic knowing.",
+     "realized_in": ["c1", "c2"]},
+    {"author_framed_type": "against_signal_detection_confidence", "assessed_type": "refutation", "confidence": 0.6,
+     "typing_rationale": "Argues against the signal-detection interpretation that remember/know judgements merely reflect confidence levels or response criteria.",
+     "realized_in": ["c3"]},
+    {"author_framed_type": "aspergers_autonoetic_deficit", "assessed_type": "new_finding", "confidence": 0.6,
+     "typing_rationale": "Reviews/reports evidence that Asperger's adults have a selective autonoetic (remember) deficit with preserved noetic (know) memory.",
+     "realized_in": ["c5"]}
+  ],
+  "external_baselines": [],
+  "deltas": [],
+  "refs": [
+    {"key": "r_tulving85", "raw": "Tulving 1985 — Memory and consciousness (Can Psychol)", "external_id": "10.1037/h0080017"},
+    {"key": "r_donaldson96", "raw": "Donaldson 1996 — The role of decision processes in remembering and knowing (Mem Cognit)", "external_id": "10.3758/BF03200938"},
+    {"key": "r_rajaram93", "raw": "Rajaram 1993 — Remembering and knowing: two means of access to the personal past (Mem Cognit)", "external_id": "10.3758/BF03211168"},
+    {"key": "r_gardiner93", "raw": "Gardiner & Java 1993 — Recognition memory and awareness: an experiential approach (Eur J Cogn Psychol)", "external_id": "10.1080/09541449308520120"},
+    {"key": "r_bowler00", "raw": "Bowler, Gardiner & Grice 2000 — Episodic memory and remembering in adults with Asperger's syndrome (J Autism Dev Disord)", "external_id": "10.1023/A:1005543321840"}
+  ],
+  "sota": {
+    "provenance": "undermind_resolved", "used_undermind": true,
+    "neighborhood": [
+      {"ref": "r_tulving85", "overlap": 0.45, "contemporaneous_uncited": false},
+      {"ref": "r_gardiner93", "overlap": 0.4, "contemporaneous_uncited": false},
+      {"ref": "r_donaldson96", "overlap": 0.35, "contemporaneous_uncited": false}
+    ],
+    "resolver_notes": "Undermind semantic search (year_max=2001) situates this among the remember/know literature: Tulving 1985 (the autonoetic construct being operationalized), Gardiner & Java 1993 (the author's own experiential-approach prior), and Donaldson 1996 (the signal-detection/confidence account being argued against). Düzel 1997 (ERP autonoetic/noetic) is an adjacent neural neighbour. Framework-level overlap; the first-person synthesis and Asperger's dissociation are the distinctive contributions."
+  }
+}

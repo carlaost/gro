@@ -1,0 +1,74 @@
+{
+  "meta": {
+    "slug": "hol16-mental-imagery-in-depression",
+    "title": "Mental Imagery in Depression: Phenomenology, Potential Mechanisms, and Treatment Implications",
+    "authors": ["Emily A. Holmes", "Simon E. Blackwell", "Stephanie Burnett Heyes", "Fritz Renner", "Filip Raes"],
+    "year": 2016,
+    "venue": "Annual Review of Clinical Psychology 12:249-280",
+    "doi": "10.1146/annurev-clinpsy-021815-092925",
+    "domain": "Clinical psychology — mental imagery in depression (review)",
+    "keywords": ["mental imagery", "depression", "intrusive imagery", "prospective imagery", "overgeneral memory", "imagery rescripting", "cognitive bias modification"],
+    "grounding": "full-text",
+    "overview": "Annual Review synthesizing the role of mental imagery in depression: an excess of intrusive negative imagery and a deficit of vivid positive/prospective imagery, links to observer-perspective bias and overgeneral autobiographical memory, imagery's amplified emotional impact relative to verbal thought, and imagery-based treatments (rescripting, positive-imagery cognitive bias modification, memory specificity training).",
+    "abstract": "Depression is characterized by an excess of intrusive negative mental imagery and a deficit in vivid positive/prospective imagery. This review covers the phenomenology of imagery in depression (including observer-perspective bias and overgeneral memory), evidence that imagery has a stronger impact on emotion than verbal processing, candidate mechanisms, and imagery-focused treatment implications including imagery rescripting and positive-imagery cognitive bias modification."
+  },
+  "genre": {"paper_type": "review_narrative",
+    "expected_slots": ["claims", "quantities", "entities"],
+    "present_slots": ["claims", "quantities", "entities"], "absent_declared": ["controlled_experiment", "dataset"]},
+  "claims": [
+    {"key": "c1", "claim_type": "association", "polarity": "positive", "population_scope": "cohort",
+     "statement": "Depression is characterized by an excess of intrusive negative mental imagery and impoverished positive/prospective imagery.",
+     "concept_keys": ["mental_imagery", "mdd", "intrusive_imagery"], "depends_on_keys": []},
+    {"key": "c2", "claim_type": "association", "polarity": "positive", "population_scope": "cohort",
+     "statement": "Imagery abnormalities in depression include an observer-perspective bias and overgeneral autobiographical memory.",
+     "concept_keys": ["mdd", "overgeneral_memory"], "depends_on_keys": ["c1"]},
+    {"key": "c3", "claim_type": "comparison", "polarity": "positive", "population_scope": "not_applicable",
+     "statement": "Mental imagery has a more powerful impact on emotion than verbal (word-based) processing.",
+     "concept_keys": ["mental_imagery"], "depends_on_keys": []},
+    {"key": "c4", "claim_type": "generalization", "polarity": "positive", "population_scope": "not_applicable",
+     "statement": "Imagery-based interventions (imagery rescripting, positive-imagery cognitive bias modification, memory specificity training) are candidate treatments for depression.",
+     "concept_keys": ["imagery_rescripting", "cbm", "mest"], "depends_on_keys": ["c1", "c2"]},
+    {"key": "c5", "claim_type": "association", "polarity": "positive", "population_scope": "cohort",
+     "statement": "Overgeneral autobiographical memory is a vulnerability marker predicting the course of depressive symptoms.",
+     "concept_keys": ["overgeneral_memory", "mdd"], "depends_on_keys": ["c2"]}
+  ],
+  "quantities": [
+    {"key": "q_relapse", "value": 90, "unit": "percent", "role": "result", "source_ref": "Intro (cited Bockting 2015)", "claim_keys": [], "quote": "after three episodes, the risk of further episodes is 90% (see, e.g., Bockting et al. 2015)"},
+    {"key": "q_nonresp", "value": 50, "unit": "percent", "role": "result", "source_ref": "Intro (cited)", "claim_keys": [], "quote": "approximately 50% of patients with depression do not respond to treatment"},
+    {"key": "q_intrusive", "value": 50, "unit": "percent", "role": "result", "source_ref": "body (cited Patel 2007)", "claim_keys": ["c1"], "quote": "Patel and colleagues (2007) found that almost half of a depressed sample reported frequent distressing intrusive images of memories or imagined events."},
+    {"key": "q_prev", "value": 16.6, "unit": "percent", "role": "input", "source_ref": "Intro (cited Kessler 2005)", "claim_keys": [], "quote": "lifetime prevalence estimates ranging from 16.6% (Kessler et al. 2005)"}
+  ],
+  "entities": [
+    {"key": "mental_imagery", "term": "Mental imagery (depictive vs verbal representation)", "kind": "concept"},
+    {"key": "mdd", "term": "Major Depressive Disorder", "kind": "concept"},
+    {"key": "intrusive_imagery", "term": "Intrusive negative / deficient prospective imagery", "kind": "concept"},
+    {"key": "overgeneral_memory", "term": "Overgeneral autobiographical memory (OGM)", "kind": "concept"},
+    {"key": "imagery_rescripting", "term": "Imagery rescripting", "kind": "method"},
+    {"key": "cbm", "term": "Positive-imagery cognitive bias modification (CBM)", "kind": "method"},
+    {"key": "mest", "term": "Memory Specificity Training (MEST)", "kind": "method"}
+  ],
+  "contributions": [
+    {"author_framed_type": "review_of_imagery_in_depression", "assessed_type": "synthesis", "confidence": 0.85,
+     "typing_rationale": "Annual Review integrating phenomenology, mechanisms, and treatment of mental imagery in depression, shifting the field from verbal-descriptive to depictive (imagery) formats and linking overgeneral memory to imagery deficits.",
+     "realized_in": ["c1", "c2", "c3", "c4", "c5"]}
+  ],
+  "external_baselines": [],
+  "deltas": [],
+  "refs": [
+    {"key": "r_kessler05", "raw": "Kessler et al. 2005 — Lifetime prevalence of DSM-IV disorders, NCS-R (Arch Gen Psychiatry)", "external_id": "10.1001/archpsyc.62.6.593"},
+    {"key": "r_bockting15", "raw": "Bockting et al. 2015 — A lifetime approach to major depressive disorder (Clin Psychol Rev)", "external_id": "10.1016/j.cpr.2015.02.003"},
+    {"key": "r_patel07", "raw": "Patel et al. 2007 — Intrusive images and memories in major depression (Behav Res Ther)", "external_id": "10.1016/j.brat.2007.06.004"},
+    {"key": "r_holmes08", "raw": "Holmes, Geddes, Colom & Goodwin 2008 — Mental imagery as an emotional amplifier (Behav Res Ther)", "external_id": "10.1016/j.brat.2008.09.005"},
+    {"key": "r_whe07", "raw": "Wheatley et al. 2007 — Imagery rescripting of intrusive sensory memories in depression (Behav Res Ther / Memory)", "external_id": ""},
+    {"key": "r_wel14", "raw": "Weertman/Wells-style 2014 — Visual mental imagery in psychopathology: implications for depression (review)", "external_id": ""}
+  ],
+  "sota": {
+    "provenance": "undermind_resolved", "used_undermind": true,
+    "neighborhood": [
+      {"ref": "r_holmes08", "overlap": 0.4, "contemporaneous_uncited": false},
+      {"ref": "r_whe07", "overlap": 0.4, "contemporaneous_uncited": false},
+      {"ref": "r_wel14", "overlap": 0.35, "contemporaneous_uncited": false}
+    ],
+    "resolver_notes": "Undermind semantic search (year_max=2016) surfaced the immediate neighborhood as the emerging imagery-in-depression line: Wheatley 2007 (imagery rescripting of intrusive memories in depression), a 2013 CBM+imagery treatment strand, and Wells-style 2014 (visual imagery in psychopathology), with Holmes 2008 (imagery as emotional amplifier) as the mechanistic parent. As an Annual Review it has high overlap with — and synthesizes — this prior work."
+  }
+}
