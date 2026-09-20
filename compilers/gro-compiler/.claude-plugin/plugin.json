@@ -1,6 +1,6 @@
 {
   "name": "gro-compiler",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Per-turn (live) GRO material compiler, bundled with a pinned copy of the ARA research-manager skill so one install gives you the whole stack. At the end of every agent turn, research-manager records the turn into the project's ARA (seeding it if absent), then gro-compiler compiles the GRO material layer on top (temporal, refs, quantities, entities, claims_typed, genre, author-stated contributions). Pure material compilation \u2014 it structures what is present in the research and writes no third-party quality assessment (no novelty typing, comparison to prior work, or significance scoring). research-manager is vendored from ARA-Labs (MIT) at the version pinned in vendor/research-manager/UPSTREAM.yaml.",
   "author": {
     "name": "carlaost",
@@ -22,6 +22,5 @@
   "skills": [
     "./skills/gro-compiler",
     "./vendor/research-manager"
-  ],
-  "hooks": "./hooks/hooks.json"
+  ]
 }
