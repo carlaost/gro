@@ -8,15 +8,16 @@ description: |
   author-stated contributions (linked to the claims that realize them). This is PURE MATERIAL
   COMPILATION: it structures what is actually present in the research. It makes NO judgments
   and builds NO metrics — no novelty typing, no comparison to prior work, no significance or
-  breakthrough scoring (that is a separate, not-yet-converged concern and never belongs in
-  gro/). It composes with research-manager: research-manager maintains logic/trace/staging;
-  gro-compiler reads the current logic and compiles the material gro/ layer from it.
+  breakthrough scoring — third-party quality assessment never belongs in gro/). It runs after
+  the bundled research-manager (vendored, pinned; see vendor/research-manager/UPSTREAM.yaml):
+  research-manager maintains logic/trace/staging; gro-compiler reads the current logic and
+  compiles the material gro/ layer from it.
 user-invocable: true
 argument-hint: "[optional: hint about what changed this turn]"
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash
 metadata:
   author: carlaost
-  version: "0.2.0"
+  version: "0.3.0"
   tags: [research, gro, compiler, material-compilation, per-turn, provenance]
 ---
 
@@ -71,17 +72,23 @@ not yet compiled from the material — a "not yet read" marker, never a deferred
 - **Per-turn cadence.** One user message + the agent's response = one turn; fire once.
 - **Skip empty turns.** Greetings, acknowledgments, pure formatting, clarifying questions
   with no new material — produce no GRO change. Say so in one line and stop.
-- **Skip turns with no ARA yet.** If `ara/PAPER.md` does not exist (research-manager seeds
-  the ARA), do nothing and say so.
+- **Skip turns with no ARA yet.** The bundled research-manager runs first and seeds the ARA on
+  the first turn with research-significant activity, so this is transient. If `ara/PAPER.md`
+  still does not exist when you run, do nothing and say so.
 
 ## Relationship to research-manager
 
-You **compose with** research-manager; you do not replace it.
+research-manager is **bundled with this plugin** as a vendored, pinned copy
+(`vendor/research-manager/`, version and upstream commit in `UPSTREAM.yaml`; updates are
+deliberate, via `scripts/vendor_research_manager.sh`). The Stop hook runs it first, then you.
 
-1. If research-manager runs this turn, let it finish first — it leaves `ara/logic` reconciled
-   to the current best understanding.
-2. If research-manager is not active in this project, treat `ara/logic` as-is and compile
-   `gro/` from it. Do not invent logic entries.
+1. research-manager leaves `ara/logic` reconciled to the current best understanding. Compile
+   from that. Do not invent logic entries.
+2. Author-side fields in the ARA — a claim's `Status`, `Provenance`, `Taste` comments, a
+   heuristic's `Sensitivity` — are the researcher's own record. They are not third-party
+   quality assessment, and they are not material the `gro.material` spec has a slot for. Leave
+   them where they are; do not copy them into `gro/` and do not treat them as something to
+   strip or judge.
 
 Your scope is `ara/gro/` only. You **read** `ara/logic` and `ara/PAPER.md`; you **write**
 `ara/gro/`. You never edit `logic/`, `trace/`, or `staging/`.
@@ -109,9 +116,15 @@ Treat `<ARA>` as the ARA root (the Stop hook passes it explicitly; default `ara`
    not rewrite whole files):
      - claims_typed.yaml : for each new/revised claim, fill claim_type, polarity, logical_form,
        population_scope, quantity_refs, concept_refs, proof_refs, depends_on — read from the
-       claim's current text. This records the claim's STRUCTURE, never its merit.
-     - quantities.yaml   : one Q## per load-bearing number in a claim's Statement, each with a
-       verbatim `quote` copied from the source line (grounding, below) and a claim_ref.
+       claim's current text (`Conditions` bounds population_scope; `Dependencies` fills
+       depends_on — research-manager may author a generalized parent claim whose
+       Dependencies are the narrower claims it rests on; record that edge as-is). This
+       records the claim's STRUCTURE, never its merit.
+     - quantities.yaml   : one Q## per load-bearing number in a claim. Under research-manager
+       2.6.0 the Statement carries NO numbers: they live in the claim's `Conditions` and
+       `Proof` lines, and each one already has a `«verbatim»` quote on the claim's `Sources`
+       line — copy that quote into `quote` (grounding, below) and set claim_refs. A number
+       used by several claims is ONE Q## with several claim_refs, never retyped.
      - entities.yaml     : EN- rows for the terms/concepts/methods/measures the claims name.
      - refs.yaml         : one R## per source cited; set external_id/resolvable only when the
        id is actually present in the material (never fetch or resolve — that is metric work).

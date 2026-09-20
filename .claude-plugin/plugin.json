@@ -1,12 +1,27 @@
 {
   "name": "gro-compiler",
-  "version": "0.2.0",
-  "description": "Per-turn (live) GRO material compiler. At the end of every agent turn, keeps a project's GRO artifact compiled: an ARA extended with the GRO material layer (temporal, refs, quantities, entities, claims_typed, genre, author-stated contributions). Pure material compilation — it structures what is present in the research; it makes no judgments and builds no metrics (no novelty typing, comparison to prior work, or significance scoring — that is a separate concern). The GRO analog of the ARA research-manager.",
-  "author": { "name": "carlaost", "email": "ostmanncarla@gmail.com" },
+  "version": "0.3.0",
+  "description": "Per-turn (live) GRO material compiler, bundled with a pinned copy of the ARA research-manager skill so one install gives you the whole stack. At the end of every agent turn, research-manager records the turn into the project's ARA (seeding it if absent), then gro-compiler compiles the GRO material layer on top (temporal, refs, quantities, entities, claims_typed, genre, author-stated contributions). Pure material compilation — it structures what is present in the research and writes no third-party quality assessment (no novelty typing, comparison to prior work, or significance scoring). research-manager is vendored from ARA-Labs (MIT) at the version pinned in vendor/research-manager/UPSTREAM.yaml.",
+  "author": {
+    "name": "carlaost",
+    "email": "ostmanncarla@gmail.com"
+  },
   "homepage": "https://github.com/carlaost/gro-compiler",
   "repository": "https://github.com/carlaost/gro-compiler",
   "license": "MIT",
-  "keywords": ["gro", "ara", "research", "compiler", "material-compilation", "per-turn", "live-capture"],
-  "skills": ["./skills/gro-compiler"],
+  "keywords": [
+    "gro",
+    "ara",
+    "research",
+    "compiler",
+    "research-manager",
+    "material-compilation",
+    "per-turn",
+    "live-capture"
+  ],
+  "skills": [
+    "./skills/gro-compiler",
+    "./vendor/research-manager"
+  ],
   "hooks": "./hooks/hooks.json"
 }

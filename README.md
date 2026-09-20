@@ -1,12 +1,14 @@
 # GRO Compiler
 
 A **Claude Code plugin** that keeps a research project's **GRO artifact** compiled **live** —
-at the end of *every* agent turn. It is the GRO analog of the ARA `research-manager`: where
-research-manager records the research *process* into an ARA each turn, GRO Compiler takes the
-current state and compiles the **GRO material layer** on top of it, incrementally.
+at the end of *every* agent turn. It bundles the ARA `research-manager` skill (vendored, pinned)
+and adds the GRO half: each turn, research-manager records the research *process* into the
+project's ARA, then GRO Compiler takes the current state and compiles the **GRO material
+layer** on top of it, incrementally. **One install, one thing.**
 
 > **Live capture.** A `Stop` hook fires when the agent finishes a turn and asks it to run the
-> `gro-compiler` skill. The material structure is (re)compiled every turn; nothing is
+> two bundled skills in order: `research-manager` (records the turn into the ARA, seeding it on
+> the first research-significant turn), then `gro-compiler` (compiles `gro/`). Nothing is
 > fabricated — a slot not yet read from the source is marked `pending_extraction` and picked
 > up on a later turn.
 
@@ -48,8 +50,9 @@ compiler never fabricates: it records only what the material states.
 ## Install
 
 Requires **Python 3** and **PyYAML** (`pip install pyyaml`). The plugin is fully
-self-contained — the material engine (`scripts/gro_extend.py`) is vendored, so there is no
-dependency on any other repo.
+self-contained: the material engine (`scripts/gro_extend.py`) and the ARA `research-manager`
+skill (`vendor/research-manager/`) are both vendored, so there is no dependency on any other
+repo or installer.
 
 ### Via the plugin marketplace (recommended)
 
@@ -60,8 +63,12 @@ In Claude Code:
 /plugin install gro-compiler@gro-compiler
 ```
 
-That registers the `Stop` hook and the `gro-compiler` skill. Restart the session (or reload
-plugins) so the hook is active.
+That registers the `Stop` hook and both skills (`gro-compiler:research-manager` and
+`gro-compiler:gro-compiler`). Restart the session (or reload plugins) so the hook is active.
+
+If you previously installed the ARA skills with `npx @ara-commons/ara-skills`, the copy in
+`~/.claude/skills/research-manager` is now redundant for projects using this plugin; the hook
+names the bundled, namespaced copy explicitly so the two do not conflict.
 
 ### Manual / project-local
 
@@ -82,7 +89,7 @@ Clone anywhere and point Claude Code at it, or wire the hook directly in your pr
 
 ## Configure
 
-- **`GRO_ARA_ROOT`** — the ARA root the compiler targets. Default `ara`. Set to `research/ara`
+- **`GRO_ARA_ROOT`** — the ARA root both skills target. Default `ara`. Set to `research/ara`
   (or wherever your ARA lives) if different:
   ```bash
   export GRO_ARA_ROOT=research/ara
@@ -92,15 +99,19 @@ Clone anywhere and point Claude Code at it, or wire the hook directly in your pr
 ## How it works
 
 1. **`hooks/gro-compiler-stop.sh`** — the `Stop` hook. Loop-guarded via `stop_hook_active`;
-   emits a `block` decision asking the agent to run the skill, then allows the stop.
-2. **`skills/gro-compiler/`** — the skill. Runs the deterministic pass, then compiles this
+   emits a `block` decision asking the agent to run research-manager, then gro-compiler, then
+   allows the stop.
+2. **`vendor/research-manager/`** — the ARA research-manager skill, vendored verbatim from
+   [ARA-Labs](https://github.com/ARA-Labs/Agent-Native-Research-Artifact) at a pinned commit
+   (see below). Owns `logic/`, `trace/`, `staging/`; seeds the ARA if absent.
+3. **`skills/gro-compiler/`** — the GRO skill. Runs the deterministic pass, then compiles this
    turn's material into the layers (reading the current logic). Full schemas and the
    in/out-of-scope list are in `references/gro-layers.md`.
-3. **`scripts/compile_gro.py`** — the deterministic pass. Scaffolds missing material layers
+4. **`scripts/compile_gro.py`** — the deterministic pass. Scaffolds missing material layers
    non-destructively, fills `temporal`, seeds one `claims_typed` row per real claim, validates
    material integrity (grounding + referential integrity), and prints the pending/issues
    report as JSON.
-4. **`scripts/gro_extend.py`** — the vendored material engine (scaffold + validate).
+5. **`scripts/gro_extend.py`** — the vendored material engine (scaffold + validate).
 
 Run the deterministic pass by hand any time:
 
@@ -112,39 +123,60 @@ python3 scripts/compile_gro.py path/to/ara --force    # re-scaffold material lay
 
 ## Spec implemented
 
-This plugin conforms to a single GRO output contract, **`gro.material`** (canonical source of
-truth lives in the private `dasmodel` repo; a pinned copy is vendored in `spec/`). It does
-**not** implement the separate `gro.metric` spec — no novelty typing, deltas, external
-baselines, or SOTA anchor. `spec/IMPLEMENTS` declares `gro.material`; `spec/SPEC_VERSION`
-pins the version; `spec/material.gro.openapi.yaml` is the field-by-field contract with example
-values.
+This plugin conforms to the GRO contract, **`gro.material`**. The canonical source of truth is
+the public `carlaost/gro` repository, `spec/material.gro.openapi.yaml`; a pinned copy is
+vendored in `spec/` here. That is the only GRO contract: measuring (novelty typing, deltas,
+external baselines, SOTA anchors) is not part of GRO and this plugin never emits it.
+`spec/IMPLEMENTS` declares `gro.material`; `spec/SPEC_VERSION` pins the version;
+`spec/material.gro.openapi.yaml` is the field-by-field contract with example values.
 
 > Sibling tool: the retrospective/batch **[paper2gro](https://github.com/carlaost/paper2gro)**
 > compiler implements both `gro.material` and `gro.metric` (full-text facts → GRO artifact).
 
-## Relationship to research-manager
+## Bundled research-manager: which version, and how it updates
 
-They **compose**; GRO Compiler does not replace research-manager. research-manager owns
-`logic/`, `trace/`, and `staging/` (and its mutability rules apply there). GRO Compiler owns
-`gro/` **only** — it reads `logic/` and `PAPER.md` and never writes elsewhere. If both hooks
-are active, research-manager reconciles the logic first, then GRO Compiler compiles `gro/`
-from it.
+`vendor/research-manager/UPSTREAM.yaml` is the lock file. It records the upstream repo, path,
+git ref, full commit sha, skill version and fetch time of the vendored copy — so the exact
+research-manager this plugin runs is always readable from the repo. The skill files are
+byte-identical to upstream; nothing is patched locally.
+
+Updates are deliberate, never automatic:
+
+```bash
+scripts/vendor_research_manager.sh ara-skills-v0.9.0   # a tag, branch, or full sha
+git diff vendor/                                        # review what changed upstream
+```
+
+The script replaces `vendor/research-manager/` wholesale at that ref, copies the upstream
+LICENSE alongside, and rewrites the lock file. Commit the result as one "bump research-manager
+to X" change, and adjust `skills/gro-compiler/SKILL.md` if the ARA claim schema moved.
+
+**Division of labour.** research-manager owns `logic/`, `trace/`, and `staging/` (its
+mutability rules apply there). GRO Compiler owns `gro/` **only** — it reads `logic/` and
+`PAPER.md` and never writes elsewhere. The author's own fields in the ARA (claim `Status`,
+`Provenance`, `Taste` comments) stay in the ARA; they are the researcher's record, not
+third-party assessment, and the material spec has no slot for them.
 
 ## Layout
 
 ```
 .claude-plugin/
-  plugin.json          # plugin manifest (skill + hook)
+  plugin.json          # plugin manifest (two skills + hook)
   marketplace.json     # single-plugin marketplace (enables `/plugin marketplace add`)
 hooks/
-  gro-compiler-stop.sh # the per-turn Stop hook
+  gro-compiler-stop.sh # the per-turn Stop hook (research-manager → gro-compiler)
   hooks.json
 scripts/
-  compile_gro.py       # deterministic pass (CLI + skill entrypoint)
-  gro_extend.py        # vendored material engine
+  compile_gro.py             # deterministic pass (CLI + skill entrypoint)
+  gro_extend.py              # vendored material engine
+  vendor_research_manager.sh # re-vendor research-manager at a pinned ref (the only way to update)
 skills/gro-compiler/
   SKILL.md
   references/gro-layers.md
+vendor/research-manager/     # ARA research-manager, vendored verbatim from ARA-Labs (MIT)
+  SKILL.md  references/  templates/
+  LICENSE                    # upstream license
+  UPSTREAM.yaml              # lock: upstream url/path/ref/sha/version/fetched_at
 spec/
   material.gro.openapi.yaml  # vendored, pinned copy of the gro.material output contract
   IMPLEMENTS                 # declares: gro.material
@@ -154,3 +186,9 @@ spec/
 ## License
 
 MIT © 2026 Carla Ostmann. See [LICENSE](./LICENSE).
+
+`vendor/research-manager/` is the ARA `research-manager` skill by
+[ARA-Labs](https://github.com/ARA-Labs/Agent-Native-Research-Artifact), © 2026 Orchestra
+Research, MIT — see [vendor/research-manager/LICENSE](./vendor/research-manager/LICENSE). It is
+redistributed unmodified; its version and upstream commit are in
+[vendor/research-manager/UPSTREAM.yaml](./vendor/research-manager/UPSTREAM.yaml).
