@@ -4,7 +4,9 @@ This repository is the home of GRO, the Grounded Research Object: **a schema for
 scientific work**. GRO records what is present in a piece of research. It does not measure,
 score, rank or judge anything; that is done by funders, curators and validators on their side.
 The experiments under `experiments/` are our method for testing whether the schema is useful,
-nothing more. Never describe GRO through "signals", "rigor tiers", "credibility" or "eval".
+nothing more. Vocabulary: a record *carries signals*, some rich, some thin, and that wording is
+correct. What it never carries is the *judgment* compiled from those signals; that happens on the
+funder side. Do not describe GRO through "rigor tiers", "credibility" or "eval".
 
 ## Two files every session reads first and writes before ending
 
