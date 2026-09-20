@@ -38,11 +38,21 @@ kept so the claims can be seen evolving.
 
 ## Publishing (every couple of days)
 
-From the project repo, with everything committed:
+Copy the publisher into the project repo once (it is standalone: bash, git, rsync, ssh, python3):
 
 ```
-~/code/gro/publish/publish.sh
+cp ~/code/gro/publish/publish.sh ./publish.sh && git add publish.sh && git commit -m "add publisher"
 ```
+
+Then, with everything committed:
+
+```
+./publish.sh
+```
+
+Publishing needs ssh access to the server as it stands (the record is rsynced over ssh). Today
+that means Carla's key; to let Marco publish, add his public key to the server's
+`~/.ssh/authorized_keys`. There is no other way in, which is intended for now.
 
 It tags the commit, ships `ara/` to the server as `current/` and as a dated snapshot, has the
 server append a receipt with its own clock, and rewrites `index.md` with what changed since the
